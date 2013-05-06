@@ -10,7 +10,7 @@ public class Piloto {
     private int qualidade;
     private boolean chuva;
 
-
+//construtores
     public Piloto(){
         this.nome="";
         this.nacionalidade="";
@@ -35,7 +35,7 @@ public class Piloto {
         this.qualidade=p.getQualidade();
         this.chuva=p.getChuva();
    }
-
+//get
     public String getNacionalidade() {
         return nacionalidade;
     }
@@ -56,7 +56,7 @@ public class Piloto {
         return qualidade;
     }
 
-    
+    //set
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -77,17 +77,22 @@ public class Piloto {
         this.chuva = chuva;
     }
     
+    
+    
+    ///Clone
     public Piloto clone() {
         return new Piloto(this);
     }
     
-    public boolean equals(Piloto p) {
-        if (this == p) {
-            return true;
+    //equals
+    public boolean equals(Object o) {
+    if (this==o) return true;
+    if((o==null)||(this.getClass() != o.getClass()))
+     return false;
+     else { Piloto v = (Piloto) o;
+         return this.getNome().equals(v.getNome());
         }
-        if ((p==null) || this.getClone() != p.getClone()) {
-            return false;
-        }
+    
     }
 
     public String toString() {
