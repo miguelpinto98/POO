@@ -80,14 +80,14 @@ public class Piloto {
     public Piloto clone() {
         return new Piloto(this);
     }
+    public boolean equals(Object o) {
+    if (this==o) return true;
+    if((o==null)||(this.getClass() != o.getClass()))
+     return false;
+     else { Piloto v = (Piloto) o;
+         return this.getNome().equals(v.getNome());
+        }
     
-    public boolean equals(Piloto p) {
-        if (this == p) {
-            return true;
-        }
-        if ((p==null) || this.getClone() != p.getClone()) {
-            return false;
-        }
     }
 
     public String toString() {
