@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 /**
  *
@@ -144,7 +141,20 @@ public class Circuito {
         return "Circuito{" + "distancia=" + distancia + ", nvoltas=" + nvoltas + ", tpc1=" + tpc1 + ", tpc2=" + tpc2 + ", tgt=" + tgt + ", tsc=" + tsc + ", trecord=" + trecord + ", tdesviom=" + tdesviom + ", tboxes=" + tboxes + ", recordista=" + recordista + '}';
     }
 
+       //equals
+    public boolean equals(Object o) {
+    if (this==o) return true;
+    if((o==null)||(this.getClass() != o.getClass()))
+     return false;
+     else { Circuito v = (Circuito) o;
+         return (this.getDistancia()== v.getDistancia()&&this.getNvoltas() == v.getNvoltas()&&this.getTrecord().equals(v.getTrecord()));
+        }
+    
+    }
+//Clone
 
+public Circuito clone(){ return new Circuito(this);
     
     
+}
 }

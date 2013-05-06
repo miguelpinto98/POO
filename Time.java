@@ -56,6 +56,15 @@ public class Time {
     public String toString() {
         return "Time{" + "horas=" + horas + ", minutos=" + minutos + ", segundo=" + segundo + '}';
     }
-      
-      
+     
+       //equals
+    public boolean equals(Object o) {
+    if (this==o) return true;
+    if((o==null)||(this.getClass() != o.getClass()))
+     return false;
+     else { Time v = (Time) o;
+         return (this.getHoras()== v.getHoras()&&this.getMinutos() == v.getMinutos()&&this.getSegundo()== v.getSegundo());
+        }
+    
+    }
 }
