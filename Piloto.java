@@ -35,6 +35,7 @@ public class Piloto {
         this.qualidade=p.getQualidade();
         this.chuva=p.getChuva();
    }
+   
 //get
     public String getNacionalidade() {
         return nacionalidade;
@@ -90,11 +91,11 @@ public class Piloto {
     if((o==null)||(this.getClass() != o.getClass()))
      return false;
      else { Piloto v = (Piloto) o;
-         return this.getNome().equals(v.getNome());
+         return (v.getNome().equals(o.getNome())&&v.getNacionalidade().equals(o.getNacionalidade()) && v.getPalmares() == o.getPalmares()  && this.getChuva()== o.getChuva() && v.getQualidade() == o.getQualidade()  );
         }
     
     }
-
+//toString
     public String toString() {
         return "Piloto{" + "nome=" + nome + ", nacionalidade=" + nacionalidade + ", palmares=" + palmares + ", qualidade=" + qualidade + ", chuva=" + chuva + '}';
     }
