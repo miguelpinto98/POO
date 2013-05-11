@@ -77,9 +77,9 @@ public class Jogador {
 		s.append(", dinheiro ganho=" + dg );
 		s.append(", conta currente=" + dc);
 		s.append(" \n Apostas por verificar");
-	for(Aposta a : adecorrer){ s.append( a.toString());
+	for(Aposta a : adecorrer) s.append( a.toString());
 	s.append(" \n Apostas verificadas");
-	for(Aposta a : hist){ s.append( a.toString());
+	for(Aposta a : hist)s.append( a.toString());
 	
 
 		return s.toString();
@@ -89,6 +89,7 @@ public class Jogador {
 
 	//equals
 	public boolean equals(Object o) {
+	    
 		if (this == o)
 			return true;
 		if ((o == null) || (this.getClass() != o.getClass()))

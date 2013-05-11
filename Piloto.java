@@ -91,7 +91,7 @@ public class Piloto {
 			return false;
 		else {
 			Piloto v = (Piloto)o;
-			return (v.getNome().equals(o.getNome()) && v.getNacionalidade().equals(o.getNacionalidade()) && v.getPalmares() == o.getPalmares() && this.getChuva() == o.getChuva() && v.getQualidade() == o.getQualidade());
+			return (v.getNome().equals(this.getNome()) && v.getNacionalidade().equals(this.getNacionalidade()) && v.getPalmares() == this.getPalmares() && this.getChuva() == v.getChuva() && v.getQualidade() == this.getQualidade());
 		}
 
 	}

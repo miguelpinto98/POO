@@ -75,7 +75,7 @@ public class Aposta {
 			return false;
 		else {
 			Aposta v = (Aposta)o;
-			return (v.getP1().equals(o.getP1()) && v.getP2().equals(o.getP2()) && v.getP3().equals(o.getP3()) && v.getQuant() == o.getQuant());
+			return (v.getP1().equals(this.getP1()) && v.getP2().equals(this.getP2()) && v.getP3().equals(this.getP3()) && v.getQuant() == this.getQuant());
 		}
 
 	}

@@ -1,7 +1,10 @@
  import java.util.Comparator;
 
- public class Comparator1Time implements Comparator < Time > {
-
+ public class Comparator0Time implements Comparator < Time > {
+     
+ 
+ 
+ 
  	public int compareTo(Time p) {
  		if (this.getHoras() < p.getHoras())
  			return 1;

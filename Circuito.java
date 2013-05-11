@@ -148,7 +148,7 @@ public class Circuito {
 		s.append(", tempo record=" + trecord);
 		s.append(", tempo nas boxes=" + tboxes);
 		s.append(", desvio medio =" + tdesviom);
-		s.append(", recordista=" + recordista.toString(); );
+		s.append(", recordista=" + recordista.toString());
 
 		return s.toString();
 

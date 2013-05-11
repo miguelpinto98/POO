@@ -66,7 +66,7 @@ public class Time {
 			return false;
 		else {
 			Time v = (Time)o;
-			return (v.getHoras() == o.getHoras() && v.getMinutos() == o.getMinutos() && v.getSegundo() == o.getSegundo());
+			return (  this.getHoras() == v.getHoras() &&  this.getMinutos() == v.getMinutos() && this.getSegundo() == v.getSegundo());
 		}
 
 	}
