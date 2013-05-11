@@ -1,22 +1,19 @@
  import java.util.Comparator;
 
- public class Comparator0Time implements Comparator < Time > {
-     
- 
- 
- 
- 	public int compareTo(Time p) {
- 		if (this.getHoras() < p.getHoras())
+ public class Comparator0Time implements Comparator<Time> {
+
+ 	public int compare(Time c, Time p) {
+ 		if (c.getHoras() < p.getHoras())
  			return 1;
- 		if (this.getHoras() > p.getHoras())
+ 		if (c.getHoras() > p.getHoras())
  			return -1;
- 		if (this.getMinutos() < p.getMinutos())
+ 		if (c.getMinutos() < p.getMinutos())
  			return 1;
- 		if (this.getMinutos() > getMinutos())
+ 		if (c.getMinutos() > p.getMinutos())
  			return -1;
- 		if (this.getSegundo() < p.getSegundo())
+ 		if (c.getSegundo() < p.getSegundo())
  			return 1;
- 		if (this.getSegundo() > p.getSegundo())
+ 		if (c.getSegundo() > p.getSegundo())
  			return -1;
  		else
  			return 0;
