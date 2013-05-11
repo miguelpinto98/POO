@@ -1,6 +1,6 @@
 public class Aposta {
 	private int quant;
-	private Piloto p1,
+	private Veiculo p1,
 	p2,
 	p3;
 
@@ -10,7 +10,7 @@ public class Aposta {
 		p2 = p.getP3().clone();
 		p3 = p.getP2().clone();
 	}
-	public Aposta(int q, Piloto p1, Piloto p2, Piloto p2) {
+	public Aposta(int q, Veiculo p1, Veiculo p2, Veiculo p2) {
 		this.quant = q;
 		this.p1 = p1;
 		this.p2 = p2;
@@ -22,13 +22,13 @@ public class Aposta {
 	public int getQuant() {
 		return this.quant;
 	}
-	public Piloto getP1() {
+	public Veiculo getP1() {
 		return this.P1;
 	}
-	public Piloto getP2() {
+	public Veiculo getP2() {
 		return this.P2;
 	}
-	public Piloto getP3() {
+	public Veiculo getP3() {
 		return this.P3;
 	}
 
@@ -37,13 +37,13 @@ public class Aposta {
 		this.quant = i;
 	}
 
-	public void setP1(Piloto p) {
+	public void setP1(Veiculo p) {
 		this.P1 = p;
 	}
-	public void setP2(Piloto P) {
+	public void setP2(Veiculo P) {
 		this.P2 = p;
 	}
-	public void setP3(Piloto p) {
+	public void setP3(Veiculo p) {
 		this.P3 = p;
 	}
 
