@@ -1,10 +1,5 @@
 
 
-/**
- *
- * @author griffin
- */
-
 public class Circuito {
     private int distancia,nvoltas;
     private Time tpc1,tpc2,tgt,tsc,trecord,tdesviom,tboxes;
@@ -136,12 +131,12 @@ public class Circuito {
         this.recordista = recordista;
     }
 
-    
+    //toString 
     public String toString() {
         return "Circuito{" + "distancia=" + distancia + ", nvoltas=" + nvoltas + ", tpc1=" + tpc1 + ", tpc2=" + tpc2 + ", tgt=" + tgt + ", tsc=" + tsc + ", trecord=" + trecord + ", tdesviom=" + tdesviom + ", tboxes=" + tboxes + ", recordista=" + recordista + '}';
     }
 
-       //equals
+    //equals
     public boolean equals(Object o) {
     if (this==o) return true;
     if((o==null)||(this.getClass() != o.getClass()))
