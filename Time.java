@@ -49,7 +49,13 @@ public class Time {
 
 	//toString
 	public String toString() {
-		return "Time{" + "horas=" + horas + ", minutos=" + minutos + ", segundo=" + segundo + '}';
+		StringBuilder s = new StringBuilder("Time  ");
+		s.append("horas=" + horas);
+		s.append(", minutos=" + minutos);
+		s.append(", segundos=" + segundo);
+
+		return s.toString();
+
 	}
 
 	//equals

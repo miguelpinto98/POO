@@ -54,6 +54,12 @@ public class Jogador {
 		return aux;
 	}
 	//set
+	public void setNome(String s) {
+		nome = s; 
+	}
+	public void setMorada(String s) {
+		morada = s;
+	}
 
 
 	//clone
@@ -62,6 +68,23 @@ public class Jogador {
 	}
 
 	//toString
+	
+	public String toString() {
+		StringBuilder s = new StringBuilder("Jogador ");
+		s.append("nome=" + nome);
+		s.append(", morada=" + morada);
+		s.append(", dinheiro investido" + di);
+		s.append(", dinheiro ganho=" + dg );
+		s.append(", conta currente=" + dc);
+		s.append(" \n Apostas por verificar");
+	for(Aposta a : adecorrer){ s.append( a.toString());
+	s.append(" \n Apostas verificadas");
+	for(Aposta a : hist){ s.append( a.toString());
+	
+
+		return s.toString();
+
+	}
 
 
 	//equals

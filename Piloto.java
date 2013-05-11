@@ -78,7 +78,7 @@ public class Piloto {
 		this.chuva = chuva;
 	}
 
-	///Clone
+	//clone
 	public Piloto clone() {
 		return new Piloto(this);
 	}
@@ -97,6 +97,15 @@ public class Piloto {
 	}
 	//toString
 	public String toString() {
-		return "Piloto{" + "nome=" + nome + ", nacionalidade=" + nacionalidade + ", palmares=" + palmares + ", qualidade=" + qualidade + ", chuva=" + chuva + '}';
+		StringBuilder s = new StringBuilder("Piloto ");
+		s.append("nome=" + nome);
+		s.append(", nacionalidade=" + nacionalidade);
+		s.append(", palmares=" + palmares);
+		s.append(", qualidade=" + qualidade);
+		s.append(", chuva=" + chuva);
+
+		return s.toString();
+
+	
 	}
 }

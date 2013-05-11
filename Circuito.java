@@ -138,7 +138,20 @@ public class Circuito {
 
 	//toString
 	public String toString() {
-		return "Circuito{" + "distancia=" + distancia + ", nvoltas=" + nvoltas + ", tpc1=" + tpc1 + ", tpc2=" + tpc2 + ", tgt=" + tgt + ", tsc=" + tsc + ", trecord=" + trecord + ", tdesviom=" + tdesviom + ", tboxes=" + tboxes + ", recordista=" + recordista + '}';
+		StringBuilder s = new StringBuilder("Circuito ");
+		s.append("distancia=" + distancia);
+		s.append(", numero de voltas=" + nvoltas);
+		s.append(", tempo dos pc1=" + tpc1);
+		s.append(", tempo dos pc2=" + tpc2);
+		s.append(", tempo dos gt=" + tgt);
+		s.append(", tempo dos sc=" + tsc);
+		s.append(", tempo record=" + trecord);
+		s.append(", tempo nas boxes=" + tboxes);
+		s.append(", desvio medio =" + tdesviom);
+		s.append(", recordista=" + recordista.toString(); );
+
+		return s.toString();
+
 	}
 
 	//equals

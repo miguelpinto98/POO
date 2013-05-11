@@ -53,7 +53,18 @@ public class Aposta {
 
 	//toString
 	public String toString() {
-		return "Aposta{" + "quant=" + quant + ", p1=" + p1.toString() + ", p2=" + p2.toString() + ", p3=" + p3.toString() + '}';
+	
+	
+        StringBuilder s = new StringBuilder("Aposta  ");
+        s.append("quant:" + quant);
+        s.append(",p1=" + p1.toString());
+       s.append(",p2=" + p2.toString());
+	    s.append(",p3=" + p3.toString());
+       
+        return s.toString();
+     
+
+		
 	}
 
 	//equals
