@@ -1,155 +1,162 @@
 
 
 public class Circuito {
-    private int distancia,nvoltas;
-    private Time tpc1,tpc2,tgt,tsc,trecord,tdesviom,tboxes;
-    private Piloto recordista;
+	private int distancia,
+	nvoltas;
+	private Time tpc1,
+	tpc2,
+	tgt,
+	tsc,
+	trecord,
+	tdesviom,
+	tboxes;
+	private Piloto recordista;
 
-    //construtores 
-        public Circuito(int distancia, int nvoltas, Time tpc1, Time tpc2, Time tgt, Time tsc, Time trecord, Time tdesviom, Time tboxes, Piloto recordista) {
-        this.distancia = distancia;
-        this.nvoltas = nvoltas;
-        this.tpc1 = tpc1;
-        this.tpc2 = tpc2;
-        this.tgt = tgt;
-        this.tsc = tsc;
-        this.trecord = trecord;
-        this.tdesviom = tdesviom;
-        this.tboxes = tboxes;
-        this.recordista = recordista;
-    }
+	//construtores
+	public Circuito(int distancia, int nvoltas, Time tpc1, Time tpc2, Time tgt, Time tsc, Time trecord, Time tdesviom, Time tboxes, Piloto recordista) {
+		this.distancia = distancia;
+		this.nvoltas = nvoltas;
+		this.tpc1 = tpc1;
+		this.tpc2 = tpc2;
+		this.tgt = tgt;
+		this.tsc = tsc;
+		this.trecord = trecord;
+		this.tdesviom = tdesviom;
+		this.tboxes = tboxes;
+		this.recordista = recordista;
+	}
 
-    public Circuito() {
-         this.distancia = 0;
-        this.nvoltas = 0;
-        this.tpc1 = new Time();
-        this.tpc2 = new Time();
-        this.tgt = new Time();
-        this.tsc = new Time();
-        this.trecord = new Time();
-        this.tdesviom = new Time();
-        this.tboxes = new Time();
-        this.recordista = new Piloto();
-        
-    }
+	public Circuito() {
+		this.distancia = 0;
+		this.nvoltas = 0;
+		this.tpc1 = new Time();
+		this.tpc2 = new Time();
+		this.tgt = new Time();
+		this.tsc = new Time();
+		this.trecord = new Time();
+		this.tdesviom = new Time();
+		this.tboxes = new Time();
+		this.recordista = new Piloto();
 
-    public Circuito(Circuito c) {
-         this.distancia = c.getDistancia();
-        this.nvoltas = c.getNvoltas();
-        this.tpc1 = c.getTpc1();
-        this.tpc2 = c.getTpc2();
-        this.tgt = c.getTgt();
-        this.tsc = c.getTsc();
-        this.trecord = c.getTrecord();
-        this.tdesviom = c.getTdesviom();
-        this.tboxes = c.getTboxes();
-        this.recordista = c.getRecordista().clone();
-        
-    }
+	}
 
-    
-    //get 
-    public int getDistancia() {
-        return distancia;
-    }
+	public Circuito(Circuito c) {
+		this.distancia = c.getDistancia();
+		this.nvoltas = c.getNvoltas();
+		this.tpc1 = c.getTpc1();
+		this.tpc2 = c.getTpc2();
+		this.tgt = c.getTgt();
+		this.tsc = c.getTsc();
+		this.trecord = c.getTrecord();
+		this.tdesviom = c.getTdesviom();
+		this.tboxes = c.getTboxes();
+		this.recordista = c.getRecordista().clone();
 
-    public int getNvoltas() {
-        return nvoltas;
-    }
+	}
 
-    public Time getTpc1() {
-        return tpc1;
-    }
+	//get
+	public int getDistancia() {
+		return distancia;
+	}
 
-    public Time getTpc2() {
-        return tpc2;
-    }
+	public int getNvoltas() {
+		return nvoltas;
+	}
 
-    public Time getTgt() {
-        return tgt;
-    }
+	public Time getTpc1() {
+		return tpc1;
+	}
 
-    public Time getTsc() {
-        return tsc;
-    }
+	public Time getTpc2() {
+		return tpc2;
+	}
 
-    public Time getTrecord() {
-        return trecord;
-    }
+	public Time getTgt() {
+		return tgt;
+	}
 
-    public Time getTdesviom() {
-        return tdesviom;
-    }
+	public Time getTsc() {
+		return tsc;
+	}
 
-    public Time getTboxes() {
-        return tboxes;
-    }
+	public Time getTrecord() {
+		return trecord;
+	}
 
-    public Piloto getRecordista() {
-        return recordista;
-    }
+	public Time getTdesviom() {
+		return tdesviom;
+	}
 
-    
-    //set
-    public void setDistancia(int distancia) {
-        this.distancia = distancia;
-    }
+	public Time getTboxes() {
+		return tboxes;
+	}
 
-    public void setNvoltas(int nvoltas) {
-        this.nvoltas = nvoltas;
-    }
+	public Piloto getRecordista() {
+		return recordista;
+	}
 
-    public void setTpc1(Time tpc1) {
-        this.tpc1 = tpc1;
-    }
+	//set
+	public void setDistancia(int distancia) {
+		this.distancia = distancia;
+	}
 
-    public void setTpc2(Time tpc2) {
-        this.tpc2 = tpc2;
-    }
+	public void setNvoltas(int nvoltas) {
+		this.nvoltas = nvoltas;
+	}
 
-    public void setTgt(Time tgt) {
-        this.tgt = tgt;
-    }
+	public void setTpc1(Time tpc1) {
+		this.tpc1 = tpc1;
+	}
 
-    public void setTsc(Time tsc) {
-        this.tsc = tsc;
-    }
+	public void setTpc2(Time tpc2) {
+		this.tpc2 = tpc2;
+	}
 
-    public void setTrecord(Time trecord) {
-        this.trecord = trecord;
-    }
+	public void setTgt(Time tgt) {
+		this.tgt = tgt;
+	}
 
-    public void setTdesviom(Time tdesviom) {
-        this.tdesviom = tdesviom;
-    }
+	public void setTsc(Time tsc) {
+		this.tsc = tsc;
+	}
 
-    public void setTboxes(Time tboxes) {
-        this.tboxes = tboxes;
-    }
+	public void setTrecord(Time trecord) {
+		this.trecord = trecord;
+	}
 
-    public void setRecordista(Piloto recordista) {
-        this.recordista = recordista;
-    }
+	public void setTdesviom(Time tdesviom) {
+		this.tdesviom = tdesviom;
+	}
 
-    //toString 
-    public String toString() {
-        return "Circuito{" + "distancia=" + distancia + ", nvoltas=" + nvoltas + ", tpc1=" + tpc1 + ", tpc2=" + tpc2 + ", tgt=" + tgt + ", tsc=" + tsc + ", trecord=" + trecord + ", tdesviom=" + tdesviom + ", tboxes=" + tboxes + ", recordista=" + recordista + '}';
-    }
+	public void setTboxes(Time tboxes) {
+		this.tboxes = tboxes;
+	}
 
-    //equals
-    public boolean equals(Object o) {
-    if (this==o) return true;
-    if((o==null)||(this.getClass() != o.getClass()))
-     return false;
-     else { Circuito v = (Circuito) o;
-         return (this.getDistancia()== v.getDistancia()&&this.getNvoltas() == v.getNvoltas()&&this.getTrecord().equals(v.getTrecord()));
-        }
-    
-    }
-//Clone
+	public void setRecordista(Piloto recordista) {
+		this.recordista = recordista;
+	}
 
-public Circuito clone(){ return new Circuito(this);
-    
-    
-}
+	//toString
+	public String toString() {
+		return "Circuito{" + "distancia=" + distancia + ", nvoltas=" + nvoltas + ", tpc1=" + tpc1 + ", tpc2=" + tpc2 + ", tgt=" + tgt + ", tsc=" + tsc + ", trecord=" + trecord + ", tdesviom=" + tdesviom + ", tboxes=" + tboxes + ", recordista=" + recordista + '}';
+	}
+
+	//equals
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if ((o == null) || (this.getClass() != o.getClass()))
+			return false;
+		else {
+			Circuito v = (Circuito)o;
+			return (this.getDistancia() == v.getDistancia() && this.getNvoltas() == v.getNvoltas() && this.getTrecord().equals(v.getTrecord()));
+		}
+
+	}
+	//Clone
+
+	public Circuito clone() {
+		return new Circuito(this);
+
+	}
 }

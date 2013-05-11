@@ -1,72 +1,73 @@
 
 public class Time {
-    private int horas,minutos,segundo;
-	
-	
-	
+	private int horas,
+	minutos,
+	segundo;
+
 	public Time(int horas, int minutos, int segundo) {
-        this.horas = horas;
-        this.minutos = minutos;
-        this.segundo = segundo;
-    }
-    
-     public Time() {
-        this.horas = 0;
-        this.minutos = 0;
-        this.segundo = 0;
-    }
-      public Time(Time t) {
-        this.horas = t.getHoras();
-        this.minutos = t.getMinutos();
-        this.segundo = t.getSegundo();
-    }
-	
-//get
-    public int getHoras() {
-        return horas;
-    }
+		this.horas = horas;
+		this.minutos = minutos;
+		this.segundo = segundo;
+	}
 
-    public int getMinutos() {
-        return minutos;
-    }
+	public Time() {
+		this.horas = 0;
+		this.minutos = 0;
+		this.segundo = 0;
+	}
+	public Time(Time t) {
+		this.horas = t.getHoras();
+		this.minutos = t.getMinutos();
+		this.segundo = t.getSegundo();
+	}
 
-    public int getSegundo() {
-        return segundo;
-    }
-	
-//set
-    public void setHoras(int horas) {
-        this.horas = horas;
-    }
+	//get
+	public int getHoras() {
+		return horas;
+	}
 
-    public void setMinutos(int minutos) {
-        this.minutos = minutos;
-    }
+	public int getMinutos() {
+		return minutos;
+	}
 
-    public void setSegundo(int segundo) {
-        this.segundo = segundo;
-    }
+	public int getSegundo() {
+		return segundo;
+	}
 
-    
+	//set
+	public void setHoras(int horas) {
+		this.horas = horas;
+	}
 
-    
-  //toString
-    public String toString() {
-        return "Time{" + "horas=" + horas + ", minutos=" + minutos + ", segundo=" + segundo + '}';
-    }
-     
-      //equals
-    public boolean equals(Object o) {
-    if (this==o) return true;
-    if((o==null)||(this.getClass() != o.getClass()))
-     return false;
-     else { Time v = (Time) o;
-         return (v.getHoras()== o.getHoras()&&v.getMinutos() == o.getMinutos()&&v.getSegundo()== o.getSegundo());
-        }
-    
-    }
-	
+	public void setMinutos(int minutos) {
+		this.minutos = minutos;
+	}
+
+	public void setSegundo(int segundo) {
+		this.segundo = segundo;
+	}
+
+	//toString
+	public String toString() {
+		return "Time{" + "horas=" + horas + ", minutos=" + minutos + ", segundo=" + segundo + '}';
+	}
+
+	//equals
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if ((o == null) || (this.getClass() != o.getClass()))
+			return false;
+		else {
+			Time v = (Time)o;
+			return (v.getHoras() == o.getHoras() && v.getMinutos() == o.getMinutos() && v.getSegundo() == o.getSegundo());
+		}
+
+	}
+
 	//clone
-	
-	public Time clone(){return new Time(this);}
+
+	public Time clone() {
+		return new Time(this);
+	}
 }
