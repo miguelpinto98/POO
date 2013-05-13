@@ -38,23 +38,23 @@ public class Piloto {
 
 	//get
 	public String getNacionalidade() {
-		return nacionalidade;
+		return this.nacionalidade;
 	}
 
 	public boolean getChuva() {
-		return chuva;
+		return this.chuva;
 	}
 
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 
 	public int getPalmares() {
-		return palmares;
+		return this.palmares;
 	}
 
 	public int getQualidade() {
-		return qualidade;
+		return this.qualidade;
 	}
 
 	//set
