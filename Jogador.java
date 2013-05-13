@@ -1,19 +1,30 @@
+import java.util.ArrayList;
+
 public class Jogador {
+	private String nome;
+	private String morada;
+	private ArrayList<Aposta> adecorrer;
+	private ArrayList<Aposta> hist; //o histórico de apostas realizadoe as apostas em vigor
+	private double di;
+	private double dg;
+	private double dc; // a conta corrente, investimento e ganhos
 
-	private String nome,
-	morada;
-	private ArrayList < Aposta > adecorrer,
-	hist; //o histórico de apostas realizadoe as apostas em vigor
-	private double di,
-	dg,
-	dc; // a conta corrente, investimento e ganhos
 
+	public Jogador() {
+		this.nome = "";
+		this.morada = "";
+		this.adecorrer = new ArrayList<Aposta> ();
+		this.hist = new ArrayList<Aposta> ();
+		this.di = 0;
+		this.dg = 0;
+		this.dc = 0;
+	}
 
 	public Jogador(Jogador j) {
 		this.nome = j.getNome();
 		this.morada = j.getMorada();
-		this.adecorrer = j.getCur();
-		this.hist = j.getHist();
+		this.adecorrer = j.getApostaCorrente();
+		this.hist = j.getHistorico();
 		this.di = j.getDi();
 		this.dg = j.getDg();
 		this.dc = j.getDc();
@@ -27,33 +38,34 @@ public class Jogador {
 		return morada;
 	}
 
-	public int getDi() {
+	public double getDi() {
 		return this.di;
 	}
-	public int getDg() {
+	public double getDg() {
 		return this.dg;
 	}
-	public int getDc() {
+	public double getDc() {
 		return this.dc;
 	}
-	public ArrayList < Aposta > getHist() {
-		ArrayList < Aposta > aux = new ArrayLista < Aposta > ();
+	public ArrayList<Aposta> getHistorico() {
+		ArrayList < Aposta > aux = new ArrayList <Aposta> ();
 		for (Aposta a : adecorrer) {
 			aux.add(a.clone());
-
 		}
 		return aux;
 	}
 
-	public ArrayList < Aposta > getCur() {
-		ArrayList < Aposta > aux = new ArrayLista < Aposta > ();
+	public ArrayList < Aposta > getApostaCorrente() {
+		ArrayList < Aposta > aux = new ArrayList < Aposta > ();
 		for (Aposta a : hist) {
 			aux.add(a.clone());
-
 		}
 		return aux;
 	}
+	
 	//set
+	//FALTAM
+	
 	public void setNome(String s) {
 		nome = s; 
 	}
@@ -68,7 +80,6 @@ public class Jogador {
 	}
 
 	//toString
-	
 	public String toString() {
 		StringBuilder s = new StringBuilder("Jogador ");
 		s.append("nome=" + nome);
@@ -81,23 +92,22 @@ public class Jogador {
 	s.append(" \n Apostas verificadas");
 	for(Aposta a : hist)s.append( a.toString());
 	
-
-		return s.toString();
-
+	return s.toString();
 	}
-
 
 	//equals
 	public boolean equals(Object o) {
-	    
 		if (this == o)
 			return true;
 		if ((o == null) || (this.getClass() != o.getClass()))
 			return false;
 		else {
-			Jogador v = (Jogador)o;
-			return (v.getNome().equals(o.getNome()) && v.getMorada().equals(o.getMorada()) && v.getDi() == o.getDi() && v.getDg() == o.getDg() && v.getDc() == o.getDc());
+			Jogador v = (Jogador) o;
+			return (this.nome.equals(v.getNome()) && 
+					this.morada.equals(v.getMorada()) && 
+					this.di == (v.getDi()) &&
+					this.dg == (v.getDg()) &&
+					this.dc == (v.getDc())) ;
 		}
-
 	}
 }
