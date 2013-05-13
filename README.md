@@ -1,4 +1,0 @@
-POO
-===
-
-Projeto
