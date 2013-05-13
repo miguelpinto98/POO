@@ -1,6 +1,5 @@
-
 /**
- *
+ * 
  * @author pedro
  */
 public class Piloto {
@@ -10,7 +9,9 @@ public class Piloto {
 	private int qualidade;
 	private boolean chuva;
 
-	//construtores
+	/*
+	 * Constructor for objects of class Piloto
+	 */
 	public Piloto() {
 		this.nome = "";
 		this.nacionalidade = "";
@@ -19,7 +20,8 @@ public class Piloto {
 		this.chuva = false;
 	}
 
-	public Piloto(String nome, String nacionalidade, int palmares, int qualidade, boolean chuva) {
+	public Piloto(String nome, String nacionalidade, int palmares,
+			int qualidade, boolean chuva) {
 		this.nome = nome;
 		this.nacionalidade = nacionalidade;
 		this.palmares = palmares;
@@ -36,7 +38,7 @@ public class Piloto {
 		this.chuva = p.getChuva();
 	}
 
-	//get
+	// get
 	public String getNacionalidade() {
 		return this.nacionalidade;
 	}
@@ -57,7 +59,7 @@ public class Piloto {
 		return this.qualidade;
 	}
 
-	//set
+	// set
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -78,34 +80,37 @@ public class Piloto {
 		this.chuva = chuva;
 	}
 
-	//clone
+	// clone
 	public Piloto clone() {
 		return new Piloto(this);
 	}
 
-	//equals
+	// equals
 	public boolean equals(Object o) {
 		if (this == o)
 			return true;
 		if ((o == null) || (this.getClass() != o.getClass()))
 			return false;
 		else {
-			Piloto v = (Piloto)o;
-			return (v.getNome().equals(this.getNome()) && v.getNacionalidade().equals(this.getNacionalidade()) && v.getPalmares() == this.getPalmares() && this.getChuva() == v.getChuva() && v.getQualidade() == this.getQualidade());
+			Piloto v = (Piloto) o;
+			return (v.getNome().equals(this.getNome())
+					&& v.getNacionalidade().equals(this.getNacionalidade())
+					&& v.getPalmares() == this.getPalmares()
+					&& this.getChuva() == v.getChuva() && 
+					v.getQualidade() == this.getQualidade());
 		}
-
 	}
-	//toString
+
+	// toString
 	public String toString() {
 		StringBuilder s = new StringBuilder("Piloto ");
-		s.append("nome=" + nome);
-		s.append(", nacionalidade=" + nacionalidade);
-		s.append(", palmares=" + palmares);
-		s.append(", qualidade=" + qualidade);
-		s.append(", chuva=" + chuva);
+		
+		s.append("Nome: " + this.nome + "\n");
+		s.append("Nacionalidade: " + this.nacionalidade + "\n");
+		s.append("Palmares: " + this.palmares + "\n");
+		s.append("Qualidade: " + this.qualidade + "\n");
+		s.append("Chove: " + this.chuva + "\n");
 
 		return s.toString();
-
-	
 	}
 }
