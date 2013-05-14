@@ -1,23 +1,23 @@
 public class Aposta {
-	private int quant;
+	private double quant;
 	private Veiculo p1, p2, p3;
 
-	public Aposta(Aposta p) {
-		quant = p.getQuant();
-		p1 = p.getP1().clone();
-		p2 = p.getP3().clone();
-		p3 = p.getP2().clone();
-	}
-
-	public Aposta(int q, Veiculo p1, Veiculo p2, Veiculo p3) {
+	public Aposta(double q, Veiculo p1, Veiculo p2, Veiculo p3) {
 		this.quant = q;
 		this.p1 = p1;
 		this.p2 = p2;
 		this.p3 = p3;
 	}
 
+	public Aposta(Aposta p) {
+		this.quant = p.getQuant();
+		this.p1 = p.getP1().clone();
+		this.p2 = p.getP3().clone();
+		this.p3 = p.getP2().clone();
+	}
+
 	// get
-	public int getQuant() {
+	public double getQuant() {
 		return this.quant;
 	}
 
@@ -64,7 +64,6 @@ public class Aposta {
 		s.append(",p3=" + p3.toString());
 
 		return s.toString();
-
 	}
 
 	// equals
@@ -75,10 +74,10 @@ public class Aposta {
 			return false;
 		else {
 			Aposta v = (Aposta) o;
-			return (v.getP1().equals(this.getP1()) && 
-					v.getP2().equals(this.getP2()) && 
-					v.getP3().equals(this.getP3()) && 
-					v.getQuant() == this.getQuant());
+			return (v.getP1().equals(this.getP1())
+					&& v.getP2().equals(this.getP2())
+					&& v.getP3().equals(this.getP3()) && v.getQuant() == this
+					.getQuant());
 		}
 	}
 }

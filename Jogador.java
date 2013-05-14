@@ -4,17 +4,17 @@ public class Jogador {
 	private String nome;
 	private String morada;
 	private ArrayList<Aposta> adecorrer;
-	private ArrayList<Aposta> hist; //o histórico de apostas realizadoe as apostas em vigor
+	private ArrayList<Aposta> hist; // o histórico de apostas realizadoe as
+									// apostas em vigor
 	private double di;
 	private double dg;
 	private double dc; // a conta corrente, investimento e ganhos
 
-
 	public Jogador() {
 		this.nome = "";
 		this.morada = "";
-		this.adecorrer = new ArrayList<Aposta> ();
-		this.hist = new ArrayList<Aposta> ();
+		this.adecorrer = new ArrayList<Aposta>();
+		this.hist = new ArrayList<Aposta>();
 		this.di = 0;
 		this.dg = 0;
 		this.dc = 0;
@@ -30,10 +30,11 @@ public class Jogador {
 		this.dc = j.getDc();
 	}
 
-	//get
+	// get
 	public String getNome() {
 		return nome;
 	}
+
 	public String getMorada() {
 		return morada;
 	}
@@ -41,61 +42,66 @@ public class Jogador {
 	public double getDi() {
 		return this.di;
 	}
+
 	public double getDg() {
 		return this.dg;
 	}
+
 	public double getDc() {
 		return this.dc;
 	}
+
 	public ArrayList<Aposta> getHistorico() {
-		ArrayList < Aposta > aux = new ArrayList <Aposta> ();
+		ArrayList<Aposta> aux = new ArrayList<Aposta>();
 		for (Aposta a : adecorrer) {
 			aux.add(a.clone());
 		}
 		return aux;
 	}
 
-	public ArrayList < Aposta > getApostaCorrente() {
-		ArrayList < Aposta > aux = new ArrayList < Aposta > ();
+	public ArrayList<Aposta> getApostaCorrente() {
+		ArrayList<Aposta> aux = new ArrayList<Aposta>();
 		for (Aposta a : hist) {
 			aux.add(a.clone());
 		}
 		return aux;
 	}
-	
-	//set
-	//FALTAM
-	
+
+	// set
+	// FALTAM
+
 	public void setNome(String s) {
-		nome = s; 
+		nome = s;
 	}
+
 	public void setMorada(String s) {
 		morada = s;
 	}
 
-
-	//clone
+	// clone
 	public Jogador clone() {
 		return new Jogador(this);
 	}
 
-	//toString
+	// toString
 	public String toString() {
 		StringBuilder s = new StringBuilder("Jogador ");
 		s.append("nome=" + nome);
 		s.append(", morada=" + morada);
 		s.append(", dinheiro investido" + di);
-		s.append(", dinheiro ganho=" + dg );
+		s.append(", dinheiro ganho=" + dg);
 		s.append(", conta currente=" + dc);
 		s.append(" \n Apostas por verificar");
-	for(Aposta a : adecorrer) s.append( a.toString());
-	s.append(" \n Apostas verificadas");
-	for(Aposta a : hist)s.append( a.toString());
-	
-	return s.toString();
+		for (Aposta a : adecorrer)
+			s.append(a.toString());
+		s.append(" \n Apostas verificadas");
+		for (Aposta a : hist)
+			s.append(a.toString());
+
+		return s.toString();
 	}
 
-	//equals
+	// equals
 	public boolean equals(Object o) {
 		if (this == o)
 			return true;
@@ -103,11 +109,10 @@ public class Jogador {
 			return false;
 		else {
 			Jogador v = (Jogador) o;
-			return (this.nome.equals(v.getNome()) && 
-					this.morada.equals(v.getMorada()) && 
-					this.di == (v.getDi()) &&
-					this.dg == (v.getDg()) &&
-					this.dc == (v.getDc())) ;
+			return (this.nome.equals(v.getNome())
+					&& this.morada.equals(v.getMorada())
+					&& this.di == (v.getDi()) && this.dg == (v.getDg()) && this.dc == (v
+						.getDc()));
 		}
 	}
 }

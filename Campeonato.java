@@ -1,22 +1,17 @@
 public class Campeonato {
 
-// Circuitos
+	// Circuitos
 
- // veiculos
+	// veiculos
 
-//get
+	// get
 
+	// set
 
-//set
+	// clone
 
+	// toString
 
-//clone 
-
-
-// toString
-
-
-//equals
-
+	// equals
 
 }

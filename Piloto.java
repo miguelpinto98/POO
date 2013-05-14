@@ -96,15 +96,15 @@ public class Piloto {
 			return (v.getNome().equals(this.getNome())
 					&& v.getNacionalidade().equals(this.getNacionalidade())
 					&& v.getPalmares() == this.getPalmares()
-					&& this.getChuva() == v.getChuva() && 
-					v.getQualidade() == this.getQualidade());
+					&& this.getChuva() == v.getChuva() && v.getQualidade() == this
+					.getQualidade());
 		}
 	}
 
 	// toString
 	public String toString() {
 		StringBuilder s = new StringBuilder("Piloto ");
-		
+
 		s.append("Nome: " + this.nome + "\n");
 		s.append("Nacionalidade: " + this.nacionalidade + "\n");
 		s.append("Palmares: " + this.palmares + "\n");

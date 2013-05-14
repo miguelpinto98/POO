@@ -123,8 +123,8 @@ public class Veiculo {
 		str.append("Modelo: " + this.modelo + "\n");
 		str.append("Cilindrada: " + this.cilindrada + "\n");
 		str.append("Cavalos: " + this.cv + "\n");
-		str.append("Piloto1: " + this.p1 + "\n");
-		str.append("Pilto2: " + this.p2 + "\n");
+		str.append("Piloto1: " + this.p1.toString() + "\n");
+		str.append("Pilto2: " + this.p2.toString() + "\n");
 
 		return str.toString();
 	}
