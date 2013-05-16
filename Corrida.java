@@ -46,6 +46,36 @@ public class Corrida {
 		this.conjveiculos = vc;
 	}
 	
+	public void setCircuito(Circuito c) {
+		this.crt = c;
+	}
+	
+	public void setPiso(boolean p) {
+		this.piso = p;
+	}
+	
+	public String toString() {
+        StringBuilder s = new StringBuilder();
+        
+        s.append("-----------------Corrida-------------------\n");
+        s.append("Número de Veiculos: "+ this.conjveiculos.size() + "\n");
+        s.append("Circuito: " + this.crt.toString() + "\n");
+        s.append("Piso Molhado: " + this.piso + "\n");
+        s.append("-------------------------------------------\n");
+       
+        return s.toString();
+	}
+	
+	public boolean equals(Object o) {
+        if(o==this) return true;
+        if(o==null || (o.getClass()!=this.getClass()))
+            return false;
+        Corrida v = (Corrida) o;
+        return this.conjveiculos.equals(v.getConjuntoVeiculos()) &&
+        		this.crt.equals(v.getCircuito()) &&
+        		this.piso == (v.getPiso()) ;      
+	}
+	
 	public Corrida clone() {
 		return new Corrida(this);
 	}
