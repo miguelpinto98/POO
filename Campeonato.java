@@ -20,7 +20,7 @@ public HashSet<Corrida> getCorridas(){ HashSet<Corrida> aux = new HashSet<Corrid
 }
 
 //set
-
+public void setCorridas(HashSet<Corrida> c) { this.corridas = c;}
 
 
 //clone 
