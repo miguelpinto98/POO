@@ -1,50 +1,56 @@
 import java.util.HashSet;
+
 public class Campeonato {
 
-private HashSet<Corrida> corridas;
+	private HashSet<Corrida> corridas;
 
-Campeonato (HashSet<Corrida> c){ 
-    for(Corrida a : c) this.corridas.add(a.clone());
+	Campeonato(HashSet<Corrida> c) {
+		for (Corrida a : c)
+			this.corridas.add(a.clone());
+	}
 
-}
+	Campeonato(Campeonato c) {
+		for (Corrida a : c.getCorridas())
+			this.corridas.add(a);
+	}
 
-Campeonato (Campeonato c){ 
-     for(Corrida a : c.getCorridas()) this.corridas.add(a);
+	// get
+	public HashSet<Corrida> getCorridas() {
+		HashSet<Corrida> aux = new HashSet<Corrida>();
+		for (Corrida a : corridas)
+			aux.add(a.clone());
+		return aux;
+	}
 
+	// set
+	public void setCorridas(HashSet<Corrida> c) {
+		this.corridas = c;
+	}
+	
+	// clone
+	public Campeonato clone() {
+		return new Campeonato(this);
+	}
 
-}
-//get
-public HashSet<Corrida> getCorridas(){ HashSet<Corrida> aux = new HashSet<Corrida>();
-     for(Corrida a : c) aux.add(a.clone());
-     return aux;
-}
-
-//set
-
-
-
-//clone 
-public Campeonato clone(){ return new Campeonato(this);}
-
-// toString
-public String toString() {
+	// toString
+	public String toString() {
 		StringBuilder s = new StringBuilder("Campeonato \n");
-		for(Corrida a: corridas) s.append( a.toString());
-		
+		for (Corrida a : corridas)
+			s.append(a.toString());
 
 		return s.toString();
 
 	}
 
-//equals
-public boolean equals(Object o) {
+	// equals
+	public boolean equals(Object o) {
 		if (this == o)
 			return true;
 		if ((o == null) || (this.getClass() != o.getClass()))
 			return false;
 		else {
-			Campeonato v = (Campeonato)o;
-			return ( true);
+			Campeonato v = (Campeonato) o;
+			return (true);
 		}
 
 	}
