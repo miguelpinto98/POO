@@ -3,7 +3,8 @@ import java.util.*;
 public class PC1 extends Veiculo
 {
     
-    
+    private static final int cld=6000;
+    private static final double fiabilidade= 0.85;
     
     public PC1()
     {
@@ -14,7 +15,7 @@ public class PC1 extends Veiculo
     public PC1(String marca, String modelo, int cilindrada, int cv,
 			Piloto p1, Piloto p2)
 	{
-		super(marca,modelo,6500,cv,p1,p2);
+		super(marca,modelo,cld,cv,p1,p2);
 	}
 			
 	/** Construtor de cópia */
