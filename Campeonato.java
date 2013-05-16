@@ -49,8 +49,8 @@ public class Campeonato {
 		if ((o == null) || (this.getClass() != o.getClass()))
 			return false;
 		else {
-			Campeonato v = (Campeonato) o;
-			return (true);
+			Campeonato c = (Campeonato) o;
+			return this.corridas.equals(c.getCorridas());
 		}
 
 	}
