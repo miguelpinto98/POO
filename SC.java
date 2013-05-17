@@ -8,7 +8,7 @@ public class SC extends Veiculo {
 	}
 
 	public SC(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, boolean h) {
-		super(marca,modelo,cilindrada,cv,p1,p2,h);
+		super(marca,modelo,cilindrada,cv,p1,p2,false);
 	}
 	
 	public SC(SC s) {
