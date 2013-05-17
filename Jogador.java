@@ -68,16 +68,32 @@ public class Jogador {
 	}
 
 	// set
-	// FALTAM
+	// FALTAMpublic String getNome() {
+	
 
+	public void setDi(double m) {
+		this.di = m;
+	}
+
+	public void setDg(double m) {
+		this.dg = m;
+	}
+	public void setDc(double m) {
+		this.dc = m;
+	}
 	public void setNome(String s) {
-		nome = s;
+		this.nome = s;
 	}
 
 	public void setMorada(String s) {
-		morada = s;
+		this.morada = s;
 	}
-
+public void setApostaCorrente(ArrayList<Aposta> p){
+this.adecorrer = p;
+}
+public void seHistorico(ArrayList<Aposta> p){
+this.historico = p;
+}
 	// clone
 	public Jogador clone() {
 		return new Jogador(this);
