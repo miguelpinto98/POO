@@ -87,7 +87,7 @@ public class Jogador {
 	public void setMorada(String s) {
 		this.morada = s;
 	}
-
+	
 	public void setApostaCorrente(ArrayList<Aposta> p) {
 		this.adecorrer = p;
 	}
