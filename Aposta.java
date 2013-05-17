@@ -16,7 +16,7 @@ public class Aposta {
 		this.p1 = p.getP1().clone();
 		this.p2 = p.getP3().clone();
 		this.p3 = p.getP2().clone();
-		this.corr = p.getC().clone();
+		this.corr = p.getCorrida().clone();
 	}
 
 	// get
@@ -35,9 +35,10 @@ public class Aposta {
 	public Veiculo getP3() {
 		return this.p3;
 	}
-public Corrida getCorr(){
-return this.corr;
-}
+	
+	public Corrida getCorrida(){
+		return this.corr;
+	}
 	// Set
 	public void setQuant(int i) {
 		this.quant = i;
@@ -54,7 +55,11 @@ return this.corr;
 	public void setP3(Veiculo p) {
 		this.p3 = p;
 	}
-public void setCorr(Corrida c){this.corr = c;}
+	
+	public void setCorr(Corrida c) {
+		this.corr = c;
+	}
+	
 	public Aposta clone() {
 		return new Aposta(this);
 	}
