@@ -5,7 +5,7 @@ public abstract class Veiculo {
 	private int cv;
 	private Piloto p1;
 	private Piloto p2;
-	private boolean hibrido;
+	private int hibrido;
 
 	/*
 	 * Constructor for objects of class Veiculo
@@ -17,11 +17,11 @@ public abstract class Veiculo {
 		this.cv = 0;
 		this.p1 = new Piloto();
 		this.p2 = new Piloto();
-		this.hibrido = false;
+		this.hibrido = 0;
 	}
 
 	public Veiculo(String marca, String modelo, int cilindrada, int cv,
-			Piloto p1, Piloto p2, boolean h) {
+			Piloto p1, Piloto p2,int h) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.cilindrada = cilindrada;
@@ -68,7 +68,7 @@ public abstract class Veiculo {
 		return this.p2;
 	}
 	
-	public boolean getHibrido() {
+	public int getHibrido() {
 		return this.hibrido;
 	}
 
@@ -96,7 +96,7 @@ public abstract class Veiculo {
 		this.p2 = p;
 	}
 	
-	public void setHibrido(boolean h) {
+	public void setHibrido(int h) {
 		this.hibrido = h;
 	}
 
