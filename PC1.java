@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.*;
 
 public class PC1 extends Veiculo
@@ -16,6 +17,20 @@ public class PC1 extends Veiculo
 			Piloto p1, Piloto p2)
 	{
 		super(marca,modelo,cld,cv,p1,p2);
+=======
+public class PC1 extends Veiculo {
+
+	private static final int cld = 6000;
+	private static final double fiabilidade = 0.85;
+
+	public PC1() {
+		super();
+	}
+
+	/** Construtor por partes */
+	public PC1(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, boolean h) {
+		super(marca, modelo, cld, cv, p1, p2, h);
+>>>>>>> a06623bf16d972951d0f186c2a574c640a73c161
 	}
 			
 	/** Construtor de cópia */
