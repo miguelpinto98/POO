@@ -1,6 +1,6 @@
 public class PC1 extends Veiculo{
 
-	//private int cld;
+	private static final int cld = 6000;
 	//private double fiabilidade = 0.70;
 
 	public PC1() {
@@ -8,7 +8,7 @@ public class PC1 extends Veiculo{
 	}
 
 	public PC1(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int h) {
-		super(marca, modelo, cilindrada, cv, p1, p2, h);
+		super(marca, modelo, cld, cv, p1, p2, h);
 	}
 
 	
@@ -20,10 +20,8 @@ public class PC1 extends Veiculo{
 
 	
 	public PC1 (PC1 pc) {
-	    
         super(pc);
-        this.setCilindrada(cld);
-        
+        this.setCilindrada(cld);      
     }
     
     public void setCilindrada(int cl){
