@@ -92,7 +92,7 @@ public void setApostaCorrente(ArrayList<Aposta> p){
 this.adecorrer = p;
 }
 public void seHistorico(ArrayList<Aposta> p){
-this.historico = p;
+this.hist = p;
 }
 	// clone
 	public Jogador clone() {

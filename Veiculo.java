@@ -1,4 +1,4 @@
-public abstract Veiculo {
+public abstract class Veiculo {
 	private String marca;
 	private String modelo;
 	private int cilindrada;
@@ -91,9 +91,7 @@ public abstract Veiculo {
 	/*
 	 * clone
 	 */
-	public Veiculo clone() {
-		return new Veiculo();
-	}
+	public abstract Veiculo clone() ;
 
 	/*
 	 * equals

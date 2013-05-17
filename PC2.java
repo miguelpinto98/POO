@@ -12,7 +12,7 @@ public class PC2 extends Veiculo{
 	/** Construtor por partes */
 	public PC2(String marca, String modelo, int cilindrada, int cv,
 		Piloto p1, Piloto p2) {
-		super(marca, modelo, cld, cv, p1, p2);
+		super(marca, modelo, cilindrada, cv, p1, p2);
 		
 	}
 
