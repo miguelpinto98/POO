@@ -30,7 +30,7 @@ public class Jogador {
 		this.dc = j.getDc();
 	}
 
-	// get
+	// GETTERS
 	public String getNome() {
 		return nome;
 	}
@@ -67,10 +67,7 @@ public class Jogador {
 		return aux;
 	}
 
-	// set
-	// FALTAMpublic String getNome() {
-	
-
+	// SETTERS
 	public void setDi(double m) {
 		this.di = m;
 	}
@@ -78,9 +75,11 @@ public class Jogador {
 	public void setDg(double m) {
 		this.dg = m;
 	}
+
 	public void setDc(double m) {
 		this.dc = m;
 	}
+
 	public void setNome(String s) {
 		this.nome = s;
 	}
@@ -88,12 +87,15 @@ public class Jogador {
 	public void setMorada(String s) {
 		this.morada = s;
 	}
-public void setApostaCorrente(ArrayList<Aposta> p){
-this.adecorrer = p;
-}
-public void seHistorico(ArrayList<Aposta> p){
-this.historico = p;
-}
+
+	public void setApostaCorrente(ArrayList<Aposta> p) {
+		this.adecorrer = p;
+	}
+
+	public void seHistorico(ArrayList<Aposta> p) {
+		this.hist = p;
+	}
+
 	// clone
 	public Jogador clone() {
 		return new Jogador(this);
