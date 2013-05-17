@@ -6,20 +6,21 @@ public class Manager {
 	private Campeonato campeonato;
 	private HashMap<String, Jogador> apostadores;
 
-	public Manager(){
-	this.campeonato = new Campeonato();
-	this.apostadores = new HashMap<String, Jogador>();
+	public Manager() {
+		this.campeonato = new Campeonato();
+		this.apostadores = new HashMap<String, Jogador>();
 	}
+	
+	public Manager(Campeonato c, HashMap<String, Jogador> d) {
+		this.campeonato = c;
+		this.apostadores = d;
+	}
+
 	public Manager(Manager m) {
 		this.campeonato = m.getCampeonato();
 		HashMap<String, Jogador> aux = m.getapostadores();
 		for (String nome : aux.keySet())
 			this.apostadores.put(nome, aux.get(nome));
-	}
-
-	public Manager(Campeonato c, HashMap<String, Jogador> d) {
-this.campeonato = c;
-this.apostadores = d;
 	}
 
 	// get
@@ -30,9 +31,7 @@ this.apostadores = d;
 	public HashMap<String, Jogador> getapostadores() {
 		HashMap<String, Jogador> aux = new HashMap<String, Jogador>();
 		for (String nome : this.apostadores.keySet()) {
-
 			aux.put(nome, this.apostadores.get(nome).clone());
-
 		}
 		return aux;
 	}
@@ -69,8 +68,8 @@ this.apostadores = d;
 			return false;
 		else {
 			Manager m = (Manager) o;
-			return this.campeonato.equals(m.getCampeonato()) &&
-					this.apostadores.equals(m.getapostadores());
+			return this.campeonato.equals(m.getCampeonato())
+					&& this.apostadores.equals(m.getapostadores());
 		}
 	}
 }
