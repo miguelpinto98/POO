@@ -8,8 +8,8 @@ public class PC1 extends Veiculo {
 	}
 
 	/** Construtor por partes */
-	public PC1(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2) {
-		super(marca, modelo, cld, cv, p1, p2);
+	public PC1(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, boolean h) {
+		super(marca, modelo, cld, cv, p1, p2, h);
 	}
 
 	/** Construtor de cópia */

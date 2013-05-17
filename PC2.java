@@ -8,8 +8,8 @@ public class PC2 extends Veiculo{
 	}
 
 	public PC2(String marca, String modelo, int cilindrada, int cv,
-		Piloto p1, Piloto p2) {
-		super(marca, modelo, cilindrada, cv, p1, p2);
+		Piloto p1, Piloto p2, boolean h) {
+		super(marca, modelo, cilindrada, cv, p1, p2, h);
 	}
 
 	public PC2(PC2 pc) {
