@@ -6,6 +6,10 @@ public class Manager {
 	private Campeonato campeonato;
 	private HashMap<String, Jogador> apostadores;
 
+	public Manager(){
+	this.campeonato = new Campeonato();
+	this.apostadores = new HashMap<String, Jogador>();
+	}
 	public Manager(Manager m) {
 		this.campeonato = m.getCampeonato();
 		HashMap<String, Jogador> aux = m.getapostadores();
@@ -14,7 +18,8 @@ public class Manager {
 	}
 
 	public Manager(Campeonato c, HashMap<String, Jogador> d) {
-
+this.campeonato = c;
+this.apostadores = d;
 	}
 
 	// get
