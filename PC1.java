@@ -11,15 +11,25 @@ public class PC1 extends Veiculo{
 		super(marca, modelo, cilindrada, cv, p1, p2, h);
 	}
 
-	public PC1(PC1 pc) {
-		super(pc);
-	}
+	
 
 	/** Clone*/	 
 	public PC1 clone() {
 		return new PC1(this);
 	}
 
+	
+	public PC1 (PC1 pc) {
+	    
+        super(pc);
+        this.setCilindrada(cld);
+        
+    }
+    
+    public void setCilindrada(int cl){
+    
+    super.setCilindrada(cl);
+    }
 	/** ToString*/
 	public String toString() {
 		StringBuilder s = new StringBuilder();
