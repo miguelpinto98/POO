@@ -3,14 +3,16 @@ import java.util.HashSet;
 public class Campeonato {
 
 	private HashSet<Corrida> corridas;
+	
+	Campeonato() {
+		this.corridas = new HashSet<Corrida> ();
+	}
 
 	Campeonato(HashSet<Corrida> c) {
 		for (Corrida a : c)
 			this.corridas.add(a.clone());
 	}
-Campeonato()
-this.corridas = new HashSet<Corrida>();
-{
+	
 	Campeonato(Campeonato c) {
 		for (Corrida a : c.getCorridas())
 			this.corridas.add(a);
