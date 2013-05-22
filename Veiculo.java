@@ -32,13 +32,13 @@ public abstract class Veiculo {
 	}
 
 	public Veiculo(Veiculo v) {
-		this.marca = getMarca();
-		this.modelo = getModelo();
-		this.cilindrada = getCilindrada();
-		this.cv = getCV();
-		this.p1 = getPiloto1();
-		this.p2 = getPiloto2();
-		this.hibrido = getHibrido();
+		this.marca = v.getMarca();
+		this.modelo = v.getModelo();
+		this.cilindrada = v.getCilindrada();
+		this.cv = v.getCV();
+		this.p1 = v.getPiloto1();
+		this.p2 = v.getPiloto2();
+		this.hibrido = v.getHibrido();
 	}
 
 	/*
