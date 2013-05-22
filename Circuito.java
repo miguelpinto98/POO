@@ -1,9 +1,9 @@
 
 
 public class Circuito {
-	private int distancia,
-	nvoltas;
-	private Time tpc1,
+    String nome;
+	private int distancia,nvoltas;
+	private int tpc1,
 	tpc2,
 	tgt,
 	tsc,
@@ -13,7 +13,7 @@ public class Circuito {
 	private Piloto recordista;
 
 	//construtores
-	public Circuito(int distancia, int nvoltas, Time tpc1, Time tpc2, Time tgt, Time tsc, Time trecord, Time tdesviom, Time tboxes, Piloto recordista) {
+	public Circuito(int distancia, int nvoltas, int tpc1, int tpc2, int tgt, int tsc, int trecord, int tdesviom, int tboxes, Piloto recordista) {
 		this.distancia = distancia;
 		this.nvoltas = nvoltas;
 		this.tpc1 = tpc1;
@@ -29,13 +29,13 @@ public class Circuito {
 	public Circuito() {
 		this.distancia = 0;
 		this.nvoltas = 0;
-		this.tpc1 = new Time();
-		this.tpc2 = new Time();
-		this.tgt = new Time();
-		this.tsc = new Time();
-		this.trecord = new Time();
-		this.tdesviom = new Time();
-		this.tboxes = new Time();
+		this.tpc1 = 0;
+		this.tpc2 = 0;
+		this.tgt = 0;
+		this.tsc = 0;
+		this.trecord = 0;
+		this.tdesviom = 0;
+		this.tboxes = 0;
 		this.recordista = new Piloto();
 
 	}
@@ -63,31 +63,31 @@ public class Circuito {
 		return nvoltas;
 	}
 
-	public Time getTpc1() {
+	public int getTpc1() {
 		return tpc1;
 	}
 
-	public Time getTpc2() {
+	public int getTpc2() {
 		return tpc2;
 	}
 
-	public Time getTgt() {
+	public int getTgt() {
 		return tgt;
 	}
 
-	public Time getTsc() {
+	public int getTsc() {
 		return tsc;
 	}
 
-	public Time getTrecord() {
+	public int getTrecord() {
 		return trecord;
 	}
 
-	public Time getTdesviom() {
+	public int getTdesviom() {
 		return tdesviom;
 	}
 
-	public Time getTboxes() {
+	public int getTboxes() {
 		return tboxes;
 	}
 
@@ -104,31 +104,31 @@ public class Circuito {
 		this.nvoltas = nvoltas;
 	}
 
-	public void setTpc1(Time tpc1) {
+	public void setTpc1(int tpc1) {
 		this.tpc1 = tpc1;
 	}
 
-	public void setTpc2(Time tpc2) {
+	public void setTpc2(int tpc2) {
 		this.tpc2 = tpc2;
 	}
 
-	public void setTgt(Time tgt) {
+	public void setTgt(int tgt) {
 		this.tgt = tgt;
 	}
 
-	public void setTsc(Time tsc) {
+	public void setTsc(int tsc) {
 		this.tsc = tsc;
 	}
 
-	public void setTrecord(Time trecord) {
+	public void setTrecord(int trecord) {
 		this.trecord = trecord;
 	}
 
-	public void setTdesviom(Time tdesviom) {
+	public void setTdesviom(int tdesviom) {
 		this.tdesviom = tdesviom;
 	}
 
-	public void setTboxes(Time tboxes) {
+	public void setTboxes(int tboxes) {
 		this.tboxes = tboxes;
 	}
 
@@ -162,7 +162,7 @@ public class Circuito {
 			return false;
 		else {
 			Circuito v = (Circuito)o;
-			return (this.getDistancia() == v.getDistancia() && this.getNvoltas() == v.getNvoltas() && this.getTrecord().equals(v.getTrecord()));
+			return (this.getDistancia() == v.getDistancia() && this.getNvoltas() == v.getNvoltas() && this.getTrecord()==v.getTrecord());
 		}
 
 	}
