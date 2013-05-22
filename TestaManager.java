@@ -8,19 +8,13 @@ public class TestaManager
 			 Piloto p2 = new Piloto("Mario", "Portugal", 100,
 			10, false);
 			Piloto p3= new Piloto("Jiggs", "Espanha", 30,
-			7, false);
+			1, false);
 			
 	    PC1 v1 = new PC1("Renault", "2000", 6000, 4000,p1,  p2,0);
 		
-		Time tpc1 = new Time(1,15,30);
-		Time tpc2 = new Time(1,15,30);
-		Time tgt = new Time(1,15,30);
-		Time tsc= new Time(1,15,30);
-		Time trecord = new Time(1,15,30);
-		Time tdesviom = new Time(1,15,30);
-		Time tboxes = new Time(1,15,30);
-		Circuito c1 = new Circuito (2000, 100, tpc1, tpc2, tgt, tsc, trecord, tdesviom, tboxes, p3);
-      Circuito cir1 = new Circuito(2000, 100, tpc1, tpc2, tgt, tsc, trecord, tdesviom, tboxes, p3);
+		
+		Circuito c1 = new Circuito (2000, 10, 75000, 75000, 2000, 5000, 3800, 20000, 50, p3);
+      Circuito cir1 = new Circuito(2000, 100, 213, 3212, 5532, 34233, 38, 40, 5, p3);
 		HashSet<Veiculo> v = new HashSet<Veiculo>();
 		v.add(v1);
 		Corrida c2 = new Corrida (v, c1 ,false);
@@ -29,6 +23,15 @@ public class TestaManager
 		v2.add(c2);
 		v2.add(c3);
 		Campeonato k1 = new Campeonato(v2);
-		System.out.println(k1.toString());
+		int k = 0; int l = 0;
+		for(int i = 0 ; i < 20; i++){
+		int x = v1.tempoProximaVolta(p2,c1,false);
+		int y = v1.tempoProximaVolta(p3,c1,false); 
+		l+=y;
+		k+=x;
+		 if ( x >y) 
+		System.out.println(  "JIGGS");
+		else System.out.println(  "MARIO");}
+		System.out.println( "JIGGS  "+ l/1000+" Mario "+ k/1000); 
     }
 }
