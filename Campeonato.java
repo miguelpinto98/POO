@@ -9,6 +9,7 @@ public class Campeonato {
 	}
 
 	Campeonato(HashSet<Corrida> c) {
+	    this.corridas = new HashSet<Corrida>();
 		for (Corrida a : c)
 			this.corridas.add(a.clone());
 	}

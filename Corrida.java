@@ -13,6 +13,7 @@ public class Corrida {
 	}
 	
 	public Corrida(HashSet<Veiculo> v, Circuito c, boolean p) {
+	    this.conjveiculos = new HashSet<Veiculo>();
 		for(Veiculo vc : v)
 			this.conjveiculos.add(vc);
 		this.crt = c;
