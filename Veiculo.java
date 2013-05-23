@@ -142,16 +142,7 @@ private boolean pactivo;
 	/*
 	 * toString
 	 */
-	public String toString() {
-		StringBuilder str = new StringBuilder();
-
-		str.append("Marca: " + this.marca + "\n");
-		str.append("Modelo: " + this.modelo + "\n");
-		str.append("Cilindrada: " + this.cilindrada + "\n");
-		str.append("Cavalos: " + this.cv + "\n");
-		str.append("Piloto1: " + this.p1.toString() + "\n");
-		str.append("Pilto2: " + this.p2.toString() + "\n");
-
-		return str.toString();
-	}
+	public abstract String toString();
+		
+	public abstract int tempoProximaVolta(Circuito c,boolean chuva);
 }

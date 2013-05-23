@@ -27,11 +27,17 @@ public class SC extends Veiculo {
 	}
 	
 	/** ToString*/
-	public String toString() {
-        StringBuilder s = new StringBuilder ();
-        s.append("SC");
-        s.append(super.toString());
-        
-        return s.toString();
+    	 public String toString(){ 
+    	   StringBuilder str = new StringBuilder("PC1 ");
+
+		str.append("Marca: " + this.getMarca() + "\n");
+		str.append("Modelo: " + this.getModelo() + "\n");
+		str.append("Cilindrada: " + this.getCilindrada() + "\n");
+		str.append("Cavalos: " + this.getCV() + "\n");
+		str.append("Piloto1: " + this.getPiloto1().toString() + "\n");
+		str.append("Pilto2: " + this.getPiloto2().toString() + "\n");
+
+		return str.toString();
 	}
+	public int tempoProximaVolta(Circuito c , boolean  chuva) { return 1;}
 }

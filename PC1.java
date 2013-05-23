@@ -30,35 +30,33 @@ public class PC1 extends Veiculo{
         super.setCilindrada(cl);
         }
     	/** ToString*/
-    	public String toString() {
-    		StringBuilder s = new StringBuilder();
-    		s.append("PC1");
-    		s.append(super.toString());
-    
-    		return s.toString();
-    	}
+    	 public String toString(){ 
+    	   StringBuilder str = new StringBuilder("PC1 ");
+
+		str.append("Marca: " + this.getMarca() + "\n");
+		str.append("Modelo: " + this.getModelo() + "\n");
+		str.append("Cilindrada: " + this.getCilindrada() + "\n");
+		str.append("Cavalos: " + this.getCV() + "\n");
+		str.append("Piloto1: " + this.getPiloto1().toString() + "\n");
+		str.append("Pilto2: " + this.getPiloto2().toString() + "\n");
+
+		return str.toString();
+	}
     
     	/** Equals*/
     	public boolean equals(Object o) {
     		return (super.equals(o));
     	}
-    	private double Escala(int cil, int cav){
-    	    
-
-    	    double x1 = (cil+cav)*fiabilidade;
-    	    
-    	    
-    	    
-    	    
-    	    return x1;
-    	   }
-    	public int tempoProximaVolta(Veiculo v, Circuito c,boolean chuva){
+    	
+    	public int tempoProximaVolta( Circuito c,boolean chuva){
     	    Random r = new Random();
-    	    int res = c.getTpc1() + r.nextInt(c.getTdesviom())- ((int)(v.getPilotoActivo()* 500 + Escala(v.getCilindrada(),v.getCV() ) )) ;
+    	    int res = c.getTpc1() + r.nextInt()- ((int)(this.getPilotoActivo()*1000 + ((this.getCilindrada()+this.getCV())/(this.getCilindrada()-this.getCV()))*fiabilidade) );
     	    /*int xaxa = c.getTpc1() - c.getTrecord();
     	    System.out.println(xaxa + "\n");*/
     	   if(res < c.getTrecord()) c.setTrecord(res);
     	 return res;
     	   
     	   }
+    	  
+    	  
     }
