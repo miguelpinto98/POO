@@ -1,21 +1,18 @@
 import java.util.*;
-public class TestaManager
-{
-   public static void main(String[] args){
-    
-    Piloto p1 = new Piloto("QUinze", "China", 1,
-			6, true);
-			 Piloto p2 = new Piloto("Mario", "Portugal", 100,
-			10, false);
-			Piloto p3= new Piloto("Jiggs", "Espanha", 30,
-			10, false);
-			
-	    PC1 v1 = new PC1("Renault", "2000", 6000, 5000,p2,  p2,0);
-	     PC1 v3 = new PC1("Renault", "2000", 6000, 5000,p3,  p2,0);
-		
-		
-		Circuito c1 = new Circuito (2000, 1, 75000, 80000, 2000, 5000, 70000, 20000, 50, p3);
-      Circuito cir1 = new Circuito(2000, 100, 213, 3212, 5532, 34233, 38, 40, 5, p3);
+
+public class TestaManager {
+	public static void main(String[] args) {
+
+		Piloto p1 = new Piloto("QUinze", "China", 1, 6, true);
+		Piloto p2 = new Piloto("Mario", "Portugal", 100, 1, false);
+		Piloto p3 = new Piloto("Jiggs", "Espanha", 30, 10, false);
+
+		PC1 v1 = new PC1("Renault", "2000", 6000, 4000, p2, p2, 0); // M
+		PC1 v3 = new PC1("Renault", "2000", 6000, 4000, p3, p2, 0); // J
+
+		Circuito c1 = new Circuito(2000, 10, 75000, 0, 0, 0, 70000, 20000, 50, p3);
+		Circuito cir1 = new Circuito(2000, 100, 213, 3212, 5532, 34233, 38, 40, 5, p3);
+
 		HashSet<Veiculo> v = new HashSet<Veiculo>();
 		v.add(v1);
 		v.add(v3);
@@ -38,7 +35,5 @@ public class TestaManager
 		else System.out.println(  "MARIO " + (double)x/(double)1000);}
 		System.out.println( "JIGGS  "+ l/1000+" Mario "+ k/1000); */
 		for(Veiculo vaa : c2.fazCircuito().keySet()){ System.out.println("um " + c2.fazCircuito().get(vaa)/1000+ "\n");}
-		
-		
-    }
+	}	
 }
