@@ -6,7 +6,7 @@ public abstract class Veiculo {
 	private Piloto p1;
 	private Piloto p2;
 	private int hibrido;
-
+private boolean pactivo;
 	/*
 	 * Constructor for objects of class Veiculo
 	 */
@@ -44,6 +44,14 @@ public abstract class Veiculo {
 	/*
 	 * Métodos de Instância
 	 */
+	
+	public int getPilotoActivo(){ int x= 0;
+	   if (pactivo == true)  x = p1.getQualidade();
+	   if (pactivo == false) x = p2.getQualidade();
+	   return x;
+	   }
+	
+	
 	public String getMarca() {
 		return this.marca;
 	}
@@ -100,6 +108,11 @@ public abstract class Veiculo {
 		this.hibrido = h;
 	}
 
+	public void setPilotoActivo(){
+	   if (pactivo == true) pactivo = false;
+	   if (pactivo == false) pactivo = true;
+	   }
+	
 	/*
 	 * clone
 	 */
