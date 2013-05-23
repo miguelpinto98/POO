@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.HashMap;
 
 public class Corrida {
 
@@ -59,7 +60,7 @@ public class Corrida {
         StringBuilder s = new StringBuilder();
         
         s.append("-----------------Corrida-------------------\n");
-        s.append("Número de Veiculos: "+ this.conjveiculos.size() + "\n");
+        s.append("N��mero de Veiculos: "+ this.conjveiculos.size() + "\n");
         s.append("Circuito: " + this.crt.toString() + "\n");
         s.append("Piso Molhado: " + this.piso + "\n");
         s.append("-------------------------------------------\n");
@@ -80,4 +81,32 @@ public class Corrida {
 	public Corrida clone() {
 		return new Corrida(this);
 	}
+	
+	public HashMap<Veiculo,Integer>  fazVolta(){ 
+	    HashMap<Veiculo,Integer>  aux = new HashMap<Veiculo,Integer>();
+	   for(Veiculo v : conjveiculos){ aux.put(v,v.tempoProximaVolta(crt,piso));
+	   
+	   }
+	   return aux;
+	   }
+	   
+	   public HashMap<Veiculo,Integer>fazCircuito(){HashMap<Veiculo,Integer>  aux = new HashMap<Veiculo,Integer> ();
+	        HashMap<Veiculo,Integer>  aux2 = new HashMap<Veiculo,Integer>();
+	        
+	        
+	         aux2 = this.fazVolta(); 
+	          
+	         for( Veiculo v : aux2.keySet()){ aux.put(v,aux2.get(v));}
+	       for(int i = 1; i < crt.getNvoltas(); i++){  
+	           aux2 = this.fazVolta(); 
+	           for( Veiculo v : aux2.keySet()){ aux.put(v,aux2.get(v)+aux.get(v));}
+	       
+	       
+	       
+	       
+	       
+	       }
+	   
+	   return aux;
+	   }
 }
