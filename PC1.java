@@ -54,7 +54,7 @@ public class PC1 extends Veiculo{
     	   }
     	public int tempoProximaVolta(Veiculo v, Circuito c,boolean chuva){
     	    Random r = new Random();
-    	    int res = c.getTpc1() + r.nextInt(c.getTdesviom())- ((int)(v.getPilotoActivo()* 500+ Escala(v.getCilindrada(),v.getCV() ) )) ;
+    	    int res = c.getTpc1() + r.nextInt(c.getTdesviom())- ((int)(v.getPilotoActivo()* 500 + Escala(v.getCilindrada(),v.getCV() ) )) ;
     	    /*int xaxa = c.getTpc1() - c.getTrecord();
     	    System.out.println(xaxa + "\n");*/
     	   if(res < c.getTrecord()) c.setTrecord(res);
