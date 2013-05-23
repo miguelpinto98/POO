@@ -2,7 +2,7 @@ import java.util.Random;
 public class PC1 extends Veiculo{
     
     	private static final int cld = 6000;
-    	//private double fiabilidade = 0.70;
+    	private double fiabilidade = 0.70;
     
     	public PC1() {
     		super();
@@ -42,20 +42,22 @@ public class PC1 extends Veiculo{
     	public boolean equals(Object o) {
     		return (super.equals(o));
     	}
-    	private int Escala(int cil, int cav){
-    	    Random r = new Random();
-    	    int x = r.nextInt(10000);
+    	private double Escala(int cil, int cav){
+    	    
+
+    	    double x1 = (cil+cav)*fiabilidade;
     	    
     	    
     	    
-    	    return x;
+    	    
+    	    return x1;
     	   }
     	public int tempoProximaVolta(Veiculo v, Circuito c,boolean chuva){
     	    Random r = new Random();
-    	    int res = c.getTpc1() + r.nextInt(c.getTpc1() - c.getTrecord())- (v.getPilotoActivo()/2 * Escala(v.getCilindrada(),v.getCV() ) ) ;
+    	    int res = c.getTpc1() + r.nextInt(c.getTdesviom())- ((int)(v.getPilotoActivo()* 500+ Escala(v.getCilindrada(),v.getCV() ) )) ;
     	    /*int xaxa = c.getTpc1() - c.getTrecord();
     	    System.out.println(xaxa + "\n");*/
-    	   
+    	   if(res < c.getTrecord()) c.setTrecord(res);
     	 return res;
     	   
     	   }

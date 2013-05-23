@@ -6,11 +6,11 @@ public class TestaManager
     Piloto p1 = new Piloto("QUinze", "China", 1,
 			6, true);
 			 Piloto p2 = new Piloto("Mario", "Portugal", 100,
-			10, false);
-			Piloto p3= new Piloto("Jiggs", "Espanha", 30,
 			1, false);
+			Piloto p3= new Piloto("Jiggs", "Espanha", 30,
+			10, false);
 			
-	    PC1 v1 = new PC1("Renault", "2000", 6000, 4000,p2,  p2,0);
+	    PC1 v1 = new PC1("Renault", "2000", 6000, 2000,p2,  p2,0);
 	     PC1 v3 = new PC1("Renault", "2000", 6000, 4000,p3,  p2,0);
 		
 		
@@ -30,9 +30,11 @@ public class TestaManager
 		int y = v1.tempoProximaVolta(v3,c1,false); 
 		l+=y;
 		k+=x;
+		
+		System.out.println(" LINDO " +l);
 		 if ( x >y) 
-		System.out.println(  "JIGGS" + x/1000 );
-		else System.out.println(  "MARIO" + y/1000);}
+		System.out.println(  "JIGGS " + (double) y/(double)1000 );
+		else System.out.println(  "MARIO " + (double)x/(double)1000);}
 		System.out.println( "JIGGS  "+ l/1000+" Mario "+ k/1000); 
     }
 }
