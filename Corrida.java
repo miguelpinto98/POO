@@ -84,7 +84,7 @@ public class Corrida {
 	
 	public HashMap<Veiculo,Integer> fazVolta(){ HashMap<Veiculo,Integer> aux = new HashMap<Veiculo,Integer>();
 	    
-	   for(veiculo v  : conjveiculos){
+	   for(Veiculo v  : conjveiculos){
 		aux.put(v, v.tempoProximaVolta(crt,piso) );
 		}
 		return aux;
@@ -94,8 +94,10 @@ public class Corrida {
 	
 	HashMap<Veiculo,Integer> aux = new HashMap<Veiculo,Integer>();
 	
-	for(int i = 0; i< nvoltas ; i++){ aux = fazvolta();
-	for (veiculo v : aux.keySet()){
+	for(int i = 0; i< nvoltas ; i++){ aux = fazVolta();
+	    
+	for (Veiculo v : aux.keySet()){
+	    
 	c.put(v,c.get(v)+aux.get(v));
 	
 	}
