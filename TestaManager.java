@@ -25,8 +25,8 @@ public class TestaManager
 		Campeonato k1 = new Campeonato(v2);
 		int k = 0; int l = 0;
 		for(int i = 0 ; i < 20; i++){
-		int x = v1.tempoProximaVolta(p2,c1,false);
-		int y = v1.tempoProximaVolta(p3,c1,false); 
+		int x = v1.tempoProximaVolta(v1,c1,false);
+		int y = v1.tempoProximaVolta(v1,c1,false); 
 		l+=y;
 		k+=x;
 		 if ( x >y) 

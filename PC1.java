@@ -42,10 +42,13 @@ public class PC1 extends Veiculo{
     	public boolean equals(Object o) {
     		return (super.equals(o));
     	}
-    	
-    	public int tempoProximaVolta(Piloto p, Circuito c,boolean chuva){
+    	private double Escala(int cil, int cav){
+    	   double x = 2.5;
+    	    return x;
+    	   }
+    	public int tempoProximaVolta(Veiculo v, Circuito c,boolean chuva){
     	    Random r = new Random();
-    	    int res = c.getTpc1() + r.nextInt(c.getTdesviom()- p.getQualidade())-15 ;
+    	    int res = c.getTpc1() + r.nextInt(c.getTrecord()-c.getTpc1())- ((int)(v.getPilotoActivo() * Escala(v.getCilindrada(),v.getCV() ) )) ;
     	    
     	   
     	 return res;
