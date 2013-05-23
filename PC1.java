@@ -59,7 +59,7 @@ public class PC1 extends Veiculo {
 			res = -1000;
 		else {
 			//System.out.println(c.getTpc1());
-			res = r.nextInt(c.getTpc1() - c.getTrecord());
+			res = r.nextInt(c.getTpc1()) - ((10-this.getPilotoActivo())+this.getCV()*this.getCilindrada());
 		}
 			
 
