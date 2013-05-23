@@ -18,6 +18,7 @@ private boolean pactivo;
 		this.p1 = new Piloto();
 		this.p2 = new Piloto();
 		this.hibrido = 0;
+		this.pactivo = true;
 	}
 
 	public Veiculo(String marca, String modelo, int cilindrada, int cv,
@@ -29,6 +30,7 @@ private boolean pactivo;
 		this.p1 = p1;
 		this.p2 = p2;
 		this.hibrido = h;
+		this.pactivo = true;
 	}
 
 	public Veiculo(Veiculo v) {
@@ -39,12 +41,13 @@ private boolean pactivo;
 		this.p1 = v.getPiloto1();
 		this.p2 = v.getPiloto2();
 		this.hibrido = v.getHibrido();
+		this.pactivo = v.getPactivo();
 	}
 
 	/*
 	 * Métodos de Instância
 	 */
-	
+	public boolean getPactivo(){return this.pactivo;}
 	public int getPilotoActivo(){ int x= 0;
 	   if (pactivo == true)  x = p1.getQualidade();
 	   if (pactivo == false) x = p2.getQualidade();
