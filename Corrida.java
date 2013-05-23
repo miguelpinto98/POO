@@ -84,12 +84,9 @@ public class Corrida {
 	
 	public void fazVolta(HashMap<Veiculo,Integer> c){ 
 	    
-	   for(Veiculo v : conjveiculos){ c.put(v,c.get(v)+ v.tempoProximaVolta(crt,piso) );
-	   
-	   }
-	   
-	   }
-	   
+	   for(Veiculo v : conjveiculos){ 
+			c.put(v,c.get(v)+ v.tempoProximaVolta(crt,piso) );
+		}
 	
 	public HashMap<Veiculo,Integer>fazCircuito(){
 		HashMap<Veiculo,Integer>  aux = new HashMap<Veiculo,Integer> ();
