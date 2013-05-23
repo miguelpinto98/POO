@@ -82,23 +82,46 @@ public class Corrida {
 		return new Corrida(this);
 	}
 	
-	public void fazVolta(HashMap<Veiculo,Integer> c){ 
+	public HashMap<Veiculo,Integer> fazVolta(){ HashMap<Veiculo,Integer> aux = new HashMap<Veiculo,Integer>();
 	    
-	   for(Veiculo v : conjveiculos){ 
-			c.put(v,c.get(v)+ v.tempoProximaVolta(crt,piso) );
+	   for(veiculo v  : conjveiculos){
+		aux.put(v, v.tempoProximaVolta(crt,piso) );
 		}
+		return aux;
 	}
 	
-	public HashMap<Veiculo,Integer>fazCircuito(){
+	public void fazVoltas(HashMap<Veiculo,Integer> c,int nvoltas){
+	
+	HashMap<Veiculo,Integer> aux = new HashMap<Veiculo,Integer>();
+	
+	for(int i = 0; i< nvoltas ; i++){ aux = fazvolta();
+	for (veiculo v : aux.keySet()){
+	c.put(v,c.get(v)+aux.get(v));
+	
+	}
+	
+	
+	
+	   
+	
+			
+	
+	
+	}
+	
+	
+	
+	}
+	public HashMap<Veiculo,Integer>fazCampeonato(){
 		HashMap<Veiculo,Integer>  aux = new HashMap<Veiculo,Integer> ();
 
 	    for( Veiculo v : conjveiculos) { 
 			aux.put(v,0);
 		}
 	         
-	    for(int i = 0; i < crt.getNvoltas(); i++){  
-	        this.fazVolta(aux); 
-	    }         
+	     
+	        this.fazVoltas(aux,crt.getNvoltas()); 
+	             
 	return aux;
 	}
 }
