@@ -4,7 +4,7 @@ public class TestaManager {
 	public static void main(String[] args) {
 
 		Piloto p1 = new Piloto("QUinze", "China", 1, 6, true);
-		Piloto p2 = new Piloto("Mario", "Portugal", 100, 10, false);
+		Piloto p2 = new Piloto("Mario", "Portugal", 100, 1, false);
 		Piloto p3 = new Piloto("Jiggs", "Espanha", 30, 10, false);
 
 		PC1 v1 = new PC1("Renault", "2000", 6000, 4000, p2, p2, 0); // M
@@ -24,8 +24,8 @@ public class TestaManager {
 		int k = 0;
 		int l = 0;
 		for (int i = 0; i < 5; i++) {
-			int x = v1.tempoProximaVolta(v1, c1, false); // MARIO
-			int y = v1.tempoProximaVolta(v3, c1, false); // JIGS
+			int x = v1.tempoProximaVolta(c1, false); // MARIO
+			int y = v1.tempoProximaVolta(c1, false); // JIGS
 			l += y;
 			k += x;
 
