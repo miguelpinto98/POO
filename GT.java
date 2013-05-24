@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class GT extends Veiculo{
 
 	public GT() {
@@ -36,5 +38,10 @@ public class GT extends Veiculo{
 
 		return str.toString();
 	}
-	public int tempoProximaVolta(Circuito c , boolean  chuva) { return 1;}
+	public int tempoProximaVolta(Circuito c , boolean  chuva) {
+		Random r = new Random();
+		int res=0;
+
+		return res;
+	}
 }
