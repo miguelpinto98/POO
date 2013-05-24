@@ -1,4 +1,6 @@
 import java.util.HashSet;
+import java.util.HashMap;
+import java.util.TreeMap;
 
 public class Campeonato {
 
@@ -59,5 +61,17 @@ public class Campeonato {
 		}
 
 	}
-
+    
+	public TreeMap<Integer,Veiculo> fazCampeonato(){
+	   
+	   TreeMap<Integer,Veiculo> aux = new TreeMap<Integer,Veiculo>();
+	   HashMap<Veiculo,Integer> aux2 = new HashMap<Veiculo,Integer>();
+	   for(Corrida r : corridas){ r.fazCorrida(aux2);
+	   
+	   }
+	   for( Veiculo v: aux2.keySet()){
+	        aux.put(aux2.get(v), v);
+	   }
+	   return aux;
+	   }
 }

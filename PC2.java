@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class PC2 extends Veiculo{
 
 	//private int cld;
@@ -40,4 +42,20 @@ public class PC2 extends Veiculo{
 	public boolean equals(Object o) {
 		return (super.equals(o));
 	}
+	
+	public PC2 criaRandomPC2(){
+	   Random r = new Random();
+	   int pc2 = r.nextInt(5);
+	   
+	   switch (pc2){
+	       case 0 : new PC2("Ferrari", "Enzo", r.nextInt(2000)+4000, r.nextInt(200)+800, p1, p1, 0);
+	       case 1 : new PC2("Ascari", "A10", r.nextInt(2000)+4000, r.nextInt(200)+800, p2, p2, 0);
+	       case 2 : new PC2("Aston Martin", "V12 Zagato", r.nextInt(2000)+4000, r.nextInt(200)+800, p3, p3, 0);
+	       case 3 : new PC2("Mercedes-Benz", "Lotec C1000 ", r.nextInt(2000)+4000, r.nextInt(200)+800, p5, p5, 0);
+	       case 4 : new PC2("Edonis", "", r.nextInt(2000)+4000, r.nextInt(200)+800, p4, p4, 0);
+	       
+	   }
+	   
+	   return PC2;
+	   }
 }

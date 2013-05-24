@@ -1,7 +1,5 @@
-/**
- * 
- * @author pedro
- */
+import java.util.*;
+
 public class Piloto {
 	private String nome;
 	private String nacionalidade;
@@ -113,4 +111,25 @@ public class Piloto {
 
 		return s.toString();
 	}
+	
+	public Piloto criaRandomPiloto(){
+	   Random r = new Random();
+	   int piloto = r.nextInt(10);
+	   
+	   switch (piloto){
+	       case 0 : new Piloto("Ale Pelle", "Italia", r.nextInt(99)+1, r.nextInt(9)+1, false);
+	       case 1 : new Piloto("Romain Louis Grosjean", "França", r.nextInt(99)+1, r.nextInt(9)+1, false);
+	       case 2 : new Piloto("Kristóf Kovács", "Hungria", r.nextInt(99)+1, r.nextInt(9)+1, false);
+	       case 3 : new Piloto("B-J van Veenendaal", "Holanda", r.nextInt(99)+1, r.nextInt(9)+1, false);
+	       case 4 : new Piloto("Jonnas Vitorino", "Portugal", r.nextInt(99)+1, r.nextInt(9)+1, false);
+	       case 5 : new Piloto("Jan Magnussen", "Dinamarca", r.nextInt(99)+1, r.nextInt(9)+1, false);
+	       case 6 : new Piloto("Xiaoxin Liu", "China", r.nextInt(99)+1, r.nextInt(9)+1, false);
+	       case 7 : new Piloto("Michael Romanovich Novikov", "Russia", r.nextInt(99)+1, r.nextInt(9)+1, false);
+	       case 8 : new Piloto("Raul Da Costa", "África do Sul", r.nextInt(99)+1, r.nextInt(9)+1, false);
+	       case 9 : new Piloto("Anthony Ventura", "Estados Unidos", r.nextInt(99)+1, r.nextInt(9)+1, false);
+	       
+	       default : break;
+	   }
+	   }
+
 }
