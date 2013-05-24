@@ -3,11 +3,11 @@ import java.util.*;
 public class TestaManager {
 	public static void main(String[] args) {
 
-		Piloto p1 = new Piloto("Muito Fraco", "China", 0, 1, false);
-		Piloto p2 = new Piloto("Fraco", "Portugal", 5, 1, false);
-		Piloto p3 = new Piloto("Razoavel", "Espanha", 10, 1, false);
-		Piloto p4 = new Piloto("Bom", "Reino Unido", 15, 1, false);
-		Piloto p5 = new Piloto("Mt bom", "França", 20, 1, false);
+		Piloto p1 = new Piloto("Muito Fraco", "China", 0, 10, false);
+		Piloto p2 = new Piloto("Fraco", "Portugal", 5, 8, false);
+		Piloto p3 = new Piloto("Razoavel", "Espanha", 10, 6, false);
+		Piloto p4 = new Piloto("Bom", "Reino Unido", 15, 4, false);
+		Piloto p5 = new Piloto("Mt bom", "França", 20, 2, false);
 		
 		PC1 v1 = new PC1("Koenigsegg", "Agera R", 6000, 600, p1, p1, 0); 		//960cv
 		PC1 v2 = new PC1("SSC", "Tuatara", 6000, 800, p2, p2, 0); 				//1350cv
