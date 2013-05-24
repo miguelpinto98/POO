@@ -16,6 +16,14 @@ public class SC extends Veiculo {
 		this.setCilindrada(cld);
 	}
 	
+	public double calculaFiabilidade() {                     
+		return .75*this.getPilotoActivo() + .25*this.getCilindrada();
+	}
+	
+	public int tempoProximaVolta(Circuito c, boolean chuva) { 
+		return 1;
+	}
+	
 	/** Clone*/
 	public Veiculo clone() {
 		return new SC(this);
@@ -39,5 +47,4 @@ public class SC extends Veiculo {
 
 		return str.toString();
 	}
-	public int tempoProximaVolta(Circuito c , boolean  chuva) { return 1;}
 }
