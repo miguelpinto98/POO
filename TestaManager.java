@@ -3,37 +3,57 @@ import java.util.*;
 public class TestaManager {
 	public static void main(String[] args) {
 
-		Piloto p1 = new Piloto("QUinze", "China", 1, 6, true);
-		Piloto p2 = new Piloto("Mario", "Portugal", 100, 1, false);
-		Piloto p3 = new Piloto("Jiggs", "Espanha", 30, 10, false);
+		Piloto p1 = new Piloto("Muito Fraco", "China", 0, 1, false);
+		Piloto p2 = new Piloto("Fraco", "Portugal", 5, 1, false);
+		Piloto p3 = new Piloto("Razoavel", "Espanha", 10, 1, false);
+		Piloto p4 = new Piloto("Bom", "Reino Unido", 15, 1, false);
+		Piloto p5 = new Piloto("Mt bom", "França", 20, 1, false);
+		
+		PC1 v1 = new PC1("Koenigsegg", "Agera R", 6000, 600, p1, p1, 0); 		//960cv
+		PC1 v2 = new PC1("SSC", "Tuatara", 6000, 800, p2, p2, 0); 				//1350cv
+		PC1 v3 = new PC1("SSC", "Ultimate Aero TT", 6000, 1000, p3, p3, 0);		//1280cv
+		PC1 v4 = new PC1("Bugatti", "Veyron", 6000, 1200, p4, p4, 0);			//1200cv
+		PC1 v5 = new PC1("Venom", "GT", 6000, 1350, p5, p5, 0);					//1261cv
 
-		PC1 v1 = new PC1("Renault", "2000", 6000, 4000, p2, p2, 0); // M
-		PC1 v3 = new PC1("Renault", "2000", 6000, 1000, p3, p2, 0); // J
-
-		Circuito c1 = new Circuito(2000, 10, 75000, 0, 0, 0, 70000, 20000, 50, p3);
-		Circuito cir1 = new Circuito(2000, 100, 213, 3212, 5532, 34233, 38, 40, 5, p3);
+		SC s1 = new SC("Ferrari FXX", "", 2500, 350, p1, p1, 0);
+		SC s2 = new SC("Saleen S7", "", 2500, 550, p2, p1, 0);
+		SC s3 = new SC("Koenigsegg Agera", "", 2500, 750, p3, p1, 0);
+		SC s4 = new SC("SSC Ultimate Aero", "", 2500, 950, p4, p1, 0);
+		SC s5 = new SC("Koenigsegg Agera R", "", 2500, 1050, p5, p1, 0);
+		
+		Circuito ct1 = new Circuito("ALGARVE", 4664, 16, 100908, 0, 0, 0, 91464, 20000, 16000, p3);
+		Circuito ct2 = new Circuito("Estoril",4182, 13, 84000, 0, 0, 0, 84000, 40000, 50000, p3);
 
 		HashSet<Veiculo> v = new HashSet<Veiculo>();
 		v.add(v1);
 		v.add(v3);
-		Corrida c2 = new Corrida (v, c1 ,false);
-		Corrida c3 = new Corrida( v, cir1,true);
-		HashSet<Corrida> v2= new HashSet<Corrida>();
-		v2.add(c2);
-		v2.add(c3);
-		Campeonato k1 = new Campeonato(v2);
 		
-		int k = 0; int l = 0;
+		Corrida c2 = new Corrida (v, ct1 ,false);
+		Corrida c3 = new Corrida( v, ct2,true);
+		HashSet<Corrida> v96= new HashSet<Corrida>();
+		v96.add(c2);
+		v96.add(c3);
+		Campeonato k1 = new Campeonato(v96);
+		
+		double tx1=0, tx2=0, tx3=0, tx4=0, tx5=0;
 		for(int i = 0 ; i < 5; i++){
-		int x = v1.tempoProximaVolta(c1,false);
-		int y = v3.tempoProximaVolta(c1,false); 
-		l+=y;
-		k+=x;
+			double x1 = v1.tempoProximaVolta(ct1,false);
+			double x2 = v2.tempoProximaVolta(ct1,false);
+			double x3 = v3.tempoProximaVolta(ct1,false);
+			double x4 = v4.tempoProximaVolta(ct1,false);
+			double x5 = v5.tempoProximaVolta(ct1,false);
+			
+			tx1+=x1;
+			tx2+=x2;
+			tx3+=x3;
+			tx4+=x4;
+			tx5+=x5;
 		
-		
-		 //if (x>y) 
-			 System.out.println(  "JIGGS " + (double) y/(double)1000 + "MARIO " + (double)x/(double)1000);}
-		System.out.println( "JIGGS  "+ l/1000+" Mario "+ k/1000);
+			System.out.println("P1 " + x1/1000 + "\tP2 " + x2/1000 + "\tP3 " + x3/1000 + "\tP4 " + x4/1000 + "\tP5 " + x5/1000);
+		}
+		 System.out.println("\nP1 " + tx1/1000 + "\tP2 " + tx2/1000 + "\tP3 " + tx3/1000 + "\tP4 " + tx4/1000 + "\tP5 " + tx5/1000);
+
+		//System.out.println( "JIGGS  "+ l/1000+" Mario "+ k/1000);
 		
 		//for(Veiculo vaa : c2.fazCircuito().keySet()){ System.out.println("um " + c2.fazCircuito().get(vaa)/1000+ "\n");}
 	}	
