@@ -49,7 +49,7 @@ public class TestaManager {
 		v96.add(c2);
 		v96.add(c3);
 		Campeonato k1 = new Campeonato(v96);
-        /*
+        
 		double tx1=0, tx2=0, tx3=0, tx4=0, tx5=0;
 		for(int i = 0 ; i < 5; i++){
 			double x1 = v1.tempoProximaVolta(ct1,false);
@@ -67,7 +67,7 @@ public class TestaManager {
 			System.out.println("P1 " + x1/1000 + "\tP2 " + x2/1000 + "\tP3 " + x3/1000 + "\tP4 " + x4/1000 + "\tP5 " + x5/1000);
 		}
         System.out.println("\nP1 " + tx1/1000 + "\tP2 " + tx2/1000 + "\tP3 " + tx3/1000 + "\tP4 " + tx4/1000 + "\tP5 " + tx5/1000);
-        */
-		for(Veiculo vaa : c2.fazCampeonato().keySet()){ System.out.println("um " + c2.fazCampeonato().get(vaa)/1000+ "\n");}
+        
+		//for(Integer vaa : k1.fazCampeonato().keySet()){ System.out.println("um " + k1.fazCampeonato().get(vaa)/1000+ "\n");}
 	}	
 }
