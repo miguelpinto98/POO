@@ -1,9 +1,10 @@
 import java.util.Random;
+import java.lang.Math;
 
 public class PC1 extends Veiculo {
 
 	private static final int cld = 6000;
-	private double fiabilidade = 0.70;
+	private double fiabilidade = 0.85;
 
 	public PC1() {
 		super();
@@ -51,19 +52,12 @@ public class PC1 extends Veiculo {
 	public int tempoProximaVolta(Circuito c, boolean chuva) {
 		Random r = new Random();
 		int res=0;
-		
-		// int res = c.getTpc1() + r.nextInt() - ((int)(this.getPilotoActivo()*1000 + ((this.getCilindrada()+this.getCV())/(this.getCilindrada()-this.getCV()))*fiabilidade));
-		// int res = c.getTpc1() + r.nextInt(c.getDistancia() + c.getTpc1()) -(this.getPilotoActivo()*1000);
-		
-		if(r.nextInt(80) == 0)
+				
+		if(r.nextInt(85) == 0)
 			res = -1000;
 		else {
-			//System.out.println(c.getTpc1());
-			res = r.nextInt(c.getTpc1()) - ((10-this.getPilotoActivo())+this.getCV()*this.getCilindrada());
+			res = (int) (c.gettempoPC1() + r.nextInt(c.gettempoPC1()/c.getDistancia() + (c.gettempoPC1()-c.getTrecord())) - ((int)(this.getPilotoActivo()*1000 + ((this.getCilindrada()+this.getCV())/(this.getCilindrada()-this.getCV())))));
 		}
-			
-
 		return res;
-
 	}
 }
