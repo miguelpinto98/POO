@@ -29,8 +29,25 @@ public class PC1 extends Veiculo {
 
 		super.setCilindrada(cl);
 	}
+	
+	/**
+	 * Método que cálcula o tempo de uma volta
+	 */
+	public int tempoProximaVolta(Circuito c, boolean chuva) {
+		Random r = new Random();
+		int res=0;
+				
+		if(r.nextInt(85) == 0)
+			res = -1000;
+		else {
+			res = (int) (c.gettempoPC1() + r.nextInt(c.gettempoPC1()/c.getDistancia() + (c.gettempoPC1()-c.getTrecord())) - ((int)(this.getPilotoActivo()*1000 + ((this.getCilindrada()+this.getCV())/(this.getCilindrada()-this.getCV())))));
+		}
+		return res;
+	}
 
-	/** ToString */
+	/** 
+	 * ToString 
+	 */
 	public String toString() {
 		StringBuilder str = new StringBuilder("PC1 ");
 
@@ -47,17 +64,5 @@ public class PC1 extends Veiculo {
 	/** Equals */
 	public boolean equals(Object o) {
 		return (super.equals(o));
-	}
-
-	public int tempoProximaVolta(Circuito c, boolean chuva) {
-		Random r = new Random();
-		int res=0;
-				
-		if(r.nextInt(85) == 0)
-			res = -1000;
-		else {
-			res = (int) (c.gettempoPC1() + r.nextInt(c.gettempoPC1()/c.getDistancia() + (c.gettempoPC1()-c.getTrecord())) - ((int)(this.getPilotoActivo()*1000 + ((this.getCilindrada()+this.getCV())/(this.getCilindrada()-this.getCV())))));
-		}
-		return res;
 	}
 }
