@@ -118,18 +118,19 @@ public class Piloto {
 	   
 	   switch (piloto){
 	       case 0 : new Piloto("Ale Pelle", "Italia", r.nextInt(99)+1, r.nextInt(9)+1, false);
-	       case 1 : new Piloto("Romain Louis Grosjean", "França", r.nextInt(99)+1, r.nextInt(9)+1, false);
-	       case 2 : new Piloto("Kristóf Kovács", "Hungria", r.nextInt(99)+1, r.nextInt(9)+1, false);
+	       case 1 : new Piloto("Romain Louis Grosjean", "Fran��a", r.nextInt(99)+1, r.nextInt(9)+1, false);
+	       case 2 : new Piloto("Krist��f Kov��cs", "Hungria", r.nextInt(99)+1, r.nextInt(9)+1, false);
 	       case 3 : new Piloto("B-J van Veenendaal", "Holanda", r.nextInt(99)+1, r.nextInt(9)+1, false);
 	       case 4 : new Piloto("Jonnas Vitorino", "Portugal", r.nextInt(99)+1, r.nextInt(9)+1, false);
 	       case 5 : new Piloto("Jan Magnussen", "Dinamarca", r.nextInt(99)+1, r.nextInt(9)+1, false);
 	       case 6 : new Piloto("Xiaoxin Liu", "China", r.nextInt(99)+1, r.nextInt(9)+1, false);
 	       case 7 : new Piloto("Michael Romanovich Novikov", "Russia", r.nextInt(99)+1, r.nextInt(9)+1, false);
-	       case 8 : new Piloto("Raul Da Costa", "África do Sul", r.nextInt(99)+1, r.nextInt(9)+1, false);
+	       case 8 : new Piloto("Raul Da Costa", "��frica do Sul", r.nextInt(99)+1, r.nextInt(9)+1, false);
 	       case 9 : new Piloto("Anthony Ventura", "Estados Unidos", r.nextInt(99)+1, r.nextInt(9)+1, false);
 	       
 	       default : break;
 	   }
+	return null;
 	   }
 
 }
