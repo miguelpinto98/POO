@@ -3,58 +3,66 @@
 public class Circuito {
     String nome;
 	private int distancia,nvoltas;
-	private int tpc1,
-	tpc2,
-	tgt,
-	tsc,
+	private int tempoPC1,
+	tempoPC2,
+	tempoGT,
+	tempoSC,
 	trecord,
-	tdesviom,
+	tdesviochuva,
 	tboxes;
 	private Piloto recordista;
 
 	//construtores
-	public Circuito(int distancia, int nvoltas, int tpc1, int tpc2, int tgt, int tsc, int trecord, int tdesviom, int tboxes, Piloto recordista) {
+	public Circuito(String nome,int distancia, int nvoltas, int tempoPC1, int tempoPC2, int tempoGT, int tempoSC, int trecord, int tdesviochuva, int tboxes, Piloto recordista) {
+		this.nome = nome;
 		this.distancia = distancia;
 		this.nvoltas = nvoltas;
-		this.tpc1 = tpc1;
-		this.tpc2 = tpc2;
-		this.tgt = tgt;
-		this.tsc = tsc;
+		this.tempoPC1 = tempoPC1;
+		this.tempoPC2 = tempoPC2;
+		this.tempoGT = tempoGT;
+		this.tempoSC = tempoSC;
 		this.trecord = trecord;
-		this.tdesviom = tdesviom;
+		this.tdesviochuva = tdesviochuva;
 		this.tboxes = tboxes;
 		this.recordista = recordista;
 	}
 
 	public Circuito() {
+		this.nome = "";
 		this.distancia = 0;
 		this.nvoltas = 0;
-		this.tpc1 = 0;
-		this.tpc2 = 0;
-		this.tgt = 0;
-		this.tsc = 0;
+		this.tempoPC1 = 0;
+		this.tempoPC2 = 0;
+		this.tempoGT = 0;
+		this.tempoSC = 0;
 		this.trecord = 0;
-		this.tdesviom = 0;
+		this.tdesviochuva = 0;
 		this.tboxes = 0;
 		this.recordista = new Piloto();
 
 	}
 
 	public Circuito(Circuito c) {
+		this.nome = c.getNomeCircuito();
 		this.distancia = c.getDistancia();
 		this.nvoltas = c.getNvoltas();
-		this.tpc1 = c.getTpc1();
-		this.tpc2 = c.getTpc2();
-		this.tgt = c.getTgt();
-		this.tsc = c.getTsc();
+		this.tempoPC1 = c.gettempoPC1();
+		this.tempoPC2 = c.gettempoPC2();
+		this.tempoGT = c.gettempoGT();
+		this.tempoSC = c.gettempoSC();
 		this.trecord = c.getTrecord();
-		this.tdesviom = c.getTdesviom();
+		this.tdesviochuva = c.gettdesviochuva();
 		this.tboxes = c.getTboxes();
 		this.recordista = c.getRecordista().clone();
 
 	}
 
-	//get
+	//GETTERS
+	
+	public String getNomeCircuito() {
+		return nome;
+	}
+	
 	public int getDistancia() {
 		return distancia;
 	}
@@ -63,28 +71,28 @@ public class Circuito {
 		return nvoltas;
 	}
 
-	public int getTpc1() {
-		return tpc1;
+	public int gettempoPC1() {
+		return tempoPC1;
 	}
 
-	public int getTpc2() {
-		return tpc2;
+	public int gettempoPC2() {
+		return tempoPC2;
 	}
 
-	public int getTgt() {
-		return tgt;
+	public int gettempoGT() {
+		return tempoGT;
 	}
 
-	public int getTsc() {
-		return tsc;
+	public int gettempoSC() {
+		return tempoSC;
 	}
 
 	public int getTrecord() {
 		return trecord;
 	}
 
-	public int getTdesviom() {
-		return tdesviom;
+	public int gettdesviochuva() {
+		return tdesviochuva;
 	}
 
 	public int getTboxes() {
@@ -96,6 +104,11 @@ public class Circuito {
 	}
 
 	//set
+	
+	public void setNomeCircuito(String nome) {
+		this.nome = nome;
+	}
+	
 	public void setDistancia(int distancia) {
 		this.distancia = distancia;
 	}
@@ -104,28 +117,28 @@ public class Circuito {
 		this.nvoltas = nvoltas;
 	}
 
-	public void setTpc1(int tpc1) {
-		this.tpc1 = tpc1;
+	public void settempoPC1(int tempoPC1) {
+		this.tempoPC1 = tempoPC1;
 	}
 
-	public void setTpc2(int tpc2) {
-		this.tpc2 = tpc2;
+	public void settempoPC2(int tempoPC2) {
+		this.tempoPC2 = tempoPC2;
 	}
 
-	public void setTgt(int tgt) {
-		this.tgt = tgt;
+	public void settempoGT(int tempoGT) {
+		this.tempoGT = tempoGT;
 	}
 
-	public void setTsc(int tsc) {
-		this.tsc = tsc;
+	public void settempoSC(int tempoSC) {
+		this.tempoSC = tempoSC;
 	}
 
 	public void setTrecord(int trecord) {
 		this.trecord = trecord;
 	}
 
-	public void setTdesviom(int tdesviom) {
-		this.tdesviom = tdesviom;
+	public void settdesviochuva(int tdesviochuva) {
+		this.tdesviochuva = tdesviochuva;
 	}
 
 	public void setTboxes(int tboxes) {
@@ -141,13 +154,13 @@ public class Circuito {
 		StringBuilder s = new StringBuilder("Circuito ");
 		s.append("distancia=" + distancia);
 		s.append(", numero de voltas=" + nvoltas);
-		s.append(", tempo dos pc1=" + tpc1);
-		s.append(", tempo dos pc2=" + tpc2);
-		s.append(", tempo dos gt=" + tgt);
-		s.append(", tempo dos sc=" + tsc);
+		s.append(", tempo dos pc1=" + tempoPC1);
+		s.append(", tempo dos pc2=" + tempoPC2);
+		s.append(", tempo dos gt=" + tempoGT);
+		s.append(", tempo dos sc=" + tempoSC);
 		s.append(", tempo record=" + trecord);
 		s.append(", tempo nas boxes=" + tboxes);
-		s.append(", desvio medio =" + tdesviom);
+		s.append(", desvio medio =" + tdesviochuva);
 		s.append(", recordista=" + recordista.toString());
 
 		return s.toString();
