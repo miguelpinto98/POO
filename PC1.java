@@ -1,10 +1,9 @@
 import java.util.Random;
-import java.lang.Math;
 
 public class PC1 extends Veiculo {
 
 	private static final int cld = 6000;
-	private double fiabilidade = 0.85;
+	private static final int fiabilidade = 85;
 
 	public PC1() {
 		super();
@@ -13,11 +12,6 @@ public class PC1 extends Veiculo {
 	public PC1(String marca, String modelo, int cilindrada, int cv, Piloto p1,
 			Piloto p2, int h) {
 		super(marca, modelo, cld, cv, p1, p2, h);
-	}
-
-	/** Clone */
-	public PC1 clone() {
-		return new PC1(this);
 	}
 
 	public PC1(PC1 pc) {
@@ -35,9 +29,9 @@ public class PC1 extends Veiculo {
 	 */
 	public int tempoProximaVolta(Circuito c, boolean chuva) {
 		Random r = new Random();
-		int res=0, teste=0;
+		int res=0;
 				
-		if(r.nextInt(85) == 0)
+		if(r.nextInt(fiabilidade) == 0)
 			res = -1000;
 		else {
 			if(this.getPilotoActivo()>7 && this.getCV()<1000)
@@ -50,15 +44,20 @@ public class PC1 extends Veiculo {
 		
 		return res;
 	}
-	//LIXO DE TESTES
+	//LIXO DE TESTES - para possivel utilização
 	//res = (int) (c.gettempoPC1() + r.nextInt((c.gettempoPC1()-c.getTrecord())) - ((int)(this.getPilotoActivo()*1000 + ((this.getCilindrada()+this.getCV()*this.getPilotoActivo())/(this.getCilindrada()-this.getCV())))));
 	//res = (int)(c.gettempoPC1() + r.nextInt((c.gettempoPC1()-c.getTrecord())) - ((this.getPilotoActivo()*1000 + this.getCV())));
 
+	/** Clone */
+	public PC1 clone() {
+		return new PC1(this);
+	}
+	
 	/** 
 	 * ToString 
 	 */
 	public String toString() {
-		StringBuilder str = new StringBuilder("PC1 ");
+		StringBuilder str = new StringBuilder("***** PC1 *****\n");
 
 		str.append("Marca: " + this.getMarca() + "\n");
 		str.append("Modelo: " + this.getModelo() + "\n");

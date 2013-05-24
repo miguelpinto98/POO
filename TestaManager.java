@@ -49,7 +49,7 @@ public class TestaManager {
 		v96.add(c2);
 		v96.add(c3);
 		Campeonato k1 = new Campeonato(v96);
-        
+        		
 		double tx1=0, tx2=0, tx3=0, tx4=0, tx5=0;
 		for(int i = 0 ; i < 5; i++){
 			double x1 = v1.tempoProximaVolta(ct1,false);
