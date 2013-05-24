@@ -51,7 +51,7 @@ public class Circuito {
 		this.tempoGT = c.gettempoGT();
 		this.tempoSC = c.gettempoSC();
 		this.trecord = c.getTrecord();
-		this.tdesviochuva = c.gettdesviochuva();
+		this.tdesviochuva = c.getDesvioChuva();
 		this.tboxes = c.getTboxes();
 		this.recordista = c.getRecordista().clone();
 
@@ -91,7 +91,7 @@ public class Circuito {
 		return trecord;
 	}
 
-	public int gettdesviochuva() {
+	public int getDesvioChuva() {
 		return tdesviochuva;
 	}
 
