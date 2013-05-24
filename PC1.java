@@ -35,15 +35,24 @@ public class PC1 extends Veiculo {
 	 */
 	public int tempoProximaVolta(Circuito c, boolean chuva) {
 		Random r = new Random();
-		int res=0;
+		int res=0, teste=0;
 				
 		if(r.nextInt(85) == 0)
 			res = -1000;
 		else {
-			res = (int) (c.gettempoPC1() + r.nextInt(c.gettempoPC1()/c.getDistancia() + (c.gettempoPC1()-c.getTrecord())) - ((int)(this.getPilotoActivo()*1000 + ((this.getCilindrada()+this.getCV())/(this.getCilindrada()-this.getCV())))));
-		}
+			if(this.getPilotoActivo()>7 && this.getCV()<1000)
+				res = (int) ((c.gettempoPC1() + r.nextInt(c.gettempoPC1()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()) + this.getCilindrada()*1.5);
+			else
+				res = (int) ((c.gettempoPC1() + r.nextInt(c.gettempoPC1()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()) + this.getCilindrada()/1.5);		}
+				
+		if(chuva)
+			res+=r.nextInt(c.getDesvioChuva());
+		
 		return res;
 	}
+	//LIXO DE TESTES
+	//res = (int) (c.gettempoPC1() + r.nextInt((c.gettempoPC1()-c.getTrecord())) - ((int)(this.getPilotoActivo()*1000 + ((this.getCilindrada()+this.getCV()*this.getPilotoActivo())/(this.getCilindrada()-this.getCV())))));
+	//res = (int)(c.gettempoPC1() + r.nextInt((c.gettempoPC1()-c.getTrecord())) - ((this.getPilotoActivo()*1000 + this.getCV())));
 
 	/** 
 	 * ToString 
