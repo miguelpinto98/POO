@@ -85,7 +85,7 @@ public class Corrida {
 	public void fazVolta(HashMap<Veiculo,Integer> c){ 
 	    
 	   for(Veiculo v : conjveiculos){ 
-			c.put(v,c.get(v)+ v.tempoProximaVolta(crt,piso) );
+			c.put(v,(int) (c.get(v)+ v.tempoProximaVolta(crt,piso)) );
 		}
 	}
 	
