@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class SC extends Veiculo {
 	private static final int cld = 2500;
 	//private static final double fpiloto = 0.75;
@@ -46,5 +48,26 @@ public class SC extends Veiculo {
 		str.append("Pilto2: " + this.getPiloto2().toString() + "\n");
 
 		return str.toString();
+	}
+	
+	public SC criaRandomGT() {
+		Random r = new Random();
+		int sc = r.nextInt(5);
+		Piloto aux = new Piloto();
+		SC p = new SC();
+
+		switch (sc) {
+		case 0: p = new SC("Ferrari", "FXX", 2500, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 1: p = new SC("Saleen", "S7", 2500, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 2:	p = new SC("Koenigsegg", "Agera", 2500, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 3:	p = new SC("SSC", "Ultimate Aero", 2500, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 4:	p = new SC("Koenigsegg", "Agera R", 2500, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		}
+		return p;
 	}
 }
