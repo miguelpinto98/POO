@@ -3,23 +3,23 @@ import java.util.*;
 public class TestaManager {
 	public static void main(String[] args) {
 
-		Piloto p1 = new Piloto("Muito Fraco", "China", 0, 10, false);
-		Piloto p2 = new Piloto("Fraco", "Portugal", 5, 8, false);
+		Piloto p1 = new Piloto("Muito Fraco", "China", 0, 2, false);
+		Piloto p2 = new Piloto("Fraco", "Portugal", 5, 4, false);
 		Piloto p3 = new Piloto("Razoavel", "Espanha", 10, 6, false);
-		Piloto p4 = new Piloto("Bom", "Reino Unido", 15, 4, false);
-		Piloto p5 = new Piloto("Mt bom", "França", 20, 2, false);
+		Piloto p4 = new Piloto("Bom", "Reino Unido", 15, 8, false);
+		Piloto p5 = new Piloto("Mt bom", "França", 20, 10, false);
 		
-		PC1 v1 = new PC1("Koenigsegg", "Agera R", 6000, 600, p1, p1, 0); 		//960cv
-		PC1 v2 = new PC1("SSC", "Tuatara", 6000, 800, p2, p2, 0); 				//1350cv
-		PC1 v3 = new PC1("SSC", "Ultimate Aero TT", 6000, 1000, p3, p3, 0);		//1280cv
-		PC1 v4 = new PC1("Bugatti", "Veyron", 6000, 1200, p4, p4, 0);			//1200cv
-		PC1 v5 = new PC1("Venom", "GT", 6000, 1350, p5, p5, 0);					//1261cv
+		PC1 p11 = new PC1("Koenigsegg", "Agera R", 6000, 600, p1, p1, 0); 		//960cv
+		PC1 p12 = new PC1("SSC", "Tuatara", 6000, 800, p2, p2, 0); 				//1350cv
+		PC1 p13 = new PC1("SSC", "Ultimate Aero TT", 6000, 1000, p3, p3, 0);		//1280cv
+		PC1 p14 = new PC1("Bugatti", "Veyron", 6000, 1200, p4, p4, 0);			//1200cv
+		PC1 p15 = new PC1("Venom", "GT", 6000, 1350, p5, p5, 0);					//1261cv
 		
-		PC2 v21 = new PC2("Ferrari Enzo", "", 4000, 250, p1, p1, 0);
-		PC2 v22 = new PC2("As Ascari A10", "", 4500, 450, p2, p2, 0);
-		PC2 v23 = new PC2("Aston Martin V12 Zagato", "", 5000, 600, p3, p3, 0);
-		PC2 v24 = new PC2("Edonis", "", 5500, 800, p4, p4, 0);
-		PC2 v25 = new PC2("Lotec C1000 Mercedes-Benz", "", 6000, 1000, p5, p5, 0);
+		PC2 p21 = new PC2("Ferrari Enzo", "", 4000, 450, p1, p1, 0);
+		PC2 p22 = new PC2("As Ascari A10", "", 4500, 650, p2, p2, 0);
+		PC2 p23 = new PC2("Aston Martin ", "", 5000, 700, p3, p3, 0);
+		PC2 p24 = new PC2("Edonis", "", 5500, 850, p4, p4, 0);
+		PC2 p25 = new PC2("Mercedes-Benz", "", 6000, 1000, p5, p5, 0);
 		
 		
 		GT v31 = new GT("Peugeot 908 Equipe Peugeot", "", 3000, 350, p1, p1, 0);
@@ -35,12 +35,12 @@ public class TestaManager {
 		SC s4 = new SC("SSC Ultimate Aero", "", 2500, 950, p4, p1, 0);
 		SC s5 = new SC("Koenigsegg Agera R", "", 2500, 1050, p5, p1, 0);
         
-        Circuito ct1 = new Circuito("ALGARVE", 4664, 16, 100908, 0, 0, 0, 91464, 20000, 16000, p3);
+        Circuito ct1 = new Circuito("ALGARVE", 4664, 16, 100908, 103345, 0, 0, 91464, 20000, 16000, p3);
 		Circuito ct2 = new Circuito("Estoril",4182, 13, 84000, 0, 0, 0, 84000, 40000, 50000, p3);
 
 		HashSet<Veiculo> v = new HashSet<Veiculo>();
-		v.add(v1);
-		v.add(v3);
+		v.add(p21);
+		v.add(p22);
 		
 		Corrida c2 = new Corrida (v, ct1 ,false);
 		Corrida c3 = new Corrida( v, ct2,true);
@@ -52,11 +52,11 @@ public class TestaManager {
         		
 		double tx1=0, tx2=0, tx3=0, tx4=0, tx5=0;
 		for(int i = 0 ; i < 5; i++){
-			double x1 = v1.tempoProximaVolta(ct1,false);
-			double x2 = v2.tempoProximaVolta(ct1,false);
-			double x3 = v3.tempoProximaVolta(ct1,false);
-			double x4 = v4.tempoProximaVolta(ct1,false);
-			double x5 = v5.tempoProximaVolta(ct1,false);
+			double x1 = p21.tempoProximaVolta(ct1,false);
+			double x2 = p22.tempoProximaVolta(ct1,false);
+			double x3 = p23.tempoProximaVolta(ct1,false);
+			double x4 = p24.tempoProximaVolta(ct1,false);
+			double x5 = p25.tempoProximaVolta(ct1,false);
 			
 			tx1+=x1;
 			tx2+=x2;
