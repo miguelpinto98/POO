@@ -43,6 +43,7 @@ public class PC2 extends Veiculo {
 					res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()*1.2 + this.getCilindrada()/(this.getPilotoActivo())));
 			}
 		}
+		
 		if(chuva) {
 			if(this.ConducaoChuva())
 				res+=r.nextInt(c.getDesvioChuva());

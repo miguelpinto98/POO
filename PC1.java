@@ -37,8 +37,8 @@ public class PC1 extends Veiculo {
 			if(this.getPilotoActivo()>7 && this.getCV()<1000)
 				res = (int) ((c.gettempoPC1() + r.nextInt(c.gettempoPC1()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()) + this.getCilindrada()*1.5);
 			else
-				res = (int) ((c.gettempoPC1() + r.nextInt(c.gettempoPC1()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()) + this.getCilindrada()/1.5);		}
-				
+				res = (int) ((c.gettempoPC1() + r.nextInt(c.gettempoPC1()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()) + this.getCilindrada()/1.5);
+			}	
 		if(chuva) {
 			if(this.ConducaoChuva())
 				res+=r.nextInt(c.getDesvioChuva());
