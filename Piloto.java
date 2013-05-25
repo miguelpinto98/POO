@@ -41,10 +41,6 @@ public class Piloto {
 		return this.nacionalidade;
 	}
 
-	public boolean getChuva() {
-		return this.chuva;
-	}
-
 	public String getNome() {
 		return this.nome;
 	}
@@ -55,6 +51,10 @@ public class Piloto {
 
 	public int getQualidade() {
 		return this.qualidade;
+	}
+	
+	public boolean getChuva() {
+		return this.chuva;
 	}
 
 	// set
