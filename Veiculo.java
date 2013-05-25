@@ -6,7 +6,8 @@ public abstract class Veiculo {
 	private Piloto p1;
 	private Piloto p2;
 	private int hibrido;
-private boolean pactivo;
+	private boolean pactivo;
+
 	/*
 	 * Constructor for objects of class Veiculo
 	 */
@@ -22,7 +23,7 @@ private boolean pactivo;
 	}
 
 	public Veiculo(String marca, String modelo, int cilindrada, int cv,
-			Piloto p1, Piloto p2,int h) {
+			Piloto p1, Piloto p2, int h) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.cilindrada = cilindrada;
@@ -47,14 +48,19 @@ private boolean pactivo;
 	/*
 	 * Métodos de Instância
 	 */
-	public boolean getPactivo(){return this.pactivo;}
-	public int getPilotoActivo(){ int x= 0;
-	   if (pactivo == true)  x = p1.getQualidade();
-	   if (pactivo == false) x = p2.getQualidade();
-	   return x;
-	   }
-	
-	
+	public boolean getPactivo() {
+		return this.pactivo;
+	}
+
+	public int getPilotoActivo() {
+		int x = 0;
+		if (pactivo == true)
+			x = p1.getQualidade();
+		if (pactivo == false)
+			x = p2.getQualidade();
+		return x;
+	}
+
 	public String getMarca() {
 		return this.marca;
 	}
@@ -78,7 +84,7 @@ private boolean pactivo;
 	public Piloto getPiloto2() {
 		return this.p2;
 	}
-	
+
 	public int getHibrido() {
 		return this.hibrido;
 	}
@@ -106,20 +112,31 @@ private boolean pactivo;
 	public void setPiloto(Piloto p) {
 		this.p2 = p;
 	}
-	
+
 	public void setHibrido(int h) {
 		this.hibrido = h;
 	}
 
-	public void setPilotoActivo(){
-	   if (pactivo == true) pactivo = false;
-	   if (pactivo == false) pactivo = true;
-	   }
-	
+	public void setPilotoActivo() {
+		if (pactivo == true)
+			pactivo = false;
+		if (pactivo == false)
+			pactivo = true;
+	}
+
+	public boolean ConducaoChuva() {
+		boolean x = false;
+		if (pactivo == true)
+			x = p1.getChuva();
+		if (pactivo == false)
+			x = p2.getChuva();
+		return x;
+	}
+
 	/*
 	 * clone
 	 */
-	public abstract Veiculo clone() ;
+	public abstract Veiculo clone();
 
 	/*
 	 * equals
@@ -143,6 +160,6 @@ private boolean pactivo;
 	 * toString
 	 */
 	public abstract String toString();
-		
-	public abstract int tempoProximaVolta(Circuito c,boolean chuva);
+
+	public abstract int tempoProximaVolta(Circuito c, boolean chuva);
 }
