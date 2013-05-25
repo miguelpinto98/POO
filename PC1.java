@@ -39,8 +39,12 @@ public class PC1 extends Veiculo {
 			else
 				res = (int) ((c.gettempoPC1() + r.nextInt(c.gettempoPC1()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()) + this.getCilindrada()/1.5);		}
 				
-		if(chuva)
-			res+=r.nextInt(c.getDesvioChuva());
+		if(chuva) {
+			if(this.ConducaoChuva())
+				res+=r.nextInt(c.getDesvioChuva());
+			else
+				res+=c.getDesvioChuva();
+		}
 		
 		return res;
 	}
@@ -69,7 +73,7 @@ public class PC1 extends Veiculo {
 		return str.toString();
 	}
 
-	/** Equals */
+	/** Equals */ //ESTE METODO NÂO DEVE SER ASSIM, PORTANTO DUVIDA
 	public boolean equals(Object o) {
 		return (super.equals(o));
 	}
