@@ -1,32 +1,65 @@
 import java.util.*;
 
-public class PC2 extends Veiculo{
-
-	//private int cld;
-	//private double fiabilidade = 0.70;
+public class PC2 extends Veiculo {
+	private static final double fiabilidade = 70;
 
 	public PC2() {
 		super();
 	}
 
-	public PC2(String marca, String modelo, int cilindrada, int cv,
-		Piloto p1, Piloto p2, int h) {
+	public PC2(String marca, String modelo, int cilindrada, int cv, Piloto p1,
+			Piloto p2, int h) {
 		super(marca, modelo, cilindrada, cv, p1, p2, h);
 	}
 
 	public PC2(PC2 pc) {
 		super(pc);
 	}
+	
+	public int calculaFiabilidade() {
+		return (int)(fiabilidade*this.getCilindrada())/6000;
+	}
+	
+	//MAIS TESTES
+	//res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo() + (this.getCilindrada()*this.getPilotoActivo())/(this.getCV()*this.getCilindrada())));		
+	//res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getCilindrada()*this.getPilotoActivo()*1.2 + this.getCilindrada()/(this.getPilotoActivo())));
+	public int tempoProximaVolta(Circuito c, boolean chuva) {
+		Random r = new Random();
+		int res=0;
+				
+		if(r.nextInt(calculaFiabilidade()) == 0)
+			res = -1000;
+		else {
+			if(this.getCilindrada()>5000) {
+				if(this.getCV()>500)
+					res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()*1.2 + this.getCilindrada()/(this.getPilotoActivo())));
+				else
+					res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo() + this.getCilindrada()/(this.getPilotoActivo())));
+			}
+			else {
+				if(this.getCV()>500) 
+					res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo() + this.getCilindrada()/(this.getPilotoActivo())));
+				else
+					res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()*1.2 + this.getCilindrada()/(this.getPilotoActivo())));
+			}
+		}
+		if(chuva) {
+			if(this.ConducaoChuva())
+				res+=r.nextInt(c.getDesvioChuva());
+			else
+				res+=c.getDesvioChuva();
+		}
+		return res;
+	}
 
-	/** Clone*/	 
+	/** Clone */
 	public PC2 clone() {
 		return new PC2(this);
 	}
 
-	
-	/** ToString*/
-    	 public String toString(){ 
-    	   StringBuilder str = new StringBuilder("PC1 ");
+	/** ToString */
+	public String toString() {
+		StringBuilder str = new StringBuilder("***** PC2 *****\n");
 
 		str.append("Marca: " + this.getMarca() + "\n");
 		str.append("Modelo: " + this.getModelo() + "\n");
@@ -37,27 +70,30 @@ public class PC2 extends Veiculo{
 
 		return str.toString();
 	}
-	public int tempoProximaVolta(Circuito c , boolean  chuva) { return 1;}
-	/** Equals*/
+
+	/** Equals */ //ESTE METODO NÃO DEVE SER ASSIM, PORTANTO DUVIDA
 	public boolean equals(Object o) {
 		return (super.equals(o));
 	}
-	
-	public PC2 criaRandomPC2(){
-	   Random r = new Random();
-	   int pc2 = r.nextInt(5);
-	   Piloto aux = new Piloto();
-	   PC2 p = new PC2();
-	   
-	   switch (pc2){
-	       case 0 : p=new PC2("Ferrari", "Enzo", r.nextInt(2000)+4000, r.nextInt(200)+800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0); break;
-	       case 1 : p=new PC2("Ascari", "A10", r.nextInt(2000)+4000, r.nextInt(200)+800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0); break;
-	       case 2 : p=new PC2("Aston Martin", "V12 Zagato", r.nextInt(2000)+4000, r.nextInt(200)+800,aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0); break;
-	       case 3 : p=new PC2("Mercedes-Benz", "Lotec C1000 ", r.nextInt(2000)+4000, r.nextInt(200)+800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0); break;
-	       case 4 : p=new PC2("Edonis", "", r.nextInt(2000)+4000, r.nextInt(200)+800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0); break;
-	       
-	   }
-	   
-	   return p;
-	   }
+
+	public PC2 criaRandomPC2() {
+		Random r = new Random();
+		int pc2 = r.nextInt(5);
+		Piloto aux = new Piloto();
+		PC2 p = new PC2();
+
+		switch (pc2) {
+		case 0: p = new PC2("Ferrari", "Enzo", r.nextInt(2000) + 4000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 1: p = new PC2("Ascari", "A10", r.nextInt(2000) + 4000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 2:	p = new PC2("Aston Martin", "V12 Zagato", r.nextInt(2000) + 4000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 3:	p = new PC2("Mercedes-Benz", "Lotec C1000 ", r.nextInt(2000) + 4000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 4:	p = new PC2("Edonis", "", r.nextInt(2000) + 4000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		}
+		return p;
+	}
 }
