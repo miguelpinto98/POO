@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class SC extends Veiculo {
 	private static final int cld = 2500;
 	//private static final double fpiloto = 0.75;
@@ -21,7 +23,22 @@ public class SC extends Veiculo {
 	}
 	
 	public int tempoProximaVolta(Circuito c, boolean chuva) { 
-		return 1;
+		Random r = new Random();
+		int res=0;
+		
+		if(r.nextInt(1) == 2)
+			res = -1000;
+		else {
+			res = (int) c.gettempoSC() + r.nextInt(c.gettempoSC()-c.getTrecord()) + (-this.getCV()*this.getPilotoActivo() - this.getPilotoActivo()*50);
+		}
+		
+		if(chuva) {
+			if(this.ConducaoChuva())
+				res+=r.nextInt(c.getDesvioChuva());
+			else
+				res+=c.getDesvioChuva();
+		}
+		return res;
 	}
 	
 	/** Clone*/
@@ -36,7 +53,7 @@ public class SC extends Veiculo {
 	
 	/** ToString*/
     	 public String toString(){ 
-    	   StringBuilder str = new StringBuilder("PC1 ");
+    	   StringBuilder str = new StringBuilder("***** SC *****\n");
 
 		str.append("Marca: " + this.getMarca() + "\n");
 		str.append("Modelo: " + this.getModelo() + "\n");

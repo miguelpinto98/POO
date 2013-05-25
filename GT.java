@@ -14,6 +14,25 @@ public class GT extends Veiculo{
 		super(g);
 	}
 	
+	public int tempoProximaVolta(Circuito c , boolean  chuva) {
+		Random r = new Random();
+		int res=0;
+	
+		if(r.nextInt(1) == 2)
+			res = -1000;
+		else {
+			res = (int) ((c.gettempoGT() + r.nextInt(c.gettempoGT()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo() + this.getCilindrada()/(this.getPilotoActivo())));
+		}
+		
+		if(chuva) {
+			if(this.ConducaoChuva())
+				res+=r.nextInt(c.getDesvioChuva());
+			else
+				res+=c.getDesvioChuva();
+		}
+		return res;
+	}
+	
 	/** Clone*/
 	public Veiculo clone() {
 		return new GT(this);
@@ -24,10 +43,9 @@ public class GT extends Veiculo{
 		return (super.equals(o));
 	}
 	
-	
 	/** ToString*/
     	 public String toString(){ 
-    	   StringBuilder str = new StringBuilder("PC1 ");
+    	   StringBuilder str = new StringBuilder("***** GT *****\n");
 
 		str.append("Marca: " + this.getMarca() + "\n");
 		str.append("Modelo: " + this.getModelo() + "\n");
@@ -37,11 +55,5 @@ public class GT extends Veiculo{
 		str.append("Pilto2: " + this.getPiloto2().toString() + "\n");
 
 		return str.toString();
-	}
-	public int tempoProximaVolta(Circuito c , boolean  chuva) {
-		Random r = new Random();
-		int res=0;
-
-		return res;
 	}
 }
