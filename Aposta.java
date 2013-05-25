@@ -1,3 +1,4 @@
+import java.util.HashMap;
 public class Aposta {
 	private double quant;
 	private Veiculo p1, p2, p3;
@@ -91,4 +92,25 @@ public class Aposta {
 					.getQuant());
 		}
 	}
+	
+	/*como nao inicializo nao da por isso ta em comment
+	 
+	 public int checkAposta(HashMap<Veiculo,Integer> c){ int res = 0,t1 = 0 ,t2 = 0,t3 = 0;
+	    Veiculo v1 ,v2,v3; 
+	 
+	   for(Veiculo v : c.keySet()){  
+	       
+	  if( c.get(v) < t1) { t3 = t2; t2 = t1; t1 = c.get(v);    v3 = v2.clone(); v2 = v1.clone(); v1 = v.clone();        } 
+	   
+	   else if (c.get(v) < t2) {t3 = t2; t2 = c.get(v); v3 = v2.clone(); v2 = v.clone();}
+	        else if(c.get(v) < t3) {t3 = c.get(v); v3 = v.clone(); }
+	   
+	   
+	   }
+	   if( v3.equals(p1) ) res+=1;
+	   if(v2.equals(p2) )res += 2;
+	   if(v3.equals(p3)) res += 4;
+	   return res; 
+	   
+	   }*/
 }

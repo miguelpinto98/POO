@@ -77,4 +77,25 @@ public class PC1 extends Veiculo {
 	public boolean equals(Object o) {
 		return (super.equals(o));
 	}
+	   
+	public PC1 criaRandomPC1() {
+		Random r = new Random();
+		int pc1 = r.nextInt(5);
+		Piloto aux = new Piloto();
+		PC1 p = new PC1();
+
+		switch (pc1) {
+		case 0: p = new PC1("Koenigsegg", "Agera R", 6000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 1: p = new PC1("SSC", "Tuatara", 6000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 2:	p = new PC1("Bugatti", "Veyron", 6000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 3:	p = new PC1("SSC", "Ultimate Aero TT", 6000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 4:	p = new PC1("Venom", "GT", 6000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		}
+		return p;
+	}
 }

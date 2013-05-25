@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import java.util.HashMap;
 public class Jogador {
 	private String nome;
 	private String morada;
@@ -133,4 +133,30 @@ public class Jogador {
 						.getDc()));
 		}
 	}
+	
+	public void CheckApostas(String s, HashMap<Veiculo,Integer> c ){ArrayList<Aposta> aux = this.getApostaCorrente();
+	   int premio = 0; 
+	   for(Aposta v : aux){
+	    if(s.equals(v.getCorrida().getCircuito().getNomeCircuito())) { // Falta decidir o que fazer quando se ganha
+	      /* CheckAPosta ta por acabar   
+	        
+	       if( v.checkAposta(c) == 1){ } // Acertou primeiro
+	        
+	        if(v.checkAposta(c) == 2){} //Acertou segundo
+	        if(v.checkAposta(c) == 3){} // Acertou primeiro e segundo
+	        if(v.checkAposta(c) == 4 ){}// Acertou terceiro
+	         
+	         if(v.checkAposta(c) == 5){} // Acertou terceiro e primeiro
+	        if(v.checkAposta(c) == 6 ){}// Acertou terceiro e segundo
+	        
+	        
+	        if(v.checkAposta(c) == 7 ){}// Acertou todos      */ 
+	       
+	        hist.add(v.clone());
+	        adecorrer.remove(v);
+	        
+	       }
+	   
+	   }
+	   }
 }

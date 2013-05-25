@@ -56,4 +56,25 @@ public class GT extends Veiculo{
 
 		return str.toString();
 	}
+	
+	public GT criaRandomGT() {
+		Random r = new Random();
+		int gt = r.nextInt(5);
+		Piloto aux = new Piloto();
+		GT p = new GT();
+
+		switch (gt) {
+		case 0: p = new GT("Peugeot 908", "Equipe Peugeot", r.nextInt(1500) + 3000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 1: p = new GT("Ferrari", "F10", r.nextInt(1500) + 3000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 2:	p = new GT("Mazda", "787B Race Car", r.nextInt(1500) + 3000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 3:	p = new GT("Red Bull", "X2010 S.Vettel", r.nextInt(1500) + 3000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		case 4:	p = new GT("Venom GT", "Hennessey", r.nextInt(1500) + 3000, r.nextInt(200) + 800, aux.criaRandomPiloto(), aux.criaRandomPiloto(), 0);
+			break;
+		}
+		return p;
+	}
 }
