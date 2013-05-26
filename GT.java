@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class GT extends Veiculo{
+	public static int nvoltas = 1;
 
 	public GT() {
 		super();
@@ -14,6 +15,11 @@ public class GT extends Veiculo{
 		super(g);
 	}
 	
+	public int calculaFiabilidade() {
+		return 0; 				//Preciso arranjar uma solução para isto
+		
+	}
+	
 	public int tempoProximaVolta(Circuito c , boolean  chuva) {
 		Random r = new Random();
 		int res=0;
@@ -21,7 +27,18 @@ public class GT extends Veiculo{
 		if(r.nextInt(1) == 2)
 			res = -1000;
 		else {
-			res = (int) ((c.gettempoGT() + r.nextInt(c.gettempoGT()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo() + this.getCilindrada()/(this.getPilotoActivo())));
+			if(this.getCilindrada()>3750) {
+				if(this.getCV()>400)
+					res = (int) ((c.gettempoGT() + r.nextInt(c.gettempoGT()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()*1.1 + this.getCilindrada()/(this.getPilotoActivo())));
+				else
+					res = (int) ((c.gettempoGT() + r.nextInt(c.gettempoGT()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo() + this.getCilindrada()/(this.getPilotoActivo())));
+			}
+			else {
+				if(this.getCV()>400) 
+					res = (int) ((c.gettempoGT() + r.nextInt(c.gettempoGT()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()*1.5 + this.getCilindrada()/(this.getPilotoActivo())));
+				else
+					res = (int) ((c.gettempoGT() + r.nextInt(c.gettempoGT()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo() + (this.getCilindrada()*3)/(this.getPilotoActivo())));
+			}
 		}
 		
 		if(chuva) {
@@ -30,6 +47,7 @@ public class GT extends Veiculo{
 			else
 				res+=c.getDesvioChuva();
 		}
+		nvoltas++;
 		return res;
 	}
 	
