@@ -19,7 +19,7 @@ public class SC extends Veiculo {
 	}
 	
 	public double calculaFiabilidade() {                     
-		return .75*this.getPilotoActivo() + .25*this.getCilindrada();
+		return .75*this.getPilotoActivo() + (.25*this.getCilindrada());
 	}
 	
 	public int tempoProximaVolta(Circuito c, boolean chuva) { 
@@ -29,7 +29,10 @@ public class SC extends Veiculo {
 		if(r.nextInt(1) == 2)
 			res = -1000;
 		else {
-			res = (int) c.gettempoSC() + r.nextInt(c.gettempoSC()-c.getTrecord()) + (-this.getCV()*this.getPilotoActivo() - this.getPilotoActivo()*50);
+			if(this.getPilotoActivo()>7 && this.getCV()<250)
+				res = (int) ((int) c.gettempoSC() + r.nextInt(c.gettempoSC()-c.getTrecord()) + (-this.getCV()*this.getPilotoActivo() + this.getCilindrada()));
+			else
+				res = (int) ((int) c.gettempoSC() + r.nextInt(c.gettempoSC()-c.getTrecord()) + (-this.getCV()*this.getPilotoActivo()*2.5 + this.getCilindrada()));
 		}
 		
 		if(chuva) {
