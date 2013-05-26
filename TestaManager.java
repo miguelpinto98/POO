@@ -29,11 +29,11 @@ public class TestaManager {
 		GT g5 = new GT("Hennessey Venom GT", "", 4500, 750, p5, p5, 0);
 
 		
-		SC s1 = new SC("Ferrari FXX", "", 2500, 100, p1, p1, 0);
-		SC s2 = new SC("Saleen S7", "", 2500, 200, p2, p2, 0);
+		SC s1 = new SC("Ferrari FXX", "", 2500, 100, p5, p1, 0);
+		SC s2 = new SC("Saleen S7", "", 2500, 200, p4, p2, 0);
 		SC s3 = new SC("Koenigsegg Agera", "", 2500, 300, p3, p3, 0);
-		SC s4 = new SC("SSC Ultimate Aero", "", 2500, 400, p4, p4, 0);
-		SC s5 = new SC("Koenigsegg Agera R", "", 2500, 500, p5, p5, 0);
+		SC s4 = new SC("SSC Ultimate Aero", "", 2500, 400, p2, p4, 0);
+		SC s5 = new SC("Koenigsegg Agera R", "", 2500, 500, p1, p5, 0);
         
         Circuito ct1 = new Circuito("ALGARVE", 4664, 16, 100908, 103345, 108568, 112230, 91464, 20000, 16000, p3);
 		Circuito ct2 = new Circuito("Estoril",4182, 13, 84000, 0, 0, 0, 84000, 40000, 50000, p3);
@@ -51,7 +51,7 @@ public class TestaManager {
 		Campeonato k1 = new Campeonato(v96);
         		
 		double tx1=0, tx2=0, tx3=0, tx4=0, tx5=0;
-		for(int i = 0 ; i < 5; i++){
+		/*for(int i = 0 ; i < 5; i++){
 			double x1 = p11.tempoProximaVolta(ct1,false);
 			double x2 = p12.tempoProximaVolta(ct1,false);
 			double x3 = p13.tempoProximaVolta(ct1,false);
@@ -85,7 +85,7 @@ public class TestaManager {
 			System.out.println("P1 " + x1/1000 + "\tP2 " + x2/1000 + "\tP3 " + x3/1000 + "\tP4 " + x4/1000 + "\tP5 " + x5/1000);
 		}
         System.out.println("\nP1 " + tx1/1000 + "\tP2 " + tx2/1000 + "\tP3 " + tx3/1000 + "\tP4 " + tx4/1000 + "\tP5 " + tx5/1000 + "\n");
-        
+        */
     	tx1=0; tx2=0; tx3=0; tx4=0; tx5=0;
         for(int i = 0 ; i < 5; i++){
 			double x1 = g1.tempoProximaVolta(ct1,false);
@@ -104,7 +104,7 @@ public class TestaManager {
 		}
         System.out.println("\nP1 " + tx1/1000 + "\tP2 " + tx2/1000 + "\tP3 " + tx3/1000 + "\tP4 " + tx4/1000 + "\tP5 " + tx5/1000 + "\n");
         
-    	tx1=0; tx2=0; tx3=0; tx4=0; tx5=0;
+    	/*tx1=0; tx2=0; tx3=0; tx4=0; tx5=0;
         for(int i = 0 ; i < 5; i++){
 			double x1 = s1.tempoProximaVolta(ct1,false);
 			double x2 = s2.tempoProximaVolta(ct1,false);
@@ -121,7 +121,7 @@ public class TestaManager {
 			System.out.println("P1 " + x1/1000 + "\tP2 " + x2/1000 + "\tP3 " + x3/1000 + "\tP4 " + x4/1000 + "\tP5 " + x5/1000);
 		}
         System.out.println("\nP1 " + tx1/1000 + "\tP2 " + tx2/1000 + "\tP3 " + tx3/1000 + "\tP4 " + tx4/1000 + "\tP5 " + tx5/1000 + "\n");
-        
+        */
 		//for(Integer vaa : k1.fazCampeonato().keySet()){ System.out.println("um " + k1.fazCampeonato().get(vaa)/1000+ "\n");}
 	}	
 }
