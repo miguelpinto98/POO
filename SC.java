@@ -2,8 +2,6 @@ import java.util.Random;
 
 public class SC extends Veiculo {
 	private static final int cld = 2500;
-	//private static final double fpiloto = 0.75;
-	//private static final double fcilindrada = 0.25;
 	
 	public SC() {
 		super();
@@ -19,7 +17,7 @@ public class SC extends Veiculo {
 	}
 	
 	public double calculaFiabilidade() {                     
-		return .75*this.getPilotoActivo() + (.25*this.getCilindrada());
+		return (.75*this.getPilotoActivo() + .25*this.getCilindrada()); //Preciso rever e melhorar isto
 	}
 	
 	public int tempoProximaVolta(Circuito c, boolean chuva) { 
