@@ -1,4 +1,5 @@
 import java.util.HashSet;
+import java.util.Random;
 
 public abstract class Veiculo {
 	private String marca;
@@ -176,8 +177,24 @@ public abstract class Veiculo {
 		return result;
 	}
 public  HashSet<Veiculo> geraVeiculos(){
+	Random r = new random();
+	int x = r.nextInt(8)+12;
+	int y = 0;
+	HashSet<Veiculo> aux = new HashSet<Veiculo>();
+	while (y<x){
+		aux.add(geraVeiculo());
+		
+		y++;
+	}
+	return aux;
 	
+}
+
+public Veiculo geraVeiculo(){
+	Random r = new random();
 	
+	return new Veiculo  (geraMarca(), geraModelo(), int cilindrada, int cv,
+			Piloto p1, Piloto p2, int h)
 	
 	
 }

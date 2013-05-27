@@ -86,7 +86,7 @@ public class Campeonato {
 		 aux2 = geraVeiculos();
 		while (i<x){
 			aux.add(GeraCorrida(aux2));
-			
+			i++;
 			
 		}
 		Campeonato c = new Campeonato(aux);
