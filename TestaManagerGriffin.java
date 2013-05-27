@@ -51,8 +51,13 @@ public class TestaManagerGriffin {
 		Campeonato k1 = new Campeonato(v96);
         		
 		
-        System.out.println();
+        for(Corrida r : k1.getCorridas()){ HashMap<Veiculo,Integer> batata = new HashMap<Veiculo,Integer>();
+            for(Veiculo va : r.getConjuntoVeiculos()){ batata.put(va,0);}
+        r.fazCorrida(batata);
+        for(Veiculo ve : batata.keySet()){
+        System.out.println(batata.get(ve )+ " ");
+        }
         
-		for(Integer vaa : k1.fazCampeonato().keySet()){ System.out.println("um " + k1.fazCampeonato().get(vaa)+ "\n");}
+        }
 	}	
 }
