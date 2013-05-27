@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class TestaManager {
+public class TestaManagerGriffin {
 	public static void main(String[] args) {
 
 		Piloto p1 = new Piloto("Muito Fraco", "China", 0, 2, false);
@@ -40,6 +40,10 @@ public class TestaManager {
 
 		HashSet<Veiculo> v = new HashSet<Veiculo>();
 		v.add(p11);
+		v.add(p12);
+		v.add(p13);
+		v.add(p14);
+		v.add(p15);
 
 		Corrida c2 = new Corrida(v, ct1, false);
 		Corrida c3 = new Corrida(v, ct2, true);
