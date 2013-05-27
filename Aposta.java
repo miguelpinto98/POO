@@ -92,15 +92,11 @@ public class Aposta {
 		}
 	}
 	
-	
-	 
-	public int checkAposta(HashMap<Veiculo,Integer> c){ int res = 0,t1 = 0 ,t2 = 0,t3 = 0;
-		Veiculo v1 = null;
-		Veiculo v2 = null;
-		Veiculo v3 = null;
+	public int checkAposta(HashMap<Veiculo,Integer> c){ 
+		int res=0, t1=0, t2=0, t3=0;
+		Veiculo v1 = null, v2 = null, v3 = null;
 	  
-	 
-		for(Veiculo v : c.keySet()) {
+	 	for(Veiculo v : c.keySet()) {
 			if(c.get(v) < t1) {
 				t3 = t2; 
 			   	t2 = t1; 

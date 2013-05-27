@@ -134,7 +134,8 @@ public class Jogador {
 		}
 	}
 	
-	public void CheckApostas(String s, HashMap<Veiculo,Integer> c ){ArrayList<Aposta> aux = this.getApostaCorrente();
+	public void CheckApostas(String s, HashMap<Veiculo,Integer> c ) {
+		ArrayList<Aposta> aux = this.getApostaCorrente();
 	   int premio = 0; 
 	   for(Aposta v : aux){
 	    if(s.equals(v.getCorrida().getCircuito().getNomeCircuito())) { // Falta decidir o que fazer quando se ganha
