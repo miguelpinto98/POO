@@ -90,7 +90,7 @@ public class Corrida {
         HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
 
         for (Veiculo v : conjveiculos) {
-            aux.put(v, (int) (aux.get(v) + v.tempoProximaVolta(crt, piso)));
+            aux.put(v, (int) ( v.tempoProximaVolta(crt, piso)));
         }
         return aux;
     }
