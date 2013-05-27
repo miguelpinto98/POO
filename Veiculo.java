@@ -162,4 +162,18 @@ public abstract class Veiculo {
 	public abstract String toString();
 
 	public abstract int tempoProximaVolta(Circuito c, boolean chuva);
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + cilindrada;
+		result = prime * result + cv;
+		result = prime * result + hibrido;
+		result = prime * result + ((marca == null) ? 0 : marca.hashCode());
+		result = prime * result + ((modelo == null) ? 0 : modelo.hashCode());
+		return result;
+	}
+
+	
+	
 }
