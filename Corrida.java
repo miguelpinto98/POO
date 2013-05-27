@@ -132,7 +132,7 @@ public class Corrida {
 
 		while (aux2it.hasNext()) {
 			v1 = (Veiculo) aux2it.next();
-			c.put(v1, (30 - x * 2));
+			c.put(v1,c.get(v1)+ (30 - x * 2));
 			x++;
 		}
 		return aux;
