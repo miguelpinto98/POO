@@ -93,17 +93,17 @@ public class Aposta {
 		}
 	}
 	
-	/*como nao inicializo nao da por isso ta em comment
+	como nao inicializo nao da por isso ta em comment
 	 
 	 public int checkAposta(HashMap<Veiculo,Integer> c){ int res = 0,t1 = 0 ,t2 = 0,t3 = 0;
 	    Veiculo v1 ,v2,v3; 
 	 
 	   for(Veiculo v : c.keySet()){  
 	       
-	  if( c.get(v) < t1) { t3 = t2; t2 = t1; t1 = c.get(v);    v3 = v2.clone(); v2 = v1.clone(); v1 = v.clone();        } 
+	  if( c.get(v) < t1) { t3 = t2; t2 = t1; t1 = c.get(v);  (v2.getClass()) v3 = v2.clone();(v1.getClass()) v2 = v1.clone();(v.getClass()) v1 = v.clone();        } 
 	   
-	   else if (c.get(v) < t2) {t3 = t2; t2 = c.get(v); v3 = v2.clone(); v2 = v.clone();}
-	        else if(c.get(v) < t3) {t3 = c.get(v); v3 = v.clone(); }
+	   else if (c.get(v) < t2) {t3 = t2; t2 = c.get(v);(v2.getClass()) v3 = v2.clone();(v.getClass()) v2 = v.clone();}
+	        else if(c.get(v) < t3) {t3 = c.get(v);(v.getClass()) v3 = v.clone(); }
 	   
 	   
 	   }
@@ -112,5 +112,5 @@ public class Aposta {
 	   if(v3.equals(p3)) res += 4;
 	   return res; 
 	   
-	   }*/
+	   }
 }
