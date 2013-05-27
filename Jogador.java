@@ -53,7 +53,7 @@ public class Jogador {
 
 	public ArrayList<Aposta> getHistorico() {
 		ArrayList<Aposta> aux = new ArrayList<Aposta>();
-		for (Aposta a : adecorrer) {
+		for (Aposta a : hist) {
 			aux.add(a.clone());
 		}
 		return aux;
@@ -61,7 +61,7 @@ public class Jogador {
 
 	public ArrayList<Aposta> getApostaCorrente() {
 		ArrayList<Aposta> aux = new ArrayList<Aposta>();
-		for (Aposta a : hist) {
+		for (Aposta a : adecorrer) {
 			aux.add(a.clone());
 		}
 		return aux;
