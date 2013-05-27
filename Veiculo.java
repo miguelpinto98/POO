@@ -166,11 +166,11 @@ public abstract class Veiculo {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + cilindrada;
-		result = prime * result + cv;
-		result = prime * result + hibrido;
-		result = prime * result + ((marca == null) ? 0 : marca.hashCode());
-		result = prime * result + ((modelo == null) ? 0 : modelo.hashCode());
+		result = prime * result + this.cilindrada;
+		result = prime * result + this.cv;
+		result = prime * result + this.hibrido;
+		result = prime * result + ((this.marca == null) ? 0 : this.marca.hashCode());
+		result = prime * result + ((this.modelo == null) ? 0 : this.modelo.hashCode());
 		return result;
 	}
 
