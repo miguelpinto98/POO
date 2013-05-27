@@ -7,7 +7,7 @@ public class TestaManagerGriffin {
 		Piloto p2 = new Piloto("Fraco", "Portugal", 5, 4, false);
 		Piloto p3 = new Piloto("Razoavel", "Espanha", 10, 6, false);
 		Piloto p4 = new Piloto("Bom", "Reino Unido", 15, 8, false);
-		Piloto p5 = new Piloto("Mt bom", "França", 20, 10, false);
+		Piloto p5 = new Piloto("Mt bom", "Fran��a", 20, 10, false);
 
 		PC1 p11 = new PC1("Koenigsegg", "Agera R", 6000, 600, p1, p1, 0); // 960cv
 		PC1 p12 = new PC1("SSC", "Tuatara", 6000, 800, p2, p2, 0); // 1350cv
@@ -142,7 +142,7 @@ public class TestaManagerGriffin {
 			}
 			
 			for (Veiculo ve : batata.keySet()) {
-				System.out.println(batata.get(ve) + " ");
+				System.out.println(batata.get(ve) + " Veiculo: " + ve.getMarca());
 			}
 	}
 }
