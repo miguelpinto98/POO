@@ -138,7 +138,7 @@ public class Jogador {
 	   int premio = 0; 
 	   for(Aposta v : aux){
 	    if(s.equals(v.getCorrida().getCircuito().getNomeCircuito())) { // Falta decidir o que fazer quando se ganha
-	       CheckAPosta ta por acabar   
+	       
 	        
 	       if( v.checkAposta(c) == 1){ } // Acertou primeiro
 	        
