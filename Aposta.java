@@ -61,24 +61,23 @@ public class Aposta {
 		this.corr = c;
 	}
 	
+    /** Método que devolve um clone de uma aposta */
 	public Aposta clone() {
 		return new Aposta(this);
 	}
 
-	// toString
+    /** Método que represente uma aposta sob forma de string */
 	public String toString() {
-		StringBuilder s = new StringBuilder("Aposta  ");
+		StringBuilder s = new StringBuilder("+++ Aposta +++\n");
 
-		s.append("quant:" + quant);
-		s.append(",p1=" + p1.toString());
-		s.append(",p2=" + p2.toString());
-		s.append(",p3=" + p3.toString());
-		s.append("\nCorrida=" + corr.toString());
+		s.append("Aposto: " + this.quant);
+		s.append("Veiculo: \n" + this.p1.toString() + "\n" + this.p2.toString() + "\n" +this.p3.toString() + "\n");
+		s.append("Corrida: " + this.corr.toString());
 
 		return s.toString();
 	}
-
-	// equals
+    
+	/** Método que compara duas apostas */
 	public boolean equals(Object o) {
 		if (this == o)
 			return true;
@@ -88,31 +87,49 @@ public class Aposta {
 			Aposta v = (Aposta) o;
 			return (v.getP1().equals(this.getP1())
 					&& v.getP2().equals(this.getP2())
-					&& v.getP3().equals(this.getP3()) && v.getQuant() == this.getQuant());
+					&& v.getP3().equals(this.getP3()) 
+					&& v.getQuant() == this.getQuant());
 		}
 	}
 	
 	
 	 
-	 public int checkAposta(HashMap<Veiculo,Integer> c){ int res = 0,t1 = 0 ,t2 = 0,t3 = 0;
-	  Veiculo v1 = null;
-	  Veiculo v2 = null;
-	  Veiculo v3 = null;
+	public int checkAposta(HashMap<Veiculo,Integer> c){ int res = 0,t1 = 0 ,t2 = 0,t3 = 0;
+		Veiculo v1 = null;
+		Veiculo v2 = null;
+		Veiculo v3 = null;
 	  
 	 
-	   for(Veiculo v : c.keySet()){  
-	       
-	  if( c.get(v) < t1) { t3 = t2; t2 = t1; t1 = c.get(v);  v3 =  v2.clone();v2 =  v1.clone();v1 =  v.clone();        } 
+		for(Veiculo v : c.keySet()) {
+			if(c.get(v) < t1) {
+				t3 = t2; 
+			   	t2 = t1; 
+			   	t1 = c.get(v);  
+			   	v3 = v2.clone();
+			   	v2 = v1.clone();
+			   	v1 =  v.clone();
+			   	} 
+			else	{
+				if (c.get(v) < t2) {
+					t3 = t2;
+					t2 = c.get(v); 
+					v3 = v2.clone(); 
+					v2 =  v.clone();
+				   	}
+				else 
+					if(c.get(v) < t3) {
+						t3 = c.get(v);
+						v3 = v.clone();
+					}
+			}
+		}
+	    if(v1.equals(p1)) 	
+	    	res+=1;
+	    if(v2.equals(p2))	
+	    	res+=2;
+	    if(v3.equals(p3)) 	
+	    	res+=4;
 	   
-	   else if (c.get(v) < t2) {t3 = t2; t2 = c.get(v); v3 =   v2.clone(); v2 =  v.clone();}
-	        else if(c.get(v) < t3) {t3 = c.get(v);v3 =  v.clone(); }
-	   
-	   
-	   }
-	   if( v3.equals(p1) ) res+=1;
-	   if(v2.equals(p2) )res += 2;
-	   if(v3.equals(p3)) res += 4;
-	   return res; 
-	   
-	   }
+	    return res; 
+	}
 }
