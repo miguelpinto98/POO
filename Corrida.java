@@ -129,18 +129,12 @@ public class Corrida {
 
 		Collection<Veiculo> ca = aux2.values();
 		Iterator<Veiculo> aux2it = ca.iterator();
-		
+
 		while (aux2it.hasNext()) {
 			v1 = (Veiculo) aux2it.next();
 			c.put(v1, (30 - x * 2));
 			x++;
 		}
-
-		//System.out.println(c.toString());
-		for (Veiculo a : c.keySet()) {
-			//System.out.println("TITS" + c.get(a));
-		}
-
 		return aux;
 	}
 }
