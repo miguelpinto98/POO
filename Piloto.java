@@ -133,4 +133,10 @@ public class Piloto {
 	   }
 	return p;
 	}
+	public Piloto geraPiloto(){
+		 new Piloto(String nome, String nacionalidade, int palmares,
+				int qualidade, boolean chuva)
+		
+		
+	}
 }
