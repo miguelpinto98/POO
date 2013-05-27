@@ -185,4 +185,10 @@ public class Circuito {
 		return new Circuito(this);
 
 	}
+	public Circuito geraCirucuito(){
+		
+		
+		
+		
+	}
 }

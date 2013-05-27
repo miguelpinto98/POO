@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 public abstract class Veiculo {
 	private String marca;
 	private String modelo;
@@ -173,7 +175,12 @@ public abstract class Veiculo {
 		result = prime * result + ((this.modelo == null) ? 0 : this.modelo.hashCode());
 		return result;
 	}
-
+public  HashSet<Veiculo> geraVeiculos(){
+	
+	
+	
+	
+}
 	
 	
 }
