@@ -88,22 +88,24 @@ public class Aposta {
 			Aposta v = (Aposta) o;
 			return (v.getP1().equals(this.getP1())
 					&& v.getP2().equals(this.getP2())
-					&& v.getP3().equals(this.getP3()) && v.getQuant() == this
-					.getQuant());
+					&& v.getP3().equals(this.getP3()) && v.getQuant() == this.getQuant());
 		}
 	}
 	
-	como nao inicializo nao da por isso ta em comment
+	
 	 
 	 public int checkAposta(HashMap<Veiculo,Integer> c){ int res = 0,t1 = 0 ,t2 = 0,t3 = 0;
-	    Veiculo v1 ,v2,v3; 
+	  Veiculo v1 = null;
+	  Veiculo v2 = null;
+	  Veiculo v3 = null;
+	  
 	 
 	   for(Veiculo v : c.keySet()){  
 	       
-	  if( c.get(v) < t1) { t3 = t2; t2 = t1; t1 = c.get(v);  (v2.getClass()) v3 = v2.clone();(v1.getClass()) v2 = v1.clone();(v.getClass()) v1 = v.clone();        } 
+	  if( c.get(v) < t1) { t3 = t2; t2 = t1; t1 = c.get(v);  v3 =  v2.clone();v2 =  v1.clone();v1 =  v.clone();        } 
 	   
-	   else if (c.get(v) < t2) {t3 = t2; t2 = c.get(v);(v2.getClass()) v3 = v2.clone();(v.getClass()) v2 = v.clone();}
-	        else if(c.get(v) < t3) {t3 = c.get(v);(v.getClass()) v3 = v.clone(); }
+	   else if (c.get(v) < t2) {t3 = t2; t2 = c.get(v); v3 =   v2.clone(); v2 =  v.clone();}
+	        else if(c.get(v) < t3) {t3 = c.get(v);v3 =  v.clone(); }
 	   
 	   
 	   }
