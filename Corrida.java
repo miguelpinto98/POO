@@ -104,7 +104,7 @@ public class Corrida {
 			aux = fazVolta(troca);
 			count++;
 
-			for (Veiculo v : aux.keySet()) {
+			for (Veiculo v : aux.keySet()) { 
 				c.put(v, c.get(v) + aux.get(v));
 			}
 			
@@ -141,8 +141,9 @@ public class Corrida {
 
 		while (aux2it.hasNext()) {
 			v1 = (Veiculo) aux2it.next();
-			c.put(v1,c.get(v1)+ (30 - x * 2));
-			x++;
+			
+			c.put(v1,c.get(v1) + (30 - x * 2));
+	      x++;
 		}
 		return aux;
 	}

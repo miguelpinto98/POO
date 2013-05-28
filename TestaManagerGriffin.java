@@ -47,93 +47,27 @@ public class TestaManagerGriffin {
 
 		Corrida c2 = new Corrida(v, ct1, false);
 		Corrida c3 = new Corrida(v, ct2, true);
-
+		Corrida c4 = new Corrida(v, ct2, true);
 		HashSet<Corrida> v96 = new HashSet<Corrida>();
 		v96.add(c2);
 		v96.add(c3);
+		v96.add(c4);
 		Campeonato k1 = new Campeonato(v96);
 
-		double tx1 = 0, tx2 = 0, tx3 = 0, tx4 = 0, tx5 = 0;
-		/*
-		 * for(int i = 0 ; i < 5; i++){ double x1 =
-		 * p11.tempoProximaVolta(ct1,false); double x2 =
-		 * p12.tempoProximaVolta(ct1,false); double x3 =
-		 * p13.tempoProximaVolta(ct1,false); double x4 =
-		 * p14.tempoProximaVolta(ct1,false); double x5 =
-		 * p15.tempoProximaVolta(ct1,false);
-		 * 
-		 * tx1+=x1; tx2+=x2; tx3+=x3; tx4+=x4; tx5+=x5;
-		 * 
-		 * System.out.println("P1 " + x1/1000 + "\tP2 " + x2/1000 + "\tP3 " +
-		 * x3/1000 + "\tP4 " + x4/1000 + "\tP5 " + x5/1000); }
-		 * System.out.println("\nP1 " + tx1/1000 + "\tP2 " + tx2/1000 + "\tP3 "
-		 * + tx3/1000 + "\tP4 " + tx4/1000 + "\tP5 " + tx5/1000 + "\n");
-		 * 
-		 * tx1=0; tx2=0; tx3=0; tx4=0; tx5=0; for(int i = 0 ; i < 5; i++){
-		 * double x1 = p21.tempoProximaVolta(ct1,false); double x2 =
-		 * p22.tempoProximaVolta(ct1,false); double x3 =
-		 * p23.tempoProximaVolta(ct1,false); double x4 =
-		 * p24.tempoProximaVolta(ct1,false); double x5 =
-		 * p25.tempoProximaVolta(ct1,false);
-		 * 
-		 * tx1+=x1; tx2+=x2; tx3+=x3; tx4+=x4; tx5+=x5;
-		 * 
-		 * System.out.println("P1 " + x1/1000 + "\tP2 " + x2/1000 + "\tP3 " +
-		 * x3/1000 + "\tP4 " + x4/1000 + "\tP5 " + x5/1000); }
-		 * System.out.println("\nP1 " + tx1/1000 + "\tP2 " + tx2/1000 + "\tP3 "
-		 * + tx3/1000 + "\tP4 " + tx4/1000 + "\tP5 " + tx5/1000 + "\n");
-		 */
-		/*tx1 = 0;
-		tx2 = 0;
-		tx3 = 0;
-		tx4 = 0;
-		tx5 = 0;
-		for (int i = 0; i < 5; i++) {
-			double x1 = g1.tempoProximaVolta(ct1, false);
-			double x2 = g2.tempoProximaVolta(ct1, false);
-			double x3 = g3.tempoProximaVolta(ct1, false);
-			double x4 = g4.tempoProximaVolta(ct1, false);
-			double x5 = g5.tempoProximaVolta(ct1, false);
-
-			tx1 += x1;
-			tx2 += x2;
-			tx3 += x3;
-			tx4 += x4;
-			tx5 += x5;
-
-			System.out.println("P1 " + x1 / 1000 + "\tP2 " + x2 / 1000
-					+ "\tP3 " + x3 / 1000 + "\tP4 " + x4 / 1000 + "\tP5 " + x5
-					/ 1000);
-		}
-		System.out.println("\nP1 " + tx1 / 1000 + "\tP2 " + tx2 / 1000
-				+ "\tP3 " + tx3 / 1000 + "\tP4 " + tx4 / 1000 + "\tP5 " + tx5
-				/ 1000 + "\n");
-
-		/*
-		 * tx1=0; tx2=0; tx3=0; tx4=0; tx5=0; for(int i = 0 ; i < 5; i++){
-		 * double x1 = s1.tempoProximaVolta(ct1,false); double x2 =
-		 * s2.tempoProximaVolta(ct1,false); double x3 =
-		 * s3.tempoProximaVolta(ct1,false); double x4 =
-		 * s4.tempoProximaVolta(ct1,false); double x5 =
-		 * s5.tempoProximaVolta(ct1,false);
-		 * 
-		 * tx1+=x1; tx2+=x2; tx3+=x3; tx4+=x4; tx5+=x5;
-		 * 
-		 * System.out.println("P1 " + x1/1000 + "\tP2 " + x2/1000 + "\tP3 " +
-		 * x3/1000 + "\tP4 " + x4/1000 + "\tP5 " + x5/1000); }
-		 * System.out.println("\nP1 " + tx1/1000 + "\tP2 " + tx2/1000 + "\tP3 "
-		 * + tx3/1000 + "\tP4 " + tx4/1000 + "\tP5 " + tx5/1000 + "\n");
-		 */
-
+		
 		HashMap<Veiculo, Integer> arroz = new HashMap<Veiculo, Integer>();
 		HashMap<Veiculo, Integer> batata = new HashMap<Veiculo, Integer>();
-
+		for (Corrida r : k1.getCorridas()) {	
+		for (Veiculo va : r.getConjuntoVeiculos()) {
+			batata.put(va, 0);
+	}
+		
+		
+	}
 		
 		for (Corrida r : k1.getCorridas()) {
 			
-			for (Veiculo va : r.getConjuntoVeiculos()) {
-					batata.put(va, 0);
-			}
+			
 			arroz=r.fazCorrida(batata);
 		}
 		
