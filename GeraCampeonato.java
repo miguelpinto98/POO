@@ -113,9 +113,9 @@ public class GeraCampeonato {
 			Piloto p = new Piloto(geraPiloto());
 			Circuito c1 = new Circuito(), c2 = new Circuito();
 			
-			 c1 = new Circuito("Algarve", 4664, 16, 100908, 103345,108568, 112230, 91464, 20000, 16000, p);
+			 c1 = new Circuito("Algarve", 4664, 16, 100908, 103345,108568, 112230, 91464, 13310, 16000, p);
 			 c2 = new Circuito("Marrakech", 4624, 15, 88089, 91254, 95010, 98213, 80089, 8303, 19000, p);
-			 c2 = new Circuito();
+			 c2 = new Circuito("Kyalami", 4261, 13, 86640, 89542, 92423, 95856, 79410, 7827, 25000, p);
 						
 			 return c1;
 		}
