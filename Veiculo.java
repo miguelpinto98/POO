@@ -186,36 +186,7 @@ public abstract class Veiculo {
 		result = prime * result + ((this.modelo == null) ? 0 : this.modelo.hashCode());
 		return result;
 	}
-public  HashSet<Veiculo> geraVeiculos(){
-	Random r = new random();
-	int x = r.nextInt(8)+12;
-	int y = 0;
-	HashSet<Veiculo> aux = new HashSet<Veiculo>();
-	while (y<x){
-		aux.add(geraVeiculo());
-		
-		y++;
-	}
-	return aux;
-	
-}
 
-public Veiculo geraVeiculo(){
-	Random r = new random();
-	int x = r.nextInt(4);
-	if (x==0){   gerahibrido();}else 
-		if(x==1){return new PC1  (geraMarca(), geraModelo(),r.nextInt(), r.nextInt(),
-				geraPiloto(),geraPiloto(), r.nextInt())}
-			if(x==2){return new PC2  (geraMarca(), geraModelo(),r.nextInt(), r.nextInt(),
-					geraPiloto(),geraPiloto(), r.nextInt())}
-				if(x==3){return new SC (geraMarca(), geraModelo(),r.nextInt(), r.nextInt(),
-						geraPiloto(),geraPiloto(), r.nextInt())}
-					if(x==4){return new GT  (geraMarca(), geraModelo(),r.nextInt(), r.nextInt(),
-							geraPiloto(),geraPiloto(), r.nextInt())}
-	
-	
-	
-}
 	
 	
 }

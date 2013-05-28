@@ -112,43 +112,5 @@ public class Piloto {
 		return s.toString();
 	}
 	
-	public Piloto criaRandomPiloto(){
-	   Random r = new Random();
-	   int piloto = r.nextInt(10);
-	   Piloto p = new Piloto();
-	   
-	   switch (piloto){
-	       case 0 : p=new Piloto("Ale Pelle", "Italia", r.nextInt(99)+1, r.nextInt(9)+1, false); break;
-	       case 1 : p=new Piloto("Romain Louis Grosjean", "Fran��a", r.nextInt(99)+1, r.nextInt(9)+1, false); break;
-	       case 2 : p=new Piloto("Krist��f Kov��cs", "Hungria", r.nextInt(99)+1, r.nextInt(9)+1, false); break;
-	       case 3 : p=new Piloto("B-J van Veenendaal", "Holanda", r.nextInt(99)+1, r.nextInt(9)+1, false); break;
-	       case 4 : p=new Piloto("Jonnas Vitorino", "Portugal", r.nextInt(99)+1, r.nextInt(9)+1, false); break;
-	       case 5 : p=new Piloto("Jan Magnussen", "Dinamarca", r.nextInt(99)+1, r.nextInt(9)+1, false); break;
-	       case 6 : p=new Piloto("Xiaoxin Liu", "China", r.nextInt(99)+1, r.nextInt(9)+1, false); break;
-	       case 7 : p=new Piloto("Michael Romanovich Novikov", "Russia", r.nextInt(99)+1, r.nextInt(9)+1, false); break;
-	       case 8 : p=new Piloto("Raul Da Costa", "��frica do Sul", r.nextInt(99)+1, r.nextInt(9)+1, false); break;
-	       case 9 : p=new Piloto("Anthony Ventura", "Estados Unidos", r.nextInt(99)+1, r.nextInt(9)+1, false); break;
-	       
-	       default : break;
-	   }
-	return p;
-	}
-	
-	public String daNome(){
-		String s = "Jusebio";
-		return s;
-	}
-	public String daNacionalidade(){
-		String s = "Pretogal";
-		return s;
-	}
-	
-	public Piloto geraPiloto(){
-		Random r = new Random(); int quali = r.nextInt(9)+1; int palmares = r.nextInt(50); boolean chuva = r.nextBoolean();
-		
-		return new Piloto(daNome(),daNacionalidade(),  palmares,
-				quali,  chuva);
-		
-		
-	}
+
 }

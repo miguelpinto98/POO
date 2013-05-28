@@ -148,13 +148,5 @@ public class Corrida {
 		return aux;
 	}
 	
-	public Corrida geraCorrida(HashSet<Veiculo> aux){
-		Circuito ra = geraCircuito();
-		Random r = new random();
-		int x = r.nextInt(1);
-		if(x==1 ){ Corrida y = new Corrida(aux,ra,true);}
-		if(x==0){ Corrida  y = new Corrida(aux,ra,false);}
-		
-		return y;
-	}
+	
 }
