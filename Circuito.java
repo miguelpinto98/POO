@@ -185,15 +185,4 @@ public class Circuito {
 		return new Circuito(this);
 
 	}
-	public Circuito geraCirucuito(){
-		Piloto p = new Piloto();
-		Circuito c = new Circuito();
-		
-		 c = new Circuito("Algarve", 4664, 16, 100908, 103345,108568, 112230, 91464, 20000, 16000, p.geraPiloto());
-		 c = new Circuito("Marrakech", 4624, 15, 88089, 91254, 95010, 98213, 80089, 8303, 19000, p.geraPiloto());
-		
-		
-		
-		
-	}
 }

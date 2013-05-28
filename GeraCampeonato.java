@@ -28,7 +28,7 @@ public class GeraCampeonato {
 	}
 
 	public Veiculo gerahibrido(Piloto p1, Piloto p2){
-		Veiculo v;
+		Veiculo v = null;
 		Random r = new Random();
 		int x = r.nextInt(2);
 		if(x==0){ v =  new PC1  (daMarca(), daModelo(),r.nextInt(), r.nextInt(),
@@ -43,17 +43,20 @@ public class GeraCampeonato {
 	public Veiculo geraVeiculo(){ 
 		Piloto p1 = geraPiloto();
 		Piloto p2 = geraPiloto();
+		Veiculo v = null;
 		Random r = new Random();
+		
 		int x = r.nextInt(4);
-		if (x==0){ Veiculo v = gerahibrido(p1,p2);}else 
-			if(x==1){PC1 v = new PC1  (daMarca(), daModelo(),r.nextInt(), r.nextInt(),
+		if (x==0){  v = gerahibrido(p1,p2);}else 
+			if(x==1){ v = new PC1  (daMarca(), daModelo(),r.nextInt(), r.nextInt(),
 					p1,p2, r.nextInt());}
-				if(x==2){PC2 v = new PC2  (daMarca(), daModelo(),r.nextInt(), r.nextInt(),
+				if(x==2){v = new PC2  (daMarca(), daModelo(),r.nextInt(), r.nextInt(),
 						p1,p2, r.nextInt());}
-					if(x==3){SC v = new SC  (daMarca(), daModelo(),r.nextInt(), r.nextInt(),
+					if(x==3){v = new SC  (daMarca(), daModelo(),r.nextInt(), r.nextInt(),
 							p1,p2, r.nextInt());}
-						if(x==4){GT v = new GT  (daMarca(), daModelo(),r.nextInt(), r.nextInt(),
+						if(x==4){v = new GT  (daMarca(), daModelo(),r.nextInt(), r.nextInt(),
 								p1,p2, r.nextInt());}
+		
 		
 		
 		return v;
@@ -77,11 +80,14 @@ public class GeraCampeonato {
 			
 		}
 		public Corrida geraCorrida(HashSet<Veiculo> aux){
-			Circuito ra = new Circuito( geraCircuito());
+			Circuito ra = new Circuito();
+			ra = geraCircuito();
+			Corrida y= null;
+			
 			Random r = new Random();
 			int x = r.nextInt(1);
-			if(x==1 ){ Corrida y = new Corrida(aux,ra,true);}
-			if(x==0){ Corrida  y = new Corrida(aux,ra,false);}
+			if(x==1 ){ y = new Corrida(aux,ra,true);}
+			if(x==0) { y = new Corrida(aux,ra,false);}
 			
 			return y;
 		}
@@ -94,13 +100,24 @@ public class GeraCampeonato {
 			 HashSet<Veiculo> aux2 = new HashSet<Veiculo>(); 
 			 aux2 = geraVeiculos();
 			while (i<x){
-				aux.add(GeraCorrida(aux2));
+				aux.add(geraCorrida(aux2));
 				i++;
 				
 			}
 			Campeonato c = new Campeonato(aux);
 			return c;
 			
+		}
+		
+		public Circuito geraCircuito(){
+			Piloto p = new Piloto(geraPiloto());
+			Circuito c1 = new Circuito(), c2 = new Circuito();
+			
+			 c1 = new Circuito("Algarve", 4664, 16, 100908, 103345,108568, 112230, 91464, 20000, 16000, p);
+			 c2 = new Circuito("Marrakech", 4624, 15, 88089, 91254, 95010, 98213, 80089, 8303, 19000, p);
+			 c2 = new Circuito();
+						
+			 return c1;
 		}
 
 }

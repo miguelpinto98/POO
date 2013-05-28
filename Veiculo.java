@@ -1,6 +1,3 @@
-import java.util.HashSet;
-import java.util.Random;
-
 public abstract class Veiculo {
 	private String marca;
 	private String modelo;

@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Piloto {
 	private String nome;
 	private String nacionalidade;
