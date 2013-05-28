@@ -134,8 +134,10 @@ public class Piloto {
 	return p;
 	}
 	public Piloto geraPiloto(){
-		 new Piloto(String nome, String nacionalidade, int palmares,
-				int qualidade, boolean chuva)
+		Random r = new random(); int quali = r.nextInt(9)+1; int palmares = r.nextInt(50); bolean chuva = r.nextBoolean();
+		
+		return new Piloto(daNome(),daNacionalidade(),  palmares,
+				quali,  chuva);
 		
 		
 	}
