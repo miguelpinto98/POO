@@ -16,7 +16,10 @@ public class GT extends Veiculo{
 	}
 	
 	public int calculaFiabilidade() {
-		return 0; 				//Preciso arranjar uma solução para isto
+		Random r = new Random();
+		for(int i=this.getNvoltas(); i>0; i--){
+		  return (this.getCilindrada()* (i*r.nextInt(1)))/3000;
+		  }
 		
 	}
 	
