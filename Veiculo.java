@@ -10,6 +10,7 @@ public abstract class Veiculo {
 	private Piloto p2;
 	private int hibrido;
 	private boolean pactivo;
+	private double voltas;
 
 	/*
 	 * Constructor for objects of class Veiculo
@@ -23,6 +24,8 @@ public abstract class Veiculo {
 		this.p2 = new Piloto();
 		this.hibrido = 0;
 		this.pactivo = true;
+		this.voltas = voltaracio(this.p1.getQualidade(),this.p2.getQualidade());
+		
 	}
 
 	public Veiculo(String marca, String modelo, int cilindrada, int cv,
@@ -35,6 +38,7 @@ public abstract class Veiculo {
 		this.p2 = p2;
 		this.hibrido = h;
 		this.pactivo = true;
+		this.voltas = voltaracio(this.p1.getQualidade(),this.p2.getQualidade());
 	}
 
 	public Veiculo(Veiculo v) {
@@ -46,8 +50,14 @@ public abstract class Veiculo {
 		this.p2 = v.getPiloto2();
 		this.hibrido = v.getHibrido();
 		this.pactivo = v.getPactivo();
+		this.voltas = voltaracio(this.p1.getQualidade(),this.p2.getQualidade());
 	}
 
+	
+	
+	public double voltaracio(int p1,int p2){
+		return (double)p1/(p1+p2);
+	}
 	/*
 	 * Métodos de Instância
 	 */
@@ -192,9 +202,17 @@ public  HashSet<Veiculo> geraVeiculos(){
 
 public Veiculo geraVeiculo(){
 	Random r = new random();
+	int x = r.nextInt(4);
+	if (x==0){   gerahibrido();}else 
+		if(x==1){return new PC1  (geraMarca(), geraModelo(),r.nextInt(), r.nextInt(),
+				geraPiloto(),geraPiloto(), r.nextInt())}
+			if(x==2){return new PC2  (geraMarca(), geraModelo(),r.nextInt(), r.nextInt(),
+					geraPiloto(),geraPiloto(), r.nextInt())}
+				if(x==3){return new SC (geraMarca(), geraModelo(),r.nextInt(), r.nextInt(),
+						geraPiloto(),geraPiloto(), r.nextInt())}
+					if(x==4){return new GT  (geraMarca(), geraModelo(),r.nextInt(), r.nextInt(),
+							geraPiloto(),geraPiloto(), r.nextInt())}
 	
-	return new Veiculo  (geraMarca(), geraModelo(), int cilindrada, int cv,
-			Piloto p1, Piloto p2, int h)
 	
 	
 }
