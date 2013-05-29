@@ -3,12 +3,25 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		System.out.println("########## RACING MANAGER 2013 ##########");
-		System.out.println("1 - NOVO CAMPEONATO");
-		System.out.println("2 - CARREGAR CAMPEONATO");
-		System.out.println("3 - SAIR");
-		  System.out.println("             Escolha opção");
-		  System.out.println("#########################################");
+		try{
+			
+			System.out.println("########## RACING MANAGER 2013 ##########");
+			Thread.sleep(500); 
+			System.out.println("1 - NOVO CAMPEONATO");
+			Thread.sleep(500); 
+			System.out.println("2 - CARREGAR CAMPEONATO");
+			Thread.sleep(500);
+			System.out.println("3 - SAIR");
+			Thread.sleep(500);
+			  System.out.println("             Escolha opção");
+			  Thread.sleep(500);
+			  System.out.println("#########################################");
+			
+			}
+			catch(Exception e){
+			//If this thread was intrrupted by nother thread 
+			}
+			   
 		   Scanner scanner = new Scanner(System.in);
 		   
 	     int x  = scanner.nextInt();
