@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class TestaManager {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		Piloto p1 = new Piloto("Muito Fraco", "China", 0, 2, false);
 		Piloto p2 = new Piloto("Fraco", "Portugal", 5, 4, false);
@@ -51,22 +51,22 @@ public class TestaManager {
 		Campeonato k1 = new Campeonato(v96);
 
 		double tx1 = 0, tx2 = 0, tx3 = 0, tx4 = 0, tx5 = 0;
-		/*
-		 * for(int i = 0 ; i < 5; i++){ double x1 =
-		 * p11.tempoProximaVolta(ct1,false); double x2 =
-		 * p12.tempoProximaVolta(ct1,false); double x3 =
-		 * p13.tempoProximaVolta(ct1,false); double x4 =
-		 * p14.tempoProximaVolta(ct1,false); double x5 =
-		 * p15.tempoProximaVolta(ct1,false);
-		 * 
-		 * tx1+=x1; tx2+=x2; tx3+=x3; tx4+=x4; tx5+=x5;
-		 * 
-		 * System.out.println("P1 " + x1/1000 + "\tP2 " + x2/1000 + "\tP3 " +
-		 * x3/1000 + "\tP4 " + x4/1000 + "\tP5 " + x5/1000); }
-		 * System.out.println("\nP1 " + tx1/1000 + "\tP2 " + tx2/1000 + "\tP3 "
-		 * + tx3/1000 + "\tP4 " + tx4/1000 + "\tP5 " + tx5/1000 + "\n");
-		 * 
-		 * tx1=0; tx2=0; tx3=0; tx4=0; tx5=0; for(int i = 0 ; i < 5; i++){
+		
+		  for(int i = 0 ; i < 5; i++){ double x1 =
+		  p11.tempoProximaVolta(ct1,false); double x2 =
+		  p12.tempoProximaVolta(ct1,false); double x3 =
+		  p13.tempoProximaVolta(ct1,false); double x4 =
+		  p14.tempoProximaVolta(ct1,false); double x5 =
+		  p15.tempoProximaVolta(ct1,false);
+		  
+		  tx1+=x1; tx2+=x2; tx3+=x3; tx4+=x4; tx5+=x5;
+		  
+		  System.out.println("P1 " + x1/1000 + "\tP2 " + x2/1000 + "\tP3 " +
+		  x3/1000 + "\tP4 " + x4/1000 + "\tP5 " + x5/1000); }
+		  System.out.println("\nP1 " + tx1/1000 + "\tP2 " + tx2/1000 + "\tP3 "
+		  + tx3/1000 + "\tP4 " + tx4/1000 + "\tP5 " + tx5/1000 + "\n");
+		  
+		 /* tx1=0; tx2=0; tx3=0; tx4=0; tx5=0; for(int i = 0 ; i < 5; i++){
 		 * double x1 = p21.tempoProximaVolta(ct1,false); double x2 =
 		 * p22.tempoProximaVolta(ct1,false); double x3 =
 		 * p23.tempoProximaVolta(ct1,false); double x4 =
@@ -121,7 +121,7 @@ public class TestaManager {
 		 * System.out.println("\nP1 " + tx1/1000 + "\tP2 " + tx2/1000 + "\tP3 "
 		 * + tx3/1000 + "\tP4 " + tx4/1000 + "\tP5 " + tx5/1000 + "\n");
 		 */
-
+/*
 		HashMap<Veiculo, Integer> arroz = new HashMap<Veiculo, Integer>();
 		HashMap<Veiculo, Integer> batata = new HashMap<Veiculo, Integer>();
 
@@ -140,6 +140,6 @@ public class TestaManager {
 			
 			for (Veiculo ve : batata.keySet()) {
 				System.out.println(batata.get(ve) + " ");
-			}
+			}*/
 	}
 }
