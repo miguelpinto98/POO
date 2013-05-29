@@ -69,12 +69,12 @@ public class TestaManagerGriffin {
 			
 			
 			arroz=r.fazCorrida(batata);
-		}
 		
+		System.out.println("\nCORRIDA ");
 			for(Veiculo x : arroz.keySet()) {
-				//System.out.println(arroz.get(x)/1000);
+				System.out.println("1 " + arroz.get(x)/1000 );
 			}
-			
+		}
 			for (Veiculo ve : batata.keySet()) {
 				System.out.println(batata.get(ve) + " Veiculo: " + ve.getMarca());
 			}

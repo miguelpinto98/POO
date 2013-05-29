@@ -90,8 +90,8 @@ public class Corrida {
 	public HashMap<Veiculo, Integer> fazVolta(boolean troca) {
 		int x = 0;
 		HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
-
-		for (Veiculo v : this.conjveiculos) {
+		HashSet<Veiculo> percorrer = this.getConjuntoVeiculos();
+		for (Veiculo v :percorrer) {
 
 			try {
 				x = v.tempoProximaVolta(this.crt, this.piso);
