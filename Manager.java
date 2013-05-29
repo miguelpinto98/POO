@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.HashMap;
 
 public class Manager {
@@ -71,5 +72,27 @@ public class Manager {
 			return this.campeonato.equals(m.getCampeonato())
 					&& this.apostadores.equals(m.getapostadores());
 		}
+	}
+	
+	public void carregaRM(String file) throws FileNotFoundException, IOException, ClassNotFoundException {
+        FileInputStream f = new FileInputStream(file);
+        ObjectInputStream o = new ObjectInputStream(f);
+        
+        this.campeonato = (Campeonato) o.readObject();
+        this.apostadores = (HashMap<String,Jogador>) o.readObject();
+            
+        o.close();
+        f.close();
+	}
+	
+	public void gravaRM(String file) throws FileNotFoundException, IOException {
+        FileOutputStream f = new FileOutputStream(file);
+        ObjectOutputStream o = new ObjectOutputStream(f);
+        
+        o.writeObject(this.campeonato);
+        o.writeObject(this.apostadores);
+        
+        o.close();
+        f.close();
 	}
 }
