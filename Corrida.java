@@ -65,7 +65,7 @@ public class Corrida {
 
 		s.append("-----------------Corrida-------------------\n");
 		s.append("N��mero de Veiculos: " + this.conjveiculos.size() + "\n");
-		s.append("Circuito: " + this.crt.toString() + "\n");
+		s.append("Circuito: " + this.crt.getNomeCircuito() + "\n");
 		s.append("Piso Molhado: " + this.piso + "\n");
 		s.append("-------------------------------------------\n");
 
