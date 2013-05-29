@@ -50,8 +50,8 @@ public class TestaManagerGriffin {
 		Corrida c4 = new Corrida(v, ct2, true);
 		HashSet<Corrida> v96 = new HashSet<Corrida>();
 		v96.add(c2);
-		v96.add(c3);
-		v96.add(c4);
+	/*	v96.add(c3);
+		v96.add(c4);*/
 		Campeonato k1 = new Campeonato(v96);
 
 		
@@ -70,13 +70,9 @@ public class TestaManagerGriffin {
 			
 			arroz=r.fazCorrida(batata);
 		
-		System.out.println("\nCORRIDA ");
-			for(Veiculo x : arroz.keySet()) {
-				System.out.println("1 " + arroz.get(x)/1000 );
-			}
-		}
+		}System.out.println("\n");
 			for (Veiculo ve : batata.keySet()) {
-				System.out.println(batata.get(ve) + " Veiculo: " + ve.getMarca());
+				System.out.println( "Veiculo: " +ve.getMarca() +" "+ ve.getModelo()+  " " + batata.get(ve) );
 			}
 	}
 }

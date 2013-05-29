@@ -88,14 +88,16 @@ public class Corrida {
 	}
 
 	public HashMap<Veiculo, Integer> fazVolta(boolean troca) {
-		int x = 0;
+		int x = 0, min = 900000; Veiculo vw  = null;
 		HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
 		HashSet<Veiculo> percorrer = this.getConjuntoVeiculos();
 		for (Veiculo v :percorrer) {
 
 			try {
 				x = v.tempoProximaVolta(this.crt, this.piso);
+				
 				aux.put(v, x);
+				if (x < min){ min = x;  vw = v.clone();}
 
 			} catch (Exception e) {
 
@@ -103,6 +105,7 @@ public class Corrida {
 				aux.put(v, -1);
 			}
 
+			System.out.println("Vencedor " + vw.getMarca()+" " + vw.getModelo());
 		}
 		return aux;
 	}
@@ -115,6 +118,8 @@ public class Corrida {
 			v.voltaracio(nvoltas);
 		}
 		for (int i = 0; i < nvoltas; i++) {
+			
+			System.out.println("Volta "+ i);
 			aux = fazVolta(troca);
 			count++;
 
@@ -122,18 +127,24 @@ public class Corrida {
 
 				if (aux.get(v) != -1)
 					c.put(v, c.get(v) + aux.get(v));
-				else
+				else{
+					try{
 					c.put(v, -1);
+				    System.out.println( v.getMarca() +" "+ v.getModelo() +" DNF " );
+					
+					Thread.sleep(2500);
+			   }  catch(Exception e){
+						//If this thread was intrrupted by nother thread 
+						}
+					
+				}
 			}
 
 		}
 
 	}
 
-	public void alteraPilotos() {
-		for (Veiculo v : this.conjveiculos)
-			v.setPiloto(v.getPiloto2());
-	}
+	
 
 	public HashMap<Veiculo, Integer> fazCorrida(HashMap<Veiculo, Integer> c) {
 		HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
@@ -144,9 +155,12 @@ public class Corrida {
 		for (Veiculo v : conjveiculos) {
 			aux.put(v, 0);
 		}
-
+try{
 		this.fazVoltas(aux, crt.getNvoltas());
-
+		Thread.sleep(2500);
+   }  catch(Exception e){
+			//If this thread was intrrupted by nother thread 
+			}
 		for (Veiculo v : conjveiculos) {
 			aux2.put(aux.get(v), v);
 		}
