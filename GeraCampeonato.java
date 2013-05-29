@@ -17,7 +17,7 @@ public class GeraCampeonato {
 
 	public static String daMarca() {
 		Random r = new Random();
-		int x = r.nextInt(37);
+		int x = r.nextInt(50);
 		String s = "";
 		
 		switch(x) {
@@ -68,37 +68,56 @@ public class GeraCampeonato {
 		String s = "";
 		
 		switch(x) {
-		case 0: s = "Ranault"; break;
-		case 1: s = "Ranault"; break;
-		case 2: s = "Ranault"; break;
-		case 3: s = "Ranault"; break;
-		case 4: s = "Ranault"; break;
-		case 5: s = "Ranault"; break;
-		case 6: s = "Ranault"; break;
-		case 7: s = "Ranault"; break;
-		case 8: s = "Ranault"; break;
-		case 9: s = "Ranault"; break;
-		case 10: s = "Ranault"; break;
-		case 11: s = "Ranault"; break;
-		case 12: s = "Ranault"; break;
-		case 13: s = "Ranault"; break;
-		case 14: s = "Ranault"; break;
-		case 15: s = "Ranault"; break;
-		case 16: s = "Ranault"; break;
-		case 17: s = "Ranault"; break;
-		case 18: s = "Ranault"; break;
-		case 19: s = "Ranault"; break;
-		case 20: s = "Ranault"; break;
-		case 21: s = "Ranault"; break;
-		case 22: s = "Ranault"; break;
-		case 23: s = "Ranault"; break;
-		case 24: s = "Ranault"; break;
-		case 25: s = "Ranault"; break;
-		case 26: s = "Ranault"; break;
-		case 27: s = "Ranault"; break;
-		case 28: s = "Ranault"; break;
-		case 29: s = "Ranault"; break;
-		case 30: s = "Ranault"; break;
+		case 0: s = "MiTO"; break;
+		case 1: s = "Vantage"; break;
+		case 2: s = "RS5"; break;
+		case 3: s = "TT"; break;
+		case 4: s = "Continental"; break;
+		case 5: s = "Z4"; break;
+		case 6: s = "Camaro"; break;
+		case 7: s = "Corvette"; break;
+		case 8: s = "Spark"; break;
+		case 9: s = "C1"; break;
+		case 10: s = "C-Crosser"; break;
+		case 11: s = "Nemo"; break;
+		case 12: s = "Duster"; break;
+		case 13: s = "Journey"; break;
+		case 14: s = "612 Scaglietti"; break;
+		case 15: s = "F599"; break;
+		case 16: s = "500"; break;
+		case 17: s = "Strada"; break;
+		case 18: s = "Punto"; break;
+		case 19: s = "Fiesta"; break;
+		case 20: s = "Transit Connect"; break;
+		case 21: s = "S-Max"; break;
+		case 22: s = "Civic"; break;
+		case 23: s = "Jazz"; break;
+		case 24: s = "Rock"; break;
+		case 25: s = "Pop"; break;
+		case 26: s = "Veloster"; break;
+		case 27: s = "NLR"; break;
+		case 28: s = "Daily"; break;
+		case 29: s = "XKR"; break;
+		case 30: s = "Grand Cherokee"; break;
+		case 31: s = "Gallardo"; break;
+		case 32: s = "Ypsilon"; break;
+		case 33: s = "Discovery"; break;
+		case 34: s = "Sport"; break;
+		case 35: s = "Exige"; break;
+		case 36: s = "Quattroporte"; break;
+		case 37: s = "MX-5"; break;
+		case 38: s = "SLK"; break;
+		case 39: s = "Roadster"; break;
+		case 40: s = "Outlander"; break;
+		case 41: s = "NV200"; break;
+		case 42: s = "Primastar"; break;
+		case 43: s = "RCZ"; break;
+		case 44: s = "Panamera"; break;
+		case 45: s = "Twizy"; break;
+		case 46: s = "Octavia"; break;
+		case 47: s = "Impreza"; break;
+		case 48: s = "GT 86"; break;
+		case 49: s = "XC90"; break;
 		}	
 		return s;
 	}
