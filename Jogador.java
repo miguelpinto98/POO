@@ -160,4 +160,13 @@ public class Jogador {
 	   
 	   }
 	   }
+
+public void fazAposta(Corrida r,double quant , Veiculo p1,Veiculo p2,Veiculo p3){
+	
+	Aposta p = new Aposta(quant, p1,  p2,  p3,r);
+	adecorrer.add(p);
+	
+}
+
+
 }
