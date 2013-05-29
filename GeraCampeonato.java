@@ -2,19 +2,130 @@ import java.util.HashSet;
 import java.util.Random;
 
 public class GeraCampeonato {
-
-	public HashSet<Veiculo> geraVeiculos() {
+	
+	public String daNome() {
 		Random r = new Random();
-		int x = r.nextInt(8) + 12, y = 0;
-		HashSet<Veiculo> aux = new HashSet<Veiculo>();
+		int x = r.nextInt(30);
+		StringBuilder s = new StringBuilder();
 		
-		while (y < x) {
-			aux.add(geraVeiculo());
-			y++;
+		switch(x) {
+		case 0: s.append("Haywood "); break;
+		case 1: s.append("Willis "); break;
+		case 2: s.append("Dewitt "); break;
+		case 3: s.append("Claude "); break;
+		case 4: s.append("Felipe "); break;
+		case 5: s.append("Ellis "); break;
+		case 6: s.append("Efren "); break;
+		case 7: s.append("Forest "); break;
+		case 8: s.append("Ira "); break;
+		case 9: s.append("Neil "); break;
+		case 10: s.append("Chase "); break;
+		case 11: s.append("Sean "); break;
+		case 12: s.append("Curt "); break;
+		case 13: s.append("Mose "); break;
+		case 14: s.append("Boris "); break;
+		case 15: s.append("Miguel "); break;
+		case 16: s.append("Len "); break;
+		case 17: s.append("Forrest "); break;
+		case 18: s.append("Buck "); break;
+		case 19: s.append("Pedro "); break;
+		case 20: s.append("Jonas "); break;
+		case 21: s.append("Stewart "); break;
+		case 22: s.append("Stephan "); break;
+		case 23: s.append("Randy "); break;
+		case 24: s.append("Steven "); break;
+		case 25: s.append("Johnie "); break;
+		case 26: s.append("Hayden "); break;
+		case 27: s.append("Cole "); break;
+		case 28: s.append("James "); break;
+		case 29: s.append("Jim "); break;
+		case 30: s.append("Kim "); break;
 		}
-		return aux;
+		
+		x = r.nextInt(30);
+		switch(x) {
+		case 0: s.append("Hommel"); break;
+		case 1: s.append("Wordlaw"); break;
+		case 2: s.append("Doney"); break;
+		case 3: s.append("Chatterton"); break;
+		case 4: s.append("Fenderson"); break;
+		case 5: s.append("Encinas"); break;
+		case 6: s.append("Espinoza"); break;
+		case 7: s.append("Foland"); break;
+		case 8: s.append("Lima"); break;
+		case 9: s.append("Pinto"); break;
+		case 10: s.append("Faria"); break;
+		case 11: s.append("Insley"); break;
+		case 12: s.append("Nehls"); break;
+		case 13: s.append("Cleghorn"); break;
+		case 14: s.append("Secord"); break;
+		case 15: s.append("Courchesne"); break;
+		case 16: s.append("Mcdade"); break;
+		case 17: s.append("Brinn"); break;
+		case 18: s.append("Wills"); break;
+		case 19: s.append("Laufer"); break;
+		case 20: s.append("Fickett"); break;
+		case 21: s.append("Bradt"); break;
+		case 22: s.append("Strauch"); break;
+		case 23: s.append("Stills"); break;
+		case 24: s.append("Rizer"); break;
+		case 25: s.append("Shackleford"); break;
+		case 26: s.append("Janson"); break;
+		case 27: s.append("Hitt"); break;
+		case 28: s.append("Carone"); break;
+		case 29: s.append("Jusino"); break;
+		case 30: s.append("Kampa"); break;
+		}
+		return s.toString();
+	}
+	
+	public String daNacionalidade() {
+		Random r = new Random();
+		int  x = r.nextInt(30);
+		String s = "";
+	
+		switch(x) {
+		case 0: s = "Portuguesa"; break;
+		case 1: s = "Albanesa,"; break;
+		case 2: s = "Alemã"; break;
+		case 3: s = "Austríaca"; break;
+		case 4: s = "Belga"; break;
+		case 5: s = "Croata"; break;
+		case 6: s = "Dinamarquesa"; break;
+		case 7: s = "Eslovaca"; break;
+		case 8: s = "Espanhola"; break;
+		case 9: s = "Francesa"; break;
+		case 10: s = "Grega"; break;
+		case 11: s = "Irlandesa"; break;
+		case 12: s = "Italiana"; break;
+		case 13: s = "Holandesa"; break;
+		case 14: s = "Polaca"; break;
+		case 15: s = "Inglesa"; break;
+		case 16: s = "Russa"; break;
+		case 17: s = "Sueca"; break;
+		case 18: s = "Turca"; break;
+		case 19: s = "Ucraniana"; break;
+		case 20: s = "Argentina"; break;
+		case 21: s = "Chilena"; break;
+		case 22: s = "Cubana"; break;
+		case 23: s = "Mexicana"; break;
+		case 24: s = "Chinesa"; break;
+		case 25: s = "Indiana"; break;
+		case 26: s = "Iraniana"; break;
+		case 27: s = "Japonesa"; break;
+		case 28: s = "Sul Africano"; break;
+		case 29: s = "Angolano"; break;
+		case 30: s = "Cabo Verdiano"; break;
+		}	
+		return s;
 	}
 
+	public Piloto geraPiloto() {
+		Random r = new Random();
+
+		return new Piloto(daNome(), daNacionalidade(), r.nextInt(50), r.nextInt(9) + 1, r.nextBoolean());
+	}
+	
 	public String daMarca() {
 		Random r = new Random();
 		int x = r.nextInt(50);
@@ -122,222 +233,55 @@ public class GeraCampeonato {
 		return s;
 	}
 
-	public Veiculo gerahibrido(Piloto p1, Piloto p2) {
+	public Veiculo geraHibrido(Piloto p1, Piloto p2) { //falta a ideia do griffin no fim
 		Veiculo v = null;
 		Random r = new Random();
 		int x = r.nextInt(2);
-		if (x == 0) {
-			v = new PC1Normal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
-					p2, r.nextInt());
-		}
-		if (x == 1) {
-			v = new PC1Normal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
-					p2, r.nextInt());
-		}
-		if (x == 2) {
-			v = new PC1Normal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
-					p2, r.nextInt());
-		}
+		
+		if(x==0)
+			v= new PC1Hibrido(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt());
+		if(x==1)
+			v= new PC2Hibrido(daMarca(), daModelo(), (r.nextInt(2000) + 4000), r.nextInt(400) + 550, p1, p2, r.nextInt());
+		if(x==2)
+			v= new GTHibrido(daMarca(), daModelo(), (r.nextInt(1500) + 3000), r.nextInt(200) + 400, p1, p2, r.nextInt());
 		return v;
 	}
 
-	public Veiculo geraVeiculo() {
+	public Veiculo geraVeiculo() { //falta a ideia do griffin no fim
 		Piloto p1 = geraPiloto();
 		Piloto p2 = geraPiloto();
 		Veiculo v = null;
 		Random r = new Random();
-
 		int x = r.nextInt(4);
-		if (x == 0) {
-			v = gerahibrido(p1, p2);
-		} else if (x == 1) {
-			v = new PC1Normal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
-					p2, r.nextInt());
+		
+		if(x==0)
+			v= geraHibrido(p1,p2);
+		else {
+			if(x==1)
+				v= new PC1Normal(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt());
 		}
-		if (x == 2) {
-			v = new PC2Normal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
-					p2, r.nextInt());
-		}
-		if (x == 3) {
-			v = new SC(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1, p2,
-					r.nextInt());
-		}
-		if (x == 4) {
-			v = new GTNormal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1, p2,
-					r.nextInt());
-		}
-
+		if(x==2)
+			v= new PC2Normal(daMarca(), daModelo(), (r.nextInt(2000) + 4000), r.nextInt(400) + 550, p1, p2, r.nextInt());
+		if(x==3)
+			v= new GTNormal(daMarca(), daModelo(), (r.nextInt(1500) + 3000), r.nextInt(200) + 400, p1, p2, r.nextInt());
+		if(x==4)
+			v= new SC(daMarca(), daModelo(), 2500, r.nextInt(100) + 100, p1, p2, r.nextInt());
+		
 		return v;
 	}
-
-	public String daNome() {
+	
+	public HashSet<Veiculo> geraVeiculos() {
 		Random r = new Random();
-		int  x = r.nextInt(30);
+		int x = r.nextInt(12) + 12, i=0;
+		HashSet<Veiculo> aux = new HashSet<Veiculo>();
 		
-		
-		  StringBuilder s = new StringBuilder();
-		switch(x){
-		
-		case 0 : s .append("Ranault");;break;
-		case 1 : s .append("Ranault");;break;
-		case 2 : s .append("Ranault");;break;
-		case 3 : s .append("Ranault");;break;
-		case 4 : s .append("Ranault");;break;
-		case 5 : s .append("Ranault");;break;
-		case 6 : s .append("Ranault");;break;
-		case 7 : s .append("Ranault");;break;
-		case 8 : s .append("Ranault");;break;
-		case 9 : s .append("Ranault");;break;
-		case 10 : s .append("Ranault");;break;
-		case 11 :s .append("Ranault");;break;
-		case 12:s .append("Ranault");;break;
-		case 13:s .append("Ranault");;break;
-		case 14: s .append("Ranault");;break;
-		case 15 : s .append("Ranault");;break;
-		case 16 : s .append("Ranault");;break;
-		case 17 : s .append("Ranault");;break;
-		case 18: s .append("Ranault");;break;
-		case 19 : s .append("Ranault");;break;
-		case 20 : s .append("Ranault");;break;
-		case 21 :s .append("Ranault");;break;
-		case 22 : s .append("Ranault");;break;
-		case 23 :s .append("Ranault");;break;
-		case 24 :s .append("Ranault");;break;
-		case 25 :s .append("Ranault");;break;
-		case 26 :s .append("Ranault");;break;
-		case 27 :s .append("Ranault");;break;
-		case 28 :s .append("Ranault");;break;
-		case 29 :s .append("Ranault");;break;
-		case 30 :s .append("Ranault");;break;
-		
-		}
-		x = r.nextInt(30);
-switch(x){
-		//estas string tem que come�ar com um espa�o
-		case 0 : s .append("Ranault");;break;
-		case 1 : s .append("Ranault");;break;
-		case 2 : s .append("Ranault");;break;
-		case 3 : s .append("Ranault");;break;
-		case 4 : s .append("Ranault");;break;
-		case 5 : s .append("Ranault");;break;
-		case 6 : s .append("Ranault");;break;
-		case 7 : s .append("Ranault");;break;
-		case 8 : s .append("Ranault");;break;
-		case 9 : s .append("Ranault");;break;
-		case 10 : s .append("Ranault");;break;
-		case 11 :s .append("Ranault");;break;
-		case 12:s .append("Ranault");;break;
-		case 13:s .append("Ranault");;break;
-		case 14: s .append("Ranault");;break;
-		case 15 : s .append("Ranault");;break;
-		case 16 : s .append("Ranault");;break;
-		case 17 : s .append("Ranault");;break;
-		case 18: s .append("Ranault");;break;
-		case 19 : s .append("Ranault");;break;
-		case 20 : s .append("Ranault");;break;
-		case 21 :s .append("Ranault");;break;
-		case 22 : s .append("Ranault");;break;
-		case 23 :s .append("Ranault");;break;
-		case 24 :s .append("Ranault");;break;
-		case 25 :s .append("Ranault");;break;
-		case 26 :s .append("Ranault");;break;
-		case 27 :s .append("Ranault");;break;
-		case 28 :s .append("Ranault");;break;
-		case 29 :s .append("Ranault");;break;
-		case 30 :s .append("Ranault");;break;
-		
-		}
-		return s.toString();}
-
-	public String daNacionalidade() {
-		Random r = new Random();
-		int  x = r.nextInt(30);
-		String s = "";
-		switch(x){
-		
-		case 0 : s = "Ranault";break;
-		case 1 : s = "Ranault";break;
-		case 2 : s = "Ranault";break;
-		case 3 : s = "Ranault";break;
-		case 4 : s = "Ranault";break;
-		case 5 : s = "Ranault";break;
-		case 6 : s = "Ranault";break;
-		case 7 : s = "Ranault";break;
-		case 8 : s = "Ranault";break;
-		case 9 : s = "Ranault";break;
-		case 10 : s = "Ranault";break;
-		case 11 : s = "Ranault";break;
-		case 12: s = "Ranault";break;
-		case 13: s = "Ranault";break;
-		case 14: s = "Ranault";break;
-		case 15 : s = "Ranault";break;
-		case 16 : s = "Ranault";break;
-		case 17 : s = "Ranault";break;
-		case 18: s = "Ranault";break;
-		case 19 : s = "Ranault";break;
-		case 20 : s = "Ranault";break;
-		case 21 : s = "Ranault";break;
-		case 22 : s = "Ranault";break;
-		case 23 : s = "Ranault";break;
-		case 24 : s = "Ranault";break;
-		case 25 : s = "Ranault";break;
-		case 26 : s = "Ranault";break;
-		case 27 : s = "Ranault";break;
-		case 28 : s = "Ranault";break;
-		case 29 : s = "Ranault";break;
-		case 30 : s = "Ranault";break;
-		
-		}
-		
-		
-		return s;
-	}
-
-	public Piloto geraPiloto() {
-		Random r = new Random();
-		int quali = r.nextInt(9) + 1;
-		int palmares = r.nextInt(50);
-		boolean chuva = r.nextBoolean();
-
-		return new Piloto(daNome(), daNacionalidade(), palmares, quali, chuva);
-
-	}
-
-	public Corrida geraCorrida(HashSet<Veiculo> aux) {
-		Circuito ra = new Circuito();
-		ra = geraCircuito();
-		Corrida y = null;
-
-		Random r = new Random();
-		int x = r.nextInt(1);
-		if (x == 1) {
-			y = new Corrida(aux, ra, true);
-		}
-		if (x == 0) {
-			y = new Corrida(aux, ra, false);
-		}
-
-		return y;
-	}
-
-	public Campeonato GeraCampeonato() {
-
-		Random r = new Random();
-		int x = r.nextInt(5) + 4;
-		int i = 0;
-		HashSet<Corrida> aux = new HashSet<Corrida>();
-		HashSet<Veiculo> aux2 = new HashSet<Veiculo>();
-		aux2 = geraVeiculos();
-		while (i < x) {
-			aux.add(geraCorrida(aux2));
+		while (i<x) {
+			aux.add(geraVeiculo());
 			i++;
-
 		}
-		Campeonato c = new Campeonato(aux);
-		return c;
-
+		return aux;
 	}
-
+	
 	public Circuito geraCircuito() {
 		Piloto p = new Piloto(geraPiloto());
 		Circuito c = new Circuito();
@@ -368,5 +312,32 @@ switch(x){
 		case 20: c = new Circuito("Silverstone Circuit", 5901, 18, 106279, 110803, 114503, 119382, 100279, 15192, 23000, p); break;
 		}
 		return c;
+	}
+
+	public Corrida geraCorrida(HashSet<Veiculo> aux) {
+		Corrida crr = null;
+		Random r = new Random();
+		boolean b = r.nextBoolean();
+		
+		if(b)
+			crr = new Corrida(aux, geraCircuito(), true);
+		else
+			crr = new Corrida(aux, geraCircuito(), false);
+		
+		return crr;
+	}
+
+	public Campeonato geraCampeonato() {
+		Random r = new Random();
+		int x=r.nextInt(10)+11, i=0;
+		HashSet<Corrida> aux = new HashSet<Corrida>();
+		HashSet<Veiculo> aux2 = new HashSet<Veiculo>();
+		
+		aux2=geraVeiculos();
+		while (i<x) {
+			aux.add(geraCorrida(aux2));
+			i++;
+		}
+		return (new Campeonato(aux));
 	}
 }
