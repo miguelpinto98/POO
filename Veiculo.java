@@ -1,4 +1,3 @@
-import java.io.*;
 public abstract class Veiculo {
 	private String marca;
 	private String modelo;
@@ -192,8 +191,5 @@ public abstract class Veiculo {
 		result = prime * result + ((this.marca == null) ? 0 : this.marca.hashCode());
 		result = prime * result + ((this.modelo == null) ? 0 : this.modelo.hashCode());
 		return result;
-	}
-
-	
-	
+	}	
 }
