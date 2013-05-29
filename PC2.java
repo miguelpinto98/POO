@@ -26,7 +26,7 @@ public class PC2 extends Veiculo {
 	public int tempoProximaVolta(Circuito c, boolean chuva) {
 		Random r = new Random();
 		int res=0;
-				
+		if (this.getVoltas() >= 0 )this.setVoltas(this.getVoltas()-1) ; else { this.setPilotoActivo();	this.setVoltas(-1); }			
 		if(r.nextInt(calculaFiabilidade()) == 0)
 			res = -1000;
 		else {

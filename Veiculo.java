@@ -7,7 +7,7 @@ public abstract class Veiculo {
 	private Piloto p2;
 	private int hibrido;
 	private boolean pactivo;
-	private double voltas;
+	private int voltas;
 
 	/*
 	 * Constructor for objects of class Veiculo
@@ -21,7 +21,7 @@ public abstract class Veiculo {
 		this.p2 = new Piloto();
 		this.hibrido = 0;
 		this.pactivo = true;
-		this.voltas = voltaracio(this.p1.getQualidade(),this.p2.getQualidade());
+		this.voltas =0;
 		
 	}
 
@@ -35,9 +35,8 @@ public abstract class Veiculo {
 		this.p2 = p2;
 		this.hibrido = h;
 		this.pactivo = true;
-		this.voltas = voltaracio(this.p1.getQualidade(),this.p2.getQualidade());
+		this.voltas =0;
 	}
-
 	public Veiculo(Veiculo v) {
 		this.marca = v.getMarca();
 		this.modelo = v.getModelo();
@@ -47,14 +46,17 @@ public abstract class Veiculo {
 		this.p2 = v.getPiloto2();
 		this.hibrido = v.getHibrido();
 		this.pactivo = v.getPactivo();
-		this.voltas = voltaracio(this.p1.getQualidade(),this.p2.getQualidade());
+		this.voltas =0;
 	}
 
 	
 	
-	public double voltaracio(int p1,int p2){
-		return (double)p1/(p1+p2);
+	public void  voltaracio(int n){
+		
+	this.voltas = p1.getQualidade()*n/(p1.getQualidade()+p2.getQualidade());
 	}
+	
+	
 	/*
 	 * Métodos de Instância
 	 */
@@ -98,6 +100,11 @@ public abstract class Veiculo {
 	public int getHibrido() {
 		return this.hibrido;
 	}
+	public int getVoltas(){
+		return this.voltas;
+	}
+	
+	//set
 
 	public void setMarca(String marca) {
 		this.marca = marca;
@@ -127,6 +134,8 @@ public abstract class Veiculo {
 		this.hibrido = h;
 	}
 
+	public void setVoltas(int n){this.voltas = n;}
+	
 	public void setPilotoActivo() {
 		if (pactivo == true)
 			pactivo = false;

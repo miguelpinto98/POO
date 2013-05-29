@@ -99,19 +99,19 @@ public class Corrida {
 		HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
 		int count=0;
 		boolean troca = false;
-
+		for (Veiculo v : aux.keySet()) { 
+			v.voltaracio(nvoltas);
+		}
 		for (int i = 0; i < nvoltas; i++) {
 			aux = fazVolta(troca);
 			count++;
 
+			
 			for (Veiculo v : aux.keySet()) { 
 				c.put(v, c.get(v) + aux.get(v));
 			}
 			
-			if(count == (this.crt.getNvoltas()/2)) {
-				alteraPilotos();
-				troca=true;
-			}
+			
 		}
 
 	}
