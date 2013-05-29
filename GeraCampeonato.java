@@ -3,9 +3,9 @@ import java.util.Random;
 
 public class GeraCampeonato {
 	
-	public String daNome() {
+	public static String daNome() {
 		Random r = new Random();
-		int x = r.nextInt(30);
+		int x = r.nextInt(31);
 		StringBuilder s = new StringBuilder();
 		
 		switch(x) {
@@ -42,7 +42,7 @@ public class GeraCampeonato {
             case 30: s.append("Kim "); break;
 		}
 		
-		x = r.nextInt(30);
+		x = r.nextInt(31);
 		switch(x) {
             case 0: s.append("Hommel"); break;
             case 1: s.append("Wordlaw"); break;
@@ -79,9 +79,9 @@ public class GeraCampeonato {
 		return s.toString();
 	}
 	
-	public String daNacionalidade() {
+	public static String daNacionalidade() {
 		Random r = new Random();
-		int  x = r.nextInt(30);
+		int  x = r.nextInt(31);
 		String s = "";
         
 		switch(x) {
@@ -120,15 +120,15 @@ public class GeraCampeonato {
 		return s;
 	}
     
-	public Piloto geraPiloto() {
+	public static Piloto geraPiloto() {
 		Random r = new Random();
         
 		return new Piloto(daNome(), daNacionalidade(), r.nextInt(50), r.nextInt(9) + 1, r.nextBoolean());
 	}
 	
-	public String daMarca() {
+	public static String daMarca() {
 		Random r = new Random();
-		int x = r.nextInt(50);
+		int x = r.nextInt(37);
 		String s = "";
 		
 		switch(x) {
@@ -173,9 +173,9 @@ public class GeraCampeonato {
 		return s;
 	}
     
-	public String daModelo() {
+	public static String daModelo() {
 		Random r = new Random();
-		int x = r.nextInt(30);
+		int x = r.nextInt(50);
 		String s = "";
 		
 		switch(x) {
@@ -233,10 +233,10 @@ public class GeraCampeonato {
 		return s;
 	}
     
-	public Veiculo geraHibrido(Piloto p1, Piloto p2) { //falta a ideia do griffin no fim
+	public static Veiculo geraHibrido(Piloto p1, Piloto p2) { //falta a ideia do griffin no fim
 		Veiculo v = null;
 		Random r = new Random();
-		int x = r.nextInt(2);
+		int x = r.nextInt(3);
 		
 		if(x==0)
 			v= new PC1Hibrido(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt());
@@ -247,19 +247,17 @@ public class GeraCampeonato {
 		return v;
 	}
     
-	public Veiculo geraVeiculo() { //falta a ideia do griffin no fim
+	public static Veiculo geraVeiculo() { //falta a ideia do griffin no fim
 		Piloto p1 = geraPiloto();
 		Piloto p2 = geraPiloto();
 		Veiculo v = null;
 		Random r = new Random();
-		int x = r.nextInt(4);
+		int x = r.nextInt(5);
 		
 		if(x==0)
 			v= geraHibrido(p1,p2);
-		else {
-			if(x==1)
-				v= new PC1Normal(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt());
-		}
+		if(x==1)
+			v= new PC1Normal(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt());
 		if(x==2)
 			v= new PC2Normal(daMarca(), daModelo(), (r.nextInt(2000) + 4000), r.nextInt(400) + 550, p1, p2, r.nextInt());
 		if(x==3)
@@ -270,9 +268,9 @@ public class GeraCampeonato {
 		return v;
 	}
 	
-	public HashSet<Veiculo> geraVeiculos() {
+	public static HashSet<Veiculo> geraVeiculos() {
 		Random r = new Random();
-		int x = r.nextInt(12) + 12, i=0;
+		int x = r.nextInt(15) + 12, i=0;
 		HashSet<Veiculo> aux = new HashSet<Veiculo>();
 		
 		while (i<x) {
@@ -282,7 +280,7 @@ public class GeraCampeonato {
 		return aux;
 	}
 	
-	public Circuito geraCircuito() {
+	public static Circuito geraCircuito() {
 		Piloto p = new Piloto(geraPiloto());
 		Circuito c = new Circuito();
 		Random r = new Random();
@@ -314,7 +312,7 @@ public class GeraCampeonato {
 		return c;
 	}
     
-	public Corrida geraCorrida(HashSet<Veiculo> aux) {
+	public static Corrida geraCorrida(HashSet<Veiculo> aux) {
 		Corrida crr = null;
 		Random r = new Random();
 		boolean b = r.nextBoolean();
@@ -327,7 +325,7 @@ public class GeraCampeonato {
 		return crr;
 	}
     
-	public Campeonato geraCampeonato() {
+	public static Campeonato geraCampeonato() {
 		Random r = new Random();
 		int x=r.nextInt(10)+11, i=0;
 		HashSet<Corrida> aux = new HashSet<Corrida>();
@@ -340,4 +338,12 @@ public class GeraCampeonato {
 		}
 		return (new Campeonato(aux));
 	}
+	
+	public static void main(String[] args){
+		Campeonato k2 = geraCampeonato() ;
+		Veiculo x = geraVeiculo();
+			
+		System.out.println(k2.toString()+'\n');
+	}
+
 }
