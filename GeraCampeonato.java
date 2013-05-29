@@ -32,15 +32,15 @@ public class GeraCampeonato {
 		Random r = new Random();
 		int x = r.nextInt(2);
 		if (x == 0) {
-			v = new PC1(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
+			v = new PC1Normal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
 					p2, r.nextInt());
 		}
 		if (x == 1) {
-			v = new PC1(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
+			v = new PC1Normal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
 					p2, r.nextInt());
 		}
 		if (x == 2) {
-			v = new PC1(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
+			v = new PC1Normal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
 					p2, r.nextInt());
 		}
 		return v;
@@ -56,11 +56,11 @@ public class GeraCampeonato {
 		if (x == 0) {
 			v = gerahibrido(p1, p2);
 		} else if (x == 1) {
-			v = new PC1(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
+			v = new PC1Normal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
 					p2, r.nextInt());
 		}
 		if (x == 2) {
-			v = new PC2(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
+			v = new PC2Normal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
 					p2, r.nextInt());
 		}
 		if (x == 3) {
@@ -68,7 +68,7 @@ public class GeraCampeonato {
 					r.nextInt());
 		}
 		if (x == 4) {
-			v = new GT(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1, p2,
+			v = new GTNormal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1, p2,
 					r.nextInt());
 		}
 
