@@ -1,5 +1,5 @@
 import java.util.*;
-
+import java.io.*;
 public class PC2 extends Veiculo {
 	private static final double fiabilidade = 70;
 
@@ -23,7 +23,7 @@ public class PC2 extends Veiculo {
 	//MAIS TESTES
 	//res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo() + (this.getCilindrada()*this.getPilotoActivo())/(this.getCV()*this.getCilindrada())));		
 	//res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getCilindrada()*this.getPilotoActivo()*1.2 + this.getCilindrada()/(this.getPilotoActivo())));
-	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception e  {
+	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception   {
 		Random r = new Random();
 		int res=0;
 		if (this.getVoltas() > 0 )this.setVoltas(this.getVoltas()-1) ; else if (this.getVoltas() ==0){  this.setPilotoActivo();	this.setVoltas(-1); res+=c.getTboxes();}

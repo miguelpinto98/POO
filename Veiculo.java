@@ -1,3 +1,4 @@
+import java.io.*;
 public abstract class Veiculo {
 	private String marca;
 	private String modelo;
@@ -180,7 +181,7 @@ public abstract class Veiculo {
 	 */
 	public abstract String toString();
 
-	public abstract int tempoProximaVolta(Circuito c, boolean chuva);
+	public abstract int tempoProximaVolta(Circuito c, boolean chuva) throws Exception;
 	@Override
 	public int hashCode() {
 		final int prime = 31;

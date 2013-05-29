@@ -1,5 +1,5 @@
 import java.util.Random;
-
+import java.io.*;
 public class SC extends Veiculo {
 	private static final int cld = 2500;
 	
@@ -20,7 +20,7 @@ public class SC extends Veiculo {
 		return (.75*this.getPilotoActivo() + .25*this.getCilindrada()); //Preciso rever e melhorar isto
 	}
 	
-	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception e  {
+	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception   {
 		Random r = new Random();
 		int res=0;
 		if (this.getVoltas() > 0 )this.setVoltas(this.getVoltas()-1) ; else if (this.getVoltas() ==0){  this.setPilotoActivo();	this.setVoltas(-1); res+=c.getTboxes();}

@@ -1,5 +1,5 @@
 import java.util.Random;
-
+import java.io.*;
 public class GT extends Veiculo{
 	public static int nvoltas = 1;
 
@@ -23,7 +23,7 @@ public class GT extends Veiculo{
 		
 	}
 	
-	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception e  {
+	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception   {
 		Random r = new Random();
 		int res=0;
 		if (this.getVoltas() > 0 )this.setVoltas(this.getVoltas()-1) ; else if (this.getVoltas() ==0){  this.setPilotoActivo();	this.setVoltas(-1); res+=c.getTboxes();}

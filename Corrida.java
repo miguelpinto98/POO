@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.Iterator;
 import java.util.Collection;
-
+import java.io.*;
 public class Corrida {
 
 	private HashSet<Veiculo> conjveiculos;
