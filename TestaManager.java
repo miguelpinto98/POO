@@ -43,9 +43,10 @@ public class TestaManager {
 
 		Corrida c2 = new Corrida(v, ct1, false);
 		Corrida c3 = new Corrida(v, ct2, true);
-
+		Corrida c4 = new Corrida(v, ct2, true);
 		HashSet<Corrida> v96 = new HashSet<Corrida>();
 		v96.add(c2);
+		v96.add(c3);
 		v96.add(c3);
 		Campeonato k1 = new Campeonato(v96);
 
