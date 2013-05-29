@@ -4,6 +4,7 @@ import java.util.TreeMap;
 import java.util.Iterator;
 import java.util.Collection;
 import java.io.*;
+
 public class Corrida {
 
 	private HashSet<Veiculo> conjveiculos;
@@ -86,50 +87,51 @@ public class Corrida {
 		return new Corrida(this);
 	}
 
-	public HashMap<Veiculo, Integer> fazVolta(boolean troca) { int x = 0;
+	public HashMap<Veiculo, Integer> fazVolta(boolean troca) {
+		int x = 0;
 		HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
 
 		for (Veiculo v : this.conjveiculos) {
-			
-			try{ x = v.tempoProximaVolta(this.crt, this.piso);
-			      aux.put(v,x); 
-			
-			} catch(Exception e)  {
-				
-				conjveiculos.remove(v); aux.put(v,-1);}
-		 
-			
-			
+
+			try {
+				x = v.tempoProximaVolta(this.crt, this.piso);
+				aux.put(v, x);
+
+			} catch (Exception e) {
+
+				conjveiculos.remove(v);
+				aux.put(v, -1);
+			}
+
 		}
 		return aux;
 	}
 
 	public void fazVoltas(HashMap<Veiculo, Integer> c, int nvoltas) {
 		HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
-		int count=0;
+		int count = 0;
 		boolean troca = false;
-		for (Veiculo v : aux.keySet()) { 
+		for (Veiculo v : aux.keySet()) {
 			v.voltaracio(nvoltas);
 		}
 		for (int i = 0; i < nvoltas; i++) {
 			aux = fazVolta(troca);
 			count++;
 
-			
-			for (Veiculo v : aux.keySet()) { 
-				
-				if(aux.get(v) != -1) 
-				c.put(v, c.get(v) + aux.get(v));
-				else c.put(v, -1);
+			for (Veiculo v : aux.keySet()) {
+
+				if (aux.get(v) != -1)
+					c.put(v, c.get(v) + aux.get(v));
+				else
+					c.put(v, -1);
 			}
-			
-			
+
 		}
 
 	}
 
 	public void alteraPilotos() {
-		for(Veiculo v : this.conjveiculos)
+		for (Veiculo v : this.conjveiculos)
 			v.setPiloto(v.getPiloto2());
 	}
 
@@ -144,7 +146,7 @@ public class Corrida {
 		}
 
 		this.fazVoltas(aux, crt.getNvoltas());
-		
+
 		for (Veiculo v : conjveiculos) {
 			aux2.put(aux.get(v), v);
 		}
@@ -154,12 +156,11 @@ public class Corrida {
 
 		while (aux2it.hasNext()) {
 			v1 = (Veiculo) aux2it.next();
-			
-			c.put(v1,c.get(v1) + (30 - x * 2));
-	      x++;
+
+			c.put(v1, c.get(v1) + (30 - x * 2));
+			x++;
 		}
 		return aux;
 	}
-	
-	
+
 }
