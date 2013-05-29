@@ -18,12 +18,90 @@ public class GeraCampeonato {
 	}
 
 	public String daMarca() {
-		String s = "FAFAFA";
+		Random r = new Random();
+		int  x = r.nextInt(30);
+		String s = "";
+		switch(x){
+		
+		case 0 : s = "Ranault";break;
+		case 1 : s = "Ranault";break;
+		case 2 : s = "Ranault";break;
+		case 3 : s = "Ranault";break;
+		case 4 : s = "Ranault";break;
+		case 5 : s = "Ranault";break;
+		case 6 : s = "Ranault";break;
+		case 7 : s = "Ranault";break;
+		case 8 : s = "Ranault";break;
+		case 9 : s = "Ranault";break;
+		case 10 : s = "Ranault";break;
+		case 11 : s = "Ranault";break;
+		case 12: s = "Ranault";break;
+		case 13: s = "Ranault";break;
+		case 14: s = "Ranault";break;
+		case 15 : s = "Ranault";break;
+		case 16 : s = "Ranault";break;
+		case 17 : s = "Ranault";break;
+		case 18: s = "Ranault";break;
+		case 19 : s = "Ranault";break;
+		case 20 : s = "Ranault";break;
+		case 21 : s = "Ranault";break;
+		case 22 : s = "Ranault";break;
+		case 23 : s = "Ranault";break;
+		case 24 : s = "Ranault";break;
+		case 25 : s = "Ranault";break;
+		case 26 : s = "Ranault";break;
+		case 27 : s = "Ranault";break;
+		case 28 : s = "Ranault";break;
+		case 29 : s = "Ranault";break;
+		case 30 : s = "Ranault";break;
+		
+		}
+		
+		
 		return s;
 	}
 
 	public String daModelo() {
-		String s = "FAFAFA";
+		Random r = new Random();
+		int  x = r.nextInt(30);
+		String s = "";
+		switch(x){
+		
+		case 0 : s = "Ranault";break;
+		case 1 : s = "Ranault";break;
+		case 2 : s = "Ranault";break;
+		case 3 : s = "Ranault";break;
+		case 4 : s = "Ranault";break;
+		case 5 : s = "Ranault";break;
+		case 6 : s = "Ranault";break;
+		case 7 : s = "Ranault";break;
+		case 8 : s = "Ranault";break;
+		case 9 : s = "Ranault";break;
+		case 10 : s = "Ranault";break;
+		case 11 : s = "Ranault";break;
+		case 12: s = "Ranault";break;
+		case 13: s = "Ranault";break;
+		case 14: s = "Ranault";break;
+		case 15 : s = "Ranault";break;
+		case 16 : s = "Ranault";break;
+		case 17 : s = "Ranault";break;
+		case 18: s = "Ranault";break;
+		case 19 : s = "Ranault";break;
+		case 20 : s = "Ranault";break;
+		case 21 : s = "Ranault";break;
+		case 22 : s = "Ranault";break;
+		case 23 : s = "Ranault";break;
+		case 24 : s = "Ranault";break;
+		case 25 : s = "Ranault";break;
+		case 26 : s = "Ranault";break;
+		case 27 : s = "Ranault";break;
+		case 28 : s = "Ranault";break;
+		case 29 : s = "Ranault";break;
+		case 30 : s = "Ranault";break;
+		
+		}
+		
+		
 		return s;
 	}
 
@@ -76,12 +154,125 @@ public class GeraCampeonato {
 	}
 
 	public String daNome() {
-		String s = "Jusebio";
-		return s;
-	}
+		Random r = new Random();
+		int  x = r.nextInt(30);
+		
+		
+		  StringBuilder s = new StringBuilder();
+		switch(x){
+		
+		case 0 : s .append("Ranault");;break;
+		case 1 : s .append("Ranault");;break;
+		case 2 : s .append("Ranault");;break;
+		case 3 : s .append("Ranault");;break;
+		case 4 : s .append("Ranault");;break;
+		case 5 : s .append("Ranault");;break;
+		case 6 : s .append("Ranault");;break;
+		case 7 : s .append("Ranault");;break;
+		case 8 : s .append("Ranault");;break;
+		case 9 : s .append("Ranault");;break;
+		case 10 : s .append("Ranault");;break;
+		case 11 :s .append("Ranault");;break;
+		case 12:s .append("Ranault");;break;
+		case 13:s .append("Ranault");;break;
+		case 14: s .append("Ranault");;break;
+		case 15 : s .append("Ranault");;break;
+		case 16 : s .append("Ranault");;break;
+		case 17 : s .append("Ranault");;break;
+		case 18: s .append("Ranault");;break;
+		case 19 : s .append("Ranault");;break;
+		case 20 : s .append("Ranault");;break;
+		case 21 :s .append("Ranault");;break;
+		case 22 : s .append("Ranault");;break;
+		case 23 :s .append("Ranault");;break;
+		case 24 :s .append("Ranault");;break;
+		case 25 :s .append("Ranault");;break;
+		case 26 :s .append("Ranault");;break;
+		case 27 :s .append("Ranault");;break;
+		case 28 :s .append("Ranault");;break;
+		case 29 :s .append("Ranault");;break;
+		case 30 :s .append("Ranault");;break;
+		
+		}
+		x = r.nextInt(30);
+switch(x){
+		//estas string tem que começar com um espaço
+		case 0 : s .append("Ranault");;break;
+		case 1 : s .append("Ranault");;break;
+		case 2 : s .append("Ranault");;break;
+		case 3 : s .append("Ranault");;break;
+		case 4 : s .append("Ranault");;break;
+		case 5 : s .append("Ranault");;break;
+		case 6 : s .append("Ranault");;break;
+		case 7 : s .append("Ranault");;break;
+		case 8 : s .append("Ranault");;break;
+		case 9 : s .append("Ranault");;break;
+		case 10 : s .append("Ranault");;break;
+		case 11 :s .append("Ranault");;break;
+		case 12:s .append("Ranault");;break;
+		case 13:s .append("Ranault");;break;
+		case 14: s .append("Ranault");;break;
+		case 15 : s .append("Ranault");;break;
+		case 16 : s .append("Ranault");;break;
+		case 17 : s .append("Ranault");;break;
+		case 18: s .append("Ranault");;break;
+		case 19 : s .append("Ranault");;break;
+		case 20 : s .append("Ranault");;break;
+		case 21 :s .append("Ranault");;break;
+		case 22 : s .append("Ranault");;break;
+		case 23 :s .append("Ranault");;break;
+		case 24 :s .append("Ranault");;break;
+		case 25 :s .append("Ranault");;break;
+		case 26 :s .append("Ranault");;break;
+		case 27 :s .append("Ranault");;break;
+		case 28 :s .append("Ranault");;break;
+		case 29 :s .append("Ranault");;break;
+		case 30 :s .append("Ranault");;break;
+		
+		}
+		return s.toString();}
 
 	public String daNacionalidade() {
-		String s = "Pretogal";
+		Random r = new Random();
+		int  x = r.nextInt(30);
+		String s = "";
+		switch(x){
+		
+		case 0 : s = "Ranault";break;
+		case 1 : s = "Ranault";break;
+		case 2 : s = "Ranault";break;
+		case 3 : s = "Ranault";break;
+		case 4 : s = "Ranault";break;
+		case 5 : s = "Ranault";break;
+		case 6 : s = "Ranault";break;
+		case 7 : s = "Ranault";break;
+		case 8 : s = "Ranault";break;
+		case 9 : s = "Ranault";break;
+		case 10 : s = "Ranault";break;
+		case 11 : s = "Ranault";break;
+		case 12: s = "Ranault";break;
+		case 13: s = "Ranault";break;
+		case 14: s = "Ranault";break;
+		case 15 : s = "Ranault";break;
+		case 16 : s = "Ranault";break;
+		case 17 : s = "Ranault";break;
+		case 18: s = "Ranault";break;
+		case 19 : s = "Ranault";break;
+		case 20 : s = "Ranault";break;
+		case 21 : s = "Ranault";break;
+		case 22 : s = "Ranault";break;
+		case 23 : s = "Ranault";break;
+		case 24 : s = "Ranault";break;
+		case 25 : s = "Ranault";break;
+		case 26 : s = "Ranault";break;
+		case 27 : s = "Ranault";break;
+		case 28 : s = "Ranault";break;
+		case 29 : s = "Ranault";break;
+		case 30 : s = "Ranault";break;
+		
+		}
+		
+		
 		return s;
 	}
 
