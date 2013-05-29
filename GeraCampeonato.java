@@ -3,19 +3,19 @@ import java.util.Random;
 
 public class GeraCampeonato {
 
-	public HashSet<Veiculo> geraVeiculos() {
+	public static HashSet<Veiculo> geraVeiculos() {
 		Random r = new Random();
 		int x = r.nextInt(8) + 12, y = 0;
 		HashSet<Veiculo> aux = new HashSet<Veiculo>();
 		
 		while (y < x) {
-			aux.add(geraVeiculo());
+			aux.add(geraVeiculo().clone());
 			y++;
 		}
 		return aux;
 	}
 
-	public String daMarca() {
+	public static String daMarca() {
 		Random r = new Random();
 		int x = r.nextInt(37);
 		String s = "";
@@ -62,7 +62,7 @@ public class GeraCampeonato {
 		return s;
 	}
 
-	public String daModelo() {
+	public static String daModelo() {
 		Random r = new Random();
 		int x = r.nextInt(30);
 		String s = "";
@@ -103,26 +103,26 @@ public class GeraCampeonato {
 		return s;
 	}
 
-	public Veiculo gerahibrido(Piloto p1, Piloto p2) {
+	public static Veiculo gerahibrido(Piloto p1, Piloto p2) {
 		Veiculo v = null;
 		Random r = new Random();
 		int x = r.nextInt(2);
 		if (x == 0) {
-			v = new PC1Normal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
+			v = new PC1Hibrido(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
 					p2, r.nextInt());
 		}
 		if (x == 1) {
-			v = new PC1Normal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
+			v = new PC2Hibrido(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
 					p2, r.nextInt());
 		}
 		if (x == 2) {
-			v = new PC1Normal(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
+			v = new GTHibrido(daMarca(), daModelo(), r.nextInt(), r.nextInt(), p1,
 					p2, r.nextInt());
 		}
 		return v;
 	}
 
-	public Veiculo geraVeiculo() {
+	public static Veiculo geraVeiculo() {
 		Piloto p1 = geraPiloto();
 		Piloto p2 = geraPiloto();
 		Veiculo v = null;
@@ -151,7 +151,7 @@ public class GeraCampeonato {
 		return v;
 	}
 
-	public String daNome() {
+	public static String daNome() {
 		Random r = new Random();
 		int  x = r.nextInt(30);
 		
@@ -230,7 +230,7 @@ switch(x){
 		}
 		return s.toString();}
 
-	public String daNacionalidade() {
+	public static String daNacionalidade() {
 		Random r = new Random();
 		int  x = r.nextInt(30);
 		String s = "";
@@ -274,7 +274,7 @@ switch(x){
 		return s;
 	}
 
-	public Piloto geraPiloto() {
+	public static Piloto geraPiloto() {
 		Random r = new Random();
 		int quali = r.nextInt(9) + 1;
 		int palmares = r.nextInt(50);
@@ -284,24 +284,24 @@ switch(x){
 
 	}
 
-	public Corrida geraCorrida(HashSet<Veiculo> aux) {
+	public static Corrida geraCorrida(HashSet<Veiculo> aux) {
 		Circuito ra = new Circuito();
 		ra = geraCircuito();
 		Corrida y = null;
 
 		Random r = new Random();
-		int x = r.nextInt(1);
-		if (x == 1) {
+		int x = r.nextInt(10);
+		if (x < 5) {
 			y = new Corrida(aux, ra, true);
 		}
-		if (x == 0) {
+		if (x >=5) {
 			y = new Corrida(aux, ra, false);
 		}
 
 		return y;
 	}
 
-	public Campeonato GeraCampeonato() {
+	public static  Campeonato GeraCampeonato() {
 
 		Random r = new Random();
 		int x = r.nextInt(5) + 4;
@@ -319,7 +319,7 @@ switch(x){
 
 	}
 
-	public Circuito geraCircuito() {
+	public static Circuito geraCircuito() {
 		Piloto p = new Piloto(geraPiloto());
 		Circuito c = new Circuito();
 		Random r = new Random();
@@ -349,5 +349,13 @@ switch(x){
 		case 20: c = new Circuito("Silverstone Circuit", 5901, 18, 106279, 110803, 114503, 119382, 100279, 15192, 23000, p); break;
 		}
 		return c;
+	}
+
+	public static void main(String[] args){
+	Campeonato k2 = GeraCampeonato() ;
+	
+	System.out.println( "bla " +k2.toString());
+	
+	
 	}
 }
