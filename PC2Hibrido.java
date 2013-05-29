@@ -40,4 +40,10 @@ public class PC2Hibrido extends PC2 implements Hibrida {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public int getPotenciaMotorElectrico() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

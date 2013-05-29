@@ -5,103 +5,101 @@ public class GeraCampeonato {
 
 	public HashSet<Veiculo> geraVeiculos() {
 		Random r = new Random();
-		int x = r.nextInt(8) + 12;
-		int y = 0;
+		int x = r.nextInt(8) + 12, y = 0;
 		HashSet<Veiculo> aux = new HashSet<Veiculo>();
+		
 		while (y < x) {
 			aux.add(geraVeiculo());
-
 			y++;
 		}
 		return aux;
-
 	}
 
 	public String daMarca() {
 		Random r = new Random();
-		int  x = r.nextInt(30);
+		int x = r.nextInt(37);
 		String s = "";
-		switch(x){
 		
-		case 0 : s = "Ranault";break;
-		case 1 : s = "Ranault";break;
-		case 2 : s = "Ranault";break;
-		case 3 : s = "Ranault";break;
-		case 4 : s = "Ranault";break;
-		case 5 : s = "Ranault";break;
-		case 6 : s = "Ranault";break;
-		case 7 : s = "Ranault";break;
-		case 8 : s = "Ranault";break;
-		case 9 : s = "Ranault";break;
-		case 10 : s = "Ranault";break;
-		case 11 : s = "Ranault";break;
-		case 12: s = "Ranault";break;
-		case 13: s = "Ranault";break;
-		case 14: s = "Ranault";break;
-		case 15 : s = "Ranault";break;
-		case 16 : s = "Ranault";break;
-		case 17 : s = "Ranault";break;
-		case 18: s = "Ranault";break;
-		case 19 : s = "Ranault";break;
-		case 20 : s = "Ranault";break;
-		case 21 : s = "Ranault";break;
-		case 22 : s = "Ranault";break;
-		case 23 : s = "Ranault";break;
-		case 24 : s = "Ranault";break;
-		case 25 : s = "Ranault";break;
-		case 26 : s = "Ranault";break;
-		case 27 : s = "Ranault";break;
-		case 28 : s = "Ranault";break;
-		case 29 : s = "Ranault";break;
-		case 30 : s = "Ranault";break;
-		
+		switch(x) {
+		case 0: s = "Agrale"; break;
+		case 1: s = "Aston Martin"; break;
+		case 2: s = "Audi"; break;
+		case 3: s = "Bentley"; break;
+		case 4: s = "BMW"; break;
+		case 5: s = "Changan"; break;
+		case 6: s = "Chery"; break;
+		case 7: s = "Chevrolet"; break;
+		case 8: s = "Chrysler"; break;
+		case 9: s = "CitroÃ«n"; break;
+		case 10: s = "Dodge"; break;
+		case 11: s = "Effa"; break;
+		case 12: s = "Ferrari"; break;
+		case 13: s = "Fiat"; break;
+		case 14: s = "Ford"; break;
+		case 15: s = "Hafei"; break;
+		case 16: s = "Honda"; break;
+		case 17: s = "Hyundai"; break;
+		case 18: s = "Iveco"; break;
+		case 19: s = "Jac Motors"; break;
+		case 20: s = "Jaguar"; break;
+		case 21: s = "Jeep"; break;
+		case 22: s = "Jinbei"; break;
+		case 23: s = "Kia"; break;
+		case 24: s = "Lamborghini"; break;
+		case 25: s = "Land Rover"; break;
+		case 26: s = "Maserati"; break;
+		case 27: s = "Mercedes-Benz"; break;
+		case 28: s = "Mini"; break;
+		case 29: s = "Nissan"; break;
+		case 30: s = "Peugeot"; break;
+		case 31: s = "Porsche"; break;
+		case 32: s = "Renault"; break;
+		case 33: s = "Subaru"; break;
+		case 34: s = "Toyota"; break;
+		case 35: s = "Volkswagen"; break;
+		case 36: s = "Volvo"; break;
 		}
-		
-		
 		return s;
 	}
 
 	public String daModelo() {
 		Random r = new Random();
-		int  x = r.nextInt(30);
+		int x = r.nextInt(30);
 		String s = "";
-		switch(x){
 		
-		case 0 : s = "Ranault";break;
-		case 1 : s = "Ranault";break;
-		case 2 : s = "Ranault";break;
-		case 3 : s = "Ranault";break;
-		case 4 : s = "Ranault";break;
-		case 5 : s = "Ranault";break;
-		case 6 : s = "Ranault";break;
-		case 7 : s = "Ranault";break;
-		case 8 : s = "Ranault";break;
-		case 9 : s = "Ranault";break;
-		case 10 : s = "Ranault";break;
-		case 11 : s = "Ranault";break;
-		case 12: s = "Ranault";break;
-		case 13: s = "Ranault";break;
-		case 14: s = "Ranault";break;
-		case 15 : s = "Ranault";break;
-		case 16 : s = "Ranault";break;
-		case 17 : s = "Ranault";break;
-		case 18: s = "Ranault";break;
-		case 19 : s = "Ranault";break;
-		case 20 : s = "Ranault";break;
-		case 21 : s = "Ranault";break;
-		case 22 : s = "Ranault";break;
-		case 23 : s = "Ranault";break;
-		case 24 : s = "Ranault";break;
-		case 25 : s = "Ranault";break;
-		case 26 : s = "Ranault";break;
-		case 27 : s = "Ranault";break;
-		case 28 : s = "Ranault";break;
-		case 29 : s = "Ranault";break;
-		case 30 : s = "Ranault";break;
-		
-		}
-		
-		
+		switch(x) {
+		case 0: s = "Ranault"; break;
+		case 1: s = "Ranault"; break;
+		case 2: s = "Ranault"; break;
+		case 3: s = "Ranault"; break;
+		case 4: s = "Ranault"; break;
+		case 5: s = "Ranault"; break;
+		case 6: s = "Ranault"; break;
+		case 7: s = "Ranault"; break;
+		case 8: s = "Ranault"; break;
+		case 9: s = "Ranault"; break;
+		case 10: s = "Ranault"; break;
+		case 11: s = "Ranault"; break;
+		case 12: s = "Ranault"; break;
+		case 13: s = "Ranault"; break;
+		case 14: s = "Ranault"; break;
+		case 15: s = "Ranault"; break;
+		case 16: s = "Ranault"; break;
+		case 17: s = "Ranault"; break;
+		case 18: s = "Ranault"; break;
+		case 19: s = "Ranault"; break;
+		case 20: s = "Ranault"; break;
+		case 21: s = "Ranault"; break;
+		case 22: s = "Ranault"; break;
+		case 23: s = "Ranault"; break;
+		case 24: s = "Ranault"; break;
+		case 25: s = "Ranault"; break;
+		case 26: s = "Ranault"; break;
+		case 27: s = "Ranault"; break;
+		case 28: s = "Ranault"; break;
+		case 29: s = "Ranault"; break;
+		case 30: s = "Ranault"; break;
+		}	
 		return s;
 	}
 
@@ -196,7 +194,7 @@ public class GeraCampeonato {
 		}
 		x = r.nextInt(30);
 switch(x){
-		//estas string tem que começar com um espaço
+		//estas string tem que comeï¿½ar com um espaï¿½o
 		case 0 : s .append("Ranault");;break;
 		case 1 : s .append("Ranault");;break;
 		case 2 : s .append("Ranault");;break;
