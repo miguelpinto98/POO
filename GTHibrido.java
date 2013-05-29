@@ -40,4 +40,10 @@ public class GTHibrido extends GT implements Hibrida {
 	public int hashCode() {
 		return super.hashCode();
 	}
+
+	@Override
+	public int getPotenciaMotorElectrico() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
