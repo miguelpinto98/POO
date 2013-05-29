@@ -1,5 +1,5 @@
 import java.util.Random;
-import java.io.*;
+
 public class SC extends Veiculo {
 	private static final int cld = 2500;
 	
@@ -24,6 +24,7 @@ public class SC extends Veiculo {
 		Random r = new Random();
 		int res=0;
 		if (this.getVoltas() > 0 )this.setVoltas(this.getVoltas()-1) ; else if (this.getVoltas() ==0){  this.setPilotoActivo();	this.setVoltas(-1); res+=c.getTboxes();}
+		int fiabilidade=1000;
 		if(r.nextInt(fiabilidade) == 0)
 			throw new Exception("DNF");
 		else {

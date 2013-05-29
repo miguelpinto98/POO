@@ -1,17 +1,13 @@
-import java.util.Random;
-import java.io.*;
-
-public class PC1 extends Veiculo {
+public abstract class PC1 extends Veiculo {
 
 	private static final int cld = 6000;
-	private static final int fiabilidade = 85;
+	protected static final int fiabilidade = 85;
 
 	public PC1() {
 		super();
 	}
 
-	public PC1(String marca, String modelo, int cilindrada, int cv, Piloto p1,
-			Piloto p2, int h) {
+	public PC1(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int h) {
 		super(marca, modelo, cld, cv, p1, p2, h);
 	}
 
@@ -21,52 +17,18 @@ public class PC1 extends Veiculo {
 	}
 
 	public void setCilindrada(int cl) {
-
 		super.setCilindrada(cl);
 	}
 	
-	/**
-	 * 
-	 * 
-	 * 
-	 *  public void insereE(Empregado m)throws Exception{
-      if (this.staff.containsKey(m.getCodigo())== false ) this.staff.put(m.getCodigo(),m);
-      else throw new Exception ( "ja existe " + m.getCodigo());
-    
-    }
-    
-	 * Método que cálcula o tempo de uma volta
-	 */
-	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception   {
-		Random r = new Random();
-		int res=0;
-		if (this.getVoltas() > 0 )this.setVoltas(this.getVoltas()-1) ; else if (this.getVoltas() ==0){  this.setPilotoActivo();	this.setVoltas(-1); res+=c.getTboxes();}
-		if(r.nextInt(fiabilidade) == 0)
-			throw new Exception("DNF");
-		
-		else {
-			if(this.getPilotoActivo()>7 && this.getCV()<1000)
-				res = (int) ((c.gettempoPC1() + r.nextInt(c.gettempoPC1()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()) + this.getCilindrada()*1.5);
-			else
-				res = (int) ((c.gettempoPC1() + r.nextInt(c.gettempoPC1()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()) + this.getCilindrada()/1.5);
-			}	
-		if(chuva) {
-			if(this.ConducaoChuva())
-				res+=r.nextInt(c.getDesvioChuva());
-			else
-				res+=c.getDesvioChuva();
-		}
-		
-		return res;
-	}
+	public abstract int calculaFiabilidade();
+
+	public abstract int tempoProximaVolta(Circuito c, boolean chuva) throws Exception ;
 	//LIXO DE TESTES - para possivel utilização
 	//res = (int) (c.gettempoPC1() + r.nextInt((c.gettempoPC1()-c.getTrecord())) - ((int)(this.getPilotoActivo()*1000 + ((this.getCilindrada()+this.getCV()*this.getPilotoActivo())/(this.getCilindrada()-this.getCV())))));
 	//res = (int)(c.gettempoPC1() + r.nextInt((c.gettempoPC1()-c.getTrecord())) - ((this.getPilotoActivo()*1000 + this.getCV())));
 
 	/** Clone */
-	public PC1 clone() {
-		return new PC1(this);
-	}
+	public abstract PC1 clone() ;
 	
 	/** 
 	 * ToString 
@@ -84,8 +46,12 @@ public class PC1 extends Veiculo {
 		return str.toString();
 	}
 
-	/** Equals */ //ESTE METODO NÂO DEVE SER ASSIM, PORTANTO DUVIDA
+	/** Equals */ //ESTE METODO NÂO DEVE SER ASSIM
 	public boolean equals(Object o) {
-		return (super.equals(o));
-	} 
+		return super.equals(o);
+	}
+	
+	public int hashCode() {
+		return super.hashCode();
+	}
 }

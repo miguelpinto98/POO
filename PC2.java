@@ -1,7 +1,5 @@
-import java.util.*;
-import java.io.*;
-public class PC2 extends Veiculo {
-	private static final double fiabilidade = 70;
+public abstract class PC2 extends Veiculo {
+	protected static final int fiabilidade = 70;
 
 	public PC2() {
 		super();
@@ -16,47 +14,15 @@ public class PC2 extends Veiculo {
 		super(pc);
 	}
 	
-	public int calculaFiabilidade() {
-		return (int)(fiabilidade*this.getCilindrada())/6000;
-	}
+	public abstract int calculaFiabilidade() ;
 	
 	//MAIS TESTES
 	//res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo() + (this.getCilindrada()*this.getPilotoActivo())/(this.getCV()*this.getCilindrada())));		
 	//res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getCilindrada()*this.getPilotoActivo()*1.2 + this.getCilindrada()/(this.getPilotoActivo())));
-	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception   {
-		Random r = new Random();
-		int res=0;
-		if (this.getVoltas() > 0 )this.setVoltas(this.getVoltas()-1) ; else if (this.getVoltas() ==0){  this.setPilotoActivo();	this.setVoltas(-1); res+=c.getTboxes();}
-		if(r.nextInt(fiabilidade) == 0)
-			throw new Exception("DNF");
-		else {
-			if(this.getCilindrada()>5000) {
-				if(this.getCV()>500)
-					res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()*1.2 + this.getCilindrada()/(this.getPilotoActivo())));
-				else
-					res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo() + this.getCilindrada()/(this.getPilotoActivo())));
-			}
-			else {
-				if(this.getCV()>500) 
-					res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo() + this.getCilindrada()/(this.getPilotoActivo())));
-				else
-					res = (int) ((c.gettempoPC2() + r.nextInt(c.gettempoPC2()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()*1.2 + this.getCilindrada()/(this.getPilotoActivo())));
-			}
-		}
-		
-		if(chuva) {
-			if(this.ConducaoChuva())
-				res+=r.nextInt(c.getDesvioChuva());
-			else
-				res+=c.getDesvioChuva();
-		}
-		return res;
-	}
+	public abstract int tempoProximaVolta(Circuito c, boolean chuva) throws Exception ; 
 
 	/** Clone */
-	public PC2 clone() {
-		return new PC2(this);
-	}
+	public abstract PC2 clone() ;
 
 	/** ToString */
 	public String toString() {
