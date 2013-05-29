@@ -25,14 +25,24 @@ public class PC1 extends Veiculo {
 	}
 	
 	/**
+	 * 
+	 * 
+	 * 
+	 *  public void insereE(Empregado m)throws Exception{
+      if (this.staff.containsKey(m.getCodigo())== false ) this.staff.put(m.getCodigo(),m);
+      else throw new Exception ( "ja existe " + m.getCodigo());
+    
+    }
+    
 	 * Método que cálcula o tempo de uma volta
 	 */
-	public int tempoProximaVolta(Circuito c, boolean chuva) {
+	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception e  {
 		Random r = new Random();
 		int res=0;
 		if (this.getVoltas() > 0 )this.setVoltas(this.getVoltas()-1) ; else if (this.getVoltas() ==0){  this.setPilotoActivo();	this.setVoltas(-1); res+=c.getTboxes();}
 		if(r.nextInt(fiabilidade) == 0)
-			res = -1000;
+			throw new Exception("DNF");
+		
 		else {
 			if(this.getPilotoActivo()>7 && this.getCV()<1000)
 				res = (int) ((c.gettempoPC1() + r.nextInt(c.gettempoPC1()-c.getTrecord())) + (-this.getCV()*this.getPilotoActivo()) + this.getCilindrada()*1.5);

@@ -23,12 +23,12 @@ public class GT extends Veiculo{
 		
 	}
 	
-	public int tempoProximaVolta(Circuito c , boolean  chuva) {
+	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception e  {
 		Random r = new Random();
 		int res=0;
-		if (this.getVoltas() > 0 )this.setVoltas(this.getVoltas()-1) ; else if (this.getVoltas() ==0){  this.setPilotoActivo();	this.setVoltas(-1); res+=c.getTboxes();}	
-		if(r.nextInt(1) == 2)
-			res = -1000;
+		if (this.getVoltas() > 0 )this.setVoltas(this.getVoltas()-1) ; else if (this.getVoltas() ==0){  this.setPilotoActivo();	this.setVoltas(-1); res+=c.getTboxes();}
+		if(r.nextInt(fiabilidade) == 0)
+			throw new Exception("DNF");
 		else {
 			if(this.getCilindrada()>3750) {
 				if(this.getCV()>400)
