@@ -10,7 +10,7 @@ public class PC1Normal extends PC1 {
 		super(marca, modelo, cilindrada, cv, p1, p2, h);
 	}
 
-	public PC1Normal(PC1 pc) {
+	public PC1Normal(PC1Normal pc) {
 		super(pc);
 	}
 	

@@ -5,28 +5,29 @@ public class PC1Hibrido extends PC1 implements Hibrida {
 	
 	public PC1Hibrido() {
 		super();
-		this.setPotencia(0);
+		this.potencia = 0;
 	}
 
-	public PC1Hibrido(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int h) {
+	public PC1Hibrido(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int h, int p) {
 		super(marca, modelo, cilindrada, cv, p1, p2, h);
-
+		this.potencia=p;
 	}
 
-	public PC1Hibrido(PC1 pc) {
+	public PC1Hibrido(PC1Hibrido pc) {
 		super(pc);
-	}
-
-	public PC1Hibrido clone() {
-		return new PC1Hibrido(this);
+		this.potencia = pc.getPotenciaMotorElectrico();
 	}
 	
-	public int getPotencia() {
+	public int getPotenciaMotorElectrico() {
 		return this.potencia;
 	}
-
-	public void setPotencia(int potencia) {
+	
+	public void setPotenciaMotorElectrico(int potencia) {
 		this.potencia = potencia;
+	}
+	
+	public PC1Hibrido clone() {
+		return new PC1Hibrido(this);
 	}
 
 	public String toString() {
@@ -36,6 +37,7 @@ public class PC1Hibrido extends PC1 implements Hibrida {
 		str.append("Modelo: " + this.getModelo() + "\n");
 		str.append("Cilindrada: " + this.getCilindrada() + "\n");
 		str.append("Cavalos: " + this.getCV() + "\n");
+		str.append("Potencia: " + this.getPotenciaMotorElectrico() + "\n");
 		str.append("Piloto1: " + this.getPiloto1().toString() + "\n");
 		str.append("Piloto2: " + this.getPiloto2().toString() + "\n");
 
@@ -58,12 +60,6 @@ public class PC1Hibrido extends PC1 implements Hibrida {
 
 	@Override
 	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getPotenciaMotorElectrico() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
