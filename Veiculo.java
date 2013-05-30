@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Random;
+
 public abstract class Veiculo {
 	private String marca;
 	private String modelo;
@@ -191,5 +194,159 @@ public abstract class Veiculo {
 		result = prime * result + ((this.marca == null) ? 0 : this.marca.hashCode());
 		result = prime * result + ((this.modelo == null) ? 0 : this.modelo.hashCode());
 		return result;
-	}	
+	}
+	
+	public static String daMarca() {
+		Random r = new Random();
+		int x = r.nextInt(37);
+		String s = "";
+		
+		switch(x) {
+            case 0: s = "Agrale"; break;
+            case 1: s = "Aston Martin"; break;
+            case 2: s = "Audi"; break;
+            case 3: s = "Bentley"; break;
+            case 4: s = "BMW"; break;
+            case 5: s = "Changan"; break;
+            case 6: s = "Chery"; break;
+            case 7: s = "Chevrolet"; break;
+            case 8: s = "Chrysler"; break;
+            case 9: s = "Citroën"; break;
+            case 10: s = "Dodge"; break;
+            case 11: s = "Effa"; break;
+            case 12: s = "Ferrari"; break;
+            case 13: s = "Fiat"; break;
+            case 14: s = "Ford"; break;
+            case 15: s = "Hafei"; break;
+            case 16: s = "Honda"; break;
+            case 17: s = "Hyundai"; break;
+            case 18: s = "Iveco"; break;
+            case 19: s = "Jac Motors"; break;
+            case 20: s = "Jaguar"; break;
+            case 21: s = "Jeep"; break;
+            case 22: s = "Jinbei"; break;
+            case 23: s = "Kia"; break;
+            case 24: s = "Lamborghini"; break;
+            case 25: s = "Land Rover"; break;
+            case 26: s = "Maserati"; break;
+            case 27: s = "Mercedes-Benz"; break;
+            case 28: s = "Mini"; break;
+            case 29: s = "Nissan"; break;
+            case 30: s = "Peugeot"; break;
+            case 31: s = "Porsche"; break;
+            case 32: s = "Renault"; break;
+            case 33: s = "Subaru"; break;
+            case 34: s = "Toyota"; break;
+            case 35: s = "Volkswagen"; break;
+            case 36: s = "Volvo"; break;
+		}
+		return s;
+	}
+    
+	public static String daModelo() {
+		Random r = new Random();
+		int x = r.nextInt(50);
+		String s = "";
+		
+		switch(x) {
+            case 0: s = "MiTO"; break;
+            case 1: s = "Vantage"; break;
+            case 2: s = "RS5"; break;
+            case 3: s = "TT"; break;
+            case 4: s = "Continental"; break;
+            case 5: s = "Z4"; break;
+            case 6: s = "Camaro"; break;
+            case 7: s = "Corvette"; break;
+            case 8: s = "Spark"; break;
+            case 9: s = "C1"; break;
+            case 10: s = "C-Crosser"; break;
+            case 11: s = "Nemo"; break;
+            case 12: s = "Duster"; break;
+            case 13: s = "Journey"; break;
+            case 14: s = "612 Scaglietti"; break;
+            case 15: s = "F599"; break;
+            case 16: s = "500"; break;
+            case 17: s = "Strada"; break;
+            case 18: s = "Punto"; break;
+            case 19: s = "Fiesta"; break;
+            case 20: s = "Transit Connect"; break;
+            case 21: s = "S-Max"; break;
+            case 22: s = "Civic"; break;
+            case 23: s = "Jazz"; break;
+            case 24: s = "Rock"; break;
+            case 25: s = "Pop"; break;
+            case 26: s = "Veloster"; break;
+            case 27: s = "NLR"; break;
+            case 28: s = "Daily"; break;
+            case 29: s = "XKR"; break;
+            case 30: s = "Grand Cherokee"; break;
+            case 31: s = "Gallardo"; break;
+            case 32: s = "Ypsilon"; break;
+            case 33: s = "Discovery"; break;
+            case 34: s = "Sport"; break;
+            case 35: s = "Exige"; break;
+            case 36: s = "Quattroporte"; break;
+            case 37: s = "MX-5"; break;
+            case 38: s = "SLK"; break;
+            case 39: s = "Roadster"; break;
+            case 40: s = "Outlander"; break;
+            case 41: s = "NV200"; break;
+            case 42: s = "Primastar"; break;
+            case 43: s = "RCZ"; break;
+            case 44: s = "Panamera"; break;
+            case 45: s = "Twizy"; break;
+            case 46: s = "Octavia"; break;
+            case 47: s = "Impreza"; break;
+            case 48: s = "GT 86"; break;
+            case 49: s = "XC90"; break;
+		}
+		return s;
+	}
+    
+	public static Veiculo geraHibrido(Piloto p1, Piloto p2) { //falta a ideia do griffin no fim
+		Veiculo v = null;
+		Random r = new Random();
+		int x = r.nextInt(3);
+		
+		if(x==0)
+			v= new PC1Hibrido(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt());
+		if(x==1)
+			v= new PC2Hibrido(daMarca(), daModelo(), (r.nextInt(2000) + 4000), r.nextInt(400) + 550, p1, p2, r.nextInt());
+		if(x==2)
+			v= new GTHibrido(daMarca(), daModelo(), (r.nextInt(1500) + 3000), r.nextInt(200) + 400, p1, p2, r.nextInt());
+		return v;
+	}
+    
+	public static Veiculo geraVeiculo() { //falta a ideia do griffin no fim
+		Piloto p1 = Piloto.geraPiloto();
+		Piloto p2 = Piloto.geraPiloto();
+		Veiculo v = null;
+		Random r = new Random();
+		int x = r.nextInt(5);
+		
+		if(x==0)
+			v= geraHibrido(p1,p2);
+		if(x==1)
+			v= new PC1Normal(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt());
+		if(x==2)
+			v= new PC2Normal(daMarca(), daModelo(), (r.nextInt(2000) + 4000), r.nextInt(400) + 550, p1, p2, r.nextInt());
+		if(x==3)
+			v= new GTNormal(daMarca(), daModelo(), (r.nextInt(1500) + 3000), r.nextInt(200) + 400, p1, p2, r.nextInt());
+		if(x==4)
+			v= new SC(daMarca(), daModelo(), 2500, r.nextInt(100) + 100, p1, p2, r.nextInt());
+		
+		return v;
+	}
+	
+	public static HashSet<Veiculo> geraVeiculos() {
+		Random r = new Random();
+		int x = r.nextInt(15) + 12, i=0;
+		HashSet<Veiculo> aux = new HashSet<Veiculo>();
+		
+		while (i<x) {
+			aux.add(geraVeiculo());
+			i++;
+		}
+		return aux;
+	}
 }

@@ -341,9 +341,8 @@ public class GeraCampeonato {
 	
 	public static void main(String[] args){
 		Campeonato k2 = geraCampeonato() ;
-		Veiculo x = geraVeiculo();
 			
-		System.out.println(k2.toString()+'\n');
+		System.out.println("asda "+k2.toString()+'\n');
 	}
 
 }

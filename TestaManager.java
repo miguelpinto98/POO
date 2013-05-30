@@ -50,7 +50,10 @@ public class TestaManager {
 		v96.add(c3);
 		Campeonato k1 = new Campeonato(v96);
 		
-		double tx1 = 0, tx2 = 0, tx3 = 0, tx4 = 0, tx5 = 0;
+		Campeonato c = Campeonato.geraCampeonato();
+		System.out.println(c.toString());
+		
+		/*double tx1 = 0, tx2 = 0, tx3 = 0, tx4 = 0, tx5 = 0;
 		
 		  for(int i = 0 ; i < 5; i++){ double x1 =
 		  p11.tempoProximaVolta(ct1,false); double x2 =
