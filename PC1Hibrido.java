@@ -22,7 +22,7 @@ public class PC1Hibrido extends PC1 implements Hibrida {
 	}
 	
 	public int getPotencia() {
-		return potencia;
+		return this.potencia;
 	}
 
 	public void setPotencia(int potencia) {
