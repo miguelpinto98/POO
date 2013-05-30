@@ -1,5 +1,6 @@
 import java.util.HashSet;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.TreeMap;
 
 public class Campeonato {
@@ -73,7 +74,19 @@ public class Campeonato {
 	        aux.put(aux2.get(v), v);
 	   }
 	   return aux;
-	   }
+	}
 	
-
+	public static Campeonato geraCampeonato() {
+		Random r = new Random();
+		int x=r.nextInt(10)+11, i=0;
+		HashSet<Corrida> aux = new HashSet<Corrida>();
+		HashSet<Veiculo> aux2 = new HashSet<Veiculo>();
+		
+		aux2=Veiculo.geraVeiculos();
+		while (i<x) {
+			aux.add(Corrida.geraCorrida(aux2));
+			i++;
+		}
+		return (new Campeonato(aux));
+	}
 }
