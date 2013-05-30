@@ -345,4 +345,5 @@ public class GeraCampeonato {
 			
 		System.out.println(k2.toString()+'\n');
 	}
+
 }

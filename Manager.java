@@ -31,6 +31,7 @@ public class Manager {
 
 	public HashMap<String, Jogador> getapostadores() {
 		HashMap<String, Jogador> aux = new HashMap<String, Jogador>();
+		
 		for (String nome : this.apostadores.keySet()) {
 			aux.put(nome, this.apostadores.get(nome).clone());
 		}
@@ -74,6 +75,7 @@ public class Manager {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void carregaRM(String file) throws FileNotFoundException, IOException, ClassNotFoundException {
         FileInputStream f = new FileInputStream(file);
         ObjectInputStream o = new ObjectInputStream(f);
