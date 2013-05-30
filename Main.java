@@ -5,14 +5,17 @@ public class Main {
 		Campeonato c = null;HashMap<String, Jogador> jogadores = null;
 		
 		int x = Welcome();
-		if(x==1){  jogadores = PedeJogadores(); c.geraCampeonato();}
+	
+		if(x==1){  
+			jogadores = PedeJogadores(); c.geraCampeonato();}
 		else
 		    if(x==2){ c = CarregaCampeonato(jogadores);}
-		else { System.exit(0);}
+		else { 
+			System.exit(0);}
 		
 		
 		Manager m = new Manager(c,jogadores);
-		CorreCampeonato(c);
+		MenuPrincipal(m);
 	}
 		
 	
@@ -27,24 +30,28 @@ public static HashMap<String, Jogador> PedeJogadores(){
 	
 	 System.out.println("Quantos Jogadores?"); 
 	 Scanner s = new Scanner(System.in);
-	   	int x  = s.nextInt();
+	   	int x  = s.nextInt(); 
 	   	
 	   	System.out.println("################# INSERIR JOGADOR ################");
 	   	for(int i = 0; i < x; i++){
-	   		System.out.println(" * Insira os dados por linha no seguinte formato.\n");
-	   		System.out.println(" * Nome | Morada | Dinheiro inicial.");
-	   		System.out.println(" * Linha em branco para terminar.");
-	   	  	
-	   		nome = s.next("\n");
-	   		morada = s.next("\n");
+	   	
+	   		
+	   		
+	   	  	s.nextLine();
+	   	 System.out.println(" *Insira Nome.");
+	   		nome = s.nextLine();
+	   		System.out.println(" *Insira Morada");
+	   		morada = s.nextLine();
+	   		System.out.println(" * Insira Dinheiro Inicial nor dormato XX,XX \n");
 	   		dc = s.nextDouble();
+	   		
 	   		
 	   		p = new Jogador();
 	   		p.setNome(nome);
 	   		p.setMorada(morada);
 	   		p.setDc(dc);
 	   		
-	   		aux.put("",p);
+	   		aux.put(nome,p);
 	   	}
 	return aux;
 }
@@ -52,18 +59,16 @@ public static HashMap<String, Jogador> PedeJogadores(){
 // WELCOME
 public static int Welcome(){ 
 	
-try {
+
 	System.out.println("################## RACING MANAGER 2013 ##################");
 	System.out.println("#                                                       #");
 	System.out.println("#        1 - NOVO CAMPEONATO                            #");
 	System.out.println("#        2 - CARREGAR CAMPEONATO                        #");
 	System.out.println("#        3 - SAIR                                       #");
 	System.out.println("#                                                       #");
-	System.out.println("#        Escolha uma opï¿½ï¿½o:                             #");
+	System.out.println("#                                                       #");
 	System.out.println("#########################################################");
-	} catch(Exception e){
-	//If this thread was intrrupted by nother thread 
-	}
+	
 
    	Scanner s = new Scanner(System.in);
    	int x  = s.nextInt();
@@ -73,16 +78,99 @@ return x;
 }
 //CORRE 
 
-public static void CorreCampeonato(Campeonato c){
+public static void MenuPrincipal(Manager m){
+	Scanner s = new Scanner(System.in);
+   	int x  = 0;
+	
+	System.out.println("BEM VINDO");
+	
+	
+	
+	System.out.println("##################  MENU PRINCIPAL ##################");
+	System.out.println("#                                                   #");
+	System.out.println("#        1 - FAZER CORRIDA                          #");
+	System.out.println("#        2 - CONSULTAS                              #");
+	System.out.println("#        3 - APOSTAS                                #");
+	System.out.println("#        4-  GRAVAR                                 #");
+	System.out.println("#        5-  SAIR                                   #");
+	System.out.println("#                                                   #");
+	System.out.println("#####################################################");
+	 x  = s.nextInt();
+	if(x==1){   }
+	else if(x==2){ MenuConsultas(m);}
+	else if(x==3){MenuApostas(m);}
+	else if(x==4){ }
+	else if(x==5){ }
 	
 	
 	
 	
+	}
 	
-	
-	
+
+
+
+//Menu Consulta 
+public static void MenuConsultas(Manager m){
+	Scanner s = new Scanner(System.in);
+   	int x  = 0;
+	System.out.println("##################  MENU CONSULTAS ##################");
+	System.out.println("#                                                   #");
+	System.out.println("#        1 - CLASSIFICÃO DO CAMPEONATO              #");
+	System.out.println("#        2 - TROFEU HIBRIDO                         #");
+	System.out.println("#        3 - TOP JOGADORES                          #");
+	System.out.println("#        4- CORRIDAS AGENDADAS                      #");
+	System.out.println("#        5-  VEICULOS DO CAMPEONATO                 #");
+	System.out.println("#        6- VOLTAR MENU PRINCIPAL                   #");
+	System.out.println("#                                                   #");
+	System.out.println("#####################################################");
+	 x  = s.nextInt();
+	if(x==1){   }
+	else if(x==2){}
+	else if(x==3){}
+	else if(x==4){ }
+	else if(x==5){ }
+	else if(x==6){ MenuPrincipal(m);}
 }
 
+
+//Menu Aposta
+public static void MenuApostas(Manager m){
+	Scanner s = new Scanner(System.in);
+   	int x  = 0;
+   	Jogador j = null;
+	System.out.println("################  ESCOLHA JOGADOR  ##################");
+	System.out.println("#                                                   #");
+	for(String z :m.getapostadores().keySet() ){
+		
+		System.out.println( "#       " + x +" " +m.getapostadores().get(z).getNome() +"                #");
+		x++;
+	}
+	System.out.println("#                                                   #");
+	System.out.println("#####################################################");
+	
+	 x  = s.nextInt();
+	 //iterador ate x, edepois 
+	 System.out.println("##################  MENU APOSTAS     ##################");
+		System.out.println("#                                                   #");
+		System.out.println("#        1 - FAZER APOSTA PROX CORRIDA              #");
+		System.out.println("#        2 - VER APOSTAS POR ACONTECER              #");
+		System.out.println("#        3 - VER HISTORICO                          #");
+		System.out.println("#        4- SALDO CURRENTE                          #");
+		System.out.println("#        5-  DINHEIRO INVESTIDO                     #");
+		System.out.println("#        6- VOLTAR MENU APOSTA                      #");
+		System.out.println("#        7 - VOLTAR MENU PRINCIPAL                  #");
+		System.out.println("#                                                   #");
+		System.out.println("#####################################################");
+		 x  = s.nextInt();
+			if(x==1){   }
+			else if(x==2){ }
+			else if(x==3){}
+			else if(x==4){ }
+			else if(x==5){ }
+			else if(x==6){ MenuApostas(m); }
+			else if(x==7){ MenuPrincipal(m);}
+}
 //CARREGA 
 
 public static Campeonato CarregaCampeonato(HashMap<String, Jogador>jogadores){
