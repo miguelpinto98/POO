@@ -26,5 +26,14 @@ public class Main {
 		   	case 3: ; break;
 		   	}
 
+		   	System.out.println("################## RACING MANAGER 2013 ##################");
+			System.out.println("#                                                       #");
+			System.out.println("#        1 - NOVO                             #");
+			System.out.println("#        2 - VOLTAR ATRÁS                               #");
+			System.out.println("#        3 - SAIR                                       #");
+			System.out.println("#                                                       #");
+			System.out.println("#        Escolha uma opção:                             #");
+			System.out.println("##################### Carregar Jogo #####################");
+	
 	}
 }
