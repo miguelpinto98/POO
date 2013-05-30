@@ -1,6 +1,11 @@
 import java.util.*;
 public class Main {
 
+	
+
+	
+	
+	
 	public static void main(String[] args) {
 		Campeonato c = null;HashMap<String, Jogador> jogadores = null;
 		
@@ -13,9 +18,9 @@ public class Main {
 		else { 
 			System.exit(0);}
 		
-		
+		HashMap<Veiculo, Integer> camp = new HashMap<Veiculo, Integer>();
 		Manager m = new Manager(c,jogadores);
-		MenuPrincipal(m);
+		MenuPrincipal(m,0,camp);
 	}
 		
 	
@@ -78,12 +83,11 @@ return x;
 }
 //CORRE 
 
-public static void MenuPrincipal(Manager m){
+public static void MenuPrincipal(Manager m,int griffin, HashMap<Veiculo, Integer> camp){
 	Scanner s = new Scanner(System.in);
    	int x  = 0;
 	
 	System.out.println("BEM VINDO");
-	
 	
 	
 	System.out.println("##################  MENU PRINCIPAL ##################");
@@ -96,7 +100,7 @@ public static void MenuPrincipal(Manager m){
 	System.out.println("#                                                   #");
 	System.out.println("#####################################################");
 	 x  = s.nextInt();
-	if(x==1){   }
+	if(x==1){  MenuCorrida(m,griffin,camp);  }
 	else if(x==2){ MenuConsultas(m);}
 	else if(x==3){MenuApostas(m);}
 	else if(x==4){ }
@@ -107,6 +111,25 @@ public static void MenuPrincipal(Manager m){
 	
 	}
 	
+
+
+
+private static void MenuCorrida(Manager m,int griffin, HashMap<Veiculo, Integer> camp) {
+	
+	int x = 0;	Corrida cit = new Corrida();
+	Iterator<Corrida> aux = m.getCampeonato().getCorridas().iterator();
+	
+	while(aux.hasNext() && x < griffin )
+	{
+		 aux.next();
+		 x++;
+	}
+      cit = aux.next();
+
+  	
+      cit.fazCorrida(camp);
+	MenuPrincipal( m,griffin+1,camp);
+}
 
 
 
@@ -125,7 +148,10 @@ public static void MenuConsultas(Manager m){
 	System.out.println("#                                                   #");
 	System.out.println("#####################################################");
 	 x  = s.nextInt();
-	if(x==1){   }
+	if(x==1){  
+		
+		
+	}
 	else if(x==2){}
 	else if(x==3){}
 	else if(x==4){ }
