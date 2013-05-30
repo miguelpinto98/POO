@@ -17,7 +17,7 @@ public class Campeonato {
 			this.corridas.add(a.clone());
 	}
 	
-	Campeonato(Campeonato c) {
+	Campeonato(Campeonato c) { this.corridas =  new HashSet<Corrida> ();
 		for (Corrida a : c.getCorridas())
 			this.corridas.add(a);
 	}
@@ -76,7 +76,7 @@ public class Campeonato {
 	   return aux;
 	}
 	
-	public Campeonato geraCampeonato() {
+	public static Campeonato geraCampeonato() {
 		Random r = new Random();
 		int x=r.nextInt(10)+11, i=0;
 		HashSet<Corrida> aux = new HashSet<Corrida>();

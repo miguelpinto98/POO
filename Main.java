@@ -14,7 +14,7 @@ public class Main {
 		int x = Welcome();
 	
 		if(x==1){  
-			jogadores = PedeJogadores(); c.geraCampeonato();}
+			jogadores = PedeJogadores(); c = Campeonato.geraCampeonato();}
 		else
 		    if(x==2){ c = CarregaCampeonato(jogadores);}
 		else { 
@@ -22,11 +22,17 @@ public class Main {
 		
 		HashMap<Veiculo, Integer> camp = new HashMap<Veiculo, Integer>();
 		
-		for(Corrida r : c.getCorridas() ){
-			
-			System.out.println( r.toString());
-			
-		}
+		
+		Iterator<Corrida> banana = c.getCorridas().iterator();
+		Corrida r = banana.next();
+	for(Veiculo v : r.getConjuntoVeiculos() ){
+		camp.put(v, 0);
+	}
+		
+		
+	
+				
+	
 		Manager m = new Manager(c,jogadores);
 		MenuPrincipal(m,0,camp);
 	}
@@ -127,7 +133,7 @@ private static void MenuCorrida(Manager m,int griffin, HashMap<Veiculo, Integer>
 	int x = 0;	Corrida cit = new Corrida();
 	Iterator<Corrida> aux = m.getCampeonato().getCorridas().iterator();
 	
-	while(aux.hasNext() && x < griffin )
+	while(aux.hasNext() && x <= griffin )
 	{
 		 aux.next();
 		 x++;
@@ -200,6 +206,11 @@ public static void MenuConsultas(Manager m, int griffin, HashMap<Veiculo, Intege
 	}
 	else if(x==5){   System.out.println("################## VEICULO   ##################");
 	System.out.println("#                                                   #");
+	Iterator<Corrida> banana = m.getCampeonato().getCorridas().iterator();
+	Corrida r = banana.next();
+           for(Veiculo v : r.getConjuntoVeiculos() ){
+        	   System.out.println(v.toString());
+}
 	
 	  
 	System.out.println("#         1 - VOLTAR                                #");

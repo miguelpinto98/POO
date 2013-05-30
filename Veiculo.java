@@ -322,9 +322,9 @@ public abstract class Veiculo {
 		Piloto p2 = Piloto.geraPiloto();
 		Veiculo v = null;
 		Random r = new Random();
-		int x = r.nextInt(5);
+		int x = r.nextInt(3)+1;
 		
-		if(x==0)
+		if(x==10)
 			v= geraHibrido(p1,p2);
 		if(x==1)
 			v= new PC1Normal(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt());

@@ -66,7 +66,7 @@ public class Corrida {
 
 		s.append("----------------- Corrida -------------------\n");
 		s.append("Número de Veiculos: " + this.conjveiculos.size() + "\n");
-		s.append("Circuito: " + this.crt.getNomeCircuito() + "\n");
+		s.append("Circuito: " + this.crt.getNomeCircuito() +" " + this.crt.getNvoltas() + "\n");
 		s.append("Piso Molhado: " + this.piso + "\n");
 		s.append("---------------------------------------------\n");
 
@@ -106,37 +106,36 @@ public class Corrida {
 				aux.put(v, -1);
 			}
 
-			System.out.println("Vencedor " + vw.getMarca()+" " + vw.getModelo());
+			
 		}
+		System.out.println("Vencedor " + vw.getMarca()+" " + vw.getModelo()+ " Tempo: " + min/1000);
 		return aux;
 	}
 
 	public void fazVoltas(HashMap<Veiculo, Integer> c, int nvoltas) {
 		HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
-		int count = 0;
+		
 		boolean troca = false;
 		for (Veiculo v : aux.keySet()) {
 			v.voltaracio(nvoltas);
 		}
-		for (int i = 0; i < nvoltas; i++) {
+		for (int i = 1; i <= nvoltas; i++) {
 			
 			System.out.println("Volta "+ i);
 			aux = fazVolta(troca);
-			count++;
+			
 
 			for (Veiculo v : aux.keySet()) {
 
 				if (aux.get(v) != -1)
 					c.put(v, c.get(v) + aux.get(v));
 				else{
-					try{
+					
 					c.put(v, -1);
 				    System.out.println( v.getMarca() +" "+ v.getModelo() +" DNF " );
 					
-					Thread.sleep(2500);
-			   }  catch(Exception e){
-						//If this thread was intrrupted by nother thread 
-						}
+					
+			   
 					
 				}
 			}
@@ -156,12 +155,9 @@ public class Corrida {
 		for (Veiculo v : conjveiculos) {
 			aux.put(v, 0);
 		}
-try{
+System.out.println(this.crt.getNomeCircuito());
 		this.fazVoltas(aux, crt.getNvoltas());
-		Thread.sleep(2500);
-   }  catch(Exception e){
-			//If this thread was intrrupted by nother thread 
-			}
+		
 		for (Veiculo v : conjveiculos) {
 			aux2.put(aux.get(v), v);
 		}
