@@ -11,7 +11,7 @@ public class Main {
 			System.out.println("#        2 - CARREGAR CAMPEONATO                        #");
 			System.out.println("#        3 - SAIR                                       #");
 			System.out.println("#                                                       #");
-			System.out.println("#        Escolha uma opção:                             #");
+			System.out.println("#        Escolha uma opÃ§Ã£o:                             #");
 			System.out.println("#########################################################");
 			} catch(Exception e){
 			//If this thread was intrrupted by nother thread 
@@ -25,5 +25,6 @@ public class Main {
 		   	case 2: ; break;
 		   	case 3: ; break;
 		   	}
+
 	}
 }
