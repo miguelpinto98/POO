@@ -51,7 +51,10 @@ public class TestaManager {
 		Campeonato k1 = new Campeonato(v96);
 		
 		Campeonato c = Campeonato.geraCampeonato();
-		System.out.println(c.toString());
+		//System.out.println(c.toString());
+		
+		Veiculo vx = Veiculo.geraVeiculo();
+		System.out.println(vx.toString());
 		
 		/*double tx1 = 0, tx2 = 0, tx3 = 0, tx4 = 0, tx5 = 0;
 		

@@ -27,24 +27,9 @@ public abstract class PC1 extends Veiculo {
 	//res = (int) (c.gettempoPC1() + r.nextInt((c.gettempoPC1()-c.getTrecord())) - ((int)(this.getPilotoActivo()*1000 + ((this.getCilindrada()+this.getCV()*this.getPilotoActivo())/(this.getCilindrada()-this.getCV())))));
 	//res = (int)(c.gettempoPC1() + r.nextInt((c.gettempoPC1()-c.getTrecord())) - ((this.getPilotoActivo()*1000 + this.getCV())));
 
-	/** Clone */
 	public abstract PC1 clone() ;
 	
-	/** 
-	 * ToString 
-	 */
-	public String toString() {
-		StringBuilder str = new StringBuilder("***** PC1 *****\n");
-
-		str.append("Marca: " + this.getMarca() + "\n");
-		str.append("Modelo: " + this.getModelo() + "\n");
-		str.append("Cilindrada: " + this.getCilindrada() + "\n");
-		str.append("Cavalos: " + this.getCV() + "\n");
-		str.append("Piloto1: " + this.getPiloto1().toString() + "\n");
-		str.append("Pilto2: " + this.getPiloto2().toString() + "\n");
-
-		return str.toString();
-	}
+	public abstract String toString() ;
 
 	/** Equals */ //ESTE METODO NÂO DEVE SER ASSIM
 	public boolean equals(Object o) {
