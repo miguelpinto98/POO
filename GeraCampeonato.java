@@ -239,7 +239,7 @@ public class GeraCampeonato {
 		int x = r.nextInt(3);
 		
 		if(x==0)
-			v= new PC1Hibrido(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt());
+			v= new PC1Hibrido(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt(),0);
 		if(x==1)
 			v= new PC2Hibrido(daMarca(), daModelo(), (r.nextInt(2000) + 4000), r.nextInt(400) + 550, p1, p2, r.nextInt());
 		if(x==2)

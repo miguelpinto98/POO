@@ -101,8 +101,8 @@ public static void MenuPrincipal(Manager m,int griffin, HashMap<Veiculo, Integer
 	System.out.println("#####################################################");
 	 x  = s.nextInt();
 	if(x==1){  MenuCorrida(m,griffin,camp);  }
-	else if(x==2){ MenuConsultas(m);}
-	else if(x==3){MenuApostas(m);}
+	else if(x==2){ MenuConsultas(m,griffin, camp);}
+	else if(x==3){MenuApostas(m,griffin,camp);}
 	else if(x==4){ }
 	else if(x==5){ }
 	
@@ -134,12 +134,12 @@ private static void MenuCorrida(Manager m,int griffin, HashMap<Veiculo, Integer>
 
 
 //Menu Consulta 
-public static void MenuConsultas(Manager m){
+public static void MenuConsultas(Manager m, int griffin, HashMap<Veiculo, Integer> camp){
 	Scanner s = new Scanner(System.in);
    	int x  = 0;
 	System.out.println("##################  MENU CONSULTAS ##################");
 	System.out.println("#                                                   #");
-	System.out.println("#        1 - CLASSIFICÃO DO CAMPEONATO              #");
+	System.out.println("#        1 - CLASSIFICï¿½O DO CAMPEONATO              #");
 	System.out.println("#        2 - TROFEU HIBRIDO                         #");
 	System.out.println("#        3 - TOP JOGADORES                          #");
 	System.out.println("#        4- CORRIDAS AGENDADAS                      #");
@@ -156,12 +156,12 @@ public static void MenuConsultas(Manager m){
 	else if(x==3){}
 	else if(x==4){ }
 	else if(x==5){ }
-	else if(x==6){ MenuPrincipal(m);}
+	else if(x==6){ MenuPrincipal(m, griffin, camp);}
 }
 
 
 //Menu Aposta
-public static void MenuApostas(Manager m){
+public static void MenuApostas(Manager m, int griffin, HashMap<Veiculo,Integer> camp){
 	Scanner s = new Scanner(System.in);
    	int x  = 0;
    	Jogador j = null;
@@ -194,8 +194,8 @@ public static void MenuApostas(Manager m){
 			else if(x==3){}
 			else if(x==4){ }
 			else if(x==5){ }
-			else if(x==6){ MenuApostas(m); }
-			else if(x==7){ MenuPrincipal(m);}
+			else if(x==6){ MenuApostas(m,griffin,camp); }
+			else if(x==7){ MenuPrincipal(m,griffin,camp);}
 }
 //CARREGA 
 
