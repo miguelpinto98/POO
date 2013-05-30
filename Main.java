@@ -25,8 +25,12 @@ public class Main {
 		   	case 2: ; break;
 		   	case 3: ; break;
 		   	}
+<<<<<<< HEAD
 
 
+=======
+		   	
+>>>>>>> 707af5d34ebd147d605aad5b2a4b29b6d2a44fe6
 		   	System.out.println("################## RACING MANAGER 2013 ##################");
 			System.out.println("#                                                       #");
 			System.out.println("#        1 - NOVO                             #");
