@@ -76,7 +76,7 @@ public class Campeonato {
 	   return aux;
 	}
 	
-	public static Campeonato geraCampeonato() {
+	public Campeonato geraCampeonato() {
 		Random r = new Random();
 		int x=r.nextInt(10)+11, i=0;
 		HashSet<Corrida> aux = new HashSet<Corrida>();

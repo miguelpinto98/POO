@@ -7,7 +7,9 @@ public class Main {
 	
 	
 	public static void main(String[] args) {
-		Campeonato c = null;HashMap<String, Jogador> jogadores = null;
+		Campeonato c =new Campeonato() ;
+		
+		HashMap<String, Jogador> jogadores = new HashMap<String,Jogador>() ;
 		
 		int x = Welcome();
 	
@@ -19,6 +21,12 @@ public class Main {
 			System.exit(0);}
 		
 		HashMap<Veiculo, Integer> camp = new HashMap<Veiculo, Integer>();
+		
+		for(Corrida r : c.getCorridas() ){
+			
+			System.out.println( r.toString());
+			
+		}
 		Manager m = new Manager(c,jogadores);
 		MenuPrincipal(m,0,camp);
 	}
@@ -148,15 +156,61 @@ public static void MenuConsultas(Manager m, int griffin, HashMap<Veiculo, Intege
 	System.out.println("#                                                   #");
 	System.out.println("#####################################################");
 	 x  = s.nextInt();
-	if(x==1){  
+	
+	 
+	 if(x==1){ TreeMap<Integer,String> aux = new TreeMap<Integer,String>();
+		for(Veiculo v : camp.keySet()){
+			aux.put(camp.get(v),( v.getMarca()+" "+v.getModelo() ));
+		}
+		System.out.println("################## CLASSIFICAÇÃO   ##################");
+		System.out.println("#                                                   #");
+		for(int y : aux.keySet()){
+			System.out.println( y +" " + aux.get(y));
+			
+		}
+		System.out.println("#         1 - VOLTAR                                #");
+		System.out.println("#####################################################");
+	}
+	else if(x==2){  
+		
+		
+		
+		
 		
 		
 	}
-	else if(x==2){}
-	else if(x==3){}
-	else if(x==4){ }
-	else if(x==5){ }
+	else if(x==3){ 
+		
+		
+		
+		
+	}
+	else if(x==4){
+    System.out.println("################## CORRIDAS   ##################");
+	System.out.println("#                                                   #");
+	for(Corrida r : m.getCampeonato().getCorridas() ){
+		System.out.println( r.toString());
+		
+	}
+	System.out.println("#         1 - VOLTAR                                #");
+	System.out.println("#####################################################");
+		
+		
+		
+	}
+	else if(x==5){   System.out.println("################## VEICULO   ##################");
+	System.out.println("#                                                   #");
+	
+	  
+	System.out.println("#         1 - VOLTAR                                #");
+	System.out.println("#####################################################");
+		
+		
+		
+	}
 	else if(x==6){ MenuPrincipal(m, griffin, camp);}
+	x = s.nextInt();
+	if(x==1) MenuConsultas(m,griffin,camp);
 }
 
 
