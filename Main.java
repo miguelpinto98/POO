@@ -16,19 +16,19 @@ public class Main {
 			  System.out.println("             Escolha opção");
 			  Thread.sleep(500);
 			  System.out.println("#########################################");
-			
+			  Runtime.getRuntime().exec("cls");
 			}
 			catch(Exception e){
-			//If this thread was intrrupted by nother thread 
+				 System.out.println("#########################################");
 			}
 			   
 		   Scanner scanner = new Scanner(System.in);
 		   
 	     int x  = scanner.nextInt();
-	     
+	     try{
 	     switch(x){
 	     
-	     case 1 : break;
+	     case 1 :  break;
 	     case 2 : break;
 	     case 3 : break;
 	     
@@ -36,6 +36,11 @@ public class Main {
 	     
 	     
 	     }
-		
+	    
+	     }catch(Exception e){
+				//If this thread was intrrupted by nother thread 
+				}
+	     
+	     
 	}
 }
