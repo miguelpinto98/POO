@@ -3,7 +3,7 @@ import java.util.*;
 public class TestaManagerGriffin {
 	public static void main(String[] args) {
 
-		Piloto p1 = new Piloto("Muito Fraco", "China", 0, 2, false);
+	/*	Piloto p1 = new Piloto("Muito Fraco", "China", 0, 2, false);
 		Piloto p2 = new Piloto("Fraco", "Portugal", 5, 4, false);
 		Piloto p3 = new Piloto("Razoavel", "Espanha", 10, 6, false);
 		Piloto p4 = new Piloto("Bom", "Reino Unido", 15, 8, false);
@@ -50,8 +50,8 @@ public class TestaManagerGriffin {
 		Corrida c4 = new Corrida(v, ct2, true);
 		HashSet<Corrida> v96 = new HashSet<Corrida>();
 		v96.add(c2);
-	/*	v96.add(c3);
-		v96.add(c4);*/
+		v96.add(c3);
+		v96.add(c4);
 		Campeonato k1 = new Campeonato(v96);
 
 		
@@ -74,5 +74,14 @@ public class TestaManagerGriffin {
 			for (Veiculo ve : batata.keySet()) {
 				System.out.println( "Veiculo: " +ve.getMarca() +" "+ ve.getModelo()+  " " + batata.get(ve) );
 			}
+	*/
+		
+
+	
+	
 	}
-}
+	
+
+	
+	
+	}
