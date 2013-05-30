@@ -1,12 +1,16 @@
 
 public class PC1Hibrido extends PC1 implements Hibrida {
 
+	private int potencia;
+	
 	public PC1Hibrido() {
 		super();
+		this.setPotencia(0);
 	}
 
 	public PC1Hibrido(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int h) {
 		super(marca, modelo, cilindrada, cv, p1, p2, h);
+
 	}
 
 	public PC1Hibrido(PC1 pc) {
@@ -17,8 +21,25 @@ public class PC1Hibrido extends PC1 implements Hibrida {
 		return new PC1Hibrido(this);
 	}
 	
+	public int getPotencia() {
+		return potencia;
+	}
+
+	public void setPotencia(int potencia) {
+		this.potencia = potencia;
+	}
+
 	public String toString() {
-		return super.toString();
+		StringBuilder str = new StringBuilder("***** PC1 Hibrido *****\n");
+
+		str.append("Marca: " + this.getMarca() + "\n");
+		str.append("Modelo: " + this.getModelo() + "\n");
+		str.append("Cilindrada: " + this.getCilindrada() + "\n");
+		str.append("Cavalos: " + this.getCV() + "\n");
+		str.append("Piloto1: " + this.getPiloto1().toString() + "\n");
+		str.append("Piloto2: " + this.getPiloto2().toString() + "\n");
+
+		return str.toString();
 	}
 	
 	public boolean equals(Object o) {
