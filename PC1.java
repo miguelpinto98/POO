@@ -39,4 +39,5 @@ public abstract class PC1 extends Veiculo {
 	public int hashCode() {
 		return super.hashCode();
 	}
+
 }
