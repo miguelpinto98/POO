@@ -18,38 +18,37 @@ public class Main {
 	
 
 //PedeJOGADORES
-	
 public static HashMap<String, Jogador> PedeJogadores(){
  
-	 HashMap<String, Jogador> aux = new  HashMap<String, Jogador>();
-	 String nome,morada; double dc;
+	 HashMap<String,Jogador> aux = new HashMap<String,Jogador>();
+	 String nome, morada; 
+	 double dc = 0;
 	 Jogador p;
-	System.out.println("Quantos Jogadores?"); 
+	
+	 System.out.println("Quantos Jogadores?"); 
 	 Scanner s = new Scanner(System.in);
 	   	int x  = s.nextInt();
 	   	
+	   	System.out.println("################# INSERIR JOGADOR ################");
 	   	for(int i = 0; i < x; i++){
-	   		System.out.println("Nome do Jogador");
-	   	
+	   		System.out.println(" * Insira os dados por linha no seguinte formato.\n");
+	   		System.out.println(" * Nome | Morada | Dinheiro inicial.");
+	   		System.out.println(" * Linha em branco para terminar.");
+	   	  	
+	   		nome = s.next("\n");
+	   		morada = s.next("\n");
+	   		dc = s.nextDouble();
 	   		
-	   		 nome =s.nextLine();
-	   		System.out.println("Morada do Jogador");	 
-	   		 morada= s.nextLine();
-	   		 
-	   		System.out.println("Dinheiro na conta");
-	   	  dc = s.nextDouble();
 	   		p = new Jogador();
-	   			p.setNome(nome);
+	   		p.setNome(nome);
 	   		p.setMorada(morada);
 	   		p.setDc(dc);
-	   		aux.put(nome,p);
 	   		
+	   		aux.put("",p);
 	   	}
-	 
-	
-	
 	return aux;
 }
+
 // WELCOME
 public static int Welcome(){ 
 	
@@ -60,7 +59,7 @@ try {
 	System.out.println("#        2 - CARREGAR CAMPEONATO                        #");
 	System.out.println("#        3 - SAIR                                       #");
 	System.out.println("#                                                       #");
-	System.out.println("#        Escolha uma opçâo:                             #");
+	System.out.println("#        Escolha uma opï¿½ï¿½o:                             #");
 	System.out.println("#########################################################");
 	} catch(Exception e){
 	//If this thread was intrrupted by nother thread 
