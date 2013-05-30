@@ -33,7 +33,9 @@ public static HashMap<String, Jogador> PedeJogadores(){
 	   	
 	   		
 	   		 nome =s.nextLine();
-	   		System.out.println("Morada do Jogador");	 
+	   		 
+	   		System.out.println("Morada do Jogador");
+	   		
 	   		 morada= s.nextLine();
 	   		 
 	   		System.out.println("Dinheiro na conta");
@@ -75,6 +77,7 @@ return x;
 //CORRE 
 
 public static void CorreCampeonato(Campeonato c){
+	
 	
 	
 	
