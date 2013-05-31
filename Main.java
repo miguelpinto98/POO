@@ -466,6 +466,8 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 		Aposta p = new Aposta(q,p1,p2,p3,corr);
 		ArrayList<Aposta> pp = j.getApostaCorrente();
 	pp.add(p); j.setApostaCorrente(pp);
+	
+	//AInda n INSERE??
 		     }   
 		     
      
