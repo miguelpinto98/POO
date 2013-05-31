@@ -27,6 +27,7 @@ public class Main {
 		Corrida r = banana.next();
 	for(Veiculo v : r.getConjuntoVeiculos() ){
 		camp.put(v, 0);
+		System.out.println(v.toString());
 	}
 		
 		
@@ -118,7 +119,7 @@ public static void MenuPrincipal(Manager m,int griffin, HashMap<Veiculo, Integer
 	else if(x==2){ MenuConsultas(m,griffin, camp);}
 	else if(x==3){MenuApostas(m,griffin,camp);}
 	else if(x==4){ }
-	else if(x==5){ }
+	else if(x==5){ System.exit(0); }
 	
 	
 	
@@ -133,15 +134,16 @@ private static void MenuCorrida(Manager m,int griffin, HashMap<Veiculo, Integer>
 	int x = 0;	Corrida cit = new Corrida();
 	Iterator<Corrida> aux = m.getCampeonato().getCorridas().iterator();
 	
-	while(aux.hasNext() && x <= griffin )
+	while(aux.hasNext() && x < griffin )
 	{
 		 aux.next();
 		 x++;
 	}
-      cit = aux.next();
+    if(aux.hasNext()){  cit = aux.next();
 
   	
-      cit.fazCorrida(camp);
+      cit.fazCorrida(camp);}
+    else System.out.println("O Campeonato Acabou!");
 	MenuPrincipal( m,griffin+1,camp);
 }
 
@@ -164,9 +166,12 @@ public static void MenuConsultas(Manager m, int griffin, HashMap<Veiculo, Intege
 	 x  = s.nextInt();
 	
 	 
-	 if(x==1){ TreeMap<Integer,String> aux = new TreeMap<Integer,String>();
+	 if(x==1){ 
+		 
+		 TreeMap<Integer,String> aux = new TreeMap<Integer,String>();
+		 
 		for(Veiculo v : camp.keySet()){
-			aux.put(camp.get(v),( v.getMarca()+" "+v.getModelo() ));
+			aux.put(camp.get(v), v.getMarca()+" "+v.getModelo() );
 		}
 		System.out.println("################## CLASSIFICAÇÃO   ##################");
 		System.out.println("#                                                   #");
