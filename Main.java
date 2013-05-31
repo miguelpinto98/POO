@@ -173,7 +173,7 @@ public static void MenuConsultas(Manager m, int griffin, HashMap<Veiculo, Intege
 		for(Veiculo v : camp.keySet()){
 			aux.put(camp.get(v), v.getMarca()+" "+v.getModelo() );
 		}
-		System.out.println("################## CLASSIFICAÇÃO   ##################");
+		System.out.println("################## CLASSIFICAï¿½ï¿½O   ##################");
 		System.out.println("#                                                   #");
 		for(int y : aux.keySet()){
 			System.out.println( y +" " + aux.get(y));
