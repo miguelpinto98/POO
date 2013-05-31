@@ -168,7 +168,7 @@ public static void MenuConsultas(Manager m, int griffin, HashMap<Veiculo, Intege
 	 
 	 if(x==1){ 
 		 
-		 TreeMap<Integer,String> aux = new TreeMap<Integer,String>();
+		 HashMap<Integer,String> aux = new HashMap<Integer,String>();
 		 
 		for(Veiculo v : camp.keySet()){
 			aux.put(camp.get(v), v.getMarca()+" "+v.getModelo() );
