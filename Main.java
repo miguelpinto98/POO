@@ -14,33 +14,34 @@ public class Main {
 		Campeonato c =new Campeonato() ;
 		HashMap<String, Jogador> jogadores = new HashMap<String,Jogador>() ;
 
-		Manager m = new Manager(c,jogadores);
-		
+		Manager m = new Manager();
+		HashMap<Veiculo, Integer> camp = new HashMap<Veiculo, Integer>();
 		
 		int x = Welcome();
 	
 		if(x==1){  
-			jogadores = PedeJogadores(); c = Campeonato.geraCampeonato(); m = new Manager(c,jogadores);}
+			jogadores = PedeJogadores(); c = Campeonato.geraCampeonato(); m = new Manager(c,jogadores); Iterator<Corrida> banana = m.getCampeonato().getCorridas().iterator();
+			Corrida r = banana.next();
+			  for(Veiculo v : r.getConjuntoVeiculos() ){
+				camp.put(v, 0);
+			
+			    }
+			  
+			  m = new Manager(c,jogadores); 
+		}
 		else
-		    if(x==2){ m.carregaRM("file.tmp");}
+		    if(x==2){ m.carregaRM("file.tmp"); }   // falta carregar camp
 		else { 
 			System.exit(0);}
 		
-		HashMap<Veiculo, Integer> camp = new HashMap<Veiculo, Integer>();
 		
 		
-		if(x ==1){Iterator<Corrida> banana = m.getCampeonato().getCorridas().iterator();
-		Corrida r = banana.next();
-	  for(Veiculo v : r.getConjuntoVeiculos() ){
-		camp.put(v, 0);
-	
-	    }
-		}
+		
 		
 	
 				
 	
-		MenuPrincipal(m,0,camp);
+		MenuPrincipal(m,camp);
 	}
 		
 	
@@ -102,7 +103,7 @@ return x;
 }
 //CORRE 
 
-public static void MenuPrincipal(Manager m,int griffin, HashMap<Veiculo, Integer> camp) throws FileNotFoundException, IOException{
+public static void MenuPrincipal(Manager m,HashMap<Veiculo, Integer> camp) throws FileNotFoundException, IOException{
    	int x  = 0;
 	
 	System.out.println("BEM VINDO");
@@ -118,10 +119,10 @@ public static void MenuPrincipal(Manager m,int griffin, HashMap<Veiculo, Integer
 	System.out.println("#                                                   #");
 	System.out.println("#####################################################");
 	 x  = s.nextInt();
-	if(x==1){  MenuCorrida(m,griffin,camp);  }
-	else if(x==2){ MenuConsultas(m,griffin, camp);}
-	else if(x==3){MenuApostas(m,griffin,camp);}
-	else if(x==4){ m.gravaRM("file.tmp"); MenuPrincipal(m, griffin, camp);}
+	if(x==1){  MenuCorrida(m,camp);  }
+	else if(x==2){ MenuConsultas(m, camp);}
+	else if(x==3){MenuApostas(m,camp);}
+	else if(x==4){ m.gravaRM("file.tmp"); MenuPrincipal(m,camp);}
 	else if(x==5){ System.exit(0); }
 	
 	
@@ -132,12 +133,12 @@ public static void MenuPrincipal(Manager m,int griffin, HashMap<Veiculo, Integer
 
 
 
-private static void MenuCorrida(Manager m,int griffin, HashMap<Veiculo, Integer> camp) throws FileNotFoundException, IOException {
+private static void MenuCorrida(Manager m, HashMap<Veiculo, Integer> camp) throws FileNotFoundException, IOException {
 	
 	int x = 0;	Corrida cit = new Corrida();
 	Iterator<Corrida> aux = m.getCampeonato().getCorridas().iterator();
 	
-	while(aux.hasNext() && x < griffin )
+	while(aux.hasNext() && x < m.getCorrida() )
 	{
 		 aux.next();
 		 x++;
@@ -145,15 +146,16 @@ private static void MenuCorrida(Manager m,int griffin, HashMap<Veiculo, Integer>
     if(aux.hasNext()){  cit = aux.next();
 
   	
-      cit.fazCorrida(camp);}
+      cit.fazCorrida(camp);
+      m.setCorida(); }
     else System.out.println("O Campeonato Acabou!");
-	MenuPrincipal( m,griffin+1,camp);
+	MenuPrincipal( m,camp);
 }
 
 
 
 //Menu Consulta 
-public static void MenuConsultas(Manager m, int griffin, HashMap<Veiculo, Integer> camp) throws FileNotFoundException, IOException{
+public static void MenuConsultas(Manager m, HashMap<Veiculo, Integer> camp) throws FileNotFoundException, IOException{
    	int x  = 0;
 	System.out.println("##################  MENU CONSULTAS ##################");
 	System.out.println("#                                                   #");
@@ -226,15 +228,15 @@ public static void MenuConsultas(Manager m, int griffin, HashMap<Veiculo, Intege
 		
 		
 	}
-	else if(x==6){ MenuPrincipal(m, griffin, camp);}
+	else if(x==6){ MenuPrincipal(m, camp);}
 	x = s.nextInt();
-	if(x==1) MenuConsultas(m,griffin,camp);
+	if(x==1) MenuConsultas(m,camp);
 }
 
 
 //Menu Aposta
-public static void MenuApostas(Manager m, int griffin, HashMap<Veiculo,Integer> camp) throws FileNotFoundException, IOException{
-   	int x  = 0;
+public static void MenuApostas(Manager m, HashMap<Veiculo,Integer> camp) throws FileNotFoundException, IOException{
+   	int x  = 0, waka = 0;
    	Jogador j = null;
 	System.out.println("################  ESCOLHA JOGADOR  ##################");
 	System.out.println("#                                                   #");
@@ -247,8 +249,21 @@ public static void MenuApostas(Manager m, int griffin, HashMap<Veiculo,Integer> 
 	System.out.println("#####################################################");
 	
 	 x  = s.nextInt();
+	 Iterator<Jogador> auxi =  m.getapostadores().values().iterator();
+	 
+		while(auxi.hasNext() && waka  < x )
+		{
+			 auxi.next();
+			 waka++;
+			
+		}
+	    if(auxi.hasNext()){  j =auxi.next();} else{ System.out.println("Nao ha mais jogadores"); MenuApostas(m,camp);}
+
+	 
 	 //iterador ate x, edepois 
 	 System.out.println("##################  MENU APOSTAS     ##################");
+		System.out.println("#                                                   #");
+		System.out.println("#                " + j.getNome()  + "               #");
 		System.out.println("#                                                   #");
 		System.out.println("#        1 - FAZER APOSTA PROX CORRIDA              #");
 		System.out.println("#        2 - VER APOSTAS POR ACONTECER              #");
@@ -260,12 +275,12 @@ public static void MenuApostas(Manager m, int griffin, HashMap<Veiculo,Integer> 
 		System.out.println("#                                                   #");
 		System.out.println("#####################################################");
 		 x  = s.nextInt();
-			if(x==1){   }
+			if(x==1){          }
 			else if(x==2){ }
 			else if(x==3){}
 			else if(x==4){ }
 			else if(x==5){ }
-			else if(x==6){ MenuApostas(m,griffin,camp); }
-			else if(x==7){ MenuPrincipal(m,griffin,camp);}
+			else if(x==6){ MenuApostas(m,camp); }
+			else if(x==7){ MenuPrincipal(m,camp);}
 	}
 }

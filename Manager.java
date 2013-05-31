@@ -6,25 +6,34 @@ public class Manager {
 	// variaveis de instancia
 	private Campeonato campeonato;
 	private HashMap<String, Jogador> apostadores;
+	int corrida;
 
+	
+	
 	public Manager() {
 		this.campeonato = new Campeonato();
 		this.apostadores = new HashMap<String, Jogador>();
+		this.corrida = 0;
 	}
 	
 	public Manager(Campeonato c, HashMap<String, Jogador> d) {
 		this.campeonato = c;
 		this.apostadores = d;
+		this.corrida = 0;
 	}
+	
 
 	public Manager(Manager m) {
 		this.campeonato = m.getCampeonato();
 		HashMap<String, Jogador> aux = m.getapostadores();
 		for (String nome : aux.keySet())
 			this.apostadores.put(nome, aux.get(nome));
+		this.corrida = 0;
 	}
+	
 
 	// get
+	public int getCorrida(){ return this.corrida;}
 	public Campeonato getCampeonato() {
 		return this.campeonato.clone();
 	}
@@ -39,6 +48,7 @@ public class Manager {
 	}
 
 	// set
+	public void setCorida(){ this.corrida++; }
 	public void setCampeonato(Campeonato c) {
 		this.campeonato = c;
 	}
