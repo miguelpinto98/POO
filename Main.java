@@ -246,33 +246,46 @@ public static void MenuConsultas(Manager m) throws FileNotFoundException, IOExce
 }
 
 
+
+
+//
+public static int jogpos(HashMap<String, Jogador> j){
+
+int x = 0;
+
+	
+System.out.println("################  ESCOLHA JOGADOR  ##################");
+System.out.println("#                                                   #");
+for(String z : j.keySet() ){
+	
+	System.out.println( "#       " + x +" " +j.get(z).getNome() +"                #");
+	x++;
+}
+System.out.println("#                                                   #");
+System.out.println("#####################################################");
+
+ x  = s.nextInt();
+return x;
+}
 //Menu Aposta
 public static void MenuApostas(Manager m) throws FileNotFoundException, IOException{
-   	int x  = 0, waka = 0;
-   	Jogador j = null;
-	System.out.println("################  ESCOLHA JOGADOR  ##################");
-	System.out.println("#                                                   #");
-	for(String z :m.getapostadores().keySet() ){
-		
-		System.out.println( "#       " + x +" " +m.getapostadores().get(z).getNome() +"                #");
-		x++;
-	}
-	System.out.println("#                                                   #");
-	System.out.println("#####################################################");
-	
-	 x  = s.nextInt();
+   	int x  = 0;
+ int waka = 0;
+	 waka = jogpos(m.getapostadores()); 
+	 Jogador j = new Jogador();
 	 Iterator<Jogador> auxi =  m.getapostadores().values().iterator();
 	 
-		while(auxi.hasNext() && waka  < x )
+		while(auxi.hasNext() && x < waka )
 		{
 			 auxi.next();
-			 waka++;
+			x++;
 			
 		}
-	    if(auxi.hasNext()){  j =auxi.next();} else{ System.out.println("Nao ha mais jogadores"); MenuApostas(m);}
 
-	 
-	 //iterador ate x, edepois 
+		if(auxi.hasNext()){  j =auxi.next();}
+		else{ System.out.println("Nao ha mais jogadores"); MenuApostas(m);}
+	
+		
 	 System.out.println("##################  MENU APOSTAS     ##################");
 		System.out.println("#                                                   #");
 		System.out.println("#                " + j.getNome()  + "               #");
@@ -288,8 +301,8 @@ public static void MenuApostas(Manager m) throws FileNotFoundException, IOExcept
 		System.out.println("#####################################################");
 		 x  = s.nextInt();
 		 while(x !=7){
-		 if(x==1){   
-				
+		 if(x==1){   MenuFazAposta(m,waka);
+				 
 				
 				
 				
@@ -338,4 +351,124 @@ public static void MenuApostas(Manager m) throws FileNotFoundException, IOExcept
 		 }
 
                             }
+
+
+
+private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundException, IOException {
+	
+	//necessario pa uma posta 
+	 double q = 0;
+	Veiculo p1 = null;Veiculo p2 = null; Veiculo  p3 = null;
+	 Corrida corr = new Corrida();
+	Jogador j = null;
+	//funçao 
+	 int x = 0, y = 0;
+	 
+	
+	
+	//CORRIDA;
+	   System.out.println("################ ESCOLHA CORRIDA   ################");
+		System.out.println("#                                                   #");
+		for(Corrida r : m.getCampeonato().getCorridas() ){
+			System.out.println(x +" "+ r.getCircuito().getNomeCircuito());
+			x++;
+		}
+		System.out.println("#                                                   #");
+		System.out.println("#####################################################");
+     x = s.nextInt();
+     Iterator<Corrida> corrit = m.getCampeonato().getCorridas().iterator();
+ 	while(corrit.hasNext() && y <x )
+ 	{
+ 		 corrit.next();
+ 		 y++;
+ 	}
+     if(corrit.hasNext()){  corr = corrit.next();
+     
+		//PRIMEIRO CLASSIFICADO
+		x= 0;
+		System.out.println("################## ESCOLHA 1º classificado   ##################");
+		System.out.println("#                                                   #");
+		for(Veiculo v : corr.getConjuntoVeiculos()){
+			System.out.println(x +" "+v.getMarca()+" "+v.getModelo());
+			x++;
+			
+		}
+		System.out.println("#                                                   #");
+		System.out.println("#####################################################");
+		x  = s.nextInt();
+		 Iterator<Veiculo> carit = corr.getConjuntoVeiculos().iterator();
+	 	while(carit.hasNext() && y <x )
+	 	{
+	 		 carit.next();
+	 		 y++;
+	 	}
+	     if(carit.hasNext()){  p1 = carit.next().clone();}
+	
+		
+		//SEGUNDO CLASSIFICADO
+		x = 0;
+		y= 0;
+		System.out.println("################## ESCOLHA 2º classificado   ##################");
+		System.out.println("#                                                   #");
+		for(Veiculo v : corr.getConjuntoVeiculos()){
+			System.out.println(x +" "+v.getMarca()+" "+v.getModelo());
+			x++;
+			
+		}
+		System.out.println("#                                                   #");
+		System.out.println("#####################################################");
+		x = s.nextInt();
+		carit = corr.getConjuntoVeiculos().iterator();
+		 	while(carit.hasNext() && y <x )
+		 	{
+		 		 carit.next();
+		 		 y++;
+		 	}
+		     if(carit.hasNext()){  p2 = carit.next().clone();}
+		
+		//TERCEIRO CLASSIFICADO
+		x = 0;
+		y = 0;
+		System.out.println("################## ESCOLHA 3º classificado   ##################");
+		System.out.println("#                                                   #");
+		for(Veiculo v : corr.getConjuntoVeiculos()){
+			System.out.println(x +" "+v.getMarca()+" "+v.getModelo());
+			x++;
+			
+		}
+		System.out.println("#                                                   #");
+		System.out.println("#####################################################");
+		x = s.nextInt();
+		carit = corr.getConjuntoVeiculos().iterator();
+	 	while(carit.hasNext() && y <x )
+	 	{
+	 		 carit.next();
+	 		 y++;
+	 	}
+	     if(carit.hasNext()){  p3 = carit.next().clone();
+	   }
+		
+		y=0;
+		//Perguntar quantia do jogador na posiçao waka
+	     Iterator<Jogador> jogit = m.getapostadores().values().iterator();
+		 	while(jogit.hasNext() && y < waka )
+		 	{
+		 		 carit.next();
+		 		 y++;
+		 	}
+		     if(jogit.hasNext()){ j = jogit.next();
+		 System.out.println("Saldo Actual: "+j.getDc());  
+	     System.out.println(" *Insira Quantia.");
+		q = s.nextDouble();
+		//inserir aposta na lista d apostas do waka
+		Aposta p = new Aposta(q,p1,p2,p3,corr);
+		ArrayList<Aposta> pp = j.getApostaCorrente();
+	pp.add(p); j.setApostaCorrente(pp);
+		     }   
+		     
+     
+     }
+
+
+            MenuApostas(m);                                      }
 }
