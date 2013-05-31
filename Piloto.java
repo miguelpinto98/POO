@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Random;
 
-public class Piloto {
+public class Piloto implements Serializable{
 	private String nome;
 	private String nacionalidade;
 	private int palmares;

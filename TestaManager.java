@@ -54,7 +54,7 @@ public class TestaManager {
 		v96.add(c2);
 		v96.add(c3);
 		v96.add(c3);
-		Campeonato k1 = new Campeonato(v96);
+		//Campeonato k1 = new Campeonato(v96);
 		
 		Campeonato c = Campeonato.geraCampeonato();
 		//System.out.println(c.toString());

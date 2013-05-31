@@ -1,7 +1,9 @@
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Random;
 
-public abstract class Veiculo {
+public abstract class Veiculo implements Serializable {
+
 	private String marca;
 	private String modelo;
 	private int cilindrada;

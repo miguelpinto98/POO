@@ -1,6 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-public class Jogador {
+
+public class Jogador implements Serializable {
 	private String nome;
 	private String morada;
 	private ArrayList<Aposta> adecorrer;
@@ -136,7 +138,7 @@ public class Jogador {
 	
 	public void CheckApostas(String s, HashMap<Veiculo,Integer> c ) {
 		ArrayList<Aposta> aux = this.getApostaCorrente();
-	   int premio = 0; 
+	   //int premio = 0; 
 	   for(Aposta v : aux){
 	    if(s.equals(v.getCorrida().getCircuito().getNomeCircuito())) { // Falta decidir o que fazer quando se ganha
 	       

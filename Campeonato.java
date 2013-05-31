@@ -1,10 +1,11 @@
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.TreeSet;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.TreeMap;
 
-public class Campeonato {
+public class Campeonato implements Serializable {
 
 	private TreeSet<Corrida> corridas;
 	

@@ -1,6 +1,6 @@
+import java.io.Serializable;
 
-
-public class Circuito {
+public class Circuito implements Serializable{
     String nome;
 	private int distancia,nvoltas;
 	private int tempoPC1,

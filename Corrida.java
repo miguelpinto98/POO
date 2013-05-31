@@ -1,13 +1,12 @@
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.TreeMap;
 import java.util.Iterator;
 import java.util.Collection;
-import java.util.TreeSet;
-import java.io.*;
 
-public class Corrida implements Comparable<Corrida>{
+public class Corrida implements Comparable<Corrida>, Serializable {
 
 	private HashSet<Veiculo> conjveiculos;
 	private Circuito crt;
