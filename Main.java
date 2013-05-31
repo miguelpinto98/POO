@@ -229,7 +229,7 @@ public static void MenuConsultas(Manager m, HashMap<Veiculo, Integer> camp) thro
 		
 	}
 	else if(x==6){ MenuPrincipal(m, camp);}
-	x = s.nextInt();
+	
 	if(x==1) MenuConsultas(m,camp);
 }
 
@@ -275,12 +275,51 @@ public static void MenuApostas(Manager m, HashMap<Veiculo,Integer> camp) throws 
 		System.out.println("#                                                   #");
 		System.out.println("#####################################################");
 		 x  = s.nextInt();
-			if(x==1){          }
-			else if(x==2){ }
-			else if(x==3){}
-			else if(x==4){ }
-			else if(x==5){ }
+			if(x==1){   
+				
+				
+				
+				
+			} //Menu faz aposta
+			else if(x==2){
+				System.out.println("################## APOSTAS   ##################");
+			System.out.println("#                                                   #");
+			
+		
+		           for(Aposta v : j.getApostaCorrente() ){
+		        	   System.out.println(v.toString());
+		}
+			
+			  
+			System.out.println("#         1 - VOLTAR                                #");
+			System.out.println("#####################################################");
+				
+				
+			} 
+			else if(x==3){
+				System.out.println("################## APOSTAS   ##################");
+				System.out.println("#                                                   #");
+				
+			
+			           for(Aposta v : j.getHistorico() ){
+			        	   System.out.println(v.toString());
+			}
+				
+				  
+				System.out.println("#         1 - VOLTAR                                #");
+				System.out.println("#####################################################");
+				
+				
+			}
+			else if(x==4){ System.out.println("Saldo Actual: "+j.getDc());  }
+			else if(x==5){ System.out.println("Dinheiro Investido: "+j.getDi()); } 
 			else if(x==6){ MenuApostas(m,camp); }
 			else if(x==7){ MenuPrincipal(m,camp);}
-	}
+			x = s.nextInt();
+			if(x==1) MenuApostas(m,camp);
+
+
+
+
+}
 }
