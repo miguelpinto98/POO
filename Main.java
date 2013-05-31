@@ -287,7 +287,8 @@ public static void MenuApostas(Manager m) throws FileNotFoundException, IOExcept
 		System.out.println("#                                                   #");
 		System.out.println("#####################################################");
 		 x  = s.nextInt();
-			if(x==1){   
+		 while(x !=7){
+		 if(x==1){   
 				
 				
 				
@@ -322,16 +323,19 @@ public static void MenuApostas(Manager m) throws FileNotFoundException, IOExcept
 				System.out.println("#####################################################");
 				
 				
-			}
-			else if(x==4){ System.out.println("Saldo Actual: "+j.getDc());  }
+			} 
+			else
+				
+				if(x==4){ System.out.println("Saldo Actual: "+j.getDc());  }
 			else if(x==5){ System.out.println("Dinheiro Investido: "+j.getDi()); } 
 			else if(x==6){ MenuApostas(m); }
 			else if(x==7){ MenuPrincipal(m);}
+				x = s.nextInt();
+			
 			x = s.nextInt();
 			if(x==1) MenuApostas(m);
 
+		 }
 
-
-
-}
+                            }
 }
