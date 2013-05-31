@@ -131,7 +131,7 @@ public static void MenuPrincipal(Manager m) throws FileNotFoundException, IOExce
 	 x  = s.nextInt();
 	if(x==1){  MenuCorrida(m);  }
 	else if(x==2){ MenuConsultas(m);}
-	else if(x==3){MenuApostas(m);}
+	else if(x==3){MenuApostas(m,-1);}
 	else if(x==4){ m.gravaRM("file.tmp"); MenuPrincipal(m);}
 	else if(x==5){ System.exit(0); }
 	
@@ -268,23 +268,25 @@ System.out.println("#####################################################");
 return x;
 }
 //Menu Aposta
-public static void MenuApostas(Manager m) throws FileNotFoundException, IOException{
+public static void MenuApostas(Manager m, int i) throws FileNotFoundException, IOException{
    	int x  = 0;
  int waka = 0;
+ if(i== -1){
 	 waka = jogpos(m.getapostadores()); 
-	 Jogador j = new Jogador();
-	 Iterator<Jogador> auxi =  m.getapostadores().values().iterator();
-	 
-		while(auxi.hasNext() && x < waka )
-		{
-			 auxi.next();
-			x++;
-			
-		}
+	}else waka = i;
+ Jogador j = new Jogador();
+ Iterator<Jogador> auxi =  m.getapostadores().values().iterator();
+ 
+	while(auxi.hasNext() && x < waka )
+	{
+		 auxi.next();
+		x++;
+		
+	}
 
-		if(auxi.hasNext()){  j =auxi.next();}
-		else{ System.out.println("Nao ha mais jogadores"); MenuApostas(m);}
-	
+	if(auxi.hasNext()){  j =auxi.next();}
+	else{ System.out.println("Nao ha mais jogadores"); MenuApostas(m,-1);
+ }
 		
 	 System.out.println("##################  MENU APOSTAS     ##################");
 		System.out.println("#                                                   #");
@@ -341,12 +343,12 @@ public static void MenuApostas(Manager m) throws FileNotFoundException, IOExcept
 				
 				if(x==4){ System.out.println("Saldo Actual: "+j.getDc());  }
 			else if(x==5){ System.out.println("Dinheiro Investido: "+j.getDi()); } 
-			else if(x==6){ MenuApostas(m); }
+			else if(x==6){ MenuApostas(m,waka); }
 			else if(x==7){ MenuPrincipal(m);}
 				x = s.nextInt();
 			
 			x = s.nextInt();
-			if(x==1) MenuApostas(m);
+			if(x==1) MenuApostas(m,waka);
 
 		 }
 
@@ -470,5 +472,5 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
      }
 
 
-            MenuApostas(m);                                      }
+            MenuApostas(m,waka);                                      }
 }
