@@ -28,14 +28,14 @@ public class Main {
 		
 		HashMap<Veiculo, Integer> camp = new HashMap<Veiculo, Integer>();
 		
-		/*
-		Iterator<Corrida> banana = c.getCorridas().iterator();
-		Corrida r = banana.next();
-	for(Veiculo v : r.getConjuntoVeiculos() ){
-		camp.put(v, 0);
-		System.out.println(v.toString());
-	}*/
 		
+		if(x ==1){Iterator<Corrida> banana = m.getCampeonato().getCorridas().iterator();
+		Corrida r = banana.next();
+	  for(Veiculo v : r.getConjuntoVeiculos() ){
+		camp.put(v, 0);
+	
+	    }
+		}
 		
 	
 				
