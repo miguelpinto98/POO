@@ -146,18 +146,23 @@ private static void MenuCorrida(Manager m) throws FileNotFoundException, IOExcep
 	
 	int x = 0;	Corrida cit = new Corrida();
 	Iterator<Corrida> aux = m.getCampeonato().getCorridas().iterator();
-	
+	HashMap<Veiculo, Integer> z = new HashMap<Veiculo, Integer> ();
 	while(aux.hasNext() && x < m.getCorrida() )
 	{
 		 aux.next();
 		 x++;
 	}
     if(aux.hasNext()){  cit = aux.next();
-
+   
   	
-      cit.fazCorrida(m.campstatus);
-      m.setCorida(); }
-    else System.out.println("O Campeonato Acabou!");
+      z = cit.fazCorrida(m.campstatus);
+      m.setCorida(); } else System.out.println("O Campeonato Acabou!");
+      
+      for(Jogador j : m.getapostadores().values()){
+    	  j.CheckApostas(cit.getCircuito().getNomeCircuito(), z);
+    	  
+      }
+   
 	MenuPrincipal( m);
 }
 
