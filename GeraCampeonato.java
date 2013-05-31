@@ -344,5 +344,5 @@ public class GeraCampeonato {
 			
 		System.out.println("asda "+k2.toString()+'\n');
 	}
-
+	
 }

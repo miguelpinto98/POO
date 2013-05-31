@@ -1,37 +1,38 @@
 import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.TreeMap;
 
 public class Campeonato {
 
-	private HashSet<Corrida> corridas;
+	private TreeSet<Corrida> corridas;
 	
 	Campeonato() {
-		this.corridas = new HashSet<Corrida> ();
+		this.corridas = new TreeSet<Corrida> ();
 	}
 
-	Campeonato(HashSet<Corrida> c) {
-	    this.corridas = new HashSet<Corrida>();
+	Campeonato(TreeSet<Corrida> c) {
+	    this.corridas = new TreeSet<Corrida>();
 		for (Corrida a : c)
 			this.corridas.add(a.clone());
 	}
 	
-	Campeonato(Campeonato c) { this.corridas =  new HashSet<Corrida> ();
+	Campeonato(Campeonato c) { this.corridas =  new TreeSet<Corrida> ();
 		for (Corrida a : c.getCorridas())
 			this.corridas.add(a);
 	}
 
 	// get
-	public HashSet<Corrida> getCorridas() {
-		HashSet<Corrida> aux = new HashSet<Corrida>();
+	public TreeSet<Corrida> getCorridas() {
+		TreeSet<Corrida> aux = new TreeSet<Corrida>();
 		for (Corrida a : corridas)
 			aux.add(a.clone());
 		return aux;
 	}
 
 	// set
-	public void setCorridas(HashSet<Corrida> c) {
+	public void setCorridas(TreeSet<Corrida> c) {
 		this.corridas = c;
 	}
 	
@@ -79,7 +80,7 @@ public class Campeonato {
 	public static Campeonato geraCampeonato() {
 		Random r = new Random();
 		int x=r.nextInt(10)+11, i=0;
-		HashSet<Corrida> aux = new HashSet<Corrida>();
+		TreeSet<Corrida> aux = new TreeSet<Corrida>();
 		HashSet<Veiculo> aux2 = new HashSet<Veiculo>();
 		
 		aux2=Veiculo.geraVeiculos();

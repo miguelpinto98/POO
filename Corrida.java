@@ -4,9 +4,10 @@ import java.util.Random;
 import java.util.TreeMap;
 import java.util.Iterator;
 import java.util.Collection;
+import java.util.TreeSet;
 import java.io.*;
 
-public class Corrida {
+public class Corrida implements Comparable<Corrida>{
 
 	private HashSet<Veiculo> conjveiculos;
 	private Circuito crt;
@@ -73,6 +74,10 @@ public class Corrida {
 		return s.toString();
 	}
 
+	public Corrida clone() {
+		return new Corrida(this);
+	}
+	
 	public boolean equals(Object o) {
 		if (o == this)
 			return true;
@@ -82,10 +87,6 @@ public class Corrida {
 		return this.conjveiculos.equals(v.getConjuntoVeiculos())
 				&& this.crt.equals(v.getCircuito())
 				&& this.piso == (v.getPiso());
-	}
-
-	public Corrida clone() {
-		return new Corrida(this);
 	}
 
 	public HashMap<Veiculo, Integer> fazVolta(boolean troca) {
@@ -204,6 +205,15 @@ System.out.println(this.crt.getNomeCircuito());
             case 20: c = new Circuito("Silverstone Circuit", 5901, 18, 106279, 110803, 114503, 119382, 100279, 15192, 23000, p); break;
 		}
 		return c;
+	}
+	
+	public int compareTo(Corrida c1) {
+		if(c1.crt.gettempoPC1() < this.crt.gettempoPC1())
+			return 1;
+		if(c1.crt.gettempoPC1() > this.crt.gettempoPC1())
+			return -1;
+		else
+			return 0;
 	}
 	
 	public static Corrida geraCorrida(HashSet<Veiculo> aux) {
