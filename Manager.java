@@ -54,7 +54,7 @@ public class Manager {
 		HashMap<String, Jogador> aux = new HashMap<String, Jogador>();
 		
 		for (String nome : this.apostadores.keySet()) {
-			aux.put(nome, this.apostadores.get(nome).clone());
+			aux.put(nome, this.apostadores.get(nome));
 		}
 		return aux;
 	}
