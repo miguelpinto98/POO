@@ -167,8 +167,9 @@ System.out.println(this.crt.getNomeCircuito());
 
 		while (aux2it.hasNext()) {
 			v1 = (Veiculo) aux2it.next();
-
-			c.put(v1, c.get(v1) + (30 - x * 2));
+                 if(c.get(v1) < 0)
+                	 c.put(v1,   (30 - x * 2));
+			else c.put(v1, c.get(v1) + (30 - x * 2));
 			x++;
 		}
 		return aux;

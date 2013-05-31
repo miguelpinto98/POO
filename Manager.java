@@ -6,20 +6,22 @@ public class Manager {
 	// variaveis de instancia
 	private Campeonato campeonato;
 	private HashMap<String, Jogador> apostadores;
-	int corrida;
-
+	public int corrida;
+	public HashMap<Veiculo, Integer> campstatus;
 	
 	
 	public Manager() {
 		this.campeonato = new Campeonato();
 		this.apostadores = new HashMap<String, Jogador>();
 		this.corrida = 0;
+		this.campstatus = new HashMap<Veiculo, Integer>();
 	}
 	
 	public Manager(Campeonato c, HashMap<String, Jogador> d) {
 		this.campeonato = c;
 		this.apostadores = d;
 		this.corrida = 0;
+		this.campstatus = new HashMap<Veiculo, Integer>();
 	}
 	
 
@@ -29,10 +31,20 @@ public class Manager {
 		for (String nome : aux.keySet())
 			this.apostadores.put(nome, aux.get(nome));
 		this.corrida = 0;
+		this.campstatus = m.getCampStatus();
 	}
 	
 
 	// get
+	public HashMap<Veiculo, Integer> getCampStatus(){ 
+		
+		HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
+		for(Veiculo v : this.campstatus.keySet()){ aux.put(v, this.campstatus.get(v));
+		
+		}
+		return aux;		
+	
+	}
 	public int getCorrida(){ return this.corrida;}
 	public Campeonato getCampeonato() {
 		return this.campeonato.clone();
@@ -92,7 +104,8 @@ public class Manager {
         
         this.campeonato = (Campeonato) o.readObject();
         this.apostadores = (HashMap<String,Jogador>) o.readObject();
-            
+        this.campstatus = (HashMap<Veiculo,Integer>) o.readObject();  
+        this.corrida = (int) o.readInt();
         o.close();
         f.close();
 	}
@@ -103,7 +116,8 @@ public class Manager {
         
         o.writeObject(this.campeonato);
         o.writeObject(this.apostadores);
-        
+        o.writeObject(this.campstatus);
+        o.writeInt(this.corrida);
         o.close();
         f.close();
 	}

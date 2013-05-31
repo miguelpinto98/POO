@@ -14,23 +14,33 @@ public class Main {
 		Campeonato c =new Campeonato() ;
 		HashMap<String, Jogador> jogadores = new HashMap<String,Jogador>() ;
 
-		Manager m = new Manager();
-		HashMap<Veiculo, Integer> camp = new HashMap<Veiculo, Integer>();
+		Manager m = null;
 		
+		int k = 0;
 		int x = Welcome();
 	
-		if(x==1){  
-			jogadores = PedeJogadores(); c = Campeonato.geraCampeonato(); m = new Manager(c,jogadores); Iterator<Corrida> banana = m.getCampeonato().getCorridas().iterator();
+		if(x==1){ 
+			//criar necessario para o campeoanto
+			jogadores = PedeJogadores(); 
+			c = Campeonato.geraCampeonato(); 
+			m = new Manager(c,jogadores); 
+			
+			//inserir na classificaçao campeonato
+			Iterator<Corrida> banana = m.getCampeonato().getCorridas().iterator();
 			Corrida r = banana.next();
 			  for(Veiculo v : r.getConjuntoVeiculos() ){
-				camp.put(v, 0);
-			
+				m.campstatus.put(v, 0-k);
+			k++;
 			    }
 			  
-			  m = new Manager(c,jogadores); 
+			 
 		}
 		else
-		    if(x==2){ m.carregaRM("file.tmp"); }   // falta carregar camp
+		    if(x==2){
+		    	//inicia manager
+		    	m  = new Manager();
+		    	//carrega manager guardado
+		    	m.carregaRM("file.tmp"); }  
 		else { 
 			System.exit(0);}
 		
@@ -41,7 +51,7 @@ public class Main {
 	
 				
 	
-		MenuPrincipal(m,camp);
+		MenuPrincipal(m);
 	}
 		
 	
@@ -103,7 +113,7 @@ return x;
 }
 //CORRE 
 
-public static void MenuPrincipal(Manager m,HashMap<Veiculo, Integer> camp) throws FileNotFoundException, IOException{
+public static void MenuPrincipal(Manager m) throws FileNotFoundException, IOException{
    	int x  = 0;
 	
 	System.out.println("BEM VINDO");
@@ -119,10 +129,10 @@ public static void MenuPrincipal(Manager m,HashMap<Veiculo, Integer> camp) throw
 	System.out.println("#                                                   #");
 	System.out.println("#####################################################");
 	 x  = s.nextInt();
-	if(x==1){  MenuCorrida(m,camp);  }
-	else if(x==2){ MenuConsultas(m, camp);}
-	else if(x==3){MenuApostas(m,camp);}
-	else if(x==4){ m.gravaRM("file.tmp"); MenuPrincipal(m,camp);}
+	if(x==1){  MenuCorrida(m);  }
+	else if(x==2){ MenuConsultas(m);}
+	else if(x==3){MenuApostas(m);}
+	else if(x==4){ m.gravaRM("file.tmp"); MenuPrincipal(m);}
 	else if(x==5){ System.exit(0); }
 	
 	
@@ -133,7 +143,7 @@ public static void MenuPrincipal(Manager m,HashMap<Veiculo, Integer> camp) throw
 
 
 
-private static void MenuCorrida(Manager m, HashMap<Veiculo, Integer> camp) throws FileNotFoundException, IOException {
+private static void MenuCorrida(Manager m) throws FileNotFoundException, IOException {
 	
 	int x = 0;	Corrida cit = new Corrida();
 	Iterator<Corrida> aux = m.getCampeonato().getCorridas().iterator();
@@ -146,16 +156,16 @@ private static void MenuCorrida(Manager m, HashMap<Veiculo, Integer> camp) throw
     if(aux.hasNext()){  cit = aux.next();
 
   	
-      cit.fazCorrida(camp);
+      cit.fazCorrida(m.campstatus);
       m.setCorida(); }
     else System.out.println("O Campeonato Acabou!");
-	MenuPrincipal( m,camp);
+	MenuPrincipal( m);
 }
 
 
 
 //Menu Consulta 
-public static void MenuConsultas(Manager m, HashMap<Veiculo, Integer> camp) throws FileNotFoundException, IOException{
+public static void MenuConsultas(Manager m) throws FileNotFoundException, IOException{
    	int x  = 0;
 	System.out.println("##################  MENU CONSULTAS ##################");
 	System.out.println("#                                                   #");
@@ -174,14 +184,16 @@ public static void MenuConsultas(Manager m, HashMap<Veiculo, Integer> camp) thro
 		 
 		 HashMap<Integer,String> aux = new HashMap<Integer,String>();
 		 
-		for(Veiculo v : camp.keySet()){
-			aux.put(camp.get(v), v.getMarca()+" "+v.getModelo() );
+		for(Veiculo v : m.campstatus.keySet()){
+			aux.put(m.campstatus.get(v), v.getMarca()+" "+v.getModelo() );
 		}
 		System.out.println("################## CLASSIFICAï¿½ï¿½O   ##################");
 		System.out.println("#                                                   #");
 		for(int y : aux.keySet()){
-			System.out.println( y +" " + aux.get(y));
 			
+			if(y>0)
+			System.out.println( y +" " + aux.get(y));
+			else System.out.println( 0 +" " + aux.get(y));
 		}
 		System.out.println("#         1 - VOLTAR                                #");
 		System.out.println("#####################################################");
@@ -228,14 +240,14 @@ public static void MenuConsultas(Manager m, HashMap<Veiculo, Integer> camp) thro
 		
 		
 	}
-	else if(x==6){ MenuPrincipal(m, camp);}
+	else if(x==6){ MenuPrincipal(m);}
 	
-	if(x==1) MenuConsultas(m,camp);
+	if(x==1) MenuConsultas(m);
 }
 
 
 //Menu Aposta
-public static void MenuApostas(Manager m, HashMap<Veiculo,Integer> camp) throws FileNotFoundException, IOException{
+public static void MenuApostas(Manager m) throws FileNotFoundException, IOException{
    	int x  = 0, waka = 0;
    	Jogador j = null;
 	System.out.println("################  ESCOLHA JOGADOR  ##################");
@@ -257,7 +269,7 @@ public static void MenuApostas(Manager m, HashMap<Veiculo,Integer> camp) throws 
 			 waka++;
 			
 		}
-	    if(auxi.hasNext()){  j =auxi.next();} else{ System.out.println("Nao ha mais jogadores"); MenuApostas(m,camp);}
+	    if(auxi.hasNext()){  j =auxi.next();} else{ System.out.println("Nao ha mais jogadores"); MenuApostas(m);}
 
 	 
 	 //iterador ate x, edepois 
@@ -313,10 +325,10 @@ public static void MenuApostas(Manager m, HashMap<Veiculo,Integer> camp) throws 
 			}
 			else if(x==4){ System.out.println("Saldo Actual: "+j.getDc());  }
 			else if(x==5){ System.out.println("Dinheiro Investido: "+j.getDi()); } 
-			else if(x==6){ MenuApostas(m,camp); }
-			else if(x==7){ MenuPrincipal(m,camp);}
+			else if(x==6){ MenuApostas(m); }
+			else if(x==7){ MenuPrincipal(m);}
 			x = s.nextInt();
-			if(x==1) MenuApostas(m,camp);
+			if(x==1) MenuApostas(m);
 
 
 
