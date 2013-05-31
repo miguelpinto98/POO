@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 public class Main {
 
@@ -6,35 +8,38 @@ public class Main {
 	
 	
 	
-	public static void main(String[] args) {
+	private static Scanner s = new Scanner(System.in);
+
+	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
 		Campeonato c =new Campeonato() ;
-		
 		HashMap<String, Jogador> jogadores = new HashMap<String,Jogador>() ;
+
+		Manager m = new Manager(c,jogadores);
+		
 		
 		int x = Welcome();
 	
 		if(x==1){  
-			jogadores = PedeJogadores(); c = Campeonato.geraCampeonato();}
+			jogadores = PedeJogadores(); c = Campeonato.geraCampeonato(); m = new Manager(c,jogadores);}
 		else
-		    if(x==2){ c = CarregaCampeonato(jogadores);}
+		    if(x==2){ m.carregaRM("file.tmp");}
 		else { 
 			System.exit(0);}
 		
 		HashMap<Veiculo, Integer> camp = new HashMap<Veiculo, Integer>();
 		
-		
+		/*
 		Iterator<Corrida> banana = c.getCorridas().iterator();
 		Corrida r = banana.next();
 	for(Veiculo v : r.getConjuntoVeiculos() ){
 		camp.put(v, 0);
 		System.out.println(v.toString());
-	}
+	}*/
 		
 		
 	
 				
 	
-		Manager m = new Manager(c,jogadores);
 		MenuPrincipal(m,0,camp);
 	}
 		
@@ -49,7 +54,7 @@ public static HashMap<String, Jogador> PedeJogadores(){
 	 Jogador p;
 	
 	 System.out.println("Quantos Jogadores?"); 
-	 Scanner s = new Scanner(System.in);
+	 s = new Scanner(System.in);
 	   	int x  = s.nextInt(); 
 	   	
 	   	System.out.println("################# INSERIR JOGADOR ################");
@@ -90,7 +95,6 @@ public static int Welcome(){
 	System.out.println("#########################################################");
 	
 
-   	Scanner s = new Scanner(System.in);
    	int x  = s.nextInt();
  
 return x;
@@ -98,8 +102,7 @@ return x;
 }
 //CORRE 
 
-public static void MenuPrincipal(Manager m,int griffin, HashMap<Veiculo, Integer> camp){
-	Scanner s = new Scanner(System.in);
+public static void MenuPrincipal(Manager m,int griffin, HashMap<Veiculo, Integer> camp) throws FileNotFoundException, IOException{
    	int x  = 0;
 	
 	System.out.println("BEM VINDO");
@@ -118,7 +121,7 @@ public static void MenuPrincipal(Manager m,int griffin, HashMap<Veiculo, Integer
 	if(x==1){  MenuCorrida(m,griffin,camp);  }
 	else if(x==2){ MenuConsultas(m,griffin, camp);}
 	else if(x==3){MenuApostas(m,griffin,camp);}
-	else if(x==4){ }
+	else if(x==4){ m.gravaRM("file.tmp"); MenuPrincipal(m, griffin, camp);}
 	else if(x==5){ System.exit(0); }
 	
 	
@@ -129,7 +132,7 @@ public static void MenuPrincipal(Manager m,int griffin, HashMap<Veiculo, Integer
 
 
 
-private static void MenuCorrida(Manager m,int griffin, HashMap<Veiculo, Integer> camp) {
+private static void MenuCorrida(Manager m,int griffin, HashMap<Veiculo, Integer> camp) throws FileNotFoundException, IOException {
 	
 	int x = 0;	Corrida cit = new Corrida();
 	Iterator<Corrida> aux = m.getCampeonato().getCorridas().iterator();
@@ -150,8 +153,7 @@ private static void MenuCorrida(Manager m,int griffin, HashMap<Veiculo, Integer>
 
 
 //Menu Consulta 
-public static void MenuConsultas(Manager m, int griffin, HashMap<Veiculo, Integer> camp){
-	Scanner s = new Scanner(System.in);
+public static void MenuConsultas(Manager m, int griffin, HashMap<Veiculo, Integer> camp) throws FileNotFoundException, IOException{
    	int x  = 0;
 	System.out.println("##################  MENU CONSULTAS ##################");
 	System.out.println("#                                                   #");
@@ -231,8 +233,7 @@ public static void MenuConsultas(Manager m, int griffin, HashMap<Veiculo, Intege
 
 
 //Menu Aposta
-public static void MenuApostas(Manager m, int griffin, HashMap<Veiculo,Integer> camp){
-	Scanner s = new Scanner(System.in);
+public static void MenuApostas(Manager m, int griffin, HashMap<Veiculo,Integer> camp) throws FileNotFoundException, IOException{
    	int x  = 0;
    	Jogador j = null;
 	System.out.println("################  ESCOLHA JOGADOR  ##################");
@@ -266,15 +267,5 @@ public static void MenuApostas(Manager m, int griffin, HashMap<Veiculo,Integer> 
 			else if(x==5){ }
 			else if(x==6){ MenuApostas(m,griffin,camp); }
 			else if(x==7){ MenuPrincipal(m,griffin,camp);}
-}
-//CARREGA 
-
-public static Campeonato CarregaCampeonato(HashMap<String, Jogador>jogadores){
-	
-	
-	Campeonato c = null;
-	
-	
-return c;	
-}
+	}
 }
