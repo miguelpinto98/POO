@@ -25,7 +25,7 @@ public class Main {
 			c = Campeonato.geraCampeonato(); 
 			m = new Manager(c,jogadores); 
 			
-			//inserir na classificaçao campeonato
+			//inserir na classificaï¿½ao campeonato
 			Iterator<Corrida> banana = m.getCampeonato().getCorridas().iterator();
 			Corrida r = banana.next();
 			  for(Veiculo v : r.getConjuntoVeiculos() ){
@@ -49,8 +49,7 @@ public class Main {
 		
 		
 	
-				
-	
+		
 		MenuPrincipal(m);
 	}
 		
@@ -344,14 +343,14 @@ public static void MenuApostas(Manager m, int i) throws FileNotFoundException, I
 				if(x==4){ System.out.println("Saldo Actual: "+j.getDc());  }
 			else if(x==5){ System.out.println("Dinheiro Investido: "+j.getDi()); } 
 			else if(x==6){ MenuApostas(m,waka); }
-			else if(x==7){ MenuPrincipal(m);}
+			
 				x = s.nextInt();
 			
 			x = s.nextInt();
 			if(x==1) MenuApostas(m,waka);
 
 		 }
-
+ if(x==7){ MenuPrincipal(m);}
                             }
 
 
@@ -363,7 +362,7 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 	Veiculo p1 = null;Veiculo p2 = null; Veiculo  p3 = null;
 	 Corrida corr = new Corrida();
 	Jogador j = null;
-	//funçao 
+	//funï¿½ao 
 	 int x = 0, y = 0;
 	 
 	
@@ -388,7 +387,7 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
      
 		//PRIMEIRO CLASSIFICADO
 		x= 0;
-		System.out.println("################## ESCOLHA 1º classificado   ##################");
+		System.out.println("################## ESCOLHA 1ï¿½ classificado   ##################");
 		System.out.println("#                                                   #");
 		for(Veiculo v : corr.getConjuntoVeiculos()){
 			System.out.println(x +" "+v.getMarca()+" "+v.getModelo());
@@ -410,7 +409,7 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 		//SEGUNDO CLASSIFICADO
 		x = 0;
 		y= 0;
-		System.out.println("################## ESCOLHA 2º classificado   ##################");
+		System.out.println("################## ESCOLHA 2ï¿½ classificado   ##################");
 		System.out.println("#                                                   #");
 		for(Veiculo v : corr.getConjuntoVeiculos()){
 			System.out.println(x +" "+v.getMarca()+" "+v.getModelo());
@@ -431,7 +430,7 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 		//TERCEIRO CLASSIFICADO
 		x = 0;
 		y = 0;
-		System.out.println("################## ESCOLHA 3º classificado   ##################");
+		System.out.println("################## ESCOLHA 3ï¿½ classificado   ##################");
 		System.out.println("#                                                   #");
 		for(Veiculo v : corr.getConjuntoVeiculos()){
 			System.out.println(x +" "+v.getMarca()+" "+v.getModelo());
@@ -451,7 +450,7 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 	   }
 		
 		y=0;
-		//Perguntar quantia do jogador na posiçao waka
+		//Perguntar quantia do jogador na posiï¿½ao waka
 	     Iterator<Jogador> jogit = m.getapostadores().values().iterator();
 		 	while(jogit.hasNext() && y < waka )
 		 	{
