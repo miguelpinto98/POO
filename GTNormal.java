@@ -1,7 +1,8 @@
 import java.util.Random;
 
-
 public class GTNormal extends GT {
+	
+	public static int nvoltas = 0;
 
 	public GTNormal() {
 		super();
@@ -11,7 +12,7 @@ public class GTNormal extends GT {
 		super(marca, modelo, cilindrada, cv, p1, p2, hib);
 	}
 
-	public GTNormal(GT g) {
+	public GTNormal(GTNormal g) {
 		super(g);
 	}
 
@@ -26,14 +27,26 @@ public class GTNormal extends GT {
 		str.append("Modelo: " + this.getModelo() + "\n");
 		str.append("Cilindrada: " + this.getCilindrada() + "\n");
 		str.append("Cavalos: " + this.getCV() + "\n");
-		str.append("Piloto1: " + this.getPiloto1().toString() + "\n");
-		str.append("Pilto2: " + this.getPiloto2().toString() + "\n");
+		str.append("Piloto 1: " + this.getPiloto1().toString() + "\n");
+		str.append("Piloto 2: " + this.getPiloto2().toString() + "\n");
 
 		return str.toString();
 	}
 	
 	public boolean equals(Object o) {
-		return super.equals(o);
+		if (this == o)
+			return true;
+		if ((o == null) || (o.getClass() != this.getClass()))
+			return false;
+		else {
+			GTNormal g = (GTNormal) o;
+			return (this.getMarca().equals(g.getMarca())
+					&& this.getModelo().equals(g.getModelo())
+					&& this.getCilindrada() == (g.getCilindrada())
+					&& this.getCV() == (g.getCV()) 
+					&& this.getPiloto1().equals(g.getPiloto1()) 
+					&& this.getPiloto2().equals(g.getPiloto2()));
+			}
 	}
 	
 	public int hashCode() {
@@ -41,20 +54,22 @@ public class GTNormal extends GT {
 	}
 
 	public int calculaFiabilidade() {
-		// TODO Auto-generated method stub
-		/*	Random r = new Random();
-		for(int i=this.getNvoltas(); i>0; i--){
-		  return (this.getCilindrada()* (i*r.nextInt(1)))/3000;
-		  }
-		 */
-		return 0;
+		return (1/3)*nvoltas + 85;
 	}
 
 	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception {
 		Random r = new Random();
 		int res=0;
-		if (this.getVoltas() > 0 )this.setVoltas(this.getVoltas()-1) ; else if (this.getVoltas() ==0){  this.setPilotoActivo();	this.setVoltas(-1); res+=c.getTboxes();}
-		if(r.nextInt(calculaFiabilidade()) == 0)
+		if (this.getVoltas()>0)
+			this.setVoltas(this.getVoltas()-1);
+		else
+			if(this.getVoltas()==0) {
+				this.setPilotoActivo();
+				this.setVoltas(-1);
+				res+=c.getTboxes();
+			}
+		
+		if(r.nextInt(100) >= calculaFiabilidade())
 			throw new Exception("DNF");
 		else {
 			if(this.getCilindrada()>3750) {

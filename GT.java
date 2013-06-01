@@ -18,14 +18,9 @@ public abstract class GT extends Veiculo{
 	
 	public abstract int tempoProximaVolta(Circuito c, boolean chuva) throws Exception ;
 	
-	/** Clone*/
 	public abstract Veiculo clone() ;
 	
-	/** Equals*/
-	public boolean equals(Object o) {
-		return (super.equals(o));
-	}
+	public abstract boolean equals(Object o) ;
 	
-	/** ToString*/
 	public abstract String toString() ;
 }
