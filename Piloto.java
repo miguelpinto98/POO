@@ -102,13 +102,13 @@ public class Piloto implements Serializable{
 
 	// toString
 	public String toString() {
-		StringBuilder s = new StringBuilder("Piloto ");
+		StringBuilder s = new StringBuilder();
 
-		s.append("Nome: " + this.nome + "\n");
-		s.append("Nacionalidade: " + this.nacionalidade + "\n");
-		s.append("Palmares: " + this.palmares + "\n");
-		s.append("Qualidade: " + this.qualidade + "\n");
-		s.append("Chove: " + this.chuva + "\n");
+		s.append("\nNome: " + this.nome);
+		s.append(" Nacionalidade: " + this.nacionalidade);
+		s.append(" Palmares: " + this.palmares);
+		s.append(" Qualidade: " + this.qualidade);
+		s.append(" Bom condutor à chuva: " + this.chuva);
 
 		return s.toString();
 	}
@@ -233,6 +233,6 @@ public class Piloto implements Serializable{
 	public static Piloto geraPiloto() {
 		Random r = new Random();
         
-		return new Piloto(daNome(), daNacionalidade(), r.nextInt(50), r.nextInt(9) + 1, r.nextBoolean());
+		return new Piloto(daNome(), daNacionalidade(), r.nextInt(25) +1, r.nextInt(9) +1, r.nextBoolean());
 	}
 }
