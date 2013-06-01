@@ -165,20 +165,7 @@ public abstract class Veiculo implements Serializable {
 	/*
 	 * equals
 	 */
-	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if ((o == null) || (o.getClass() != this.getClass()))
-			return false;
-		else {
-			Veiculo v = (Veiculo) o;
-			return (this.marca.equals(v.getMarca())
-					&& this.modelo.equals(v.getModelo())
-					&& this.cilindrada == (v.getCilindrada())
-					&& this.cv == (v.getCV()) && this.p1.equals(v.getPiloto1()) && this.p2
-						.equals(v.getPiloto2()));
-		}
-	}
+	public abstract boolean equals(Object o) ;
 
 	/*
 	 * toString
@@ -313,11 +300,11 @@ public abstract class Veiculo implements Serializable {
 		int x = r.nextInt(3);
 		
 		if(x==0)
-			v= new PC1Hibrido(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt(),0);
+			v= new PC1Hibrido(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt(), r.nextInt(175) + 25);
 		if(x==1)
-			v= new PC2Hibrido(daMarca(), daModelo(), (r.nextInt(2000) + 4000), r.nextInt(400) + 550, p1, p2, r.nextInt());
+			v= new PC2Hibrido(daMarca(), daModelo(), (r.nextInt(2000) + 4000), r.nextInt(400) + 550, p1, p2, r.nextInt(), r.nextInt(175) + 25);
 		if(x==2)
-			v= new GTHibrido(daMarca(), daModelo(), (r.nextInt(1500) + 3000), r.nextInt(200) + 400, p1, p2, r.nextInt());
+			v= new GTHibrido(daMarca(), daModelo(), (r.nextInt(1500) + 3000), r.nextInt(200) + 400, p1, p2, r.nextInt(), r.nextInt(175) + 25);
 		return v;
 	}
     
