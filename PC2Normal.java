@@ -10,7 +10,7 @@ public class PC2Normal extends PC2 {
 		super(marca, modelo, cilindrada, cv, p1, p2, h);
 	}
 
-	public PC2Normal(PC2 pc) {
+	public PC2Normal(PC2Normal pc) {
 		super(pc);
 	}
 
@@ -19,7 +19,19 @@ public class PC2Normal extends PC2 {
 	}
 	
 	public boolean equals(Object o) {
-		return super.equals(o);
+		if (this == o)
+			return true;
+		if ((o == null) || (o.getClass() != this.getClass()))
+			return false;
+		else {
+			PC2Normal pn2 = (PC2Normal) o;
+			return (this.getMarca().equals(pn2.getMarca())
+					&& this.getModelo().equals(pn2.getModelo())
+					&& this.getCilindrada() == (pn2.getCilindrada())
+					&& this.getCV() == (pn2.getCV()) 
+					&& this.getPiloto1().equals(pn2.getPiloto1()) 
+					&& this.getPiloto2().equals(pn2.getPiloto2()));
+			}
 	}
 	
 	public String toString() {
@@ -29,8 +41,8 @@ public class PC2Normal extends PC2 {
 		str.append("Modelo: " + this.getModelo() + "\n");
 		str.append("Cilindrada: " + this.getCilindrada() + "\n");
 		str.append("Cavalos: " + this.getCV() + "\n");
-		str.append("Piloto1: " + this.getPiloto1().toString() + "\n");
-		str.append("Piloto2: " + this.getPiloto2().toString() + "\n");
+		str.append("Piloto 1: " + this.getPiloto1().toString() + "\n");
+		str.append("Piloto 2: " + this.getPiloto2().toString() + "\n");
 
 		return str.toString();
 	}
@@ -40,14 +52,23 @@ public class PC2Normal extends PC2 {
 	}
 	
 	public int calculaFiabilidade() {
-		return (int)(PC2.fiabilidade*this.getCilindrada())/6000;
+		return (int)(0.01*this.getCilindrada() + 40);
 	}
 
 	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception {
 		Random r = new Random();
 		int res=0;
-		if (this.getVoltas() > 0 )this.setVoltas(this.getVoltas()-1) ; else if (this.getVoltas() ==0){  this.setPilotoActivo();	this.setVoltas(-1); res+=c.getTboxes();}
-		if(r.nextInt(PC2.fiabilidade) == 0)
+		
+		if(this.getVoltas()>0)
+			this.setVoltas(this.getVoltas()-1);
+		else
+			if(this.getVoltas()==0) {
+				this.setPilotoActivo();
+				this.setVoltas(-1);
+				res+=c.getTboxes();
+			}
+		
+		if(r.nextInt(100) >= calculaFiabilidade())
 			throw new Exception("DNF");
 		else {
 			if(this.getCilindrada()>5000) {
