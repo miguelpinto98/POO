@@ -138,8 +138,12 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 			   
 					
 				}
+				
 			}
-
+			try{Thread.sleep(1000);
+			
+			
+			}catch(Exception e){}
 		}
 
 	}
@@ -172,6 +176,13 @@ System.out.println(this.crt.getNomeCircuito());
 			else c.put(v1, c.get(v1) + (30 - x * 2));
 			x++;
 		}
+		/* falta classificação da corrida
+		
+		try{Thread.sleep(5000);
+		
+		
+		}catch(Exception e){}*/
+		
 		return aux;
 	}
 	

@@ -77,7 +77,7 @@ public static HashMap<String, Jogador> PedeJogadores(){
 	   		nome = s.nextLine();
 	   		System.out.println(" *Insira Morada");
 	   		morada = s.nextLine();
-	   		System.out.println(" * Insira Dinheiro Inicial nor dormato XX,XX \n");
+	   		System.out.println(" * Insira Dinheiro Inicial nor formato XX,XX \n");
 	   		dc = s.nextDouble();
 	   		
 	   		
