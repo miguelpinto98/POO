@@ -6,8 +6,8 @@ public class PC2Normal extends PC2 {
 		super();
 	}
 
-	public PC2Normal(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int h) {
-		super(marca, modelo, cilindrada, cv, p1, p2, h);
+	public PC2Normal(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2) {
+		super(marca, modelo, cilindrada, cv, p1, p2);
 	}
 
 	public PC2Normal(PC2Normal pc) {

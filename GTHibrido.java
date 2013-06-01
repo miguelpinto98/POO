@@ -9,8 +9,8 @@ public class GTHibrido extends GT implements Hibrida {
 		this.potencia=0;
 	}
 
-	public GTHibrido(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int hib, int pot) {
-		super(marca, modelo, cilindrada, cv, p1, p2, hib);
+	public GTHibrido(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int pot) {
+		super(marca, modelo, cilindrada, cv, p1, p2);
 		this.potencia = pot;
 	}
 

@@ -5,8 +5,8 @@ public abstract class PC2 extends Veiculo {
 		super();
 	}
 
-	public PC2(String marca, String modelo, int cilindrada, int cv, Piloto p1,Piloto p2, int h) {
-		super(marca, modelo, cilindrada, cv, p1, p2, h);
+	public PC2(String marca, String modelo, int cilindrada, int cv, Piloto p1,Piloto p2) {
+		super(marca, modelo, cilindrada, cv, p1, p2);
 	}
 
 	public PC2(PC2 pc) {

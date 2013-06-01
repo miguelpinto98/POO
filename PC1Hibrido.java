@@ -10,8 +10,8 @@ public class PC1Hibrido extends PC1 implements Hibrida {
 		this.potencia = 0;
 	}
 
-	public PC1Hibrido(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int h, int p) {
-		super(marca, modelo, cilindrada, cv, p1, p2, h);
+	public PC1Hibrido(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int p) {
+		super(marca, modelo, cilindrada, cv, p1, p2);
 		this.potencia=p;
 	}
 
@@ -39,7 +39,7 @@ public class PC1Hibrido extends PC1 implements Hibrida {
 		str.append("Modelo: " + this.getModelo() + "\n");
 		str.append("Cilindrada: " + this.getCilindrada() + "\n");
 		str.append("Cavalos: " + this.getCV() + "\n");
-		str.append("Potencia: " + this.getPotenciaMotorElectrico() + "\n");
+		str.append("Potencia Motor Electrico: " + this.getPotenciaMotorElectrico() + "\n");
 		str.append("Piloto 1: " + this.getPiloto1().toString() + "\n");
 		str.append("Piloto 2: " + this.getPiloto2().toString() + "\n");
 

@@ -10,8 +10,8 @@ public class PC2Hibrido extends PC2 implements Hibrida {
 		this.potencia = 0;
 	}
 
-	public PC2Hibrido(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int h, int pot) {
-		super(marca, modelo, cilindrada, cv, p1, p2, h);
+	public PC2Hibrido(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int pot) {
+		super(marca, modelo, cilindrada, cv, p1, p2);
 		this.potencia = pot;
 	}
 

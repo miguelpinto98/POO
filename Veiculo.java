@@ -10,8 +10,8 @@ public abstract class Veiculo implements Serializable {
 	private int cv;
 	private Piloto p1;
 	private Piloto p2;
-	private int hibrido;
 	private boolean pactivo;
+	
 	private int voltas;
 
 	/*
@@ -24,23 +24,17 @@ public abstract class Veiculo implements Serializable {
 		this.cv = 0;
 		this.p1 = new Piloto();
 		this.p2 = new Piloto();
-		this.hibrido = 0;
-		this.pactivo = true;
-		this.voltas =0;
-		
+		this.pactivo = true;	
 	}
 
-	public Veiculo(String marca, String modelo, int cilindrada, int cv,
-			Piloto p1, Piloto p2, int h) {
+	public Veiculo(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2) {
 		this.marca = marca;
 		this.modelo = modelo;
 		this.cilindrada = cilindrada;
 		this.cv = cv;
 		this.p1 = p1;
 		this.p2 = p2;
-		this.hibrido = h;
 		this.pactivo = true;
-		this.voltas =0;
 	}
 	public Veiculo(Veiculo v) {
 		this.marca = v.getMarca();
@@ -49,18 +43,8 @@ public abstract class Veiculo implements Serializable {
 		this.cv = v.getCV();
 		this.p1 = v.getPiloto1();
 		this.p2 = v.getPiloto2();
-		this.hibrido = v.getHibrido();
 		this.pactivo = v.getPactivo();
-		this.voltas =0;
 	}
-
-	
-	
-	public void  voltaracio(int n){
-		
-	this.voltas = p1.getQualidade()*n/(p1.getQualidade()+p2.getQualidade());
-	}
-	
 	
 	/*
 	 * Métodos de Instância
@@ -101,15 +85,8 @@ public abstract class Veiculo implements Serializable {
 	public Piloto getPiloto2() {
 		return this.p2;
 	}
-
-	public int getHibrido() {
-		return this.hibrido;
-	}
-	public int getVoltas(){
-		return this.voltas;
-	}
 	
-	//set
+	//SETTERS
 
 	public void setMarca(String marca) {
 		this.marca = marca;
@@ -134,12 +111,6 @@ public abstract class Veiculo implements Serializable {
 	public void setPiloto(Piloto p) {
 		this.p2 = p;
 	}
-
-	public void setHibrido(int h) {
-		this.hibrido = h;
-	}
-
-	public void setVoltas(int n){this.voltas = n;}
 	
 	public void setPilotoActivo() {
 		if (pactivo == true)
@@ -148,6 +119,25 @@ public abstract class Veiculo implements Serializable {
 			pactivo = true;
 	}
 
+	public abstract Veiculo clone();
+
+	public abstract boolean equals(Object o) ;
+
+	public abstract String toString();
+
+	public abstract int tempoProximaVolta(Circuito c, boolean chuva) throws Exception;
+	
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		
+		result = prime * result + this.cilindrada;
+		result = prime * result + this.cv;
+		result = prime * result + ((this.marca == null) ? 0 : this.marca.hashCode());
+		result = prime * result + ((this.modelo == null) ? 0 : this.modelo.hashCode());
+		return result;
+	}
+	
 	public boolean ConducaoChuva() {
 		boolean x = false;
 		if (pactivo == true)
@@ -156,35 +146,17 @@ public abstract class Veiculo implements Serializable {
 			x = p2.getChuva();
 		return x;
 	}
-
-	/*
-	 * clone
-	 */
-	public abstract Veiculo clone();
-
-	/*
-	 * equals
-	 */
-	public abstract boolean equals(Object o) ;
-
-	/*
-	 * toString
-	 */
-	public abstract String toString();
-
-	public abstract int tempoProximaVolta(Circuito c, boolean chuva) throws Exception;
 	
+	public int getVoltas() {
+		return this.voltas;
+	}
 	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + this.cilindrada;
-		result = prime * result + this.cv;
-		result = prime * result + this.hibrido;
-		result = prime * result + ((this.marca == null) ? 0 : this.marca.hashCode());
-		result = prime * result + ((this.modelo == null) ? 0 : this.modelo.hashCode());
-		return result;
+	public void setVoltas(int n) {
+		this.voltas = n;
+	}
+	
+	public void voltaracio(int n) {
+		this.voltas = p1.getQualidade()*n/(p1.getQualidade()+p2.getQualidade());
 	}
 	
 	public static String daMarca() {
@@ -300,11 +272,11 @@ public abstract class Veiculo implements Serializable {
 		int x = r.nextInt(3);
 		
 		if(x==0)
-			v= new PC1Hibrido(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt(), r.nextInt(175) + 25);
+			v= new PC1Hibrido(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt(175) + 25);
 		if(x==1)
-			v= new PC2Hibrido(daMarca(), daModelo(), (r.nextInt(2000) + 4000), r.nextInt(400) + 550, p1, p2, r.nextInt(), r.nextInt(175) + 25);
+			v= new PC2Hibrido(daMarca(), daModelo(), (r.nextInt(2000) + 4000), r.nextInt(400) + 550, p1, p2, r.nextInt(175) + 25);
 		if(x==2)
-			v= new GTHibrido(daMarca(), daModelo(), (r.nextInt(1500) + 3000), r.nextInt(200) + 400, p1, p2, r.nextInt(), r.nextInt(175) + 25);
+			v= new GTHibrido(daMarca(), daModelo(), (r.nextInt(1500) + 3000), r.nextInt(200) + 400, p1, p2, r.nextInt(175) + 25);
 		return v;
 	}
     
@@ -318,13 +290,13 @@ public abstract class Veiculo implements Serializable {
 		if(x==0)
 			v= geraHibrido(p1,p2);
 		if(x==1)
-			v= new PC1Normal(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt());
+			v= new PC1Normal(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2);
 		if(x==2)
-			v= new PC2Normal(daMarca(), daModelo(), (r.nextInt(2000) + 4000), r.nextInt(400) + 550, p1, p2, r.nextInt());
+			v= new PC2Normal(daMarca(), daModelo(), (r.nextInt(2000) + 4000), r.nextInt(400) + 550, p1, p2);
 		if(x==3)
-			v= new GTNormal(daMarca(), daModelo(), (r.nextInt(1500) + 3000), r.nextInt(200) + 400, p1, p2, r.nextInt());
+			v= new GTNormal(daMarca(), daModelo(), (r.nextInt(1500) + 3000), r.nextInt(200) + 400, p1, p2);
 		if(x==4)
-			v= new SC(daMarca(), daModelo(), 2500, r.nextInt(100) + 100, p1, p2, r.nextInt());
+			v= new SC(daMarca(), daModelo(), 2500, r.nextInt(100) + 100, p1, p2);
 		
 		return v;
 	}

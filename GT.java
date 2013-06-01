@@ -5,8 +5,8 @@ public abstract class GT extends Veiculo{
 		super();
 	}
 	
-	public GT(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int hib) {
-		super(marca,modelo,cilindrada,cv,p1,p2, hib);
+	public GT(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2) {
+		super(marca,modelo,cilindrada,cv,p1,p2);
 	}
 	
 	public GT(GT g) {

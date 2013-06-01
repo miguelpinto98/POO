@@ -7,8 +7,8 @@ public abstract class PC1 extends Veiculo {
 		super();
 	}
 
-	public PC1(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2, int h) {
-		super(marca, modelo, cld, cv, p1, p2, h);
+	public PC1(String marca, String modelo, int cilindrada, int cv, Piloto p1, Piloto p2) {
+		super(marca, modelo, cld, cv, p1, p2);
 	}
 
 	public PC1(PC1 pc) {
