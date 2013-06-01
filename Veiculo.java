@@ -313,9 +313,9 @@ public abstract class Veiculo implements Serializable {
 		Piloto p2 = Piloto.geraPiloto();
 		Veiculo v = null;
 		Random r = new Random();
-		int x = r.nextInt(3)+1;
+		int x = r.nextInt(5);
 		
-		if(x==10)
+		if(x==0)
 			v= geraHibrido(p1,p2);
 		if(x==1)
 			v= new PC1Normal(daMarca(), daModelo(), 6000, r.nextInt(600) + 700, p1, p2, r.nextInt());
