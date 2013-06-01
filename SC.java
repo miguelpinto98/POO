@@ -16,8 +16,8 @@ public class SC extends Veiculo {
 		this.setCilindrada(cld);
 	}
 	
-	public double calculaFiabilidade() {                     
-		return (.75*this.getPilotoActivo() + .25*this.getCilindrada());
+	public int calculaFiabilidade() {                     
+		return (int) (1.5*this.getPilotoActivo()+60);
 	}
 	
 	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception   {
@@ -32,10 +32,8 @@ public class SC extends Veiculo {
 				this.setVoltas(-1);
 				res+=c.getTboxes();
 			}
-		
-		int fiabilidade=1000;
-		
-		if(r.nextInt(fiabilidade) == 0)
+				
+		if(r.nextInt(100) == calculaFiabilidade())
 			throw new Exception("DNF");
 		else {
 			if(this.getPilotoActivo()>7 && this.getCV()<250)
