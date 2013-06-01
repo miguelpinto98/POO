@@ -17,14 +17,24 @@ public class SC extends Veiculo {
 	}
 	
 	public double calculaFiabilidade() {                     
-		return (.75*this.getPilotoActivo() + .25*this.getCilindrada()); //Preciso rever e melhorar isto
+		return (.75*this.getPilotoActivo() + .25*this.getCilindrada());
 	}
 	
 	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception   {
 		Random r = new Random();
 		int res=0;
-		if (this.getVoltas() > 0 )this.setVoltas(this.getVoltas()-1) ; else if (this.getVoltas() ==0){  this.setPilotoActivo();	this.setVoltas(-1); res+=c.getTboxes();}
+		
+		if (this.getVoltas()>0)
+			this.setVoltas(this.getVoltas()-1);
+		else 
+			if (this.getVoltas() ==0) {
+				this.setPilotoActivo();
+				this.setVoltas(-1);
+				res+=c.getTboxes();
+			}
+		
 		int fiabilidade=1000;
+		
 		if(r.nextInt(fiabilidade) == 0)
 			throw new Exception("DNF");
 		else {
@@ -50,7 +60,19 @@ public class SC extends Veiculo {
 	
 	/** Equals*/
 	public boolean equals(Object o) {
-		return (super.equals(o));
+		if (this == o)
+			return true;
+		if ((o == null) || (o.getClass() != this.getClass()))
+			return false;
+		else {
+			SC sc = (SC) o;
+			return (this.getMarca().equals(sc.getMarca())
+					&& this.getModelo().equals(sc.getModelo())
+					&& this.getCilindrada() == (sc.getCilindrada())
+					&& this.getCV() == (sc.getCV()) 
+					&& this.getPiloto1().equals(sc.getPiloto1()) 
+					&& this.getPiloto2().equals(sc.getPiloto2()));
+			}
 	}
 	
 	/** ToString*/
@@ -61,8 +83,8 @@ public class SC extends Veiculo {
 		str.append("Modelo: " + this.getModelo() + "\n");
 		str.append("Cilindrada: " + this.getCilindrada() + "\n");
 		str.append("Cavalos: " + this.getCV() + "\n");
-		str.append("Piloto1: " + this.getPiloto1().toString() + "\n");
-		str.append("Pilto2: " + this.getPiloto2().toString() + "\n");
+		str.append("Piloto 1: " + this.getPiloto1().toString() + "\n");
+		str.append("Piloto 2: " + this.getPiloto2().toString() + "\n");
 
 		return str.toString();
 	}

@@ -1,7 +1,7 @@
 public abstract class PC1 extends Veiculo {
 
 	private static final int cld = 6000;
-	protected static final int fiabilidade = 85;
+	protected static final int fiabilidade = 95;
 
 	public PC1() {
 		super();
@@ -23,21 +23,14 @@ public abstract class PC1 extends Veiculo {
 	public abstract int calculaFiabilidade();
 
 	public abstract int tempoProximaVolta(Circuito c, boolean chuva) throws Exception ;
-	//LIXO DE TESTES - para possivel utilização
-	//res = (int) (c.gettempoPC1() + r.nextInt((c.gettempoPC1()-c.getTrecord())) - ((int)(this.getPilotoActivo()*1000 + ((this.getCilindrada()+this.getCV()*this.getPilotoActivo())/(this.getCilindrada()-this.getCV())))));
-	//res = (int)(c.gettempoPC1() + r.nextInt((c.gettempoPC1()-c.getTrecord())) - ((this.getPilotoActivo()*1000 + this.getCV())));
-
+	
 	public abstract PC1 clone() ;
 	
 	public abstract String toString() ;
 
-	/** Equals */ //ESTE METODO NÂO DEVE SER ASSIM
-	public boolean equals(Object o) {
-		return super.equals(o);
-	}
+	public abstract boolean equals(Object o) ;
 	
 	public int hashCode() {
 		return super.hashCode();
 	}
-
 }
