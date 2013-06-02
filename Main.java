@@ -3,12 +3,8 @@ import java.io.IOException;
 import java.util.*;
 public class Main {
 
-	
-
-	
-	
-	
 	private static Scanner s = new Scanner(System.in);
+	private static String str = null;
 
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
 		Campeonato c =new Campeonato() ;
@@ -35,21 +31,26 @@ public class Main {
 			  
 			 
 		}
-		else
-		    if(x==2){
-		    	//inicia manager
-		    	m  = new Manager();
-		    	//carrega manager guardado
-		    	m.carregaRM("file.tmp"); }  
-		else { 
-			System.exit(0);}
-		
-		
-		
-		
-		
-	
-		
+		if(x==2) {
+		    m  = new Manager();
+		    boolean flag = true;
+		    
+		    do {
+			   	try {
+			   		str=MenuCarregaJogo();
+			   		m.carregaRM(str);
+			   		flag=false;
+			   	} catch(FileNotFoundException e) {
+			   		System.out.println("Ficheiro não encontrado, insira novamente!");
+			   	}
+		    } while(flag);
+		}
+		if(x==3)
+		    System.exit(0);
+		else {
+			System.out.println("Opção Errada!");
+		    System.exit(0);
+		}
 		MenuPrincipal(m);
 	}
 		
@@ -110,6 +111,25 @@ public static int Welcome(){
 return x;
 
 }
+	//Carrega Jogo
+	public static String MenuCarregaJogo() {
+		System.out.println("##################### Carregar Jogo #####################");
+		System.out.println("#                                                       #");
+		System.out.println("#  * Insira o nome do ficheiro a ser carregado.         #");
+
+		return s.next();
+	}
+	
+	//Gravar Jogo
+	public static String MenuGravaJogo() {
+		System.out.println("###################### Gravar Jogo ######################");
+		System.out.println("#                                                       #");
+		System.out.println("#  * Insira o nome do ficheiro a ser gravado.           #");
+
+		return s.next();
+	}
+	
+
 //CORRE 
 
 public static void MenuPrincipal(Manager m) throws FileNotFoundException, IOException{
@@ -129,10 +149,14 @@ public static void MenuPrincipal(Manager m) throws FileNotFoundException, IOExce
 	System.out.println("#####################################################");
 	 x  = s.nextInt();
 	if(x==1){  MenuCorrida(m);  }
-	else if(x==2){ MenuConsultas(m);}
-	else if(x==3){MenuApostas(m,-1);}
-	else if(x==4){ m.gravaRM("file.tmp"); MenuPrincipal(m);}
-	else if(x==5){ System.exit(0); }
+	if(x==2){ MenuConsultas(m);}
+	if(x==3){MenuApostas(m,-1);}
+	if(x==4) {
+		str=MenuGravaJogo();
+		m.gravaRM(str);
+		MenuPrincipal(m);
+		}
+	if(x==5){ System.exit(0); }
 	
 	
 	
