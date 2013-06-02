@@ -91,7 +91,8 @@ public class Jogador implements Serializable {
 	}
 	
 	public void setApostaCorrente(ArrayList<Aposta> p) {
-		this.adecorrer = p;
+		for(Aposta z : p){this.adecorrer.add(z);}
+		
 	}
 
 	public void seHistorico(ArrayList<Aposta> p) {

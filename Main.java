@@ -341,9 +341,10 @@ public static void MenuApostas(Manager m, int i) throws FileNotFoundException, I
 				System.out.println("################## APOSTAS   ##################");
 			System.out.println("#                                                   #");
 			
-		
-		           for(Aposta v : j.getApostaCorrente() ){
-		        	   System.out.println(v.toString());
+			ArrayList<Aposta> aux4 = new ArrayList<Aposta>();
+			aux4 =j.getApostaCorrente();
+			           for(Aposta v : aux4 ){
+		        	   System.out.println("bla "+v.toString());
 		}
 			
 			  
@@ -356,8 +357,9 @@ public static void MenuApostas(Manager m, int i) throws FileNotFoundException, I
 				System.out.println("################## APOSTAS   ##################");
 				System.out.println("#                                                   #");
 				
-			
-			           for(Aposta v : j.getHistorico() ){
+				ArrayList<Aposta> aux4 = new ArrayList<Aposta>();
+			aux4 =j.getHistorico();
+			           for(Aposta v : aux4 ){
 			        	   System.out.println(v.toString());
 			}
 				
@@ -496,7 +498,9 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 		//inserir aposta na lista d apostas do waka
 		Aposta p = new Aposta(q,p1,p2,p3,corr);
 		ArrayList<Aposta> pp = j.getApostaCorrente();
-	pp.add(p); j.setApostaCorrente(pp);
+	pp.add(p);j.setApostaCorrente(pp);
+	for(Aposta o : pp){ System.out.println(o.toString());}
+	j.setApostaCorrente(pp);
 		}else System.out.println("Nao tem diheiro suficiente");
 	//JA INSERE
 		     }   
