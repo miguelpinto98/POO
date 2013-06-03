@@ -64,8 +64,8 @@ public class Main {
 		return s.nextInt();
 	}
 		
-	public static HashMap<String, Jogador> PedeJogadores() {
-		HashMap<String,Jogador> aux = new HashMap<String,Jogador>();
+	public static TreeMap<String, Jogador> PedeJogadores() {
+		TreeMap<String,Jogador> aux = new TreeMap<String,Jogador>();
 		String nome, morada; 
 		double dc = 0;
 		Jogador p;
