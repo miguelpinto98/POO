@@ -143,8 +143,8 @@ public class Jogador implements Serializable {
 	   for(Aposta v : aux){
 	    if(s.equals(v.getCorrida().getCircuito().getNomeCircuito())) { // Falta decidir o que fazer quando se ganha
 	       
-	        
-	       if( v.checkAposta(c) == 1){ di-=v.getQuant(); dc+=v.getQuant()*1.5; dg +=v.getQuant()*1.5-v.getQuant();  } // Acertou primeiro
+	        if(v.checkAposta(c)== 0) di -= v.getQuant();
+	    else if( v.checkAposta(c) == 1){ di-=v.getQuant(); dc+=v.getQuant()*1.5; dg +=v.getQuant()*1.5-v.getQuant();  } // Acertou primeiro
 	        
 	       else  if(v.checkAposta(c) == 2){ di-=v.getQuant(); dc+=v.getQuant()*1.3; dg +=v.getQuant()*1.3-v.getQuant();  } //Acertou segundo
 	        else if(v.checkAposta(c) == 3){ di-=v.getQuant(); dc+=v.getQuant()*1.15; dg +=v.getQuant()*1.8-v.getQuant();  } // Acertou primeiro e segundo
@@ -155,7 +155,7 @@ public class Jogador implements Serializable {
 	        
 	        
 	        else if(v.checkAposta(c) == 7 ){ di-=v.getQuant(); dc+=v.getQuant()*1.95; dg +=v.getQuant()*1.95-v.getQuant();  }// Acertou todos      
-	        else{ di-= v.getQuant();  } 
+	      
 	        hist.add(v.clone());
 	        adecorrer.remove(v);
 	        
