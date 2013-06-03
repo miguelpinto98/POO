@@ -9,28 +9,23 @@ public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
 		Campeonato c =new Campeonato() ;
-		HashMap<String, Jogador> jogadores = new HashMap<String,Jogador>() ;
-
+		HashMap<String, Jogador> jogadores = new HashMap<String,Jogador>();
 		Manager m = null;
 		
 		int k = 0;
 		int x = Welcome();
 	
 		if(x==1){ 
-			//criar necessario para o campeoanto
 			jogadores = PedeJogadores(); 
 			c = Campeonato.geraCampeonato(); 
 			m = new Manager(c,jogadores); 
 			
-			//inserir na classifica�ao campeonato
-			Iterator<Corrida> banana = m.getCampeonato().getCorridas().iterator();
-			Corrida r = banana.next();
-			  for(Veiculo v : r.getConjuntoVeiculos() ){
+			Iterator<Corrida> cor = m.getCampeonato().getCorridas().iterator();
+			Corrida r = cor.next();
+			for(Veiculo v : r.getConjuntoVeiculos()) {
 				m.campstatus.put(v, 0-k);
-			k++;
-			    }
-			  
-			 
+				k++;
+			}	  
 		}
 		else if(x==2) {
 		    m  = new Manager();
@@ -51,45 +46,7 @@ public class Main {
 
 		MenuPrincipal(m);
 	}
-		
 	
-
-//PedeJOGADORES
-public static HashMap<String, Jogador> PedeJogadores(){
- 
-	 HashMap<String,Jogador> aux = new HashMap<String,Jogador>();
-	 String nome, morada; 
-	 double dc = 0;
-	 Jogador p;
-	
-	 System.out.println("Quantos Jogadores?"); 
-	 s = new Scanner(System.in);
-	   	int x  = s.nextInt(); 
-	   	
-	   	System.out.println("################# INSERIR JOGADOR ################");
-	   	for(int i = 0; i < x; i++){
-	   	
-	   		
-	   		
-	   	  	s.nextLine();
-	   	 System.out.println(" *Insira Nome.");
-	   		nome = s.nextLine();
-	   		System.out.println(" *Insira Morada");
-	   		morada = s.nextLine();
-	   		System.out.println(" * Insira Dinheiro Inicial nor formato XX,XX \n");
-	   		dc = s.nextDouble();
-	   		
-	   		
-	   		p = new Jogador();
-	   		p.setNome(nome);
-	   		p.setMorada(morada);
-	   		p.setDc(dc);
-	   		
-	   		aux.put(nome,p);
-	   	}
-	return aux;
-}
-
 	public static int Welcome() {
 		System.out.println("################## RACING MANAGER 2013 ##################");
 		System.out.println("#                                                       #");
@@ -101,6 +58,38 @@ public static HashMap<String, Jogador> PedeJogadores(){
 		System.out.println("#########################################################");
 	 
 		return s.nextInt();
+	}
+		
+	public static HashMap<String, Jogador> PedeJogadores() {
+		HashMap<String,Jogador> aux = new HashMap<String,Jogador>();
+		String nome, morada; 
+		double dc = 0;
+		Jogador p;
+		
+		System.out.println("#################### CRIAR JOGADORES ####################");
+		System.out.println("#                                                       #");
+		System.out.println("#  * Quantos jogadores pretende criar neste campeonato? #"); 
+		int x = s.nextInt(); 
+	   	
+		System.out.println("################### INSERIR JOGADORES ###################");
+		System.out.println("#                                                       #");
+	   	
+		for(int i = 0; i < x; i++) {
+	   	  	s.nextLine();
+			System.out.println("#  * Insira o nome do "+(i+1)+"º jogador."); 
+	   		nome = s.nextLine();
+	   		System.out.println("#  * Insira a sua morada.");
+	   		morada = s.nextLine();
+	   		System.out.println("#  * Insira dinheiro inicial no formato XX,XX. \n");
+	   		dc = s.nextDouble();
+	   		
+	   		p = new Jogador();
+	   		p.setNome(nome);
+	   		p.setMorada(morada);
+	   		p.setDc(dc);
+	   		aux.put(nome,p);
+	   	}
+		return aux;
 	}
 	
 	public static String MenuCarregaJogo() {
@@ -153,11 +142,13 @@ public static HashMap<String, Jogador> PedeJogadores(){
 			}	
 	}
 
-private static void MenuCorrida(Manager m) throws FileNotFoundException, IOException {
-	
-	int x = 0;	Corrida cit = new Corrida();
-	Iterator<Corrida> aux = m.getCampeonato().getCorridas().iterator();
-	HashMap<Veiculo, Integer> z = new HashMap<Veiculo, Integer> ();
+	private static void MenuCorrida(Manager m) throws FileNotFoundException, IOException {
+		int x = 0;
+		Corrida cit = new Corrida();
+		HashMap<Veiculo, Integer> z = new HashMap<Veiculo, Integer> ();
+		
+		Iterator<Corrida> aux = m.getCampeonato().getCorridas().iterator();
+
 	while(aux.hasNext() && x < m.getCorrida() )
 	{
 		 aux.next();
@@ -390,7 +381,7 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 	//necessario pa uma posta 
 	 double q = 0;
 	Veiculo p1 = null;Veiculo p2 = null; Veiculo  p3 = null;
-	 Corrida corr = new Corrida();
+	Corrida corr = new Corrida();
 	Jogador j = null;
 	//fun�ao 
 	 int x = 0, y = 0;
