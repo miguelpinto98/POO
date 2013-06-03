@@ -396,10 +396,18 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 	//fun�ao 
 	 int x = 0, y = 0;
 	
-	
+	 Iterator<Jogador> jogit = m.getapostadores().values().iterator();
+     
+	 	while(jogit.hasNext() && y < waka )
+	 	{
+	 		 jogit.next();
+	 		 y++;
+	 	}
+	 	
+	  if(jogit.hasNext()) j = jogit.next();
 	
 	//CORRIDA;
-
+y = 0;
 	 System.out.println("#            "+j.getNome()+"                                       #");
 	   System.out.println("################ ESCOLHA CORRIDA   ################");
 		System.out.println("#                                                   #");
@@ -486,15 +494,7 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 		
 		y=0;
 		//Perguntar quantia do jogador na posi�ao waka
-	     Iterator<Jogador> jogit = m.getapostadores().values().iterator();
-	     
-		 	while(jogit.hasNext() && y < waka )
-		 	{
-		 		 carit.next();
-		 		 y++;
-		 	}
-		 	
-		  if(jogit.hasNext()){ j = jogit.next(); System.out.println(j.toString());
+	     System.out.println(j.toString());
 		 System.out.println("Saldo Actual: "+ j.getDc());  
 	     System.out.println(" *Insira Quantia.");
 		q = s.nextDouble();
@@ -513,7 +513,7 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 	
 		}else System.out.println("Nao tem diheiro suficiente");
 	//JA INSERE
-		     }   
+		       
 		     
      
      }
