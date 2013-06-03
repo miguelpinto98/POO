@@ -1,6 +1,7 @@
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.TreeMap;
+import java.util.HashMap;
 
 public class Aposta implements Serializable {        
 	private double quant;
