@@ -162,6 +162,7 @@ public class Main {
    
   	
       z = cit.fazCorrida(m.campstatus);
+      for(Jogador h :m.getapostadores().values()){ h.CheckApostas(cit.getCircuito().getNomeCircuito(), m.campstatus);}
       m.setCorida(); } else System.out.println("O Campeonato Acabou!");
       
       for(Jogador j : m.getapostadores().values()){
@@ -176,7 +177,7 @@ public class Main {
 
 	//Menu Consulta 
 	public static void MenuConsultas(Manager m) throws FileNotFoundException, IOException{
-	   	int x  = 0;
+	   	int x  = 0,corr = 0;
 	
 		System.out.println("#################### MENU CONSULTAS #####################");
 		System.out.println("#                                                       #");
@@ -235,8 +236,18 @@ public class Main {
 			System.out.println("################## CORRIDAS AGENDADAS ###################");
 			System.out.println("#                                                       #");
 		
-			for(Corrida r : m.getCampeonato().getCorridas() ){
-			System.out.println(r.toString());
+			for(Corrida r : m.getCampeonato().getCorridas() ){ 
+			
+			if(corr == m.getCorrida()) {	
+				System.out.println("################## PROXIMA CORRIDA ######################");	
+				System.out.println("#                                                       #");
+			System.out.println(r.toString()); corr++;
+			System.out.println("#                                                       #");
+			
+			System.out.println("#########################################################");
+			}else{
+			 corr++;
+			System.out.println(r.toString());}
 			
 		}
 		System.out.println("#                                                       #");
@@ -314,7 +325,7 @@ public static void MenuApostas(Manager m, int i) throws FileNotFoundException, I
 		System.out.println("#                                                   #");
 		System.out.println("#                " + j.getNome()  + "               #");
 		System.out.println("#                                                   #");
-		System.out.println("#        1 - FAZER APOSTA PROX CORRIDA              #");
+		System.out.println("#        1 - FAZER APOSTA  CORRIDA              #");
 		System.out.println("#        2 - VER APOSTAS POR ACONTECER              #");
 		System.out.println("#        3 - VER HISTORICO                          #");
 		System.out.println("#        4- SALDO CURRENTE                          #");
@@ -495,7 +506,8 @@ y = 0;
 		//inserir aposta na lista d apostas do waka
 	
 	j.fazAposta(corr,q,p1,p2,p3);
-	
+	j.setDc(j.getDc()-q);
+	j.setDi(j.getDi()+q);
 	TreeMap<String, Jogador> auxjog = m.getapostadores();
 	auxjog.put(j.getNome(), j);
 	m.setApostadores(auxjog);

@@ -142,10 +142,20 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 				
 			}
 			try{Thread.sleep(1000);
+			                       
+				
+				
 			
 			
 			}catch(Exception e){}
 		}
+		System.out.println("################## CLASSIFICAÇÃO GERAL ##################");
+		System.out.println("#                                                       #");
+		for(Veiculo v: aux.keySet()){ System.out.println(v.getMarca() +" "+ v.getModelo() +" "+ aux.get(v)); }
+		
+		System.out.println("#                                                       #");
+	
+		System.out.println("#########################################################");
 
 	}
 

@@ -146,16 +146,16 @@ public class Jogador implements Serializable {
 	        
 	       if( v.checkAposta(c) == 1){ di-=v.getQuant(); dc+=v.getQuant()*1.5; dg +=v.getQuant()*1.5-v.getQuant();  } // Acertou primeiro
 	        
-	        if(v.checkAposta(c) == 2){ di-=v.getQuant(); dc+=v.getQuant()*1.3; dg +=v.getQuant()*1.3-v.getQuant();  } //Acertou segundo
-	        if(v.checkAposta(c) == 3){ di-=v.getQuant(); dc+=v.getQuant()*1.15; dg +=v.getQuant()*1.8-v.getQuant();  } // Acertou primeiro e segundo
-	        if(v.checkAposta(c) == 4 ){ di-=v.getQuant(); dc+=v.getQuant()*1.15; dg +=v.getQuant()*1.15-v.getQuant();  }// Acertou terceiro
+	       else  if(v.checkAposta(c) == 2){ di-=v.getQuant(); dc+=v.getQuant()*1.3; dg +=v.getQuant()*1.3-v.getQuant();  } //Acertou segundo
+	        else if(v.checkAposta(c) == 3){ di-=v.getQuant(); dc+=v.getQuant()*1.15; dg +=v.getQuant()*1.8-v.getQuant();  } // Acertou primeiro e segundo
+	        else if(v.checkAposta(c) == 4 ){ di-=v.getQuant(); dc+=v.getQuant()*1.15; dg +=v.getQuant()*1.15-v.getQuant();  }// Acertou terceiro
 	         
-	         if(v.checkAposta(c) == 5){ di-=v.getQuant(); dc+=v.getQuant()*1.65; dg +=v.getQuant()*1.65-v.getQuant();  } // Acertou terceiro e primeiro
-	        if(v.checkAposta(c) == 6 ){ di-=v.getQuant(); dc+=v.getQuant()*1.45; dg +=v.getQuant()*1.45-v.getQuant();  }// Acertou terceiro e segundo
+	        else if(v.checkAposta(c) == 5){ di-=v.getQuant(); dc+=v.getQuant()*1.65; dg +=v.getQuant()*1.65-v.getQuant();  } // Acertou terceiro e primeiro
+	         else  if(v.checkAposta(c) == 6 ){ di-=v.getQuant(); dc+=v.getQuant()*1.45; dg +=v.getQuant()*1.45-v.getQuant();  }// Acertou terceiro e segundo
 	        
 	        
-	        if(v.checkAposta(c) == 7 ){ di-=v.getQuant(); dc+=v.getQuant()*1.95; dg +=v.getQuant()*1.95-v.getQuant();  }// Acertou todos      
-	       
+	        else if(v.checkAposta(c) == 7 ){ di-=v.getQuant(); dc+=v.getQuant()*1.95; dg +=v.getQuant()*1.95-v.getQuant();  }// Acertou todos      
+	        else{ di-= v.getQuant();  } 
 	        hist.add(v.clone());
 	        adecorrer.remove(v);
 	        

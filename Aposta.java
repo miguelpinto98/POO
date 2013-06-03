@@ -93,7 +93,7 @@ public class Aposta {
 	}
 	
 	public int checkAposta(HashMap<Veiculo,Integer> c){ 
-		int res=0, t1=0, t2=0, t3=0;
+		int res=0, t1=1010010, t2=1010100, t3=1010110;
 		Veiculo v1 = null, v2 = null, v3 = null;
 	  
 	 	for(Veiculo v : c.keySet()) {
@@ -101,15 +101,16 @@ public class Aposta {
 				t3 = t2; 
 			   	t2 = t1; 
 			   	t1 = c.get(v);  
-			   	v3 = v2.clone();
-			   	v2 = v1.clone();
+			   	
+			   if(v3!=null)	v3 = v2.clone();
+			   if(v2!=null)	v2 = v1.clone();
 			   	v1 =  v.clone();
 			   	} 
 			else	{
 				if (c.get(v) < t2) {
 					t3 = t2;
 					t2 = c.get(v); 
-					v3 = v2.clone(); 
+					 if(v3!=null)v3 = v2.clone(); 
 					v2 =  v.clone();
 				   	}
 				else 
