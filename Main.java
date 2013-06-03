@@ -32,7 +32,7 @@ public class Main {
 			  
 			 
 		}
-		if(x==2) {
+		else if(x==2) {
 		    m  = new Manager();
 		    boolean flag = true;
 		    
@@ -46,9 +46,9 @@ public class Main {
 			   	}
 		    } while(flag);
 		}
-		if(x==3)
+		else if(x==3)
 		    System.exit(0);
-	
+
 		MenuPrincipal(m);
 	}
 		
@@ -340,9 +340,10 @@ public static void MenuApostas(Manager m, int i) throws FileNotFoundException, I
 				System.out.println("################## APOSTAS   ##################");
 			System.out.println("#                                                   #");
 			
-		
-		           for(Aposta v : j.getApostaCorrente() ){
-		        	   System.out.println(v.toString());
+			ArrayList<Aposta> aux4 = new ArrayList<Aposta>();
+			aux4 =j.getApostaCorrente();
+			           for(Aposta v : aux4 ){
+		        	   System.out.println("bla "+v.toString());
 		}
 			
 			  
@@ -355,8 +356,9 @@ public static void MenuApostas(Manager m, int i) throws FileNotFoundException, I
 				System.out.println("################## APOSTAS   ##################");
 				System.out.println("#                                                   #");
 				
-			
-			           for(Aposta v : j.getHistorico() ){
+				ArrayList<Aposta> aux4 = new ArrayList<Aposta>();
+			aux4 =j.getHistorico();
+			           for(Aposta v : aux4 ){
 			        	   System.out.println(v.toString());
 			}
 				
@@ -454,7 +456,7 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 		 		 y++;
 		 	}
 		     if(carit.hasNext()){  p2 = carit.next().clone();}
-		
+		if(p2.equals(p1)) System.out.println("Esse piloto ja existe na aposta");
 		//TERCEIRO CLASSIFICADO
 		x = 0;
 		y = 0;
@@ -476,6 +478,8 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 	 	}
 	     if(carit.hasNext()){  p3 = carit.next().clone();
 	   }
+	     
+	     if(p3.equals(p2)|| p3.equals(p1)) System.out.println("Esse piloto ja existe na aposta");
 		
 		y=0;
 		//Perguntar quantia do jogador na posi�ao waka
@@ -486,14 +490,17 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 		 		 y++;
 		 	}
 		     if(jogit.hasNext()){ j = jogit.next();
-		 System.out.println("Saldo Actual: "+j.getDc());  
+		 System.out.println("Saldo Actual: "+ j.getDc());  
 	     System.out.println(" *Insira Quantia.");
 		q = s.nextDouble();
+		if(q<=j.getDc()){
 		//inserir aposta na lista d apostas do waka
 		Aposta p = new Aposta(q,p1,p2,p3,corr);
 		ArrayList<Aposta> pp = j.getApostaCorrente();
-	pp.add(p); j.setApostaCorrente(pp);
-	
+	pp.add(p);j.setApostaCorrente(pp);
+	for(Aposta o : pp){ System.out.println(o.toString());}
+	j.setApostaCorrente(pp);
+		}else System.out.println("Nao tem diheiro suficiente");
 	//JA INSERE
 		     }   
 		     
