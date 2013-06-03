@@ -120,11 +120,11 @@ public class Aposta {
 					}
 			}
 		}
-	    if(v1.equals(p1)) 	
+	    if(v1.equals(p1) && v1 != null)  	
 	    	res+=1;
-	    if(v2.equals(p2))	
+	    if(v2.equals(p2) &&	v3 != null) 
 	    	res+=2;
-	    if(v3.equals(p3)) 	
+	    if(v3.equals(p3)&& v3 != null) 	
 	    	res+=4;
 	   
 	    return res; 
