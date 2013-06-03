@@ -1,23 +1,23 @@
 import java.io.*;
+import java.util.TreeMap;
 import java.util.HashMap;
-
 public class Manager {
 
 	// variaveis de instancia
 	private Campeonato campeonato;
-	private HashMap<String, Jogador> apostadores;
+	private TreeMap<String, Jogador> apostadores;
 	public int corrida;
 	public HashMap<Veiculo, Integer> campstatus;
 	
 	
 	public Manager() {
 		this.campeonato = new Campeonato();
-		this.apostadores = new HashMap<String, Jogador>();
+		this.apostadores = new TreeMap<String, Jogador>();
 		this.corrida = 0;
 		this.campstatus = new HashMap<Veiculo, Integer>();
 	}
 	
-	public Manager(Campeonato c, HashMap<String, Jogador> d) {
+	public Manager(Campeonato c, TreeMap<String, Jogador> d) {
 		this.campeonato = c;
 		this.apostadores = d;
 		this.corrida = 0;
@@ -27,7 +27,7 @@ public class Manager {
 
 	public Manager(Manager m) {
 		this.campeonato = m.getCampeonato();
-		HashMap<String, Jogador> aux = m.getapostadores();
+		TreeMap<String, Jogador> aux = m.getapostadores();
 		for (String nome : aux.keySet())
 			this.apostadores.put(nome, aux.get(nome));
 		this.corrida = 0;
@@ -50,8 +50,8 @@ public class Manager {
 		return this.campeonato.clone();
 	}
 
-	public HashMap<String, Jogador> getapostadores() {
-		HashMap<String, Jogador> aux = new HashMap<String, Jogador>();
+	public TreeMap<String, Jogador> getapostadores() {
+		TreeMap<String, Jogador> aux = new TreeMap<String, Jogador>();
 		
 		for (String nome : this.apostadores.keySet()) {
 			aux.put(nome, this.apostadores.get(nome));
@@ -65,7 +65,7 @@ public class Manager {
 		this.campeonato = c;
 	}
 
-	public void setApostadores(HashMap<String, Jogador> c) {
+	public void setApostadores(TreeMap<String, Jogador> c) {
 		this.apostadores = c;
 	}
 
@@ -103,7 +103,7 @@ public class Manager {
         ObjectInputStream o = new ObjectInputStream(f);
         
         this.campeonato = (Campeonato) o.readObject();
-        this.apostadores = (HashMap<String,Jogador>) o.readObject();
+        this.apostadores = (TreeMap<String, Jogador>) o.readObject();
         this.campstatus = (HashMap<Veiculo,Integer>) o.readObject();  
         this.corrida = (int) o.readInt();
         o.close();

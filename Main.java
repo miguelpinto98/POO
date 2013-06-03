@@ -9,7 +9,7 @@ public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
 		Campeonato c =new Campeonato() ;
-		HashMap<String, Jogador> jogadores = new HashMap<String,Jogador>() ;
+		TreeMap<String, Jogador> jogadores = new TreeMap<String,Jogador>() ;
 
 		Manager m = null;
 		
@@ -19,6 +19,9 @@ public class Main {
 		if(x==1){ 
 			//criar necessario para o campeoanto
 			jogadores = PedeJogadores(); 
+			
+			for(Jogador caaa : jogadores.values()){ System.out.println(caaa.toString());}
+			
 			c = Campeonato.geraCampeonato(); 
 			m = new Manager(c,jogadores); 
 			
@@ -55,9 +58,9 @@ public class Main {
 	
 
 //PedeJOGADORES
-public static HashMap<String, Jogador> PedeJogadores(){
+public static TreeMap<String, Jogador> PedeJogadores(){
  
-	 HashMap<String,Jogador> aux = new HashMap<String,Jogador>();
+	 TreeMap<String, Jogador> aux = new TreeMap<String,Jogador>();
 	 String nome, morada; 
 	 double dc = 0;
 	 Jogador p;
@@ -276,16 +279,16 @@ private static void MenuCorrida(Manager m) throws FileNotFoundException, IOExcep
 
 
 //
-public static int jogpos(HashMap<String, Jogador> j){
+public static int jogpos(TreeMap<String, Jogador> treeMap){
 
 int x = 0;
 
 	
 System.out.println("################  ESCOLHA JOGADOR  ##################");
 System.out.println("#                                                   #");
-for(String z : j.keySet() ){
+for(String z : treeMap.keySet() ){
 	
-	System.out.println( "#       " + x +" " +j.get(z).getNome() +"                #");
+	System.out.println( "#       " + x +" " +treeMap.get(z).getNome() +"                #");
 	x++;
 }
 System.out.println("#                                                   #");
@@ -298,7 +301,7 @@ return x;
 public static void MenuApostas(Manager m, int i) throws FileNotFoundException, IOException{
    	int x  = 0;
  int waka = 0;
- if(i== -1){
+ if( i== -1){
 	 waka = jogpos(m.getapostadores()); 
 	}else waka = i;
  Jogador j = new Jogador();
@@ -338,11 +341,10 @@ public static void MenuApostas(Manager m, int i) throws FileNotFoundException, I
 			} //Menu faz aposta
 			else if(x==2){
 				System.out.println("################## APOSTAS   ##################");
-			System.out.println("#                                                   #");
+			System.out.println("#            "+j.getNome()+"                                       #");
 			
-			ArrayList<Aposta> aux4 = new ArrayList<Aposta>();
-			aux4 =j.getApostaCorrente();
-			           for(Aposta v : aux4 ){
+			
+			           for(Aposta v : j.getApostaCorrente() ){
 		        	   System.out.println("bla "+v.toString());
 		}
 			
@@ -354,11 +356,10 @@ public static void MenuApostas(Manager m, int i) throws FileNotFoundException, I
 			} 
 			else if(x==3){
 				System.out.println("################## APOSTAS   ##################");
-				System.out.println("#                                                   #");
+				System.out.println("#            "+j.getNome()+"                                       #");
 				
-				ArrayList<Aposta> aux4 = new ArrayList<Aposta>();
-			aux4 =j.getHistorico();
-			           for(Aposta v : aux4 ){
+
+		           for(Aposta v : j.getHistorico() ){
 			        	   System.out.println(v.toString());
 			}
 				
@@ -391,13 +392,15 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 	 double q = 0;
 	Veiculo p1 = null;Veiculo p2 = null; Veiculo  p3 = null;
 	 Corrida corr = new Corrida();
-	Jogador j = null;
+	Jogador j = new Jogador();
 	//fun�ao 
 	 int x = 0, y = 0;
-	 
+	
 	
 	
 	//CORRIDA;
+
+	 System.out.println("#            "+j.getNome()+"                                       #");
 	   System.out.println("################ ESCOLHA CORRIDA   ################");
 		System.out.println("#                                                   #");
 		for(Corrida r : m.getCampeonato().getCorridas() ){
@@ -484,22 +487,30 @@ private static void MenuFazAposta(Manager m, int waka) throws FileNotFoundExcept
 		y=0;
 		//Perguntar quantia do jogador na posi�ao waka
 	     Iterator<Jogador> jogit = m.getapostadores().values().iterator();
+	     
 		 	while(jogit.hasNext() && y < waka )
 		 	{
 		 		 carit.next();
 		 		 y++;
 		 	}
-		     if(jogit.hasNext()){ j = jogit.next();
+		 	
+		  if(jogit.hasNext()){ j = jogit.next(); System.out.println(j.toString());
 		 System.out.println("Saldo Actual: "+ j.getDc());  
 	     System.out.println(" *Insira Quantia.");
 		q = s.nextDouble();
 		if(q<=j.getDc()){
 		//inserir aposta na lista d apostas do waka
-		Aposta p = new Aposta(q,p1,p2,p3,corr);
-		ArrayList<Aposta> pp = j.getApostaCorrente();
-	pp.add(p);j.setApostaCorrente(pp);
-	for(Aposta o : pp){ System.out.println(o.toString());}
-	j.setApostaCorrente(pp);
+	
+	j.fazAposta(corr,q,p1,p2,p3);
+	
+	TreeMap<String, Jogador> auxjog = m.getapostadores();
+	auxjog.put(j.getNome(), j);
+	m.setApostadores(auxjog);
+	
+	
+	
+	
+	
 		}else System.out.println("Nao tem diheiro suficiente");
 	//JA INSERE
 		     }   
