@@ -1,7 +1,8 @@
-import java.util.HashMap;
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.TreeMap;
-public class Aposta {
+
+public class Aposta implements Serializable {        
 	private double quant;
 	private Veiculo p1, p2, p3;
 	private Corrida corr;
