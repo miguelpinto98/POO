@@ -19,7 +19,7 @@ public class Main {
 		if(x==1){ 
 			jogadores = PedeJogadores(); 
 			
-			for(Jogador caaa : jogadores.values()){ System.out.println(caaa.toString());}
+		
 			
 			c = Campeonato.geraCampeonato(); 
 			m = new Manager(c,jogadores); 
@@ -498,7 +498,7 @@ y = 0;
 		
 		y=0;
 		//Perguntar quantia do jogador na posi�ao waka
-	     System.out.println(j.toString());
+	    
 		 System.out.println("Saldo Actual: "+ j.getDc());  
 	     System.out.println(" *Insira Quantia.");
 		q = s.nextDouble();

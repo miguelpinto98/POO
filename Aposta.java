@@ -1,7 +1,8 @@
 import java.io.Serializable;
-import java.util.HashMap;
+import java.util.Iterator;
+import java.util.TreeMap;
 
-public class Aposta implements Serializable {
+public class Aposta implements Serializable {        
 	private double quant;
 	private Veiculo p1, p2, p3;
 	private Corrida corr;
@@ -95,10 +96,21 @@ public class Aposta implements Serializable {
 	}
 	
 	public int checkAposta(HashMap<Veiculo,Integer> c){ 
-		int res=0, t1=1010010, t2=1010100, t3=1010110;
+		int res=0, t1=0, t2=0, t3=0;
 		Veiculo v1 = null, v2 = null, v3 = null;
-	  
-	 	for(Veiculo v : c.keySet()) {
+		
+		TreeMap<Integer, Veiculo> aux2 = new TreeMap<Integer, Veiculo>();
+		
+		
+		for (Veiculo v : c.keySet()) {
+		if(aux2.containsKey(c.get(v)) == false)	aux2.put(c.get(v), v);
+		else aux2.put(c.get(v)+1, v);
+		}
+	  Iterator<Integer> veit = aux2.keySet().iterator();
+	 t1 = veit.next(); v1 = aux2.get(t1);
+	 t2 = veit.next();v2 = aux2.get(t2);
+	 t3 = veit.next();v3 = aux2.get(t3);
+	 	/*for(Veiculo v : c.keySet()) {
 			if(c.get(v) < t1) {
 				t3 = t2; 
 			   	t2 = t1; 
@@ -121,7 +133,7 @@ public class Aposta implements Serializable {
 						v3 = v.clone();
 					}
 			}
-		}
+		}*/
 	    if(v1.equals(p1) && v1 != null)  	
 	    	res+=1;
 	    if(v2.equals(p2) &&	v3 != null) 

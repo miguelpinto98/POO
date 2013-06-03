@@ -149,13 +149,7 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 			
 			}catch(Exception e){}
 		}
-		System.out.println("################## CLASSIFICAÇÃO GERAL ##################");
-		System.out.println("#                                                       #");
-		for(Veiculo v: aux.keySet()){ System.out.println(v.getMarca() +" "+ v.getModelo() +" "+ aux.get(v)); }
 		
-		System.out.println("#                                                       #");
-	
-		System.out.println("#########################################################");
 
 	}
 
@@ -170,23 +164,31 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 		for (Veiculo v : conjveiculos) {
 			aux.put(v, 0);
 		}
-System.out.println(this.crt.getNomeCircuito());
+System.out.println(this.crt.getNomeCircuito() + "\n");
 		this.fazVoltas(aux, crt.getNvoltas());
 		
 		for (Veiculo v : conjveiculos) {
-			aux2.put(aux.get(v), v);
+		if(aux2.containsKey(aux.get(v)) == false)	aux2.put(aux.get(v), v);
+		else aux2.put(aux.get(v)+1, v);
 		}
 
 		Collection<Veiculo> ca = aux2.values();
 		Iterator<Veiculo> aux2it = ca.iterator();
-
+		System.out.println("################## CLASSIFICA�AO CORRIDA ###################");
+		System.out.println("#                                                       #");
 		while (aux2it.hasNext()) {
 			v1 = (Veiculo) aux2it.next();
+			System.out.println( (x+1) +" classificado " +v1.getMarca() +" "+ v1.getModelo() +" "+ aux.get(v1));
+			
                  if(c.get(v1) < 0)
                 	 c.put(v1,   (30 - x * 2));
 			else c.put(v1, c.get(v1) + (30 - x * 2));
 			x++;
 		}
+		
+		System.out.println("#                                                       #");
+		
+		System.out.println("#########################################################");
 		/* falta classifica��o da corrida
 		
 		try{Thread.sleep(5000);
