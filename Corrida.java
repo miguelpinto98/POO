@@ -63,12 +63,13 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 
 	public String toString() {
 		StringBuilder s = new StringBuilder();
-
-		s.append("----------------- Corrida -------------------\n");
-		s.append("NÃºmero de Veiculos: " + this.conjveiculos.size() + "\n");
-		s.append("Circuito: " + this.crt.getNomeCircuito() +" " + this.crt.getNvoltas() + "\n");
+		
+		s.append("----------------------- Corrida -------------------------\n");
+		s.append("Circuito: " + this.crt.getNomeCircuito() + "\n");
+		s.append("NÃºmero de voltas: " + this.crt.getNvoltas() + "\n");
+		s.append("NÃºmero de veiculos: " + this.conjveiculos.size() + "\n");
 		s.append("Piso Molhado: " + this.piso + "\n");
-		s.append("---------------------------------------------\n");
+		s.append("---------------------------------------------------------\n");
 
 		return s.toString();
 	}
@@ -176,7 +177,7 @@ System.out.println(this.crt.getNomeCircuito());
 			else c.put(v1, c.get(v1) + (30 - x * 2));
 			x++;
 		}
-		/* falta classificação da corrida
+		/* falta classificaï¿½ï¿½o da corrida
 		
 		try{Thread.sleep(5000);
 		
@@ -200,7 +201,7 @@ System.out.println(this.crt.getNomeCircuito());
             case 4:	c = new Circuito("Dubai Autodrome", 5390, 16, 109638, 112038, 115267, 119265, 104786, 6129, 20000, p); break;
             case 5: c = new Circuito("Guia Circuit", 6120, 19, 136241, 138372, 139623, 141237, 129232, 11673, 22000, p); break;
             case 6: c = new Circuito("Okayama International Circuit", 3703, 13, 82003, 85871, 87128, 90125, 74889, 8912, 22000, p); break;
-            case 7: c = new Circuito("Marina Bay Street Circuit", 5073, 23, 128087, 130152, 133710, 116762,134762, 12342, 23000, p); break;
+            case 7: c = new Circuito("Marina Bay Street Circuit", 5073, 23, 128087, 134152, 136710, 140762, 120762, 13342, 23000, p); break;
             case 8: c = new Circuito("Sydney Motorsports Park", 3930, 12, 76433, 78917, 81023, 83123, 69915, 9173, 20000, p); break;
             case 9: c = new Circuito("Queensland Raceway", 3120, 6, 59477, 61375, 63112, 64876, 53483, 5213, 18000, p); break;
             case 10: c = new Circuito("Red Bull Ring", 4326, 10, 84967, 86239, 87341, 89346, 76113, 8197, 26000, p); break;

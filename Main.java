@@ -5,6 +5,7 @@ public class Main {
 
 	private static Scanner s = new Scanner(System.in);
 	private static String str = null;
+	private static int option = 0;
 
 	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
 		Campeonato c =new Campeonato() ;
@@ -47,10 +48,7 @@ public class Main {
 		}
 		if(x==3)
 		    System.exit(0);
-		else {
-			System.out.println("Opção Errada!");
-		    System.exit(0);
-		}
+	
 		MenuPrincipal(m);
 	}
 		
@@ -92,79 +90,68 @@ public static HashMap<String, Jogador> PedeJogadores(){
 	return aux;
 }
 
-// WELCOME
-public static int Welcome(){ 
+	public static int Welcome() {
+		System.out.println("################## RACING MANAGER 2013 ##################");
+		System.out.println("#                                                       #");
+		System.out.println("#        1 - NOVO CAMPEONATO                            #");
+		System.out.println("#        2 - CARREGAR CAMPEONATO                        #");
+		System.out.println("#        3 - SAIR                                       #");
+		System.out.println("#                                                       #");
+		System.out.println("#        Escolha uma opção:                             #");
+		System.out.println("#########################################################");
+	 
+		return s.nextInt();
+	}
 	
-
-	System.out.println("################## RACING MANAGER 2013 ##################");
-	System.out.println("#                                                       #");
-	System.out.println("#        1 - NOVO CAMPEONATO                            #");
-	System.out.println("#        2 - CARREGAR CAMPEONATO                        #");
-	System.out.println("#        3 - SAIR                                       #");
-	System.out.println("#                                                       #");
-	System.out.println("#                                                       #");
-	System.out.println("#########################################################");
-	
-
-   	int x  = s.nextInt();
- 
-return x;
-
-}
-	//Carrega Jogo
 	public static String MenuCarregaJogo() {
-		System.out.println("##################### Carregar Jogo #####################");
+		System.out.println("##################### CARREGAR JOGO #####################");
 		System.out.println("#                                                       #");
 		System.out.println("#  * Insira o nome do ficheiro a ser carregado.         #");
 
 		return s.next();
 	}
 	
-	//Gravar Jogo
 	public static String MenuGravaJogo() {
-		System.out.println("###################### Gravar Jogo ######################");
+		System.out.println("###################### GRAVAR JOGO ######################");
 		System.out.println("#                                                       #");
 		System.out.println("#  * Insira o nome do ficheiro a ser gravado.           #");
 
 		return s.next();
 	}
 	
-
-//CORRE 
-
-public static void MenuPrincipal(Manager m) throws FileNotFoundException, IOException{
-   	int x  = 0;
-	
-	System.out.println("BEM VINDO");
-	
-	
-	System.out.println("##################  MENU PRINCIPAL ##################");
-	System.out.println("#                                                   #");
-	System.out.println("#        1 - FAZER CORRIDA                          #");
-	System.out.println("#        2 - CONSULTAS                              #");
-	System.out.println("#        3 - APOSTAS                                #");
-	System.out.println("#        4-  GRAVAR                                 #");
-	System.out.println("#        5-  SAIR                                   #");
-	System.out.println("#                                                   #");
-	System.out.println("#####################################################");
-	 x  = s.nextInt();
-	if(x==1){  MenuCorrida(m);  }
-	if(x==2){ MenuConsultas(m);}
-	if(x==3){MenuApostas(m,-1);}
-	if(x==4) {
-		str=MenuGravaJogo();
-		m.gravaRM(str);
-		MenuPrincipal(m);
-		}
-	if(x==5){ System.exit(0); }
-	
-	
-	
-	
+	public static void MenuPrincipal(Manager m) throws FileNotFoundException, IOException {
+		int x = 0;
+		System.out.println("#################### MENU PRINCIPAL #####################");
+		System.out.println("#                                                       #");
+		System.out.println("#        1 - FAZER CORRIDA                              #");
+		System.out.println("#        2 - CONSULTAS                                  #");
+		System.out.println("#        3 - APOSTAS                                    #");
+		System.out.println("#        4 - GRAVAR                                     #");
+		System.out.println("#        5 - SAIR                                       #");
+		System.out.println("#                                                       #");
+		System.out.println("#        Escolha uma opção:                             #");
+		System.out.println("#########################################################");
+		
+		x  = s.nextInt();
+		
+		if(x==1) {
+			MenuCorrida(m);
+			}
+		if(x==2) {
+			MenuConsultas(m);
+			}
+		if(x==3) {
+			MenuApostas(m,-1);
+			}
+		if(x==4) {
+			str=MenuGravaJogo();
+			m.gravaRM(str);
+			MenuPrincipal(m);
+			}
+		if(x==5) {
+			System.exit(0);
+			}	
 	}
-	
-
-
 
 private static void MenuCorrida(Manager m) throws FileNotFoundException, IOException {
 	
@@ -192,86 +179,98 @@ private static void MenuCorrida(Manager m) throws FileNotFoundException, IOExcep
 
 
 
-//Menu Consulta 
-public static void MenuConsultas(Manager m) throws FileNotFoundException, IOException{
-   	int x  = 0;
-	System.out.println("##################  MENU CONSULTAS ##################");
-	System.out.println("#                                                   #");
-	System.out.println("#        1 - CLASSIFIC�O DO CAMPEONATO              #");
-	System.out.println("#        2 - TROFEU HIBRIDO                         #");
-	System.out.println("#        3 - TOP JOGADORES                          #");
-	System.out.println("#        4- CORRIDAS AGENDADAS                      #");
-	System.out.println("#        5-  VEICULOS DO CAMPEONATO                 #");
-	System.out.println("#        6- VOLTAR MENU PRINCIPAL                   #");
-	System.out.println("#                                                   #");
-	System.out.println("#####################################################");
-	 x  = s.nextInt();
+	//Menu Consulta 
+	public static void MenuConsultas(Manager m) throws FileNotFoundException, IOException{
+	   	int x  = 0;
 	
-	 
-	 if(x==1){ 
+		System.out.println("#################### MENU CONSULTAS #####################");
+		System.out.println("#                                                       #");
+		System.out.println("#        1 - CLASSIFICAÇÃO CAMPEONATO GERAL             #");
+		System.out.println("#        2 - TROFEU HIBRIDO                             #");
+		System.out.println("#        3 - TOP JOGADORES                              #");
+		System.out.println("#        4 - CORRIDAS AGENDADAS                         #");
+		System.out.println("#        5 - VEICULOS DO CAMPEONATO                     #");
+		System.out.println("#        6 - VOLTAR MENU PRINCIPAL                      #");
+		System.out.println("#                                                       #");
+		System.out.println("#        Escolha uma opção:                             #");
+		System.out.println("#########################################################");
+		
+		x  = s.nextInt();
+		
 		 
-		 HashMap<Integer,String> aux = new HashMap<Integer,String>();
-		 
-		for(Veiculo v : m.campstatus.keySet()){
-			aux.put(m.campstatus.get(v), v.getMarca()+" "+v.getModelo() );
-		}
-		System.out.println("################## CLASSIFICA��O   ##################");
-		System.out.println("#                                                   #");
-		for(int y : aux.keySet()){
+		if(x==1) {
+			HashMap<Integer,String> aux = new HashMap<Integer,String>();
+			 
+			for(Veiculo v : m.campstatus.keySet()) {
+				aux.put(m.campstatus.get(v), v.getMarca()+" "+v.getModelo());
+			}
 			
-			if(y>0)
-			System.out.println( y +" " + aux.get(y));
-			else System.out.println( 0 +" " + aux.get(y));
+			System.out.println("################## CLASSIFICAÇÃO GERAL ##################");
+			System.out.println("#                                                       #");
+			
+			for(int y : aux.keySet()) {
+				if(y>0)
+					System.out.println("#        " + y +"   "+ aux.get(y));
+				else
+					System.out.println("#        " + 0 +"   "+ aux.get(y));
+			}
+			System.out.println("#                                                       #");
+			System.out.println("#        1 - VOLTAR                                     #");
+			System.out.println("#########################################################");
+			option = s.nextInt();
+			
+			if(option==1)
+				MenuConsultas(m);
 		}
-		System.out.println("#         1 - VOLTAR                                #");
-		System.out.println("#####################################################");
+		else if(x==2){  
+			
+			
+			
+			
+			
+			
+		}
+		else if(x==3){ 
+			
+			
+			
+			
+		}
+		else if(x==4){
+			System.out.println("################## CORRIDAS AGENDADAS ###################");
+			System.out.println("#                                                       #");
+		
+			for(Corrida r : m.getCampeonato().getCorridas() ){
+			System.out.println(r.toString());
+			
+		}
+		System.out.println("#                                                       #");
+		System.out.println("#        1 - VOLTAR                                     #");
+		System.out.println("#########################################################");
+		
+		if(s.nextInt()==1)
+			MenuConsultas(m);	
+		}
+		else if(x==5){   System.out.println("################## VEICULO   ##################");
+		System.out.println("#                                                   #");
+		Iterator<Corrida> banana = m.getCampeonato().getCorridas().iterator();
+		Corrida r = banana.next();
+	           for(Veiculo v : r.getConjuntoVeiculos() ){
+	        	   System.out.println(v.toString());
+	           }
+		
+		  
+	    System.out.println("#                                                       #");
+	   	System.out.println("#        1 - VOLTAR                                     #");
+	   	System.out.println("#########################################################");
+		if(s.nextInt()==1)
+			MenuConsultas(m);	
+		}
+		
+		else if(x==6){ MenuPrincipal(m);}
+		
+		if(x==1) MenuConsultas(m);
 	}
-	else if(x==2){  
-		
-		
-		
-		
-		
-		
-	}
-	else if(x==3){ 
-		
-		
-		
-		
-	}
-	else if(x==4){
-    System.out.println("################## CORRIDAS   ##################");
-	System.out.println("#                                                   #");
-	for(Corrida r : m.getCampeonato().getCorridas() ){
-		System.out.println( r.toString());
-		
-	}
-	System.out.println("#         1 - VOLTAR                                #");
-	System.out.println("#####################################################");
-		
-		
-		
-	}
-	else if(x==5){   System.out.println("################## VEICULO   ##################");
-	System.out.println("#                                                   #");
-	Iterator<Corrida> banana = m.getCampeonato().getCorridas().iterator();
-	Corrida r = banana.next();
-           for(Veiculo v : r.getConjuntoVeiculos() ){
-        	   System.out.println(v.toString());
-}
-	
-	  
-	System.out.println("#         1 - VOLTAR                                #");
-	System.out.println("#####################################################");
-		
-		
-		
-	}
-	else if(x==6){ MenuPrincipal(m);}
-	
-	if(x==1) MenuConsultas(m);
-}
 
 
 

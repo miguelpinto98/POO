@@ -3,13 +3,7 @@ import java.io.Serializable;
 public class Circuito implements Serializable{
     String nome;
 	private int distancia,nvoltas;
-	private int tempoPC1,
-	tempoPC2,
-	tempoGT,
-	tempoSC,
-	trecord,
-	tdesviochuva,
-	tboxes;
+	private int tempoPC1, tempoPC2, tempoGT, tempoSC, trecord, tdesviochuva, tboxes;
 	private Piloto recordista;
 
 	//construtores
@@ -152,16 +146,17 @@ public class Circuito implements Serializable{
 	//toString
 	public String toString() {
 		StringBuilder s = new StringBuilder("Circuito ");
-		s.append("distancia=" + distancia);
-		s.append(", numero de voltas=" + nvoltas);
-		s.append(", tempo dos pc1=" + tempoPC1);
-		s.append(", tempo dos pc2=" + tempoPC2);
-		s.append(", tempo dos gt=" + tempoGT);
-		s.append(", tempo dos sc=" + tempoSC);
-		s.append(", tempo record=" + trecord);
-		s.append(", tempo nas boxes=" + tboxes);
-		s.append(", desvio medio =" + tdesviochuva);
-		s.append(", recordista=" + recordista.toString());
+		
+		s.append("Distancia: " + this.distancia + "\n");
+		s.append("Numero de voltas: " + this.nvoltas + "\n");
+		s.append("Tempo médio PC1: " + this.tempoPC1 + "\n");
+		s.append("Tempo médio PC2: " + this.tempoPC2 + "\n");
+		s.append("Tempo médio GT: " + this.tempoGT + "\n");
+		s.append("Tempo médio SC: " + this.tempoSC + "\n");
+		s.append("Tempo Record: " + this.trecord + "\n");
+		s.append("Tempo na box: " + this.tboxes + "\n");
+		s.append("Tempo Desvio à chuva: " + this.tdesviochuva + "\n");
+		s.append("Piloto Record: " + this.recordista.toString() + "\n");
 
 		return s.toString();
 
