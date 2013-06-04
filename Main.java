@@ -221,7 +221,7 @@ public class Main {
 	
 		System.out.println("#################### MENU CONSULTAS #####################");
 		System.out.println("#                                                       #");
-		System.out.println("#        1 - CLASSIFICAÃ‡ÃƒO CAMPEONATO GERAL             #");
+		System.out.println("#        1 - CLASSIFICAÇÂO CAMPEONATO GERAL             #");
 		System.out.println("#        2 - TROFEU HIBRIDO                             #");
 		System.out.println("#        3 - TOP JOGADORES                              #");
 		System.out.println("#        4 - CORRIDAS AGENDADAS                         #");
@@ -232,7 +232,7 @@ public class Main {
 		System.out.println("#########################################################");
 		
 		x  = s.nextInt();
-		
+		while (x !=6){
 		 
 		if(x==1) {
 			HashMap<Integer,String> aux = new HashMap<Integer,String>();
@@ -327,10 +327,11 @@ public class Main {
 		if(s.nextInt()==1)
 			MenuConsultas(m);	
 		}
+		x = s.nextInt();
+		}
+		 if(x==6){ MenuPrincipal(m);}
 		
-		else if(x==6){ MenuPrincipal(m);}
 		
-		if(x==1) MenuConsultas(m);
 	}
 
 
