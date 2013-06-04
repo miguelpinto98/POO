@@ -312,4 +312,19 @@ public abstract class Veiculo implements Serializable {
 		}
 		return aux;
 	}
+	
+	public  boolean veHib(){
+		Class[] c =  this.getClass().getInterfaces();
+		int x = 0; String s = "interface Hibrida"; 
+		boolean k = false;
+		while(x <c.length) {
+			
+			if(c[x].toString().equals(s)) k =true;
+		
+		x++;
+		}
+		return k;
+		
+		
+	}
 }

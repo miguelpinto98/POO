@@ -238,7 +238,7 @@ public class Main {
 			HashMap<Integer,String> aux = new HashMap<Integer,String>();
 			 
 			for(Veiculo v : m.campstatus.keySet()) {
-				if(veHib(v.getClass().getInterfaces()) == false)
+				if(v.veHib() == false)
 				aux.put(m.campstatus.get(v), v.getMarca()+" "+v.getModelo());
 			}
 			
@@ -265,7 +265,7 @@ public class Main {
 		    HashMap<Integer,String> aux6 = new HashMap<Integer,String>();
 			 
 			for(Veiculo v : m.campstatus.keySet()) {
-				if(veHib(v.getClass().getInterfaces()) == true)
+				if(v.veHib() == true)
 				aux6.put(m.campstatus.get(v), v.getMarca()+" "+v.getModelo());
 			}
 			
@@ -563,19 +563,7 @@ public static Veiculo escolheVeiculo(Corrida corr,int classi){
 	
 }
 
-public static boolean veHib(Class[] c){
-	int x = 0; String s = "interface Hibrida"; 
-	boolean k = false;
-	while(x <c.length) {
-		System.out.println(c[x].toString());
-		if(c[x].toString().equals(s)) k =true;
-	
-	x++;
-	}
-	return k;
-	
-	
-}
+
 
 
 }

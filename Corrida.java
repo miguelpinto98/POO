@@ -180,9 +180,20 @@ System.out.println(this.crt.getNomeCircuito() + "\n");
 			v1 = (Veiculo) aux2it.next();
 			System.out.println( (x+1) +" classificado " +v1.getMarca() +" "+ v1.getModelo() +" "+ aux.get(v1));
 			
-                 if(c.get(v1) < 0)
+                 if(c.get(v1) < 0&& v1.veHib() == false )
                 	 c.put(v1,   (30 - x * 2));
-			else c.put(v1, c.get(v1) + (30 - x * 2));
+			else if (c.get(v1) >= 0 &&v1.veHib() == false )c.put(v1, c.get(v1) + (30 - x * 2));
+			x++;
+		}
+		aux2it = ca.iterator();
+		x = 0;
+		while (aux2it.hasNext()) {
+			v1 = (Veiculo) aux2it.next();
+			
+			
+                 if(c.get(v1) < 0&& v1.veHib() == true )
+                	 c.put(v1,   (30 - x * 2));
+			else if (c.get(v1) >= 0 &&v1.veHib() == true )c.put(v1, c.get(v1) + (30 - x * 2));
 			x++;
 		}
 		
