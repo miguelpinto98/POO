@@ -89,7 +89,7 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 				&& this.piso == (v.getPiso());
 	}
 
-	public HashMap<Veiculo, Integer> fazVolta(int caca) {
+	public HashMap<Veiculo, Integer> fazVolta(boolean troca) {
 		int x = 0, min = 900000; Veiculo vw  = null;
 		HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
 		HashSet<Veiculo> percorrer = this.getConjuntoVeiculos();
@@ -97,7 +97,7 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 
 			try {
 				x = v.tempoProximaVolta(this.crt, this.piso);
-				System.out.println(v.getVoltas());
+				
 				aux.put(v, x);
 				if (x < min){ min = x;  vw = v.clone();}
 
@@ -115,25 +115,17 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 
 	public void fazVoltas(HashMap<Veiculo, Integer> c, int nvoltas) {
 		HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
-		int x = 0;
+		
 		boolean troca = false;
-		for (Veiculo v : conjveiculos) {
+		for (Veiculo v : aux.keySet()) {
 			v.voltaracio(nvoltas);
-			
-			
 		}
-		
-		
-		
 		for (int i = 1; i <= nvoltas; i++) {
 			System.out.println();
 			System.out.println("Volta "+ i);
+			aux = fazVolta(troca);
 			
-			
-			aux = fazVolta(nvoltas-i);
-			
-	
-		}
+
 			for (Veiculo v : aux.keySet()) {
 
 				if (aux.get(v) != -1)
@@ -159,7 +151,7 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 		}
 		
 
-	
+	}
 
 	
 
