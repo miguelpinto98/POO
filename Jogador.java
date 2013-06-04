@@ -21,6 +21,26 @@ public class Jogador implements Serializable {
 		this.dg = 0;
 		this.dc = 0;
 	}
+	
+	public Jogador(String nome, String morada, ArrayList<Aposta> ad, ArrayList<Aposta> h, double di, double dg, double dc) {
+		this.nome = nome;
+		this.morada = morada;
+		this.adecorrer = ad;
+		this.hist = h;
+		this.di = di;
+		this.dg = dg;
+		this.dc = dc;
+	}
+	
+	public Jogador(String nome, String morada, double dcorrente) {
+		this.nome = nome;
+		this.morada = morada;
+		this.adecorrer = new ArrayList<Aposta>();
+		this.hist = new ArrayList<Aposta>();
+		this.di = 0;
+		this.dg = 0;
+		this.dc = dcorrente;
+	}
 
 	public Jogador(Jogador j) {
 		this.nome = j.getNome();
@@ -138,30 +158,29 @@ public class Jogador implements Serializable {
 	}
 	
 	public void CheckApostas(String s, HashMap<Veiculo,Integer> c ) {
-		ArrayList<Aposta> aux = this.getApostaCorrente();
-	   //int premio = 0; 
-	   for(Aposta v : aux){
-	    if(s.equals(v.getCorrida().getCircuito().getNomeCircuito())) { // Falta decidir o que fazer quando se ganha
+	   
+		for(int i=0; i<this.adecorrer.size(); i++){
+	    if(s.equals(this.adecorrer.get(i).getCorrida().getCircuito().getNomeCircuito())) { // Falta decidir o que fazer quando se ganha
 	       
-	        if(v.checkAposta(c)== 0) di -= v.getQuant();
-	    else if( v.checkAposta(c) == 1){ di-=v.getQuant(); dc+=v.getQuant()*1.5; dg +=v.getQuant()*1.5-v.getQuant();  } // Acertou primeiro
+	        if(this.adecorrer.get(i).checkAposta(c)== 0) di -= this.adecorrer.get(i).getQuant();
+	    else if( this.adecorrer.get(i).checkAposta(c) == 1){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.5; dg +=this.adecorrer.get(i).getQuant()*1.5-this.adecorrer.get(i).getQuant();  } // Acertou primeiro
 	        
-	       else  if(v.checkAposta(c) == 2){ di-=v.getQuant(); dc+=v.getQuant()*1.3; dg +=v.getQuant()*1.3-v.getQuant();  } //Acertou segundo
-	        else if(v.checkAposta(c) == 3){ di-=v.getQuant(); dc+=v.getQuant()*1.15; dg +=v.getQuant()*1.8-v.getQuant();  } // Acertou primeiro e segundo
-	        else if(v.checkAposta(c) == 4 ){ di-=v.getQuant(); dc+=v.getQuant()*1.15; dg +=v.getQuant()*1.15-v.getQuant();  }// Acertou terceiro
+	       else  if(this.adecorrer.get(i).checkAposta(c) == 2){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.3; dg +=this.adecorrer.get(i).getQuant()*1.3-this.adecorrer.get(i).getQuant();  } //Acertou segundo
+	        else if(this.adecorrer.get(i).checkAposta(c) == 3){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.15; dg +=this.adecorrer.get(i).getQuant()*1.8-this.adecorrer.get(i).getQuant();  } // Acertou primeiro e segundo
+	        else if(this.adecorrer.get(i).checkAposta(c) == 4 ){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.15; dg +=this.adecorrer.get(i).getQuant()*1.15-this.adecorrer.get(i).getQuant();  }// Acertou terceiro
 	         
-	        else if(v.checkAposta(c) == 5){ di-=v.getQuant(); dc+=v.getQuant()*1.65; dg +=v.getQuant()*1.65-v.getQuant();  } // Acertou terceiro e primeiro
-	         else  if(v.checkAposta(c) == 6 ){ di-=v.getQuant(); dc+=v.getQuant()*1.45; dg +=v.getQuant()*1.45-v.getQuant();  }// Acertou terceiro e segundo
+	        else if(this.adecorrer.get(i).checkAposta(c) == 5){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.65; dg +=this.adecorrer.get(i).getQuant()*1.65-this.adecorrer.get(i).getQuant();  } // Acertou terceiro e primeiro
+	         else  if(this.adecorrer.get(i).checkAposta(c) == 6 ){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.45; dg +=this.adecorrer.get(i).getQuant()*1.45-this.adecorrer.get(i).getQuant();  }// Acertou terceiro e segundo
 	        
 	        
-	        else if(v.checkAposta(c) == 7 ){ di-=v.getQuant(); dc+=v.getQuant()*1.95; dg +=v.getQuant()*1.95-v.getQuant();  }// Acertou todos      
+	        else if(this.adecorrer.get(i).checkAposta(c) == 7 ){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.95; dg +=this.adecorrer.get(i).getQuant()*1.95-this.adecorrer.get(i).getQuant();  }// Acertou todos      
 	      
-	        hist.add(v.clone());
-	        adecorrer.remove(v);
+	                
 	        
 	       }
-	   
-	   }
+	    this.hist.add(this.adecorrer.get(i).clone());
+        this.adecorrer.remove(this.adecorrer.get(i));
+	    }
 	   }
 
 	public void fazAposta(Corrida r,double quant , Veiculo p1,Veiculo p2,Veiculo p3) {
