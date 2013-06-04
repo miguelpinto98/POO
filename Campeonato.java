@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.TreeMap;
 
-@SuppressWarnings("serial")
 public class Campeonato implements Serializable {
 
 	private TreeSet<Corrida> corridas;
