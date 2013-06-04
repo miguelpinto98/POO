@@ -121,7 +121,7 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 			v.voltaracio(nvoltas);
 		}
 		for (int i = 1; i <= nvoltas; i++) {
-			
+			System.out.println();
 			System.out.println("Volta "+ i);
 			aux = fazVolta(troca);
 			

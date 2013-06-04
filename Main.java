@@ -472,8 +472,9 @@ y = 0;
 	   System.out.println("################ ESCOLHA CORRIDA   ################");
 		System.out.println("#                                                   #");
 		for(Corrida r : m.getCampeonato().getCorridas() ){
+			if(x>=m.getCorrida()){
 			if(x==m.getCorrida())System.out.println(x +" "+ r.getCircuito().getNomeCircuito() + " <------PROX CORRIDA");
-			else System.out.println(x +" "+ r.getCircuito().getNomeCircuito());
+			else System.out.println(x +" "+ r.getCircuito().getNomeCircuito());}
 			x++;
 		}
 		System.out.println("#                                                   #");
