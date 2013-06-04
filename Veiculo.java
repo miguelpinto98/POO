@@ -44,6 +44,7 @@ public abstract class Veiculo implements Serializable {
 		this.p1 = v.getPiloto1();
 		this.p2 = v.getPiloto2();
 		this.pactivo = v.getPactivo();
+		this.voltas = v.getVoltas();
 	}
 	
 	/*
