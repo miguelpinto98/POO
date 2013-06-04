@@ -20,8 +20,16 @@ public class PC1Normal extends PC1 {
 	
 	public int tempoProximaVolta(Circuito c, boolean chuva) throws Exception   {
 		Random r=new Random();
-		int res=0, x = 0;
+		int res=0;
 		
+		if(this.getVoltas()>0)
+			this.setVoltas(this.getVoltas()-1);
+		else
+			if(this.getVoltas()==0) {
+				this.setPilotoActivo();
+				this.setVoltas(-1);
+				res+=c.getTboxes();
+			}
 		
 		if(r.nextInt(100) >= calculaFiabilidade())
 			throw new Exception("DNF");
