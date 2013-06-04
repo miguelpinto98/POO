@@ -121,4 +121,14 @@ public class Manager {
         o.close();
         f.close();
 	}
+	
+	public void adicionaJogador(String n, String m, double si) {
+   		Jogador j = new Jogador(n,m,si);
+   		
+		this.apostadores.put(n, j);
+	}
+	
+	public void removeJogador(String n) {
+		this.apostadores.remove(n);
+	}
 }
