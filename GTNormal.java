@@ -67,6 +67,7 @@ public class GTNormal extends GT {
 				this.setPilotoActivo();
 				this.setVoltas(-1);
 				res+=c.getTboxes();
+			
 			}
 		
 		if(r.nextInt(100) >= calculaFiabilidade())

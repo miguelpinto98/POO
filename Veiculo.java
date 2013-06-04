@@ -157,6 +157,7 @@ public abstract class Veiculo implements Serializable {
 	
 	public void voltaracio(int n) {
 		this.voltas = p1.getQualidade()*n/(p1.getQualidade()+p2.getQualidade());
+		
 	}
 	
 	public static String daMarca() {
