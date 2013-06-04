@@ -206,9 +206,9 @@ public class Main {
 		else
 			System.out.println("O Campeonato Acabou!");
       
-		//for(Jogador j : m.getapostadores().values()) {
-			//j.CheckApostas(cit.getCircuito().getNomeCircuito(), z);
-    	//}
+		for(Jogador j : m.getapostadores().values()) {
+			j.CheckApostas(cit.getCircuito().getNomeCircuito(), z);
+    	}
    
 		MenuPrincipal( m);
 }
