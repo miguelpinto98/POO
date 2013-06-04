@@ -89,7 +89,7 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 				&& this.piso == (v.getPiso());
 	}
 
-	public HashMap<Veiculo, Integer> fazVolta(boolean troca) {
+	public HashMap<Veiculo, Integer> fazVolta() {
 		int x = 0, min = 900000; Veiculo vw  = null;
 		HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
 		HashSet<Veiculo> percorrer = this.getConjuntoVeiculos();
@@ -123,7 +123,7 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 		for (int i = 1; i <= nvoltas; i++) {
 			System.out.println();
 			System.out.println("Volta "+ i);
-			aux = fazVolta(troca);
+			aux = fazVolta();
 			
 
 			for (Veiculo v : aux.keySet()) {
