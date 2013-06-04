@@ -80,7 +80,7 @@ public class Main {
 	   	
 		for(int i = 0; i < x; i++) {
 	   	  	s.nextLine();
-			System.out.println("#  * Insira o nome do "+(i+1)+"º jogador."); 
+			System.out.println("#  * Insira o nome do "+(i+1)+"º jogador.                       #"); 
 	   		nome = s.nextLine();
 	   		System.out.println("#  * Insira a sua morada.");
 	   		morada = s.nextLine();
@@ -112,6 +112,32 @@ public class Main {
 		return s.next();
 	}
 	
+	public static void MenuAdicionarJogador(Manager m) {
+		String nome=null, morada=null;
+		double dc=0;
+		
+		System.out.println("#################### INSERIR JOGADOR ####################");
+		System.out.println("#                                                       #");
+		s.nextLine();
+		System.out.println("#  * Insira o nome do "+(m.getapostadores().size() +1)+"º jogador.                        #"); 
+   		nome = s.nextLine();
+   		System.out.println("#  * Insira a sua morada.");
+   		morada = s.nextLine();
+   		System.out.println("#  * Insira dinheiro inicial no formato XX,XX. \n");
+   		dc = s.nextDouble();
+   		
+   		m.adicionaJogador(nome, morada, dc);
+   	}
+	
+	public static void MenuRemoveJogador(Manager m) {
+		System.out.println("#################### REMOVER JOGADOR ####################");
+		System.out.println("#                                                       #");
+		s.nextLine();
+		System.out.println("#  * Insira o nome do jogador a remover.                #"); 
+   
+   		m.removeJogador(s.nextLine());
+	}
+	
 	public static void MenuPrincipal(Manager m) throws FileNotFoundException, IOException {
 		int x = 0;
 		System.out.println("#################### MENU PRINCIPAL #####################");
@@ -119,8 +145,10 @@ public class Main {
 		System.out.println("#        1 - FAZER CORRIDA                              #");
 		System.out.println("#        2 - CONSULTAS                                  #");
 		System.out.println("#        3 - APOSTAS                                    #");
-		System.out.println("#        4 - GRAVAR                                     #");
-		System.out.println("#        5 - SAIR                                       #");
+		System.out.println("#        4 - ADICIONAR JOGADOR                          #");
+		System.out.println("#        5 - REMOVER JOGADOR                            #");
+		System.out.println("#        6 - GRAVAR                                     #");
+		System.out.println("#        7 - SAIR                                       #");
 		System.out.println("#                                                       #");
 		System.out.println("#        Escolha uma opção:                             #");
 		System.out.println("#########################################################");
@@ -129,21 +157,29 @@ public class Main {
 		
 		if(x==1) {
 			MenuCorrida(m);
-			}
+		}
 		if(x==2) {
 			MenuConsultas(m);
-			}
+		}
 		if(x==3) {
 			MenuApostas(m,-1);
-			}
+		}
 		if(x==4) {
+			MenuAdicionarJogador(m);
+			MenuPrincipal(m);
+		}
+		if(x==5) {
+			MenuRemoveJogador(m);
+			MenuPrincipal(m);
+		}
+		if(x==6) {
 			str=MenuGravaJogo();
 			m.gravaRM(str);
 			MenuPrincipal(m);
-			}
-		if(x==5) {
+		}
+		if(x==7) {
 			System.exit(0);
-			}	
+		}	
 	}
 
 	private static void MenuCorrida(Manager m) throws FileNotFoundException, IOException {
@@ -153,24 +189,28 @@ public class Main {
 		
 		Iterator<Corrida> aux = m.getCampeonato().getCorridas().iterator();
 
-	while(aux.hasNext() && x < m.getCorrida() )
-	{
-		 aux.next();
-		 x++;
-	}
-    if(aux.hasNext()){  cit = aux.next();
-   
-  	
-      z = cit.fazCorrida(m.campstatus);
-      for(Jogador h :m.getapostadores().values()){ h.CheckApostas(cit.getCircuito().getNomeCircuito(), m.campstatus);}
-      m.setCorida(); } else System.out.println("O Campeonato Acabou!");
+		while(aux.hasNext() && x < m.getCorrida()) {
+			aux.next();
+			x++;
+		}
+		
+		if(aux.hasNext()) {
+			cit = aux.next();
+			z = cit.fazCorrida(m.campstatus);
+		
+			for(Jogador h :m.getapostadores().values()) { 
+				h.CheckApostas(cit.getCircuito().getNomeCircuito(), m.campstatus);
+			}
+		m.setCorida();
+		} 
+		else
+			System.out.println("O Campeonato Acabou!");
       
-      for(Jogador j : m.getapostadores().values()){
-    	  j.CheckApostas(cit.getCircuito().getNomeCircuito(), z);
-    	  
-      }
+		//for(Jogador j : m.getapostadores().values()) {
+			//j.CheckApostas(cit.getCircuito().getNomeCircuito(), z);
+    	//}
    
-	MenuPrincipal( m);
+		MenuPrincipal( m);
 }
 
 
