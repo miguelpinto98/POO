@@ -23,11 +23,11 @@ public class PC1Normal extends PC1 {
 		int res=0;
 		
 		if(this.getVoltas()> 0){
-			this.setVoltas((this.getVoltas()-1));  System.out.println( "A--------->" +this.getMarca() +" " + this.getModelo() +" "+this.getVoltas());}
+			this.setVoltas((this.getVoltas()-1)); }
 		else
 			if(this.getVoltas()== 0) {
 				this.setPilotoActivo();
-				System.out.println("                                       TROCOU");
+				
 				this.setVoltas(-1);
 				res+=c.getTboxes();
 			}

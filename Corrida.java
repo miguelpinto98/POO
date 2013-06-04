@@ -95,7 +95,7 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 		HashSet<Veiculo> percorrer = this.getConjuntoVeiculos();
 		for (Veiculo v :percorrer) {
 
-			try { 
+			try { conjveiculos.remove(v);
 				x = v.tempoProximaVolta(this.crt, this.piso);
 				conjveiculos.add(v);
 				aux.put(v, x);
