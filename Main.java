@@ -259,14 +259,29 @@ public class Main {
 				MenuConsultas(m);
 		}
 		else if(x==2){  
+			System.out.println("################## TROFEU HIBRIDO #################");
+		    System.out.println("#                                                 #");
+		
 			
 			
+			System.out.println("#        1 - VOLTAR                               #");
+			System.out.println("###################################################");
 			
-			
-			
+			if(s.nextInt()==1)
+				MenuConsultas(m);	
 			
 		}
 		else if(x==3){ 
+		System.out.println("################## TOP JOGADORES ##################");
+	    System.out.println("#                                                 #");
+		
+		
+		
+		System.out.println("#        1 - VOLTAR                               #");
+		System.out.println("###################################################");
+		
+		if(s.nextInt()==1)
+			MenuConsultas(m);
 			
 			
 			
@@ -470,75 +485,12 @@ y = 0;
  		 y++;
  	}
      if(corrit.hasNext()){  corr = corrit.next();
-     
-		//PRIMEIRO CLASSIFICADO
-		x= 0;
-		System.out.println("################## ESCOLHA 1ï¿½ classificado   ##################");
-		System.out.println("#                                                   #");
-		for(Veiculo v : corr.getConjuntoVeiculos()){
-			System.out.println(x +" "+v.getMarca()+" "+v.getModelo());
-			x++;
-			
-		}
-		System.out.println("#                                                   #");
-		System.out.println("#####################################################");
-		x  = s.nextInt();
-		 Iterator<Veiculo> carit = corr.getConjuntoVeiculos().iterator();
-	 	while(carit.hasNext() && y <x )
-	 	{
-	 		 carit.next();
-	 		 y++;
-	 	}
-	     if(carit.hasNext()){  p1 = carit.next().clone();}
-	
-		
-		//SEGUNDO CLASSIFICADO
-		x = 0;
-		y= 0;
-		System.out.println("################## ESCOLHA 2ï¿½ classificado   ##################");
-		System.out.println("#                                                   #");
-		for(Veiculo v : corr.getConjuntoVeiculos()){
-			System.out.println(x +" "+v.getMarca()+" "+v.getModelo());
-			x++;
-			
-		}
-		System.out.println("#                                                   #");
-		System.out.println("#####################################################");
-		x = s.nextInt();
-		carit = corr.getConjuntoVeiculos().iterator();
-		 	while(carit.hasNext() && y <x )
-		 	{
-		 		 carit.next();
-		 		 y++;
-		 	}
-		     if(carit.hasNext()){  p2 = carit.next().clone();}
-		if(p2.equals(p1)) System.out.println("Esse piloto ja existe na aposta");
-		//TERCEIRO CLASSIFICADO
-		x = 0;
-		y = 0;
-		System.out.println("################## ESCOLHA 3ï¿½ classificado   ##################");
-		System.out.println("#                                                   #");
-		for(Veiculo v : corr.getConjuntoVeiculos()){
-			System.out.println(x +" "+v.getMarca()+" "+v.getModelo());
-			x++;
-			
-		}
-		System.out.println("#                                                   #");
-		System.out.println("#####################################################");
-		x = s.nextInt();
-		carit = corr.getConjuntoVeiculos().iterator();
-	 	while(carit.hasNext() && y <x )
-	 	{
-	 		 carit.next();
-	 		 y++;
-	 	}
-	     if(carit.hasNext()){  p3 = carit.next().clone();
-	   }
-	     
-	     if(p3.equals(p2)|| p3.equals(p1)) System.out.println("Esse piloto ja existe na aposta");
-		
-		y=0;
-		//Perguntar quantia do jogador na posiï¿½ao waka
+     p1 = escolheVeiculo(corr,1);
+     p2 = escolheVeiculo(corr,2);
+     if(p2.equals(p1)){ while(p2.equals(p1)){System.out.println("Esse piloto ja existe na aposta"); p2 = escolheVeiculo(corr,2);}}
+     p3 = escolheVeiculo(corr,3);
+     if(p3.equals(p1)|| p3.equals(p2)){ while(p2.equals(p1)|| p3.equals(p2)){System.out.println("Esse piloto ja existe na aposta"); p3 = escolheVeiculo(corr,3);}}
+
 	    
 		 System.out.println("Saldo Actual: "+ j.getDc());  
 	     System.out.println(" *Insira Quantia.");
@@ -566,4 +518,36 @@ y = 0;
 
 
             MenuApostas(m,waka);                                      }
+
+
+
+
+public static Veiculo escolheVeiculo(Corrida corr,int classi){
+	int x = 0,y = 0; Veiculo vi = null;
+	System.out.println("################## ESCOLHA "+classi+"º classificado   ##################");
+	System.out.println("#                                                   #");
+	for(Veiculo v : corr.getConjuntoVeiculos()){
+		System.out.println(x +" "+v.getMarca()+" "+v.getModelo());
+		x++;
+		
+	}
+	System.out.println("#                                                   #");
+	System.out.println("#####################################################");
+	x = s.nextInt();
+	 Iterator<Veiculo> carit = corr.getConjuntoVeiculos().iterator();
+	
+ 	while(carit.hasNext() && y <x )
+ 	{
+ 		 carit.next();
+ 		 y++;
+ 	}
+     if(carit.hasNext()) vi = carit.next().clone();
+   
+     return vi;
+	
+}
+
+
+
+
 }
