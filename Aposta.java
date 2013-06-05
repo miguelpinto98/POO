@@ -98,7 +98,7 @@ public class Aposta implements Serializable {
 	}
 	
 	public int checkAposta(HashMap<Veiculo,Integer> c){ 
-		int res=0;
+		int res=0,x = 0;
 		Veiculo v1 = null, v2 = null, v3 = null;
 		
 		TreeMap<Integer, Veiculo> aux2 = new TreeMap<Integer, Veiculo>();
@@ -108,13 +108,18 @@ public class Aposta implements Serializable {
 		if(aux2.containsKey(c.get(v)) == false && c.get(v)>0)	aux2.put(c.get(v), v);
 		else if(aux2.containsKey(c.get(v)) == true && c.get(v)>0) aux2.put(c.get(v)+1, v);
 		}
+		for(Veiculo l : aux2.values()){ System.out.println("BLA");}
+		
 		Collection<Veiculo> ca = aux2.values();
 		Iterator<Veiculo> veit = ca.iterator();
+		while(veit.hasNext() && x <3){
+	 v1 = veit.next();  System.out.println(v1.toString());
+	 v2 = veit.next();  System.out.println(v2.toString());
+	 v3 = veit.next();  System.out.println(v3.toString());
+	 x = 3;
+		}
 		
-	 v1 = veit.next(); System.out.println(v1.toString());
-	 v2 = veit.next();System.out.println(v2.toString());
-	 v3 = veit.next();System.out.println(v3.toString());
-	 	
+		
 	    if(v1.equals(p1) && v1 != null)  {	
 	    	res+=1;  System.out.println(" ACertou primeiro ");}
 	    if(v2.equals(p2) &&	v3 != null) 
