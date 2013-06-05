@@ -71,9 +71,9 @@ public class Manager {
 	}
 
 	/** Método que devolve um clone da base de dados */
-	public Manager clone() {
-		return new Manager(this);
-	}
+    public Manager clone() {
+    	return new Manager(this);
+    }
 
 	// toString
 	public String toString() {
