@@ -199,7 +199,7 @@ public class Main {
 			z = cit.fazCorrida(m.campstatus);
 		
 			for(Jogador h :m.getapostadores().values()) { 
-				h.CheckApostas(cit.getCircuito().getNomeCircuito(), m.campstatus);
+				h.CheckApostas(cit.getCircuito().getNomeCircuito(), z);
 			}
 		m.setCorida();
 		} 
