@@ -29,6 +29,7 @@ public class SC extends Veiculo {
 		else 
 			if (this.getVoltas() ==0) {
 				this.setPilotoActivo();
+				
 				this.setVoltas(-1);
 				res+=c.getTboxes();
 			}
