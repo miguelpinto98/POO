@@ -139,7 +139,7 @@ public class Aposta implements Serializable {
 		y=0;
 		x-=1;
 		veit = ca.iterator();
-		while(veit.hasNext() && y < x-1 ){
+		while(veit.hasNext() && y < x ){
 	   v3 = veit.next();  
 	
 	 x ++;
