@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.TreeMap;
 import java.util.HashMap;
+import java.util.HashSet;
 public class Manager {
 
 	// variaveis de instancia
@@ -131,4 +132,61 @@ public class Manager {
 	public void removeJogador(String n) {
 		this.apostadores.remove(n);
 	}
+public HashSet<Jogador>topJog(){
+	Jogador j1 = new Jogador();double d1 = 0,d2 = 0,d3 = 0;
+	Jogador j2 = new Jogador();
+	Jogador j3 = new Jogador();
+	for(Jogador x : this.apostadores.values()){
+		
+			
+			if(x.getDi() > d1) {
+				d3 = d2; 
+			   	d2 = d1; 
+			   	d1 = x.getDi();  
+			   	
+			  	j3 = j2.clone();
+			   	j2 = j1.clone();
+			   	j1 =  x.clone();
+			   	} 
+			else	
+				
+				if(x.getDi() > d2) {
+				d3 = d2; 
+			   	d2 =  x.getDi(); 
+			    
+			   	
+			  	j3 = j2.clone();
+			   	j2 = x.clone();
+			    
+			   	} 
+				
+			else
+				if(x.getDi() > d3) {
+					d3 = x.getDi(); 
+				   	 
+				    
+				   	
+				  	j3 = x.clone();
+				   	
+				    
+				   	} 
+				
+			        
+		
+	}
+		HashSet<Jogador>aux = new HashSet<Jogador>();
+		aux.add(j1);
+		aux.add(j2);
+		aux.add(j3);
+return aux;	                     
 }
+	
+
+
+
+
+
+}
+
+
+

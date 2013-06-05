@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.HashMap;
@@ -97,46 +98,24 @@ public class Aposta implements Serializable {
 	}
 	
 	public int checkAposta(HashMap<Veiculo,Integer> c){ 
-		int res=0, t1=0, t2=0, t3=0;
+		int res=0;
 		Veiculo v1 = null, v2 = null, v3 = null;
 		
 		TreeMap<Integer, Veiculo> aux2 = new TreeMap<Integer, Veiculo>();
 		
 		
 		for (Veiculo v : c.keySet()) {
-		if(aux2.containsKey(c.get(v)) == false)	aux2.put(c.get(v), v);
-		else aux2.put(c.get(v)+1, v);
+		if(aux2.containsKey(c.get(v)) == false && c.get(v)>0)	aux2.put(c.get(v), v);
+		else if(aux2.containsKey(c.get(v)) == true && c.get(v)>0) aux2.put(c.get(v)+1, v);
 		}
-	  Iterator<Integer> veit = aux2.keySet().iterator();
-	 t1 = veit.next(); v1 = aux2.get(t1);
-	 t2 = veit.next();v2 = aux2.get(t2);
-	 t3 = veit.next();v3 = aux2.get(t3);
-	 	/*for(Veiculo v : c.keySet()) {
-			if(c.get(v) < t1) {
-				t3 = t2; 
-			   	t2 = t1; 
-			   	t1 = c.get(v);  
-			   	
-			   if(v3!=null)	v3 = v2.clone();
-			   if(v2!=null)	v2 = v1.clone();
-			   	v1 =  v.clone();
-			   	} 
-			else	{
-				if (c.get(v) < t2) {
-					t3 = t2;
-					t2 = c.get(v); 
-					 if(v3!=null)v3 = v2.clone(); 
-					v2 =  v.clone();
-				   	}
-				else 
-					if(c.get(v) < t3) {
-						t3 = c.get(v);
-						v3 = v.clone();
-					}
-			}
-		}*/
-	    if(v1.equals(p1) && v1 != null)  	
-	    	res+=1;
+		Collection<Veiculo> ca = aux2.values();
+		Iterator<Veiculo> veit = ca.iterator();
+	 v1 = veit.next(); System.out.println(v1.toString());
+	 v2 = veit.next();
+	 v3 = veit.next();
+	 	
+	    if(v1.equals(p1) && v1 != null)  {	
+	    	res+=1;  System.out.println(" ACertou primeiro ");}
 	    if(v2.equals(p2) &&	v3 != null) 
 	    	res+=2;
 	    if(v3.equals(p3)&& v3 != null) 	
