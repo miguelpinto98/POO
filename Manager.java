@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.TreeMap;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 public class Manager {
 
 	// variaveis de instancia
@@ -133,52 +134,28 @@ public class Manager {
 		this.apostadores.remove(n);
 	}
 public HashSet<Jogador>topJog(){
-	Jogador j1 = new Jogador();double d1 = 0,d2 = 0,d3 = 0;
-	Jogador j2 = new Jogador();
-	Jogador j3 = new Jogador();
+	Jogador j1 = null;
+	Jogador j2 = null;
+	Jogador j3 =null;
+	TreeMap<Double,Jogador> aux = new TreeMap<Double,Jogador>();
 	for(Jogador x : this.apostadores.values()){
-		
+		if(x.getDg() != 0) aux.put(x.getDg(), x);
 			
-			if(x.getDi() > d1) {
-				d3 = d2; 
-			   	d2 = d1; 
-			   	d1 = x.getDi();  
-			   	
-			  	j3 = j2.clone();
-			   	j2 = j1.clone();
-			   	j1 =  x.clone();
-			   	} 
-			else	
-				
-				if(x.getDi() > d2) {
-				d3 = d2; 
-			   	d2 =  x.getDi(); 
-			    
-			   	
-			  	j3 = j2.clone();
-			   	j2 = x.clone();
-			    
-			   	} 
-				
-			else
-				if(x.getDi() > d3) {
-					d3 = x.getDi(); 
-				   	 
-				    
-				   	
-				  	j3 = x.clone();
-				   	
-				    
-				   	} 
+		
 				
 			        
 		
-	}
-		HashSet<Jogador>aux = new HashSet<Jogador>();
-		aux.add(j1);
-		aux.add(j2);
-		aux.add(j3);
-return aux;	                     
+	} 
+	
+	Iterator<Jogador> jogit = aux.values().iterator();
+if(jogit.hasNext()) j1 = jogit.next();
+if(jogit.hasNext())	j2 = jogit.next();
+if(jogit.hasNext())	j3 = jogit.next();
+HashSet<Jogador>aux2 = new HashSet<Jogador>();
+	if(j1 != null)	aux2.add(j1);
+	if(j2 != null)	aux2.add(j2);
+	if(j3 != null)	aux2.add(j3);
+return aux2;	                     
 }
 	
 

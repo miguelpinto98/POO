@@ -289,7 +289,7 @@ public class Main {
 		System.out.println("################## TOP JOGADORES ##################");
 	    System.out.println("#                                                 #");
 		for( Jogador xx : m.topJog()){
-			System.out.println(xx.getNome()+" Ja Ganhou "+xx.getDi());
+			System.out.println(xx.getNome()+" Ja Ganhou "+xx.getDg());
 			
 			
 		}
