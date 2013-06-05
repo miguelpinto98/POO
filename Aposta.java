@@ -110,9 +110,10 @@ public class Aposta implements Serializable {
 		}
 		Collection<Veiculo> ca = aux2.values();
 		Iterator<Veiculo> veit = ca.iterator();
+		
 	 v1 = veit.next(); System.out.println(v1.toString());
-	 v2 = veit.next();
-	 v3 = veit.next();
+	 v2 = veit.next();System.out.println(v2.toString());
+	 v3 = veit.next();System.out.println(v3.toString());
 	 	
 	    if(v1.equals(p1) && v1 != null)  {	
 	    	res+=1;  System.out.println(" ACertou primeiro ");}
