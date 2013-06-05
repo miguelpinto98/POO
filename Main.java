@@ -247,9 +247,9 @@ public class Main {
 			
 			for(int y : aux.keySet()) {
 				if(y>0)
-					System.out.println("#        " + y +"   "+ aux.get(y));
+					System.out.println("        " + y +"   "+ aux.get(y));
 				else
-					System.out.println("#        " + 0 +"   "+ aux.get(y));
+					System.out.println("        " + 0 +"   "+ aux.get(y));
 			}
 			System.out.println("#                                                       #");
 			System.out.println("#        1 - VOLTAR                                     #");
@@ -273,9 +273,9 @@ public class Main {
 			System.out.println("#                                                       #");
 			for(int y : aux6.keySet()) {
 				if(y>0)
-					System.out.println("#        " + y +"   "+ aux6.get(y));
+					System.out.println("       " + y +"   "+ aux6.get(y));
 				else
-					System.out.println("#        " + 0 +"   "+ aux6.get(y));
+					System.out.println("        " + 0 +"   "+ aux6.get(y));
 			}
 			
 			System.out.println("#        1 - VOLTAR                               #");
@@ -365,7 +365,7 @@ System.out.println("################  ESCOLHA JOGADOR  ##################");
 System.out.println("#                                                   #");
 for(String z : treeMap.keySet() ){
 	
-	System.out.println( "#       " + x +" " +treeMap.get(z).getNome() +"                #");
+	System.out.println( "       " + x +" - " +treeMap.get(z).getNome() +"                ");
 	x++;
 }
 System.out.println("#                                                   #");
@@ -418,7 +418,7 @@ public static void MenuApostas(Manager m, int i) throws FileNotFoundException, I
 			} //Menu faz aposta
 			else if(x==2){
 				System.out.println("################## APOSTAS   ##################");
-			System.out.println("#            "+j.getNome()+"                                       #");
+			System.out.println("#           "+j.getNome()+"                                       ");
 			
 			
 			           for(Aposta v : j.getApostaCorrente() ){
