@@ -98,61 +98,32 @@ public class Aposta implements Serializable {
 	}
 	
 	public int checkAposta(HashMap<Veiculo,Integer> c){ 
-		int res=0,x = 0,y=0;
+		TreeMap<Integer, Veiculo> aux2 = new TreeMap<Integer, Veiculo>();
+		int res=0;
 		Veiculo v1 = null, v2 = null, v3 = null;
 		
-		TreeMap<Integer, Veiculo> aux2 = new TreeMap<Integer, Veiculo>();
-		
-		
 		for (Veiculo v : c.keySet()) {
-		if(aux2.containsKey(c.get(v)) == false && c.get(v)>0)	aux2.put(c.get(v), v);
-		else if(aux2.containsKey(c.get(v)) == true && c.get(v)>0) aux2.put(c.get(v)+1, v);
+			if(aux2.containsKey(c.get(v)) == false && c.get(v)>0)
+				aux2.put(c.get(v), v);
+			else
+				if(aux2.containsKey(c.get(v)) == true && c.get(v)>0)
+					aux2.put(c.get(v)+1, v);
 		}
-		
 		
 		Collection<Veiculo> ca = aux2.values();
 		Iterator<Veiculo> veit = ca.iterator();
-	//teste
-		while(veit.hasNext()){
-			System.out.println(veit.next().getMarca());
-			
-			
-		}
-		//teste
-		
-		
-		veit = ca.iterator();
-		while(veit.hasNext()  ){
-	 v2 = veit.next();  
 	
-	 x ++;
-		}
-		
-		
-		veit = ca.iterator();
-		x-=1;
-		while(veit.hasNext() && y < x  ){
-	 v1 = veit.next();  
-	y++;
-	 
-		}
-		y=0;
-		x-=1;
-		veit = ca.iterator();
-		while(veit.hasNext() && y < x-1 ){
-	   v3 = veit.next();  
-	
-	 x ++;
-		}System.out.println(v1.toString());
-		System.out.println(v2.toString());
-		System.out.println(v3.toString());
-	    if(v1.equals(p1) && v1 != null)  {	
-	    	res+=1;  }
+		v1=veit.next();
+		v2=veit.next();
+		v3=veit.next();
+
+	    if(v1.equals(p1) && v1 != null)	
+	    	res+=1;
 	    if(v2.equals(p2) &&	v2 != null) 
 	    	res+=2;
 	    if(v3.equals(p3)&& v3 != null) 	
 	    	res+=4;
-	   
+	    
 	    return res; 
 	}
 }
