@@ -134,7 +134,7 @@ public class Manager {
 		this.apostadores.remove(n);
 	}
 	
-	public HashSet<Jogador>topJog(){
+	public HashSet<Jogador>topJog() {
 		Jogador j1 = null, j2 = null, j3 =null;
 		TreeMap<Double,Jogador> aux = new TreeMap<>();
 		for(Jogador x : this.apostadores.values()){
@@ -160,6 +160,3 @@ public class Manager {
 		return aux2;	                     
 	}
 }
-
-
-
