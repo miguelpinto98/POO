@@ -159,29 +159,51 @@ public class Jogador implements Serializable {
 	
 	public void CheckApostas(String s, HashMap<Veiculo,Integer> c ) {
 	   
-		for(int i=0; i<this.adecorrer.size(); i++){
-	    if(s.equals(this.adecorrer.get(i).getCorrida().getCircuito().getNomeCircuito())) { // Falta decidir o que fazer quando se ganha
-	       
-	        if(this.adecorrer.get(i).checkAposta(c)== 0) di -= this.adecorrer.get(i).getQuant();
-	    else if( this.adecorrer.get(i).checkAposta(c) == 1){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.5; dg +=this.adecorrer.get(i).getQuant()*1.5-this.adecorrer.get(i).getQuant();  } // Acertou primeiro
-	        
-	       else  if(this.adecorrer.get(i).checkAposta(c) == 2){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.3; dg +=this.adecorrer.get(i).getQuant()*1.3-this.adecorrer.get(i).getQuant();  } //Acertou segundo
-	        else if(this.adecorrer.get(i).checkAposta(c) == 3){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.15; dg +=this.adecorrer.get(i).getQuant()*1.8-this.adecorrer.get(i).getQuant();  } // Acertou primeiro e segundo
-	        else if(this.adecorrer.get(i).checkAposta(c) == 4 ){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.15; dg +=this.adecorrer.get(i).getQuant()*1.15-this.adecorrer.get(i).getQuant();  }// Acertou terceiro
-	         
-	        else if(this.adecorrer.get(i).checkAposta(c) == 5){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.65; dg +=this.adecorrer.get(i).getQuant()*1.65-this.adecorrer.get(i).getQuant();  } // Acertou terceiro e primeiro
-	         else  if(this.adecorrer.get(i).checkAposta(c) == 6 ){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.45; dg +=this.adecorrer.get(i).getQuant()*1.45-this.adecorrer.get(i).getQuant();  }// Acertou terceiro e segundo
-	        
-	        
-	        else if(this.adecorrer.get(i).checkAposta(c) == 7 ){ di-=this.adecorrer.get(i).getQuant(); dc+=this.adecorrer.get(i).getQuant()*1.95; dg +=this.adecorrer.get(i).getQuant()*1.95-this.adecorrer.get(i).getQuant();  }// Acertou todos      
-	      
-	                
-	        
-	       }
-	    this.hist.add(this.adecorrer.get(i).clone());
-        this.adecorrer.remove(this.adecorrer.get(i));
-	    }
-	   }
+		for(int i=0; i<this.adecorrer.size(); i++) {
+			if(s.equals(this.adecorrer.get(i).getCorrida().getCircuito().getNomeCircuito())) {
+				if(this.adecorrer.get(i).checkAposta(c)== 0) 
+					di -= this.adecorrer.get(i).getQuant();
+				else 
+					if( this.adecorrer.get(i).checkAposta(c) == 1) {	// Acertou primeiro
+						di-=this.adecorrer.get(i).getQuant();
+						dc+=this.adecorrer.get(i).getQuant()*1.5;
+						dg +=this.adecorrer.get(i).getQuant()*1.5-this.adecorrer.get(i).getQuant();
+					} else
+						if(this.adecorrer.get(i).checkAposta(c) == 2) {		//Acertou segundo
+							di-=this.adecorrer.get(i).getQuant();
+							dc+=this.adecorrer.get(i).getQuant()*1.3;
+							dg +=this.adecorrer.get(i).getQuant()*1.3-this.adecorrer.get(i).getQuant();
+						} else 
+							if(this.adecorrer.get(i).checkAposta(c) == 3) {		// Acertou primeiro e segundo
+								di-=this.adecorrer.get(i).getQuant();
+								dc+=this.adecorrer.get(i).getQuant()*1.15;
+								dg +=this.adecorrer.get(i).getQuant()*1.8-this.adecorrer.get(i).getQuant();
+							} else
+								if(this.adecorrer.get(i).checkAposta(c) == 4) {		// Acertou terceiro
+									di-=this.adecorrer.get(i).getQuant();
+									dc+=this.adecorrer.get(i).getQuant()*1.15;
+									dg +=this.adecorrer.get(i).getQuant()*1.15-this.adecorrer.get(i).getQuant();
+								} else
+									if(this.adecorrer.get(i).checkAposta(c) == 5) {		// Acertou terceiro e primeiro
+										di-=this.adecorrer.get(i).getQuant();
+										dc+=this.adecorrer.get(i).getQuant()*1.65;
+										dg +=this.adecorrer.get(i).getQuant()*1.65-this.adecorrer.get(i).getQuant();
+									} else
+										if(this.adecorrer.get(i).checkAposta(c) == 6 ) {	// Acertou terceiro e segundo
+											di-=this.adecorrer.get(i).getQuant();
+											dc+=this.adecorrer.get(i).getQuant()*1.45;
+											dg +=this.adecorrer.get(i).getQuant()*1.45-this.adecorrer.get(i).getQuant();
+										} else 
+											if(this.adecorrer.get(i).checkAposta(c) == 7 ) {
+												di-=this.adecorrer.get(i).getQuant();
+												dc+=this.adecorrer.get(i).getQuant()*1.95;
+												dg +=this.adecorrer.get(i).getQuant()*1.95-this.adecorrer.get(i).getQuant();
+												}	// Acertou todos 
+				}
+			this.hist.add(this.adecorrer.get(i).clone());
+			this.adecorrer.remove(this.adecorrer.get(i));
+			}
+	 }
 
 	public void fazAposta(Corrida r,double quant , Veiculo p1,Veiculo p2,Veiculo p3) {
 		Aposta p = new Aposta(quant, p1,  p2,  p3,r);
