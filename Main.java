@@ -238,7 +238,7 @@ public class Main {
 		System.out.println("#        2 - TROFÉU HÍBRIDO                             #");
 		System.out.println("#        3 - TOP JOGADORES                              #");
 		System.out.println("#        4 - CORRIDAS AGENDADAS                         #");
-		System.out.println("#        5 - VEÍCULOS DO CAMPEONATO                     #");
+		System.out.println("#        5 - VEÍCULOS NO CAMPEONATO                     #");
 		System.out.println("#        6 - VOLTAR AO MENU PRINCIPAL                   #");
 		System.out.println("#                                                       #");
 		System.out.println("#        Escolha uma opção:                             #");
@@ -309,7 +309,7 @@ public class Main {
 					System.out.println("##################### TOP 3 JOGADORES ###################");
 				    System.out.println("#                                                       #");
 					for(Jogador xx : m.topJog())
-						System.out.println(xx.getNome()+" Já ganhou "+xx.getDg());
+						System.out.println("#        "+xx.getNome()+" Já ganhou "+xx.getDg());
 				    System.out.println("#                                                       #");
 					System.out.println("#        1 - VOLTAR                                     #");
 					System.out.println("#########################################################");
@@ -423,7 +423,7 @@ public class Main {
 	public static void MenuJogadorAposta(Manager m, int ejog, Jogador j) throws FileNotFoundException, IOException {
 		int x=0;
 		
-		//do {
+		do {
 		System.out.println("##################### MENU APOSTAS ######################");
 		System.out.println("#                                                       #");
 		System.out.println("#        Jogador: "+j.getNome());
@@ -445,6 +445,7 @@ public class Main {
 			MenuFazAposta(m,ejog);
 		else 
 			if(x==2) {
+				do {
 				System.out.println("##################### APOSTAS EM VIGOR ##################");
 				System.out.println("#                                                       #");
 				
@@ -453,9 +454,17 @@ public class Main {
 				
 				System.out.println("#                                                       #");
 				System.out.println("#        1 - VOLTAR                                     #");
-				System.out.println("#########################################################");	
+				System.out.println("#########################################################");
+				option = s.nextInt();
+
+				if(option==1)
+					MenuJogadorAposta(m, ejog, j);
+				else
+					System.out.println("Opção Inválida!");
+				} while(option>1);	
 			} else 
 				if(x==3) {
+					do {
 					System.out.println("################### HISTÓRICO APOSTAS ###################");
 					System.out.println("#                                                       #");
 					
@@ -465,14 +474,55 @@ public class Main {
 					System.out.println("#                                                       #");
 					System.out.println("#        1 - VOLTAR                                     #");
 					System.out.println("#########################################################");
+					option = s.nextInt();
+
+					if(option==1)
+						MenuJogadorAposta(m, ejog, j);
+					else
+						System.out.println("Opção Inválida!");
+					} while(option>1);	
 				} else 
 					if(x==4) {
-						System.out.println("Saldo Actual: "+j.getDc());
+						do {
+						System.out.println("#    * Saldo Actual: "+j.getDc());
+						System.out.println("#                                                       #");
+						System.out.println("#    1 - VOLTAR                                         #");
+						System.out.println("#########################################################");
+						option = s.nextInt();
+
+						if(option==1)
+							MenuJogadorAposta(m, ejog, j);
+						else
+							System.out.println("Opção Inválida!");
+						} while(option>1);	
 					} else
 						if(x==5) {
-							System.out.println("Dinheiro Investido: "+j.getDi()); 
+							do {
+							System.out.println("#    * Dinheiro Investido: "+j.getDi());
+							System.out.println("#                                                       #");
+							System.out.println("#    1 - VOLTAR                                         #");
+							System.out.println("#########################################################");
+							option = s.nextInt();
+
+							if(option==1)
+								MenuJogadorAposta(m, ejog, j);
+							else
+								System.out.println("Opção Inválida!");
+							} while(option>1);	
 						} else
-							if(x==6) {;
+							if(x==6) {
+								do {
+								System.out.println("#    * Dinheiro Ganho: "+j.getDg());
+								System.out.println("#                                                       #");
+								System.out.println("#    1 - VOLTAR                                         #");
+								System.out.println("#########################################################");
+								option = s.nextInt();
+
+								if(option==1)
+									MenuJogadorAposta(m, ejog, j);
+								else
+									System.out.println("Opção Inválida!");
+								} while(option>1);	
 							} else
 								if(x==7) {
 									MenuEscolheJogador(m, -1);
@@ -481,7 +531,7 @@ public class Main {
 										MenuPrincipal(m);
 									} else
 										System.out.println("Opção Inválida!");
-		x = s.nextInt();
+		} while(x>8);
 	}
 	
 	private static void MenuFazAposta(Manager m, int jog) throws FileNotFoundException, IOException {
@@ -515,11 +565,11 @@ public class Main {
 			x++;
 		}
 		System.out.println("#                                                   #");
-		System.out.println("#    1 - Voltar                                     #");
+		System.out.println("#    "+x+" - Voltar                                    #");
 		System.out.println("#####################################################");
 		x = s.nextInt();
 		
-		if(x==1)
+		if(x==m.getCampeonato().getCorridas().size()+1)
 			MenuJogadorAposta(m,jog,j);
 			
 		Iterator<Corrida> corrit = m.getCampeonato().getCorridas().iterator();
@@ -546,7 +596,7 @@ public class Main {
 					}
 				}
 			System.out.println("Saldo Actual: "+ j.getDc());  
-			System.out.println("* Insira Quantia: ");
+			System.out.println("#    * Insira quantia a apostar:                    #");
 			q=s.nextDouble();
 		
 			if(q<=j.getDc()) {	
@@ -565,7 +615,7 @@ public class Main {
 	public static Veiculo escolheVeiculo(Corrida corr,int classi) {
 		int x = 0 ,y = 0;
 		Veiculo vi = null;
-		System.out.println("######### ESCOLHA O "+classi+"º classificado ########");
+		System.out.println("######### ESCOLHA O "+classi+"º classificado #################");
 		System.out.println("#                                                   #");
 		
 		for(Veiculo v : corr.getConjuntoVeiculos()){
