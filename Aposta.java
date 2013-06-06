@@ -25,7 +25,6 @@ public class Aposta implements Serializable {
 		this.corr = p.getCorrida().clone();
 	}
 
-	// get
 	public double getQuant() {
 		return this.quant;
 	}

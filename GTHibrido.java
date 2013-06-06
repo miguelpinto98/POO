@@ -45,8 +45,7 @@ public class GTHibrido extends GT implements Hibrida {
 			if(this.getVoltas()==0) {
 				this.setPilotoActivo();
 				this.setVoltas(-1);
-				res+=c.getTboxes();
-				
+				res+=c.getTboxes();	
 			}
 		
 		if(r.nextInt(100) >= calculaFiabilidade())

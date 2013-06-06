@@ -13,7 +13,6 @@ public abstract class GT extends Veiculo{
 		super(g);
 	}
 	
-	
 	public abstract int calculaFiabilidade() ;
 	
 	public abstract int tempoProximaVolta(Circuito c, boolean chuva) throws Exception ;

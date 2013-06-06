@@ -33,7 +33,6 @@ public class Circuito implements Serializable{
 		this.tdesviochuva = 0;
 		this.tboxes = 0;
 		this.recordista = new Piloto();
-
 	}
 
 	public Circuito(Circuito c) {
@@ -48,7 +47,6 @@ public class Circuito implements Serializable{
 		this.tdesviochuva = c.getDesvioChuva();
 		this.tboxes = c.getTboxes();
 		this.recordista = c.getRecordista().clone();
-
 	}
 
 	//GETTERS
@@ -172,12 +170,10 @@ public class Circuito implements Serializable{
 			Circuito v = (Circuito)o;
 			return (this.getDistancia() == v.getDistancia() && this.getNvoltas() == v.getNvoltas() && this.getTrecord()==v.getTrecord());
 		}
-
 	}
+	
 	//Clone
-
 	public Circuito clone() {
 		return new Circuito(this);
-
 	}
 }

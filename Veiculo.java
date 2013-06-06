@@ -282,7 +282,7 @@ public abstract class Veiculo implements Serializable {
 		return v;
 	}
     
-	public static Veiculo geraVeiculo() { //falta a ideia do griffin no fim
+	public static Veiculo geraVeiculo() {
 		Piloto p1 = Piloto.geraPiloto();
 		Piloto p2 = Piloto.geraPiloto();
 		Veiculo v = null;
@@ -325,8 +325,6 @@ public abstract class Veiculo implements Serializable {
 		
 		x++;
 		}
-		return k;
-		
-		
+		return k;	
 	}
 }
