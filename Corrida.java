@@ -68,6 +68,7 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 		s.append("Circuito: " + this.crt.getNomeCircuito() + "\n");
 		s.append("Número de voltas: " + this.crt.getNvoltas() + "\n");
 		s.append("Número de veiculos: " + this.conjveiculos.size() + "\n");
+		s.append("Tempo Recorde: " + getTempoMS(this.crt.getTrecord())+"\n");
 		s.append("Piso Molhado: " + this.piso + "\n");
 		s.append("---------------------------------------------------------\n");
 
@@ -168,7 +169,7 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 		
 		while (aux2it.hasNext()) {
 			v1 = (Veiculo) aux2it.next();
-			System.out.println((x+1)+"º Classificado "+v1.getMarca()+" "+v1.getModelo()+"\t"+getTempoMS(aux.get(v1)));
+			System.out.println("#  "+(x+1)+"º Classificado "+v1.getMarca()+" "+v1.getModelo()+"\t"+getTempoMS(aux.get(v1)));
 			
             if(c.get(v1) < 0 && v1.veHib() == false )
                 c.put(v1, (30 - x * 2));
