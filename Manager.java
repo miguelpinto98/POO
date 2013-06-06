@@ -133,36 +133,32 @@ public class Manager {
 	public void removeJogador(String n) {
 		this.apostadores.remove(n);
 	}
-public HashSet<Jogador>topJog(){
-	Jogador j1 = null;
-	Jogador j2 = null;
-	Jogador j3 =null;
-	TreeMap<Double,Jogador> aux = new TreeMap<Double,Jogador>();
-	for(Jogador x : this.apostadores.values()){
-		if(x.getDg() != 0) aux.put(x.getDg(), x);
+	
+	public HashSet<Jogador>topJog(){
+		Jogador j1 = null, j2 = null, j3 =null;
+		TreeMap<Double,Jogador> aux = new TreeMap<>();
+		for(Jogador x : this.apostadores.values()){
+			if(x.getDg() != 0)
+				aux.put(x.getDg(), x);  
+		} 
+	
+		Iterator<Jogador> jogit = aux.values().iterator();
+			if(jogit.hasNext()) 
+				j1 = jogit.next();
+			if(jogit.hasNext())	
+				j2 = jogit.next();
+			if(jogit.hasNext())	
+				j3 = jogit.next();
 			
-		
-				
-			        
-		
-	} 
-	
-	Iterator<Jogador> jogit = aux.values().iterator();
-if(jogit.hasNext()) j1 = jogit.next();
-if(jogit.hasNext())	j2 = jogit.next();
-if(jogit.hasNext())	j3 = jogit.next();
-HashSet<Jogador>aux2 = new HashSet<Jogador>();
-	if(j1 != null)	aux2.add(j1);
-	if(j2 != null)	aux2.add(j2);
-	if(j3 != null)	aux2.add(j3);
-return aux2;	                     
-}
-	
-
-
-
-
-
+		HashSet<Jogador>aux2 = new HashSet<Jogador>();
+		if(j1 != null)
+			aux2.add(j1);
+		if(j2 != null)
+			aux2.add(j2);
+		if(j3 != null)
+			aux2.add(j3);
+		return aux2;	                     
+	}
 }
 
 
