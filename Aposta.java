@@ -73,11 +73,11 @@ public class Aposta implements Serializable {
 
     /** Método que represente uma aposta sob forma de string */
 	public String toString() {
-		StringBuilder s = new StringBuilder("+++ Aposta +++\n");
-
-		s.append("Aposto: " + this.quant);
-		s.append("Veiculo: \n" + this.p1.toString() + "\n" + this.p2.toString() + "\n" +this.p3.toString() + "\n");
-		s.append("Corrida: " + this.corr.toString());
+		StringBuilder s = new StringBuilder();
+		
+		s.append("Aposta, Circuito: "+this.corr.getCircuito().getNomeCircuito() + "\n");
+		s.append("Quantia: " + this.quant + "\n");
+		s.append("Veiculos: \n" + this.p1.toString() + "\n" + this.p2.toString() + "\n" +this.p3.toString());
 
 		return s.toString();
 	}

@@ -90,68 +90,53 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 	}
 
 	public HashMap<Veiculo, Integer> fazVolta() {
-		int x = 0, min = 900000; Veiculo vw  = null;
-		HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
+		int x = 0, min = Integer.MAX_VALUE;
+		Veiculo vw  = null;
+		HashMap<Veiculo, Integer> aux = new HashMap<>();
 		HashSet<Veiculo> percorrer = this.getConjuntoVeiculos();
-		for (Veiculo v :percorrer) {
-
-			try { conjveiculos.remove(v);
+		
+		for (Veiculo v : percorrer) {
+			try { 
+				conjveiculos.remove(v);
 				x = v.tempoProximaVolta(this.crt, this.piso);
 				conjveiculos.add(v);
 				aux.put(v, x);
-				if (x < min){ min = x;  vw = v.clone();}
-
+				if(x<min) {
+					min = x;
+					vw = v.clone();
+				}
 			} catch (Exception e) {
 
 				conjveiculos.remove(v);
 				aux.put(v, -1);
 			}
-
-			
 		}
-		System.out.println("Vencedor " + vw.getMarca()+" " + vw.getModelo()+ " Tempo: " + min/1000);
+		System.out.println("Vencedor " + vw.getMarca()+" " + vw.getModelo()+ " Tempo: " + getTempoMS(min));
 		return aux;
 	}
 
 	public void fazVoltas(HashMap<Veiculo, Integer> c, int nvoltas) {
-		HashMap<Veiculo, Integer> aux = new HashMap<Veiculo, Integer>();
-		
+		HashMap<Veiculo, Integer> aux = new HashMap<>();
 		
 		for (Veiculo v : conjveiculos) {
 			v.voltaracio(nvoltas);
 		}
 		
 		for (int i = 1; i <= nvoltas; i++) {
-			System.out.println();
-			System.out.println("Volta "+ i);
+			System.out.println("\nVolta "+ i);
 			aux = this.fazVolta();
-			
-
 			for (Veiculo v : aux.keySet()) {
-
 				if (aux.get(v) != -1)
 					c.put(v, c.get(v) + aux.get(v));
-				else{
-					
+				else {
 					c.put(v, -1);
-				    System.out.println( v.getMarca() +" "+ v.getModelo() +" DNF " );
-					
-					
-			   
-					
+				    System.out.println( v.getMarca() +" "+ v.getModelo() +" DNF " );					
 				}
-				
 			}
-			try{Thread.sleep(1000);
-			                       
-				
-				
-			
-			
-			}catch(Exception e){}
+			try{
+				Thread.sleep(1000);			
+			} catch(Exception e) {}
 		}
-		
-
 	}
 
 	
@@ -165,52 +150,58 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 		for (Veiculo v : conjveiculos) {
 			aux.put(v, 0);
 		}
-System.out.println(this.crt.getNomeCircuito() + "\n");
+			System.out.println(this.crt.getNomeCircuito());
 		this.fazVoltas(aux, crt.getNvoltas());
 		
 		for (Veiculo v : conjveiculos) {
-		if(aux2.containsKey(aux.get(v)) == false)	aux2.put(aux.get(v), v);
-		else aux2.put(aux.get(v)+1, v);
+			if(aux2.containsKey(aux.get(v))==false)
+				aux2.put(aux.get(v), v);
+			else
+				aux2.put(aux.get(v)+1, v);
 		}
 
 		Collection<Veiculo> ca = aux2.values();
 		Iterator<Veiculo> aux2it = ca.iterator();
-		System.out.println("################## CLASSIFICA�AO CORRIDA ###################");
+		System.out.println("#########################################################");
+		System.out.println("################# CLASSIFICAÇÃO CORRIDA #################");
 		System.out.println("#                                                       #");
+		
 		while (aux2it.hasNext()) {
 			v1 = (Veiculo) aux2it.next();
-			System.out.println( (x+1) +" classificado " +v1.getMarca() +" "+ v1.getModelo() +" "+ aux.get(v1));
+			System.out.println((x+1)+"º Classificado "+v1.getMarca()+" "+v1.getModelo()+"\t"+getTempoMS(aux.get(v1)));
 			
-                 if(c.get(v1) < 0&& v1.veHib() == false )
-                	 c.put(v1,   (30 - x * 2));
-			else if (c.get(v1) >= 0 && v1.veHib() == false )c.put(v1, c.get(v1) + (30 - x * 2));
+            if(c.get(v1) < 0 && v1.veHib() == false )
+                c.put(v1, (30 - x * 2));
+			else
+				if (c.get(v1) >= 0 && v1.veHib() == false )
+					c.put(v1, c.get(v1) + (30 - x * 2));
 			x++;
 		}
 		aux2it = ca.iterator();
 		x = 0;
 		while (aux2it.hasNext()) {
 			v1 = (Veiculo) aux2it.next();
-			
-			
-                 if(c.get(v1) < 0&& v1.veHib() == true ){
-                	 c.put(v1,   (30 - x * 2)); x++;}
-			else if (c.get(v1) >= 0 &&v1.veHib() == true ){c.put(v1, c.get(v1) + (30 - x * 2));x++;}
-			
+
+            if(c.get(v1) < 0&& v1.veHib() == true) {
+            	c.put(v1,   (30 - x * 2)); 
+            	x++;
+            } else 
+            	if(c.get(v1) >= 0 &&v1.veHib() == true) {
+            		c.put(v1, c.get(v1) + (30 - x * 2));
+            		x++;
+            	}
 		}
 		
 		System.out.println("#                                                       #");
-		
 		System.out.println("#########################################################");
-		/* falta classifica��o da corrida
-		
-		try{Thread.sleep(5000);
-		
-		
-		}catch(Exception e){}*/
 		
 		return aux;
 	}
 	
+	private String getTempoMS(int tempo) {
+		return (((tempo/1000)/60)+":"+((tempo/1000)%60)+"."+(tempo%1000));
+	}
+
 	public static Circuito geraCircuito() {
 		Piloto p = new Piloto(Piloto.geraPiloto());
 		Circuito c = new Circuito();
