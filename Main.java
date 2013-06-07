@@ -234,11 +234,11 @@ public class Main {
 	   	do {
 		System.out.println("#################### MENU CONSULTAS #####################");
 		System.out.println("#                                                       #");
-		System.out.println("#        1 - CLASSIFICAÇÃO CAMPEONATO GERAL             #");
-		System.out.println("#        2 - TROFÉU HÍBRIDO                             #");
+		System.out.println("#        1 - CLASSIFICAÇAO CAMPEONATO GERAL             #");
+		System.out.println("#        2 - TROFEU HIBRIDO                             #");
 		System.out.println("#        3 - TOP JOGADORES                              #");
 		System.out.println("#        4 - CORRIDAS AGENDADAS                         #");
-		System.out.println("#        5 - VEÍCULOS NO CAMPEONATO                     #");
+		System.out.println("#        5 - VEICULOS NO CAMPEONATO                     #");
 		System.out.println("#        6 - VOLTAR AO MENU PRINCIPAL                   #");
 		System.out.println("#                                                       #");
 		System.out.println("#        Escolha uma opção:                             #");
@@ -255,7 +255,7 @@ public class Main {
 				aux.put(m.campstatus.get(v), v.getMarca()+" "+v.getModelo());
 			}
 			
-			System.out.println("################## CLASSIFICAÇÃO GERAL ##################");
+			System.out.println("################## CLASSIFICAÇAO GERAL ##################");
 			System.out.println("#    Pontos                                             #");
 			
 			for(int y : aux.keySet()) {
@@ -277,7 +277,7 @@ public class Main {
 		} else 
 			if(x==2) {
 				do {
-				System.out.println("##################### TROFEU HÍBRIDO ####################");
+				System.out.println("##################### TROFEU HIBRIDO ####################");
 			    HashMap<Integer,String> aux6 = new HashMap<Integer,String>();
 				 
 				for(Veiculo v : m.campstatus.keySet()) {
@@ -285,7 +285,7 @@ public class Main {
 					aux6.put(m.campstatus.get(v), v.getMarca()+" "+v.getModelo());
 				}
 				
-				System.out.println("################## CLASSIFICAÇÃO GERAL ##################");
+				System.out.println("################## CLASSIFICACAO GERAL ##################");
 				System.out.println("#     Pontos                                            #");
 				for(int y : aux6.keySet()) {
 					if(y>0)
@@ -328,7 +328,7 @@ public class Main {
 						
 						for(Corrida r : m.getCampeonato().getCorridas()) { 
 							if(corr == m.getCorrida()) {	
-								System.out.println("################## PRÓXIMA CORRIDA ######################");	
+								System.out.println("################## PROXIMA CORRIDA ######################");	
 								System.out.println("#                                                       #");
 								System.out.print(r.toString());
 								System.out.println("#                                                       #");
@@ -352,7 +352,7 @@ public class Main {
 					} else 
 						if(x==5) {
 							do {
-							System.out.println("################### VEÍCULOS EM PROVA ###################");
+							System.out.println("################### VEICULOS EM PROVA ###################");
 							System.out.println("#                                                       #");
 							
 							Iterator<Corrida> itc = m.getCampeonato().getCorridas().iterator();
@@ -430,7 +430,7 @@ public class Main {
 		System.out.println("#                                                       #");
 		System.out.println("#        1 - FAZER APOSTA CORRIDA                       #");
 		System.out.println("#        2 - VER APOSTAS POR ACONTECER                  #");
-		System.out.println("#        3 - VER HISTÓRICO                              #");
+		System.out.println("#        3 - VER HISTORICO                              #");
 		System.out.println("#        4 - SALDO CURRENTE                             #");
 		System.out.println("#        5 - DINHEIRO INVESTIDO                         #");
 		System.out.println("#        6 - DINHEIRO GANHO                             #");
@@ -460,12 +460,12 @@ public class Main {
 				if(option==1)
 					MenuJogadorAposta(m, ejog, j);
 				else
-					System.out.println("Opção Inválida!");
+					System.out.println("Opção Invalida!");
 				} while(option>1);	
 			} else 
 				if(x==3) {
 					do {
-					System.out.println("################### HISTÓRICO APOSTAS ###################");
+					System.out.println("################### HISTORICO APOSTAS ###################");
 					System.out.println("#                                                       #");
 					
 				    for(Aposta v : j.getHistorico())
@@ -479,7 +479,7 @@ public class Main {
 					if(option==1)
 						MenuJogadorAposta(m, ejog, j);
 					else
-						System.out.println("Opção Inválida!");
+						System.out.println("Opção Invalida!");
 					} while(option>1);	
 				} else 
 					if(x==4) {
@@ -507,7 +507,7 @@ public class Main {
 							if(option==1)
 								MenuJogadorAposta(m, ejog, j);
 							else
-								System.out.println("Opção Inválida!");
+								System.out.println("Opção Invalida!");
 							} while(option>1);	
 						} else
 							if(x==6) {
@@ -558,7 +558,7 @@ public class Main {
 		for(Corrida r : m.getCampeonato().getCorridas()){
 			if(x >= m.getCorrida()) {
 				if(x == m.getCorrida())
-					System.out.println("#    "+x+" "+ r.getCircuito().getNomeCircuito() + " <--- PRÓX. CORRIDA");
+					System.out.println("#    "+x+" "+ r.getCircuito().getNomeCircuito() + " <--- PROX. CORRIDA");
 				else
 					System.out.println("#    "+x+" "+ r.getCircuito().getNomeCircuito());
 				}
@@ -584,14 +584,14 @@ public class Main {
 			p2 = escolheVeiculo(corr,2);
 			if(p2.equals(p1)) {
 				while(p2.equals(p1)) {
-					System.out.println("Esse veículo já existe na aposta.");
+					System.out.println("Veiculo ja existe na aposta.");
 					p2 = escolheVeiculo(corr,2);
 					}
 				}
 			p3 = escolheVeiculo(corr,3);
 			if(p3.equals(p1)|| p3.equals(p2)) {
 				while(p2.equals(p1)|| p3.equals(p2)) {
-					System.out.println("Esse veículo já existe na aposta."); 
+					System.out.println("Veiculo ja existe na aposta."); 
 					p3 = escolheVeiculo(corr,3);
 					}
 				}
