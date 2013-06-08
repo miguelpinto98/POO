@@ -165,18 +165,12 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 		for (Veiculo v : conjveiculos) {
 			aux.put(v, 0);
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 			System.out.println(this.crt.getNomeCircuito());
 			System.out.println("Chuva: "+ this.getPiso());
 
-=======
-			System.out.println(this.crt.getNomeCircuito()+"\nPiso Molhado: "+this.piso);
->>>>>>> eb8488516340092c18259e5f56712b4da53129b2
-=======
-			System.out.println(this.crt.getNomeCircuito()+"\nPiso Molhado: "+this.piso);
->>>>>>> eb8488516340092c18259e5f56712b4da53129b2
+
 		this.fazVoltas(aux, crt.getNvoltas());
 		
 		for (Veiculo v : conjveiculos) {
