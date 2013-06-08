@@ -108,7 +108,7 @@ public class Piloto implements Serializable{
 		s.append(" Nacionalidade: " + this.nacionalidade);
 		s.append(" Palmares: " + this.palmares);
 		s.append(" Qualidade: " + this.qualidade);
-		s.append(" Bom condutor à chuva: " + this.chuva);
+		s.append(" Bom condutor a chuva: " + this.chuva);
 
 		return s.toString();
 	}
@@ -197,8 +197,8 @@ public class Piloto implements Serializable{
 		switch(x) {
             case 0: s = "Portuguesa"; break;
             case 1: s = "Albanesa,"; break;
-            case 2: s = "Alemã"; break;
-            case 3: s = "Austríaca"; break;
+            case 2: s = "Alemao"; break;
+            case 3: s = "Austriaca"; break;
             case 4: s = "Belga"; break;
             case 5: s = "Croata"; break;
             case 6: s = "Dinamarquesa"; break;
