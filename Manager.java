@@ -3,6 +3,7 @@ import java.util.TreeMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+
 public class Manager {
 
 	// variaveis de instancia
@@ -10,7 +11,6 @@ public class Manager {
 	private TreeMap<String, Jogador> apostadores;
 	public int corrida;
 	public HashMap<Veiculo, Integer> campstatus;
-	
 	
 	public Manager() {
 		this.campeonato = new Campeonato();
@@ -73,7 +73,7 @@ public class Manager {
 		this.apostadores = c;
 	}
 
-	/** Método que devolve um clone da base de dados */
+	/** M��todo que devolve um clone da base de dados */
     public Manager clone() {
     	return new Manager(this);
     }
