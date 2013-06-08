@@ -80,7 +80,7 @@ public class Campeonato implements Serializable {
 	
 	public static Campeonato geraCampeonato() {
 		Random r = new Random();
-		int x=r.nextInt(10)+11, i=0;
+		int x=r.nextInt(15)+15, i=0;
 		TreeSet<Corrida> aux = new TreeSet<Corrida>();
 		HashSet<Veiculo> aux2 = new HashSet<Veiculo>();
 		
