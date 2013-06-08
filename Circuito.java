@@ -147,13 +147,13 @@ public class Circuito implements Serializable{
 		
 		s.append("Distancia: " + this.distancia + "\n");
 		s.append("Numero de voltas: " + this.nvoltas + "\n");
-		s.append("Tempo medio PC1: " + this.tempoPC1 + "\n");
-		s.append("Tempo medio PC2: " + this.tempoPC2 + "\n");
-		s.append("Tempo medio GT: " + this.tempoGT + "\n");
-		s.append("Tempo medio SC: " + this.tempoSC + "\n");
+		s.append("Tempo médio PC1: " + this.tempoPC1 + "\n");
+		s.append("Tempo médio PC2: " + this.tempoPC2 + "\n");
+		s.append("Tempo médio GT: " + this.tempoGT + "\n");
+		s.append("Tempo médio SC: " + this.tempoSC + "\n");
 		s.append("Tempo Record: " + this.trecord + "\n");
 		s.append("Tempo na box: " + this.tboxes + "\n");
-		s.append("Tempo Desvio a chuva: " + this.tdesviochuva + "\n");
+		s.append("Tempo Desvio à chuva: " + this.tdesviochuva + "\n");
 		s.append("Piloto Record: " + this.recordista.toString() + "\n");
 
 		return s.toString();

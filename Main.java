@@ -39,7 +39,7 @@ public class Main {
 				   		m.carregaRM(str);
 				   		flag=false;
 				   	} catch(FileNotFoundException e) {
-				   		System.out.println("Ficheiro nÃ£o encontrado, insira novamente!");
+				   		System.out.println("Ficheiro não encontrado, insira novamente!");
 				   	}
 			    } while(flag);
 			}
@@ -47,7 +47,7 @@ public class Main {
 				if(x==3)
 					System.exit(0);
 				else {
-					System.out.println("OpÃ§Ã£o InvÃ¡lida!\n");
+					System.out.println("Opção Inválida!\n");
 				}	
 			}
 		} while(x>3);
@@ -61,7 +61,7 @@ public class Main {
 		System.out.println("#        2 - CARREGAR CAMPEONATO                        #");
 		System.out.println("#        3 - SAIR                                       #");
 		System.out.println("#                                                       #");
-		System.out.println("#        Escolha uma opÃ§Ã£o:                             #");
+		System.out.println("#        Escolha uma opção:                             #");
 		System.out.println("#########################################################");
 	 
 		return s.nextInt();
@@ -83,7 +83,7 @@ public class Main {
 	   	
 		for(int i = 0; i < x; i++) {
 	   	  	s.nextLine();
-			System.out.println("#  * Insira o nome do "+(i+1)+"Âº jogador.                       #"); 
+			System.out.println("#  * Insira o nome do "+(i+1)+"º jogador.                       #"); 
 	   		nome = s.nextLine();
 	   		System.out.println("#  * Insira a sua morada.");
 	   		morada = s.nextLine();
@@ -122,7 +122,7 @@ public class Main {
 		System.out.println("#################### INSERIR JOGADOR ####################");
 		System.out.println("#                                                       #");
 		s.nextLine();
-		System.out.println("#  * Insira o nome do "+(m.getapostadores().size() +1)+"Âº jogador.                        #"); 
+		System.out.println("#  * Insira o nome do "+(m.getapostadores().size() +1)+"º jogador.                        #"); 
    		nome = s.nextLine();
    		System.out.println("#  * Insira a sua morada.");
    		morada = s.nextLine();
@@ -165,7 +165,7 @@ public class Main {
 		System.out.println("#        6 - GRAVAR                                     #");
 		System.out.println("#        7 - SAIR                                       #");
 		System.out.println("#                                                       #");
-		System.out.println("#        Escolha uma opÃ§Ã£o:                             #");
+		System.out.println("#        Escolha uma opção:                             #");
 		System.out.println("#########################################################");
 		
 		x  = s.nextInt();
@@ -195,7 +195,7 @@ public class Main {
 		if(x==7) {
 			System.exit(0);
 		} else
-			System.out.println("OpÃ§Ã£o InvÃ¡lida!");
+			System.out.println("Opção Inválida!");
 		} while(x>7);
 	}
 
@@ -220,7 +220,7 @@ public class Main {
 			}
 		m.setCorida();
 		} else
-			MenuFim(m);
+			System.out.println("O campeonato chegou ao fim!");
       
 		for(Jogador j : m.getapostadores().values()) {
 			j.CheckApostas(cit.getCircuito().getNomeCircuito(), z);
@@ -228,86 +228,34 @@ public class Main {
 		MenuPrincipal( m);
 	}
 
-	public static void MenuFim(Manager m) throws FileNotFoundException, IOException{
-		int x , k = 0;
-		do {
-			System.out.println("#################### CAMPEONATO ACABOU ##################");
-			System.out.println("#                                                       #");
-			System.out.println("#        1 - NOVO CAMPEONATO                             #");
-			System.out.println("#        2 - REPETIR CAMPEONATO                         #");
-			System.out.println("#        3 - CONSULTAR ESTATISTICAS                     #");
-			System.out.println("#        4 - SAIR                                       #");
-			
-			System.out.println("#                                                       #");
-			System.out.println("#        Escolha uma opÃ§Ã£o:                           #");
-			System.out.println("#########################################################");
-			
-			x = s.nextInt();
-			if(x==1) { 
-				
-			m.reset();
-			Campeonato c = Campeonato.geraCampeonato(); 
-			m.setCampeonato(c) ; 
-			
-			Iterator<Corrida> cor = m.getCampeonato().getCorridas().iterator();
-			Corrida r = cor.next();
-			for(Veiculo v : r.getConjuntoVeiculos()) {
-				m.campstatus.put(v, 0-k);
-				k++;
-			}	   
-			MenuPrincipal(m);
-			}
-			if(x==2) {  m.reset();
-			Iterator<Corrida> cor = m.getCampeonato().getCorridas().iterator();
-			Corrida r = cor.next();
-			for(Veiculo v : r.getConjuntoVeiculos()) {
-				m.campstatus.put(v, 0-k);
-				k++;
-			}	   
-				
-				
-			MenuPrincipal(m);	
-			}
-			if(x==3) { MenuConsultas(m);}
-			if(x==4) { System.exit(0);}
-		}
-		while(x > 4); 
-	}
 	public static void MenuConsultas(Manager m) throws FileNotFoundException, IOException{
 	   	int x  = 0,corr = 0;
 	   	
 	   	do {
 		System.out.println("#################### MENU CONSULTAS #####################");
 		System.out.println("#                                                       #");
-
-		System.out.println("#        1 - CLASSIFICAÇAO CAMPEONATO GERAL             #");
-		System.out.println("#        2 - TROFEU HIBRIDO                             #");
+		System.out.println("#        1 - CLASSIFICAÇÃO CAMPEONATO GERAL             #");
+		System.out.println("#        2 - TROFÉU HÍBRIDO                             #");
 		System.out.println("#        3 - TOP JOGADORES                              #");
 		System.out.println("#        4 - CORRIDAS AGENDADAS                         #");
-		System.out.println("#        5 - VEICULOS NO CAMPEONATO                     #");
-
+		System.out.println("#        5 - VEÍCULOS NO CAMPEONATO                     #");
 		System.out.println("#        6 - VOLTAR AO MENU PRINCIPAL                   #");
 		System.out.println("#                                                       #");
-		System.out.println("#        Escolha uma opÃ§Ã£o:                             #");
+		System.out.println("#        Escolha uma opção:                             #");
 		System.out.println("#########################################################");
 		
 		
 		x = s.nextInt();
 		if(x==1) {
 			do {
-			TreeMap<Integer,String> aux = new TreeMap<Integer,String>();
+			HashMap<Integer,String> aux = new HashMap<Integer,String>();
 			 
 			for(Veiculo v : m.campstatus.keySet()) {
-				if(v.veHib() == false&& aux.containsKey(m.campstatus.get(v)) == false)
-					
+				if(v.veHib() == false)
 				aux.put(m.campstatus.get(v), v.getMarca()+" "+v.getModelo());
-				else if (v.veHib() == false && aux.containsKey(m.campstatus.get(v)) == true)
-					aux.put(m.campstatus.get(v)-1, v.getMarca()+" "+v.getModelo());
 			}
 			
-
-			System.out.println("################## CLASSIFICAÇAO GERAL ##################");
-
+			System.out.println("################## CLASSIFICAÇÃO GERAL ##################");
 			System.out.println("#    Pontos                                             #");
 			
 			for(int y : aux.keySet()) {
@@ -324,14 +272,12 @@ public class Main {
 			if(option==1)
 				MenuConsultas(m);
 			else
-				System.out.println("OpÃ§Ã£o InvÃ¡lida!");
+				System.out.println("Opção Inválida!");
 			} while(option>1);
 		} else 
 			if(x==2) {
 				do {
-
-				System.out.println("##################### TROFEU HIBRIDO ####################");
-
+				System.out.println("##################### TROFEU HÍBRIDO ####################");
 			    HashMap<Integer,String> aux6 = new HashMap<Integer,String>();
 				 
 				for(Veiculo v : m.campstatus.keySet()) {
@@ -339,9 +285,7 @@ public class Main {
 					aux6.put(m.campstatus.get(v), v.getMarca()+" "+v.getModelo());
 				}
 				
-
-				System.out.println("################## CLASSIFICACAO GERAL ##################");
-
+				System.out.println("################## CLASSIFICAÇÃO GERAL ##################");
 				System.out.println("#     Pontos                                            #");
 				for(int y : aux6.keySet()) {
 					if(y>0)
@@ -357,7 +301,7 @@ public class Main {
 				if(option==1)
 					MenuConsultas(m);
 				else
-					System.out.println("OpÃ§Ã£o InvÃ¡lida!");
+					System.out.println("Opção Inválida!");
 				} while(option>1);
 			} else 
 				if(x==3) {
@@ -365,7 +309,7 @@ public class Main {
 					System.out.println("##################### TOP 3 JOGADORES ###################");
 				    System.out.println("#                                                       #");
 					for(Jogador xx : m.topJog())
-						System.out.println("#        "+xx.getNome()+" JÃ¡ ganhou "+xx.getDg());
+						System.out.println("#        "+xx.getNome()+" Já ganhou "+xx.getDg());
 				    System.out.println("#                                                       #");
 					System.out.println("#        1 - VOLTAR                                     #");
 					System.out.println("#########################################################");
@@ -374,7 +318,7 @@ public class Main {
 					if(option==1)
 						MenuConsultas(m);
 					else
-						System.out.println("OpÃ§Ã£o InvÃ¡lida!");
+						System.out.println("Opção Inválida!");
 					} while(option>1);						
 				} else 
 					if(x==4){
@@ -384,9 +328,7 @@ public class Main {
 						
 						for(Corrida r : m.getCampeonato().getCorridas()) { 
 							if(corr == m.getCorrida()) {	
-
-								System.out.println("################## PROXIMA CORRIDA ######################");	
-
+								System.out.println("################## PRÓXIMA CORRIDA ######################");	
 								System.out.println("#                                                       #");
 								System.out.print(r.toString());
 								System.out.println("#                                                       #");
@@ -405,14 +347,12 @@ public class Main {
 						if(option==1)
 							MenuConsultas(m);
 						else
-							System.out.println("OpÃ§Ã£o InvÃ¡lida!");
+							System.out.println("Opção Inválida!");
 						} while(option>1);	
 					} else 
 						if(x==5) {
 							do {
-
-							System.out.println("################### VEICULOS EM PROVA ###################");
-
+							System.out.println("################### VEÍCULOS EM PROVA ###################");
 							System.out.println("#                                                       #");
 							
 							Iterator<Corrida> itc = m.getCampeonato().getCorridas().iterator();
@@ -429,13 +369,13 @@ public class Main {
 							if(option==1)
 								MenuConsultas(m);
 							else
-								System.out.println("OpÃ§Ã£o InvÃ¡lida!");
+								System.out.println("Opção Inválida!");
 							} while(option>1);		
 						} else
 							if(x==6)
 								MenuPrincipal(m);
 							else
-								System.out.println("OpÃ§Ã£o InvÃ¡lida!");
+								System.out.println("Opção Inválida!");
 		} while(x>6);		
 	}
 
@@ -449,7 +389,7 @@ public class Main {
 			x++;
 		}
 		System.out.println("#                                                       #");
-	   	System.out.println("#        Escolha uma opÃ§Ã£o:                             #");
+	   	System.out.println("#        Escolha uma opção:                             #");
 	   	System.out.println("#########################################################");
 	   	
 	   	return s.nextInt();
@@ -474,7 +414,7 @@ public class Main {
 		if(auxj.hasNext())
 			j=auxj.next();
 		else {
-			System.out.println("Jogador nÃ£o existe!"); 
+			System.out.println("Jogador não existe!"); 
 			MenuEscolheJogador(m,-1);
 		}
 		MenuJogadorAposta(m, ejog, j);
@@ -490,16 +430,14 @@ public class Main {
 		System.out.println("#                                                       #");
 		System.out.println("#        1 - FAZER APOSTA CORRIDA                       #");
 		System.out.println("#        2 - VER APOSTAS POR ACONTECER                  #");
-
-		System.out.println("#        3 - VER HISTORICO                              #");
-
+		System.out.println("#        3 - VER HISTÓRICO                              #");
 		System.out.println("#        4 - SALDO CURRENTE                             #");
 		System.out.println("#        5 - DINHEIRO INVESTIDO                         #");
 		System.out.println("#        6 - DINHEIRO GANHO                             #");
 		System.out.println("#        7 - TROCAR JOGADOR                             #");
 		System.out.println("#        8 - VOLTAR MENU PRINCIPAL                      #");
 		System.out.println("#                                                       #");
-		System.out.println("#        Escolha uma opÃ§Ã£o:                             #");
+		System.out.println("#        Escolha uma opção:                             #");
 		System.out.println("#########################################################");
 		x=s.nextInt();
 		
@@ -522,16 +460,12 @@ public class Main {
 				if(option==1)
 					MenuJogadorAposta(m, ejog, j);
 				else
-
-					System.out.println("Opção Invalida!");
-
+					System.out.println("Opção Inválida!");
 				} while(option>1);	
 			} else 
 				if(x==3) {
 					do {
-
-					System.out.println("################### HISTORICO APOSTAS ###################");
-
+					System.out.println("################### HISTÓRICO APOSTAS ###################");
 					System.out.println("#                                                       #");
 					
 				    for(Aposta v : j.getHistorico())
@@ -545,9 +479,7 @@ public class Main {
 					if(option==1)
 						MenuJogadorAposta(m, ejog, j);
 					else
-
-						System.out.println("Opção Invalida!");
-
+						System.out.println("Opção Inválida!");
 					} while(option>1);	
 				} else 
 					if(x==4) {
@@ -561,7 +493,7 @@ public class Main {
 						if(option==1)
 							MenuJogadorAposta(m, ejog, j);
 						else
-							System.out.println("OpÃ§Ã£o InvÃ¡lida!");
+							System.out.println("Opção Inválida!");
 						} while(option>1);	
 					} else
 						if(x==5) {
@@ -575,9 +507,7 @@ public class Main {
 							if(option==1)
 								MenuJogadorAposta(m, ejog, j);
 							else
-
-								System.out.println("Opção Invalida!");
-
+								System.out.println("Opção Inválida!");
 							} while(option>1);	
 						} else
 							if(x==6) {
@@ -591,7 +521,7 @@ public class Main {
 								if(option==1)
 									MenuJogadorAposta(m, ejog, j);
 								else
-									System.out.println("OpÃ§Ã£o InvÃ¡lida!");
+									System.out.println("Opção Inválida!");
 								} while(option>1);	
 							} else
 								if(x==7) {
@@ -600,7 +530,7 @@ public class Main {
 									if(x==8) {
 										MenuPrincipal(m);
 									} else
-										System.out.println("OpÃ§Ã£o InvÃ¡lida!");
+										System.out.println("Opção Inválida!");
 		} while(x>8);
 	}
 	
@@ -610,7 +540,7 @@ public class Main {
 		Veiculo p1=null, p2=null, p3=null;
 		Corrida corr = new Corrida();
 		Jogador j = new Jogador();
-	if( m.getCorrida()<= m.getCampeonato().getCorridas().size()-1){
+	
 		Iterator<Jogador> jogit = m.getapostadores().values().iterator();
      
 	 	while(jogit.hasNext() && y<jog) {
@@ -628,9 +558,7 @@ public class Main {
 		for(Corrida r : m.getCampeonato().getCorridas()){
 			if(x >= m.getCorrida()) {
 				if(x == m.getCorrida())
-
-					System.out.println("#    "+x+" "+ r.getCircuito().getNomeCircuito() + " <--- PROX. CORRIDA");
-
+					System.out.println("#    "+x+" "+ r.getCircuito().getNomeCircuito() + " <--- PRÓX. CORRIDA");
 				else
 					System.out.println("#    "+x+" "+ r.getCircuito().getNomeCircuito());
 				}
@@ -645,7 +573,7 @@ public class Main {
 			MenuJogadorAposta(m,jog,j);
 			
 		Iterator<Corrida> corrit = m.getCampeonato().getCorridas().iterator();
-		while(corrit.hasNext() && y<x ) {
+		while(corrit.hasNext() && y<x) {
 			corrit.next();
 			y++;
 		}
@@ -656,18 +584,14 @@ public class Main {
 			p2 = escolheVeiculo(corr,2);
 			if(p2.equals(p1)) {
 				while(p2.equals(p1)) {
-
-					System.out.println("Veiculo ja existe na aposta.");
-
+					System.out.println("Esse veículo já existe na aposta.");
 					p2 = escolheVeiculo(corr,2);
 					}
 				}
 			p3 = escolheVeiculo(corr,3);
 			if(p3.equals(p1)|| p3.equals(p2)) {
 				while(p2.equals(p1)|| p3.equals(p2)) {
-
-					System.out.println("Veiculo ja existe na aposta."); 
-
+					System.out.println("Esse veículo já existe na aposta."); 
 					p3 = escolheVeiculo(corr,3);
 					}
 				}
@@ -683,15 +607,15 @@ public class Main {
 				auxjog.put(j.getNome(), j);
 				m.setApostadores(auxjog); 
 				} else
-					System.out.println("NÃ£o tem dinheiro suficiente.");
-			} 
+					System.out.println("Não tem dinheiro suficiente.");
+			}
 		MenuJogadorAposta(m, jog, j);
-	} else  MenuFim(m);
 	}
+
 	public static Veiculo escolheVeiculo(Corrida corr,int classi) {
 		int x = 0 ,y = 0;
 		Veiculo vi = null;
-		System.out.println("######### ESCOLHA O "+classi+"Âº classificado #################");
+		System.out.println("######### ESCOLHA O "+classi+"º classificado #################");
 		System.out.println("#                                                   #");
 		
 		for(Veiculo v : corr.getConjuntoVeiculos()){
@@ -699,7 +623,7 @@ public class Main {
 			x++;	
 		}
 		System.out.println("#                                                   #");
-		System.out.println("#    Escolha uma opÃ§Ã£o:                             #");
+		System.out.println("#    Escolha uma opção:                             #");
 		System.out.println("#####################################################");
 		x = s.nextInt();
 		

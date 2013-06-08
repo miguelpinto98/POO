@@ -48,7 +48,7 @@ public abstract class Veiculo implements Serializable {
 	}
 	
 	/*
-	 * M��todos de Inst��ncia
+	 * Métodos de Instância
 	 */
 	public boolean getPactivo() {
 		return this.pactivo;
@@ -176,7 +176,7 @@ public abstract class Veiculo implements Serializable {
             case 6: s = "Chery"; break;
             case 7: s = "Chevrolet"; break;
             case 8: s = "Chrysler"; break;
-            case 9: s = "Citroen"; break;
+            case 9: s = "Citroën"; break;
             case 10: s = "Dodge"; break;
             case 11: s = "Effa"; break;
             case 12: s = "Ferrari"; break;
@@ -305,7 +305,7 @@ public abstract class Veiculo implements Serializable {
 	
 	public static HashSet<Veiculo> geraVeiculos() {
 		Random r = new Random();
-		int x = r.nextInt(15) + 15, i=0;
+		int x = r.nextInt(15) + 12, i=0;
 		HashSet<Veiculo> aux = new HashSet<Veiculo>();
 		
 		while (i<x) {
