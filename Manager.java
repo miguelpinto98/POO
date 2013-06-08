@@ -63,6 +63,8 @@ public class Manager {
 
 	// set
 	public void setCorida(){ this.corrida++; }
+	
+	public void reset(){ this.corrida = 0; this.campstatus = new HashMap<Veiculo, Integer>(); }
 	public void setCampeonato(Campeonato c) {
 		this.campeonato = c;
 	}

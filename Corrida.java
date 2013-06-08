@@ -113,6 +113,20 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 			}
 		}
 		System.out.println("Vencedor " + vw.getMarca()+" " + vw.getModelo()+ " Tempo: " + getTempoMS(min));
+		if(min<this.getCircuito().getTrecord()){ 
+			
+			if(vw.getPactivo()== true){  
+			
+			Circuito c = this.getCircuito();
+			c.setTrecord(min); c.setRecordista(vw.getPiloto1());
+			this.setCircuito(c);
+			
+		}else {Circuito c = this.getCircuito();
+		c.setTrecord(min); c.setRecordista(vw.getPiloto2());
+		this.setCircuito(c);}       
+			
+		
+		}
 		return aux;
 	}
 
@@ -151,7 +165,18 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 		for (Veiculo v : conjveiculos) {
 			aux.put(v, 0);
 		}
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+			System.out.println(this.crt.getNomeCircuito());
+			System.out.println("Chuva: "+ this.getPiso());
+
+=======
 			System.out.println(this.crt.getNomeCircuito()+"\nPiso Molhado: "+this.piso);
+>>>>>>> eb8488516340092c18259e5f56712b4da53129b2
+=======
+			System.out.println(this.crt.getNomeCircuito()+"\nPiso Molhado: "+this.piso);
+>>>>>>> eb8488516340092c18259e5f56712b4da53129b2
 		this.fazVoltas(aux, crt.getNvoltas());
 		
 		for (Veiculo v : conjveiculos) {
