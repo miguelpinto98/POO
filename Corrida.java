@@ -167,7 +167,7 @@ public class Corrida implements Comparable<Corrida>, Serializable {
 		}
 
 		System.out.println(this.crt.getNomeCircuito()+"\nPiso Molhado: "+this.piso);
-		this.fazVoltas(aux, crt.getNvoltas());
+
 		
 		for (Veiculo v : conjveiculos) {
 			if(aux2.containsKey(aux.get(v))==false)
